@@ -23,11 +23,12 @@ public class Position {
         this.y = y;
     }
 
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null) return false;
-        if (getClass() != o.getClass()) return false;
-        Position p = (Position) o;
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null) return false;
+        if (getClass() != other.getClass()) return false;
+
+        Position p = (Position) other;
         return x == p.getX() && y == p.getY();
     }
 }

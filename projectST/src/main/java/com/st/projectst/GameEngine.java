@@ -1,7 +1,6 @@
 package com.st.projectst;
 
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -14,15 +13,13 @@ import java.io.IOException;
 public class GameEngine {
     private static Screen screen;
     private Terminal terminal;
-    private Position position;
+    private Hero hero = new Hero (new Position(10,10));
 
     public GameEngine(int width, int height){
         try {
             TerminalSize terminalSize = new TerminalSize(width, height);
             this.terminal = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize).createTerminal();
             this.screen = new TerminalScreen(terminal);
-            position.setX(width/2);
-            position.setY(height/2);
 
             screen.setCursorPosition(null);
             screen.startScreen();
@@ -34,7 +31,7 @@ public class GameEngine {
 
     private void draw() throws IOException {
         screen.clear();
-        screen.setCharacter(position.getX(), position.getY(), TextCharacter.fromCharacter('H')[0]);
+        hero.draw(screen);
         screen.refresh();
     }
 
@@ -56,18 +53,9 @@ public class GameEngine {
 
     private void processKey(KeyStroke key) {
         switch (key.getKeyType()){
-            case ArrowRight:
-                position = new Position(position.getX() + 1, position.getY());
-                break;
-            case ArrowLeft:
-                position = new Position(position.getX()-1, position.getY());
-                break;
-            case ArrowDown:
-                position = new Position(position.getX(), position.getY() + 1);
-                break;
-            case ArrowUp:
-                position = new Position(position.getX(), position.getY() - 1);
-                break;
+            case ArrowRight: hero.moveRight(); break;
+            case ArrowLeft: hero.moveLeft(); break;
+            case ArrowUp: hero.moveUp(); break;
         }
     }
 }
