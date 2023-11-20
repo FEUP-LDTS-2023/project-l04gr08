@@ -39,23 +39,31 @@ public class GameEngine {
         try {
             while (true) {
                 draw();
+                // hero.update();
                 KeyStroke key = screen.readInput();
                 processKey(key);
-                if (key.getKeyType() == KeyType.EOF || (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q')) {
-                    break;
+                if (key.getKeyType() == KeyType.EOF || (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') || key.getKeyType() == KeyType.Escape) {
+                    System.exit(0);
                 }
+                Thread.sleep(1);
             }
         }
-        catch (IOException e) {
+        catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     private void processKey(KeyStroke key) {
         switch (key.getKeyType()){
-            case ArrowRight: hero.moveRight(); break;
-            case ArrowLeft: hero.moveLeft(); break;
-            case ArrowUp: hero.moveUp(); break;
+            case ArrowRight:
+                hero.moveRight();
+                break;
+            case ArrowLeft:
+                hero.moveLeft();
+                break;
+            case ArrowUp:
+                //hero.jump();
+                break;
         }
     }
 }
