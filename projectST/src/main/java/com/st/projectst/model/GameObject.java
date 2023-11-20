@@ -1,7 +1,6 @@
-package com.st.projectst;
+package com.st.projectst.model;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
 
 public abstract class GameObject {
     private Position position;
@@ -16,5 +15,5 @@ public abstract class GameObject {
     public void setPosition(Position position) {
         this.position = position;
     }
-    public abstract void draw(Screen screen);
+    public abstract void draw(TextGraphics graphics);
 }

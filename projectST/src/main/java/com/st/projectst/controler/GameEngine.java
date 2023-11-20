@@ -1,29 +1,35 @@
-package com.st.projectst;
+package com.st.projectst.controler;
 
-import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.st.projectst.model.Position;
+import com.st.projectst.model.Hero;
 
 import java.io.IOException;
 
 public class GameEngine {
     private static Screen screen;
+    private static TextGraphics graphics;
     private Terminal terminal;
-    private Hero hero = new Hero (new Position(10,10));
+    private Hero hero;
 
     public GameEngine(int width, int height){
         try {
-            TerminalSize terminalSize = new TerminalSize(width, height);
-            this.terminal = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize).createTerminal();
+            this.terminal = new DefaultTerminalFactory().createTerminal();
             this.screen = new TerminalScreen(terminal);
-
-            screen.setCursorPosition(null);
             screen.startScreen();
-            screen.doResizeIfNecessary();
+            graphics = screen.newTextGraphics();
+
+            TextGraphics graphics = screen.newTextGraphics();
+
+            int screenWidth = width;
+            int screenHeight = height;
+            hero = new Hero(new Position(screenWidth / 2, screenHeight - 1));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,7 +37,8 @@ public class GameEngine {
 
     private void draw() throws IOException {
         screen.clear();
-        hero.draw(screen);
+        hero.update();
+        hero.draw(graphics);
         screen.refresh();
     }
 
@@ -39,13 +46,14 @@ public class GameEngine {
         try {
             while (true) {
                 draw();
-                // hero.update();
-                KeyStroke key = screen.readInput();
-                processKey(key);
-                if (key.getKeyType() == KeyType.EOF || (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q') || key.getKeyType() == KeyType.Escape) {
-                    System.exit(0);
+                KeyStroke keyStroke = terminal.pollInput();
+                if (keyStroke != null) {
+                    processKey(keyStroke);
+                    if (keyStroke.getKeyType() == KeyType.Escape) {
+                        break;
+                    }
                 }
-                Thread.sleep(1);
+                Thread.sleep(30);
             }
         }
         catch (IOException | InterruptedException e) {
@@ -61,8 +69,9 @@ public class GameEngine {
             case ArrowLeft:
                 hero.moveLeft();
                 break;
-            case ArrowUp:
-                //hero.jump();
+            case Character:
+                if (key.getCharacter() == ' ')
+                    hero.jump();
                 break;
         }
     }
