@@ -1,4 +1,4 @@
-package com.st.projectst;
+package com.st.projectst.model;
 
 public class Position {
     private int x;

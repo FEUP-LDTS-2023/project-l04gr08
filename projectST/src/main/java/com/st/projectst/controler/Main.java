@@ -1,6 +1,6 @@
-package com.st.projectst;
+package com.st.projectst.controler;
 
-import java.io.IOException;
+import com.st.projectst.controler.GameEngine;
 
 public class Main {
     public static void main(String[] args) {
