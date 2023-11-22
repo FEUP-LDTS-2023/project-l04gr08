@@ -53,7 +53,7 @@ public class GameEngine {
                         break;
                     }
                 }
-                Thread.sleep(30);
+                Thread.sleep(20);
             }
         }
         catch (IOException | InterruptedException e) {
@@ -69,9 +69,8 @@ public class GameEngine {
             case ArrowLeft:
                 hero.moveLeft();
                 break;
-            case Character:
-                if (key.getCharacter() == ' ')
-                    hero.jump();
+            case ArrowUp:
+                hero.jump();
                 break;
         }
     }

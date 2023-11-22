@@ -30,7 +30,7 @@ public class Hero extends GameObject {
             getPosition().setY(getPosition().getY()-1);
             jumpCounter++;
 
-            if (jumpCounter >= 3) {
+            if (jumpCounter >= 6) {
                 isJumping = false;
                 jumpCounter = 0;
             }
