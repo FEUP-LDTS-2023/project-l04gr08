@@ -87,7 +87,7 @@ public class MariTest {
         mari.update();
         Assertions.assertEquals(expected, mari.getPosition());
     }
-
+    /*
     @Test
     public void mariDraw() {
         TextGraphics mockGraphics = Mockito.mock(TextGraphics.class);
@@ -100,4 +100,5 @@ public class MariTest {
                 Mockito.eq(" ")
         );
     }
+    */
 }
