@@ -12,6 +12,6 @@ public class Wall extends GameObject {
     @Override
     public void draw(TextGraphics graphics) {
         graphics.setBackgroundColor(TextColor.ANSI.MAGENTA_BRIGHT);
-        graphics.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), " ");
+        graphics.putString(new TerminalPosition((int) getPosition().getX(), (int) getPosition().getY()), " ");
     }
 }

@@ -110,12 +110,12 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawHero(Position position) {
-        drawCharacter(position.getX(), position.getY(), 'H', "#FFD700");
+        drawCharacter((int) position.getX(), (int) position.getY(), 'H', "#FFD700");
     }
 
     @Override
     public void drawGhostEnemy(Position position) {
-        drawCharacter(position.getX(), position.getY(), '@', "#CC0000");
+        drawCharacter((int) position.getX(), (int) position.getY(), '@', "#CC0000");
     }
 
     @Override
@@ -143,7 +143,7 @@ public class LanternaGUI implements GUI{
     public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(position.getX(), position.getY(), text);
+        tg.putString((int) position.getX(), (int) position.getY(), text);
     }
 
     private void drawCharacter(int x, int y, char c, String color) {

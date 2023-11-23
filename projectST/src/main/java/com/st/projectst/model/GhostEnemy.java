@@ -14,6 +14,6 @@ public class GhostEnemy extends Enemy {
     @Override
     public void draw(TextGraphics graphics) {
         graphics.setBackgroundColor(TextColor.ANSI.BLUE);
-        graphics.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), " ");
+        graphics.putString(new TerminalPosition((int) getPosition().getX(), (int) getPosition().getY()), " ");
     }
 }
