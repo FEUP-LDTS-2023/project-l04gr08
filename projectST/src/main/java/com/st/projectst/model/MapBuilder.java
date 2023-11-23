@@ -34,11 +34,11 @@ public class MapBuilder {
         return lines;
     }
 
-    private Hero createMari() {
+    private Mari createMari() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'M')
-                    return new Hero(new Position(x, y));
+                    return new Mari(new Position(x, y));
             }
         }
         return null;
