@@ -1,0 +1,283 @@
+@startuml
+'https://plantuml.com/class-diagram'
+
+skinparam linetype polyline
+skinparam linetype ortho
+skinparam groupInheritance 2
+
+skinparam ClassBackgroundColor<<model>> SkyBlue
+skinparam ClassBackgroundColor<<viewer>> Khaki
+skinparam ClassBackgroundColor <<state>> LightBlue
+skinparam ClassBackgroundColor<<controller>> LightCoral
+
+
+class GameObjectViewer <<viewer>>{
+    + draw(GUI, gameObject)
+}
+
+class MariViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
+
+class WallViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
+class KeyViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
+class GhostEnemyViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
+class BatEnemyViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
+class MapViewer <<viewer>> {
+    + draw(GUI)
+}
+
+class PlatformViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
+class StartViewer <<viewer>> {
+    + draw(GUI)
+}
+
+class GameOverViewer <<viewer>> {
+    + draw(GUI)
+}
+
+class PauseViewer <<viewer>> {
+    + draw(GUI)
+}
+
+class InstructionsViewer <<viewer>> {
+    + draw(GUI)
+}
+
+class WinViewer <<viewer>> {
+    + draw(GUI)
+}
+
+
+abstract class Viewer <<viewer>> {
+    + draw(GUI)
+}
+
+GameObjectViewer <|-- MariViewer
+GameObjectViewer <|-- BatEnemyViewer
+GameObjectViewer -- GhostEnemyViewer
+GameObjectViewer <|-- WallViewer
+GameObjectViewer -- KeyViewer
+WallViewer <|-- PlatformViewer
+MapViewer -- GameObjectViewer
+Viewer *-- MapViewer
+Viewer *-- GameOverViewer
+Viewer *-- StartViewer
+Viewer *-- WinViewer
+Viewer *-- PauseViewer
+Viewer *-- InstructionsViewer
+
+class Position <<model>> {
+    x : double
+    y : double
+    + getX()
+    + getY()
+    + equals()
+}
+
+class GameObject <<model>> {
+    - position : Position
+}
+
+abstract class Enemy <<model>> {
+    + move()
+}
+
+class Vector <<model>> {
+}
+
+class Wall <<model>> {
+
+}
+
+
+class GhostEnemy <<model>> {
+
+}
+
+class BatEnemy <<model>> {
+
+}
+
+class Mari <<model>> {
+    - speedX : double
+    - speedY : double
+    - withKey : boolean
+    - isJumping : boolean
+    - jumpCounter : int
+    + moveRight()
+    + moveLeft()
+    + update()
+}
+
+class Key <<model>> {
+
+}
+
+class Map <<model>> {
+    - wall : Wall
+    - enemy : Enemy
+    - mari : Mari
+}
+
+class MapBuilder <<model>> {
+    - width : int
+    - height : int
+    - linesMap : List<String>
+    - createWalls()
+    - createKey)
+    - createMari()
+    - createEnemies()
+    + loadFromFile()
+    + buildMap()
+}
+
+class Platform <<model>> {
+
+}
+
+class Start <<model>> {
+
+}
+
+class GameOver <<model>> {
+
+}
+
+class Win <<model>> {
+
+}
+
+class Pause <<model>> {
+
+}
+
+class Instructions <<model>> {
+
+}
+
+class Level <<model>> {
+
+}
+
+GameObject <|-- Mari
+GameObject <|-- Enemy
+GameObject <|-- BatEnemy
+GameObject -- GhostEnemy
+GameObject <|-- Wall
+GameObject -- Key
+Wall <|-- Platform
+Enemy <|-- GhostEnemy
+Enemy <|-- BatEnemy
+Position <|-- Vector
+
+Map -- GameObject
+Position -- GameObject
+Map-- MapBuilder
+
+class StartController <<controller>> {
+
+}
+
+class GameOverController <<controller>> {
+
+}
+
+class PauseController <<controller>> {
+
+}
+
+class InstructionsController <<controller>> {
+
+}
+
+class WinController <<controller>> {
+
+}
+
+class MariController <<controller>> {
+
+}
+
+class GhostEnemyController <<controller>> {
+
+}
+
+class BatEnemyController <<controller>> {
+
+}
+
+class PlatformController <<controller>> {
+
+}
+
+class LevelController <<controller>> {
+
+}
+
+abstract class Controller <<controller>> {
+
+}
+LevelController <|-- MariController
+LevelController <|-- BatEnemyController
+LevelController <|-- GhostEnemyController
+LevelController <|-- PlatformController
+
+Controller *-- LevelController
+Controller *-- GameOverController
+Controller *-- StartController
+Controller *-- WinController
+Controller *-- PauseController
+Controller *-- InstructionsController
+
+Map -- LevelState
+
+
+class StartState #line:mediumslateblue;back:plum
+class GameOverState #line:mediumslateblue;back:plum
+class WinState #line:mediumslateblue;back:plum
+class PauseState #line:mediumslateblue;back:plum
+class InstructionsState #line:mediumslateblue;back:plum
+interface State #line:mediumslateblue;back:plum
+class LevelState #line:mediumslateblue;back:plum
+
+
+
+State -- LevelState
+State <|-- StartState
+State <|-- GameOverState
+State -- WinState
+State <|-- PauseState
+State -- InstructionsState
+
+LevelState <|-- Level
+StartState <|-- Start
+GameOverState <|-- GameOver
+WinState <|-- Win
+PauseState <|-- Pause
+InstructionsState <|-- Instructions
+
+class Main #line:mediumslateblue;back:MediumAquaMarine
+
+
+Main <-- State
+Controller <-- State
+Viewer <-- State
+
+@enduml
