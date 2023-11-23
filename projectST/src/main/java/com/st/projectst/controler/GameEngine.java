@@ -8,7 +8,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.st.projectst.model.Position;
-import com.st.projectst.model.Hero;
+import com.st.projectst.model.Mari;
 
 import java.io.IOException;
 
@@ -16,7 +16,7 @@ public class GameEngine {
     private static Screen screen;
     private static TextGraphics graphics;
     private Terminal terminal;
-    private Hero hero;
+    private Mari mari;
 
     public GameEngine(int width, int height){
         try {
@@ -29,7 +29,7 @@ public class GameEngine {
 
             int screenWidth = width;
             int screenHeight = height;
-            hero = new Hero(new Position(screenWidth / 2, screenHeight - 1));
+            mari = new Mari(new Position(screenWidth / 2, screenHeight - 1));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,8 +37,8 @@ public class GameEngine {
 
     private void draw() throws IOException {
         screen.clear();
-        hero.update();
-        hero.draw(graphics);
+        mari.update();
+        mari.draw(graphics);
         screen.refresh();
     }
 
@@ -64,13 +64,13 @@ public class GameEngine {
     private void processKey(KeyStroke key) {
         switch (key.getKeyType()){
             case ArrowRight:
-                hero.moveRight();
+                mari.moveRight();
                 break;
             case ArrowLeft:
-                hero.moveLeft();
+                mari.moveLeft();
                 break;
             case ArrowUp:
-                hero.jump();
+                mari.jump();
                 break;
         }
     }

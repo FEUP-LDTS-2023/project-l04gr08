@@ -7,7 +7,7 @@ public class Map {
     private int height;
     private int currentLevel;
 
-    private Hero mari;
+    private Mari mari;
     private List<Enemy> enemies;
     private List<Wall> walls;
     private Key key;
@@ -42,11 +42,11 @@ public class Map {
         this.currentLevel = currentLevel;
     }
 
-    public Hero getMari() {
+    public Mari getMari() {
         return mari;
     }
 
-    public void setMari(Hero mari) {
+    public void setMari(Mari mari) {
         this.mari = mari;
     }
 

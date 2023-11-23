@@ -4,16 +4,17 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-public class Hero extends GameObject {
+public class Mari extends GameObject {
     private static final int screenHeight = 24;
     private double speedX;
     private double speedY;
     private int remainingLives;
     private boolean withKey;
     private boolean isJumping;
+
     private int jumpCounter;
 
-    public Hero(Position position) {
+    public Mari(Position position) {
         super(position);
         speedX = 1; speedY = 0;
         remainingLives = 3;
@@ -44,6 +45,9 @@ public class Hero extends GameObject {
             isJumping = true;
         }
     }
+
+    public boolean getIsJumping() {return isJumping;}
+    public int getJumpCounter() {return jumpCounter;}
 
     @Override
     public void draw(TextGraphics graphics) {
