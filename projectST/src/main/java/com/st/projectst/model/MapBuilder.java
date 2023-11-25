@@ -43,6 +43,26 @@ public class MapBuilder {
         }
         return null;
     }
+
+    private List<Character> getBackgroundSymbols() {
+        List<Character> backgroundSymbols = new ArrayList<>();
+        for (String line : linesMap) {
+            for (char symbol : line.toCharArray()) {
+                if (!isPlayerCharacter(symbol) && !isEnemyCharacter(symbol)) {
+                    backgroundSymbols.add(symbol);
+                }
+            }
+        }
+        return backgroundSymbols;
+    }
+
+    private boolean isPlayerCharacter(char symbol) {
+        return symbol == 'M';
+    }
+
+    private boolean isEnemyCharacter(char symbol) {
+        return symbol == 'G' || symbol == 'W' || symbol == 'K';
+    }
     private List<Enemy> createEnemies() {
         List<Enemy> enemies = new ArrayList<>();
         for (int y = 0; y < height; y++) {
