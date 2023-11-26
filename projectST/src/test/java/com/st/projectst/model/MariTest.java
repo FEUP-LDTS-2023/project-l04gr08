@@ -18,7 +18,7 @@ public class MariTest {
 
     @BeforeEach
     public void setup() {
-        Position initialPosition = new Position(40,23);
+        Position initialPosition = new Position(40,17);
         mari = new Mari(initialPosition);
     }
 
@@ -26,7 +26,7 @@ public class MariTest {
     @Test
     public void mariMoveRight() {
         mari.moveRight();
-        Position expected = new Position(41,23);
+        Position expected = new Position(41,17);
 
         assertEquals(expected, mari.getPosition());
     }
@@ -34,7 +34,7 @@ public class MariTest {
     @Test
     public void mariMoveLeft() {
         mari.moveLeft();
-        Position expected = new Position(39,23);
+        Position expected = new Position(39,17);
         assertEquals(expected, mari.getPosition());
     }
 
@@ -47,7 +47,7 @@ public class MariTest {
     @Test
     public void mariUpdateNoJumping() {
         mari.update();
-        Position expected = new Position(40,23);
+        Position expected = new Position(40,17);
 
         assertEquals(expected, mari.getPosition());
     }
@@ -59,7 +59,7 @@ public class MariTest {
         assertEquals(0, mari.getJumpCounter());
 
         // Testing the character moving up on the jump
-        Position expected = new Position(40,23);
+        Position expected = new Position(40,17);
         for (int i = 1; i <= 5; i++) {
             mari.update();
 
@@ -111,7 +111,7 @@ public class MariTest {
     public void mariCollisionWithObstacle() {
         // Mocking the Obstacle class
         Wall wall = Mockito.mock(Wall.class);
-        Mockito.when(wall.getPosition()).thenReturn(new Position(41, 23));
+        Mockito.when(wall.getPosition()).thenReturn(new Position(41, 17));
 
         // Move Mari to the obstacle position
         while (!mari.getPosition().equals(wall.getPosition())) {
