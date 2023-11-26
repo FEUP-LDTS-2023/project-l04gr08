@@ -3,3 +3,10 @@ Welcome to “Searching for Key-ty”, a game centered around the kidnapping of 
 
 This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia Gonçalves.
 
+## FEATURES
+- Moving right and left
+- Jumping
+
+
+## SCREENSHOTS
+![](..\projectST\docs\PNGs\screenshot1.png)
