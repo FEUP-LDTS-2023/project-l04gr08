@@ -23,12 +23,15 @@ public class Position {
         this.y = y;
     }
 
+    @SuppressWarnings("EqualsHashCode")
+    @Override
     public boolean equals(Object other) {
         if (this == other) return true;
-        if (other == null) return false;
-        if (getClass() != other.getClass()) return false;
+        if (!(other instanceof Position))return false;
 
-        Position p = (Position) other;
-        return x == p.getX() && y == p.getY();
+        Position position = (Position) other;
+
+        if (Double.compare(position.x, x) != 0) return false;
+        return Double.compare(position.y, y) == 0;
     }
 }

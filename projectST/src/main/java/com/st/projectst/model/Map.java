@@ -11,6 +11,7 @@ public class Map {
     private List<Enemy> enemies;
     private List<Wall> walls;
     private Key key;
+    private List<String> mapData;
 
     public Map (int width, int height, int currentLevel) {
         this.width = width;
@@ -72,5 +73,11 @@ public class Map {
 
     public void setKey(Key key) {
         this.key = key;
+    }
+    public void setMapData(List<String> mapData) {
+        this.mapData = mapData;
+    }
+    public List<String> getMapData() {
+        return mapData;
     }
 }
