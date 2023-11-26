@@ -1,5 +1,8 @@
 package com.st.projectst.controler;
 
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
@@ -7,10 +10,14 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.st.projectst.gui.LanternaGUI;
+import com.st.projectst.model.Map;
+import com.st.projectst.model.MapBuilder;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.Mari;
 
 import java.io.IOException;
+import java.util.List;
 
 public class GameEngine {
     private static Screen screen;
@@ -19,6 +26,13 @@ public class GameEngine {
     private Mari mari;
     private boolean isMovingLeft;
     private boolean isMovingRight;
+    int mariHeight;
+    int screenWidth;
+    int screenHeight;
+    private String[] imagePaths = {"./src/main/resources/mari1.png", "./src/main/resources/mari2.png", "./src/main/resources/mari4.png"};
+    private int currentImageIndex = 0;
+    private MapBuilder mapBuilder = new MapBuilder();
+    private LanternaGUI lanternaGUI;
 
 
     public GameEngine(int width, int height){
@@ -28,18 +42,31 @@ public class GameEngine {
             screen.startScreen();
             graphics = screen.newTextGraphics();
 
-            int screenWidth = width;
-            int screenHeight = height;
-            mari = new Mari(new Position(screenWidth / 2, screenHeight - 1));
+            screenWidth = width;
+            screenHeight = height;
+            // List<String> mapData = mapBuilder.loadFromFile("./src/main/resources/map1.png");
+
+            // Map gameMap = new Map(screenWidth,  screenHeight, 1);
+            // gameMap.setMapData(mapData);
+            lanternaGUI = new LanternaGUI(screen);
+            mariHeight = lanternaGUI.loadImage("./src/main/resources/mari1.png").getHeight();
+            mari = new Mari(new Position(screenWidth / 2, screenHeight -mariHeight - 1));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public void drawMari(Position position) {
+        String currentImagePath = imagePaths[currentImageIndex];
+        lanternaGUI.drawImage(position, currentImagePath);
+    }
+
     private void draw() throws IOException {
         screen.clear();
         mari.update();
-        mari.draw(graphics);
+        graphics.setBackgroundColor(TextColor.Factory.fromString("#3c1715"));
+        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screenWidth, screenHeight), ' ');
+        drawMari(mari.getPosition());
         screen.refresh();
     }
 
@@ -63,7 +90,7 @@ public class GameEngine {
     }
 
     private void processKey(KeyStroke key) {
-
+        currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
         switch (key.getKeyType()) {
             case ArrowRight:
                 mari.moveRight();
