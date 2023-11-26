@@ -15,15 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MariTest {
     Mari mari;
-    private int SCREEN_WIDTH;
-    private int SCREEN_HEIGHT;
 
     @BeforeEach
     public void setup() {
         Position initialPosition = new Position(40,23);
         mari = new Mari(initialPosition);
-        SCREEN_WIDTH = 80;
-        SCREEN_HEIGHT = 24;
     }
 
 
@@ -81,11 +77,11 @@ public class MariTest {
         assertEquals(0, mari.getJumpCounter());
 
         // Testing the character moving down
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 5; i++) {
             mari.update();
-            expected.setY(expected.getY()+1);
-            assertEquals(expected, mari.getPosition());
+            expected.setY(expected.getY() + 1);
 
+            assertEquals(expected, mari.getPosition());
             assertFalse(mari.getIsJumping());
             assertEquals(0, mari.getJumpCounter());
         }
@@ -93,6 +89,7 @@ public class MariTest {
         // Testing the character reach the ground
         mari.update();
         assertEquals(expected, mari.getPosition());
+
     }
     @Test
     public void testMoveLeftWithSubtraction() {

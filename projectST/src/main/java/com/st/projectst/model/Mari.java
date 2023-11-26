@@ -6,7 +6,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Mari extends GameObject {
-    private static final int screenHeight = 17;
+    private static final int screenHeight = 23;
     private double speedX;
     private double speedY;
     private int remainingLives;
