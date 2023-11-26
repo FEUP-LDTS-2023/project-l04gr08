@@ -9,4 +9,4 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 
 ## SCREENSHOTS
-![](..\projectST\docs\PNGs\screenshot1.png)
+![](../projectST/docs/PNGs/screenshot1.png)

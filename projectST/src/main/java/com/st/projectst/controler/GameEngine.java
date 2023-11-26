@@ -29,7 +29,7 @@ public class GameEngine {
     int mariHeight;
     int screenWidth;
     int screenHeight;
-    private String[] imagePaths = {"./src/main/resources/mari1.png", "./src/main/resources/mari2.png", "./src/main/resources/mari4.png"};
+    private String[] imagePaths = {"./src/main/resources/mari1.png", "./src/main/resources/mari3.png", "./src/main/resources/mari4.png"};
     private int currentImageIndex = 0;
     private MapBuilder mapBuilder = new MapBuilder();
     private LanternaGUI lanternaGUI;
