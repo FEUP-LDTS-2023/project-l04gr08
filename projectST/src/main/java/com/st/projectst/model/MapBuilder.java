@@ -3,6 +3,9 @@ package com.st.projectst.model;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +28,7 @@ public class MapBuilder {
     }
 
     public List<String> loadFromFile(String filePath) throws IOException {
-        List<String> lines = new ArrayList<>();
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
-
-        for (String line; (line = reader.readLine()) != null; )
-            lines.add(line);
-
-        return lines;
+        return Files.readAllLines(Paths.get(filePath), StandardCharsets.UTF_8);
     }
 
     private Mari createMari() {
@@ -61,7 +58,7 @@ public class MapBuilder {
     }
 
     private boolean isEnemyCharacter(char symbol) {
-        return symbol == 'G' || symbol == 'W' || symbol == 'K';
+        return symbol == 'G' || symbol == 'B' ;
     }
     private List<Enemy> createEnemies() {
         List<Enemy> enemies = new ArrayList<>();
@@ -69,10 +66,13 @@ public class MapBuilder {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'G')
                     enemies.add(new GhostEnemy(new Position(x, y)));
+                if (linesMap.get(y).charAt(x) == 'B')
+                    enemies.add(new BatEnemy(new Position(x, y)));
             }
         }
         return enemies;
     }
+
     private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
         for (int y = 0; y < height; y++) {
