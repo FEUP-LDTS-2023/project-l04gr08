@@ -18,6 +18,7 @@ import com.st.projectst.model.Mari;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 public class GameEngine {
     private static Screen screen;
@@ -29,9 +30,10 @@ public class GameEngine {
     int mariHeight;
     int screenWidth;
     int screenHeight;
-    private String[] imagePaths = {"./src/main/resources/mari1.png", "./src/main/resources/mari3.png", "./src/main/resources/mari4.png"};
+    private Map gameMap;
+    private String[] imagePaths = {"mari1.png", "mari3.png", "mari4.png"};
     private int currentImageIndex = 0;
-    private MapBuilder mapBuilder = new MapBuilder();
+    private final MapBuilder mapBuilder = new MapBuilder();
     private LanternaGUI lanternaGUI;
 
 
@@ -44,13 +46,14 @@ public class GameEngine {
 
             screenWidth = width;
             screenHeight = height;
-            // List<String> mapData = mapBuilder.loadFromFile("./src/main/resources/map1.png");
 
-            // Map gameMap = new Map(screenWidth,  screenHeight, 1);
-            // gameMap.setMapData(mapData);
-            //lanternaGUI = new LanternaGUI(screen);
-            mariHeight = lanternaGUI.loadImage("./src/main/resources/mari1.png").getHeight();
-            mari = new Mari(new Position(screenWidth / 2, screenHeight -mariHeight - 1));
+            MapBuilder mapBuilder = new MapBuilder();
+            String filePath = Objects.requireNonNull(MapBuilder.class.getClassLoader().getResource("map1.txt")).getPath();
+            gameMap = mapBuilder.buildMap(filePath, 1);
+
+            lanternaGUI = new LanternaGUI(screen);
+            mariHeight = lanternaGUI.loadImage("mari1.png").getHeight();
+            mari = new Mari(new Position(screenWidth / 2, screenHeight - mariHeight - 1));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -64,8 +67,7 @@ public class GameEngine {
     private void draw() throws IOException {
         screen.clear();
         mari.update();
-        graphics.setBackgroundColor(TextColor.Factory.fromString("#3c1715"));
-        graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screenWidth, screenHeight), ' ');
+        lanternaGUI.drawMap(gameMap);
         drawMari(mari.getPosition());
         screen.refresh();
     }
@@ -129,4 +131,10 @@ public class GameEngine {
             }
         }
     }
+
+    public static void main(String[] args) {
+        GameEngine gameEngine = new GameEngine(80, 24);
+        gameEngine.run();
+    }
+
 }
