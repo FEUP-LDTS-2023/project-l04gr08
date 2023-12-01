@@ -1,7 +1,6 @@
 package com.st.projectst.model;
 
 import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
@@ -45,6 +44,14 @@ public class Mari extends GameObject {
         if (!isJumping) {
             isJumping = true;
         }
+    }
+
+    public void decreaseLives() {
+        this.remainingLives--;
+    }
+
+    public int getRemainingLives() {
+        return remainingLives;
     }
 
     public boolean getIsJumping() {return isJumping;}
