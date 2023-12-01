@@ -136,5 +136,4 @@ public class GameEngine {
         GameEngine gameEngine = new GameEngine(80, 24);
         gameEngine.run();
     }
-
 }

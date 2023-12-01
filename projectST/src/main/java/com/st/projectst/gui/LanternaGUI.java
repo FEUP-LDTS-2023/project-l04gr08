@@ -1,32 +1,25 @@
 package com.st.projectst.gui;
 
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import com.st.projectst.model.Position;
+import com.st.projectst.model.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 public class LanternaGUI implements GUI{
     private final Screen screen;
-    final Map<Character, String> CHARACTER_MAP = createCharacterMap();
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
@@ -62,18 +55,16 @@ public class LanternaGUI implements GUI{
 
     private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
-                .setInitialTerminalSize(terminalSize);
+        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
     }
 
-    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("square.ttf");
-        File fontFile = new File(resource.toURI());
-        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+    private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
+        InputStream fontStream = getClass().getClassLoader().getResourceAsStream("square.ttf");
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
@@ -118,7 +109,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMari(Position position) {
-        drawImage(position, "./src/main/resources/mari1.png");
+        drawImage(position, "mari1.png");
     }
 
     @Override
@@ -133,22 +124,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMenu() {
-        screen.clear();
-        TextGraphics graphics = screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.ANSI.WHITE);
-        graphics.setBackgroundColor(TextColor.ANSI.BLUE);
 
-        graphics.putString(2, 2, "=== Game Menu ===");
-        graphics.putString(2, 4, "[1] Map 1");
-        graphics.putString(2, 6, "[2] Load Game");
-        graphics.putString(2, 8, "[3] Options");
-        graphics.putString(2, 10, "[0] Exit");
-
-        try {
-            screen.refresh();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -162,13 +138,13 @@ public class LanternaGUI implements GUI{
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, getMappedCharacter(c));
+        tg.putString(x, y + 1, color);
     }
     public void drawImage(Position pos, String filename) {
         BufferedImage image = loadImage(filename);
         TextGraphics tg = screen.newTextGraphics();
 
-        Color backgroundColor = new Color(image.getRGB(0, 0)); // Assuming top-left pixel represents the background
+        Color backgroundColor = new Color(image.getRGB(0, 0));
         String backgroundHex = "#" + Integer.toHexString(backgroundColor.getRGB()).substring(2);
 
         for (int x = 0; x < image.getWidth(); x++) {
@@ -181,6 +157,14 @@ public class LanternaGUI implements GUI{
                 }
             }
         }
+    }
+
+    @Override
+    public void drawWall(Position position) {
+        TextGraphics tg = screen.newTextGraphics();
+        setTextColor(tg, "#808080");
+
+        tg.putString((int) position.getX(), (int) position.getY(), "W");
     }
 
 
@@ -196,37 +180,82 @@ public class LanternaGUI implements GUI{
 
     public BufferedImage loadImage(String filename) {
         try {
-            BufferedImage originalImage = ImageIO.read(new File(filename));
-            int scaledWidth = originalImage.getWidth();
-            double scaledHeight = originalImage.getHeight()/1.7 ;
+            BufferedImage originalImage = null;
+            InputStream imageStream = null;
 
-            BufferedImage scaledImage = new BufferedImage(scaledWidth, (int) scaledHeight, BufferedImage.TYPE_INT_RGB);
-            Graphics2D g2d = scaledImage.createGraphics();
-            g2d.drawImage((Image) originalImage, 0, 0, scaledWidth, (int) scaledHeight, null);
-            g2d.dispose();
+            try {
+                imageStream = getClass().getResourceAsStream("/" + filename);
+                if (imageStream != null) {
+                    originalImage = ImageIO.read(imageStream);
+                    int targetWidth = originalImage.getWidth();
+                    int targetHeight = originalImage.getHeight();
+                    double aspectRatio = (double) originalImage.getWidth() / originalImage.getHeight();
 
-            return scaledImage;
+                    int newWidth = targetWidth;
+                    int newHeight = (int) (newWidth / aspectRatio);
+
+                    if (newHeight > targetHeight) {
+                        newHeight = targetHeight;
+                        newWidth = (int) (newHeight * aspectRatio);
+                    }
+
+                    Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+                    BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
+                    Graphics2D g = resizedImage.createGraphics();
+                    g.drawImage(scaledImage, 0, 0, null);
+                    g.dispose();
+
+                    return resizedImage;
+                }
+            } finally {
+                if (imageStream != null) {
+                    imageStream.close();
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
         }
+        return null;
     }
 
     @Override
     public void drawMap(Map map) {
+        Mari mari = map.getMari();
+        Key key = map.getKey();
+        for (int y = 0; y < map.getHeight(); y++) {
+            for (int x = 0; x < map.getWidth(); x++) {
+                Position currentPosition = new Position(x, y);
+                if (mari != null && mari.getPosition().equals(currentPosition)) {
+                    drawMari(currentPosition);
+                } else {
+                    boolean isEnemyHere = false;
+                    for (Enemy enemy : map.getEnemies()) {
+                        if (enemy.getPosition().equals(currentPosition)) {
+                            if (enemy.equals('B')) {
+                                drawBatEnemy(enemy.getPosition());
+                            }
+                            else{
+                                drawGhostEnemy(enemy.getPosition());
+                            }
+                            isEnemyHere = true;
+                            break;
+                        }
 
-    }
-
-
-    public String getMappedCharacter(char character) {
-        return CHARACTER_MAP.getOrDefault(character, String.valueOf('-'));
-    }
-    public Map<Character, String> createCharacterMap() {
-        Map<Character, String> charMap = new HashMap<>();
-        charMap.put(' ', " ");
-        charMap.put('.', "..");
-        charMap.put(':', "::");
-        return charMap;
+                        if (!isEnemyHere) {
+                            for (Wall wall : map.getWalls()) {
+                                if (wall.getPosition().equals(currentPosition)) {
+                                    drawWall(currentPosition);
+                                    break;
+                                }
+                            }
+                            if (key != null && key.getPosition().equals(currentPosition)) {
+                                //drawKey(currentPosition);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     @Override

@@ -14,15 +14,14 @@ public interface GUI {
 
     void drawGhostEnemy(Position position);
     void drawBatEnemy(Position position);
+    void drawWall(Position position);
     void drawMenu();
     void drawText(Position position, String text, String color);
     void drawImage(Position pos, String filename);
     void drawPixel(int x, int y,String color, TextGraphics tg);
-    String getMappedCharacter(char character);
     void setTextColor(TextGraphics tg, String color);
     BufferedImage loadImage(String filename);
-    void drawMap(Map map);
-    Map<Character, String> createCharacterMap();
+    void drawMap(com.st.projectst.model.Map map);
 
     void clear();
 
