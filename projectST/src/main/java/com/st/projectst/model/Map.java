@@ -8,7 +8,8 @@ public class Map {
     private int currentLevel;
 
     private Mari mari;
-    private List<Enemy> enemies;
+    private List<GhostEnemy> gEnemies;
+    private List<BatEnemy> bEnemies;
     private List<Wall> walls;
     private Key key;
     private List<String> mapData;
@@ -51,12 +52,19 @@ public class Map {
         this.mari = mari;
     }
 
-    public List<Enemy> getEnemies() {
-        return enemies;
+    public List<GhostEnemy> getGhostEnemies() {
+        return gEnemies;
+    }
+    public List<BatEnemy> getBatEnemies() {
+        return bEnemies;
     }
 
-    public void setEnemies(List<Enemy> enemies) {
-        this.enemies = enemies;
+    public void setgEnemies(List<GhostEnemy> gEnemies) {
+        this.gEnemies = gEnemies;
+    }
+
+    public void setbEnemies(List<BatEnemy> bEnemies) {
+        this.bEnemies = bEnemies;
     }
 
     public List<Wall> getWalls() {
@@ -79,5 +87,21 @@ public class Map {
     }
     public List<String> getMapData() {
         return mapData;
+    }
+    public boolean isEmpty(Position position) {
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(position))
+                return false;
+        return true;
+    }
+
+    public boolean isEnemy(Position position) {
+        for (GhostEnemy enemy : getGhostEnemies())
+            if (enemy.getPosition().equals(position))
+                return true;
+        for (BatEnemy enemy : getBatEnemies())
+            if (enemy.getPosition().equals(position))
+                return true;
+        return false;
     }
 }

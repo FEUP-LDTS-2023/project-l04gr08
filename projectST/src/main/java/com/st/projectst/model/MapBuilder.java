@@ -1,7 +1,5 @@
 package com.st.projectst.model;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -21,7 +19,8 @@ public class MapBuilder {
 
         Map map = new Map(width, height, level);
         map.setMari(createMari());
-        map.setEnemies(createEnemies());
+        map.setgEnemies(createGhostEnemies());
+        map.setbEnemies(createBatEnemies());
         map.setWalls(createWalls());
         map.setKey(createKey());
         return map;
@@ -60,17 +59,26 @@ public class MapBuilder {
     private boolean isEnemyCharacter(char symbol) {
         return symbol == 'G' || symbol == 'B' ;
     }
-    private List<Enemy> createEnemies() {
-        List<Enemy> enemies = new ArrayList<>();
+    private List<GhostEnemy> createGhostEnemies() {
+        List<GhostEnemy> gEnemies = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'G')
-                    enemies.add(new GhostEnemy(new Position(x, y)));
-                if (linesMap.get(y).charAt(x) == 'B')
-                    enemies.add(new BatEnemy(new Position(x, y)));
+                    gEnemies.add(new GhostEnemy(new Position(x, y)));
             }
         }
-        return enemies;
+        return gEnemies;
+    }
+
+    private List<BatEnemy> createBatEnemies() {
+        List<BatEnemy> bEnemies = new ArrayList<>();
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (linesMap.get(y).charAt(x) == 'B')
+                    bEnemies.add(new BatEnemy(new Position(x, y)));
+            }
+        }
+        return bEnemies;
     }
 
     private List<Wall> createWalls() {

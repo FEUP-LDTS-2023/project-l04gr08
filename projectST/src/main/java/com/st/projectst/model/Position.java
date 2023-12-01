@@ -22,6 +22,21 @@ public class Position {
     public void setY(double y) {
         this.y = y;
     }
+    public Position getLeft() {
+        return new Position(x - 1, y);
+    }
+
+    public Position getRight() {
+        return new Position(x + 1, y);
+    }
+
+    public Position getUp() {
+        return new Position(x, y - 1);
+    }
+
+    public Position getDown() {
+        return new Position(x, y + 1);
+    }
 
     @SuppressWarnings("EqualsHashCode")
     @Override
@@ -33,5 +48,19 @@ public class Position {
 
         if (Double.compare(position.x, x) != 0) return false;
         return Double.compare(position.y, y) == 0;
+    }
+
+    public Position getRandomNeighbour() {
+        int n = (int) (Math.random() * 4);
+        switch (n) {
+            case 0:
+                return getUp();
+            case 1:
+                return getRight();
+            case 2:
+                return getDown();
+            default:
+                return getLeft();
+        }
     }
 }
