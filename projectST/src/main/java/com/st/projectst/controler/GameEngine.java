@@ -48,7 +48,7 @@ public class GameEngine {
 
             // Map gameMap = new Map(screenWidth,  screenHeight, 1);
             // gameMap.setMapData(mapData);
-            lanternaGUI = new LanternaGUI(screen);
+            //lanternaGUI = new LanternaGUI(screen);
             mariHeight = lanternaGUI.loadImage("./src/main/resources/mari1.png").getHeight();
             mari = new Mari(new Position(screenWidth / 2, screenHeight -mariHeight - 1));
         } catch (IOException e) {
