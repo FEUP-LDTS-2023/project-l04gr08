@@ -19,7 +19,7 @@ public class GhostEnemyController extends LevelController{
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMove > 500) {
+        if (time - lastMove > 300) {
             for (GhostEnemy enemy : getModel().getGhostEnemies())
                 moveGEnemy(enemy, enemy.getPosition().getRandomNeighbour());
             this.lastMove = time;

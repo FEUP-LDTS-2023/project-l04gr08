@@ -38,6 +38,12 @@ public class Position {
         return new Position(x, y + 1);
     }
 
+    public double distance(Position otherPosition) {
+        double dx = this.x - otherPosition.getX();
+        double dy = this.y - otherPosition.getY();
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
     @SuppressWarnings("EqualsHashCode")
     @Override
     public boolean equals(Object other) {

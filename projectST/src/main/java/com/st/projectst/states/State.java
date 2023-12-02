@@ -1,6 +1,6 @@
 package com.st.projectst.states;
+import com.st.projectst.controler.Controller;
 
-import com.st.projectst.viewer.Controller;
 import com.st.projectst.viewer.Viewer;
 
 public abstract class State<T> {
