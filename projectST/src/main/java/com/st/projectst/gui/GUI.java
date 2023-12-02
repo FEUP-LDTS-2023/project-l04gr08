@@ -2,13 +2,13 @@ package com.st.projectst.gui;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.st.projectst.model.Position;
+import com.st.projectst.model.game.Map;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public interface GUI {
+    enum ACTION {RIGHT, LEFT, UP, DOWN, SELECT, QUIT, PAUSE, NONE}
     ACTION getNextAction() throws IOException;
     void drawMari(Position position);
 
@@ -21,7 +21,7 @@ public interface GUI {
     void drawPixel(int x, int y,String color, TextGraphics tg);
     void setTextColor(TextGraphics tg, String color);
     BufferedImage loadImage(String filename);
-    void drawMap(com.st.projectst.model.Map map);
+    void drawMap(Map map);
 
     void clear();
 
@@ -29,5 +29,4 @@ public interface GUI {
 
     void close() throws IOException;
 
-    enum ACTION {UP, RIGHT, DOWN, LEFT, NONE, QUIT, SELECT, POWER}
 }

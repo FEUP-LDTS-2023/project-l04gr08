@@ -1,10 +1,9 @@
-package com.st.projectst.controler.game;
+package com.st.projectst.controller.game;
 
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
-import com.st.projectst.model.BatEnemy;
-import com.st.projectst.model.Enemy;
-import com.st.projectst.model.Map;
+import com.st.projectst.model.game.BatEnemy;
+import com.st.projectst.model.game.Map;
 import com.st.projectst.model.Position;
 
 import java.io.IOException;

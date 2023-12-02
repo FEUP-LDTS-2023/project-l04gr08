@@ -1,4 +1,6 @@
-package com.st.projectst.model;
+package com.st.projectst.model.game;
+
+import com.st.projectst.model.Position;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MapBuilder {
+
     private List<String> linesMap;
     private int width;
     private int height;
@@ -19,8 +22,8 @@ public class MapBuilder {
 
         Map map = new Map(width, height, level);
         map.setMari(createMari());
-        map.setgEnemies(createGhostEnemies());
-        map.setbEnemies(createBatEnemies());
+        map.setGhostEnemies(createGhostEnemies());
+        map.setBatEnemies(createBatEnemies());
         map.setWalls(createWalls());
         map.setKey(createKey());
         return map;

@@ -1,4 +1,6 @@
-package com.st.projectst.model;
+package com.st.projectst.model.game;
+
+import com.st.projectst.model.Position;
 
 import java.util.List;
 
@@ -59,11 +61,10 @@ public class Map {
         return bEnemies;
     }
 
-    public void setgEnemies(List<GhostEnemy> gEnemies) {
+    public void setGhostEnemies(List<GhostEnemy> gEnemies) {
         this.gEnemies = gEnemies;
     }
-
-    public void setbEnemies(List<BatEnemy> bEnemies) {
+    public void setBatEnemies(List<BatEnemy> bEnemies) {
         this.bEnemies = bEnemies;
     }
 

@@ -1,7 +1,7 @@
 package com.st.projectst.viewer.game;
 
 import com.st.projectst.gui.GUI;
-import com.st.projectst.model.Wall;
+import com.st.projectst.model.game.Wall;
 
 
 public class WallViewer implements GameObjectViewer<Wall> {

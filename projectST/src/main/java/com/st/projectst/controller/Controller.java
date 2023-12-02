@@ -1,4 +1,4 @@
-package com.st.projectst.controler;
+package com.st.projectst.controller;
 
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;

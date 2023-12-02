@@ -1,7 +1,11 @@
 package com.st.projectst.states;
 
-import com.st.projectst.viewer.Controller;
+import com.st.projectst.Main;
+import com.st.projectst.controller.Controller;
+import com.st.projectst.gui.GUI;
 import com.st.projectst.viewer.Viewer;
+
+import java.io.IOException;
 
 public abstract class State<T> {
     private final T model;
@@ -20,4 +24,9 @@ public abstract class State<T> {
         return model;
     }
 
+    public void step(Main main, GUI gui, long time) throws IOException {
+        GUI.ACTION action = gui.getNextAction();
+        controller.step(main, action, time);
+        viewer.draw(gui);
+    }
 }

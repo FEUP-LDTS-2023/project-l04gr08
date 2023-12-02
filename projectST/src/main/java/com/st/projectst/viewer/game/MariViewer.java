@@ -1,7 +1,7 @@
 package com.st.projectst.viewer.game;
 
 import com.st.projectst.gui.GUI;
-import com.st.projectst.model.Mari;
+import com.st.projectst.model.game.Mari;
 
 public class MariViewer implements GameObjectViewer<Mari> {
     @Override

@@ -10,6 +10,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.st.projectst.model.*;
+import com.st.projectst.model.game.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -26,30 +27,21 @@ public class LanternaGUI implements GUI{
     }
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
-        TerminalSize terminalSize = new TerminalSize(width, height);
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory();
-        terminalFactory.setInitialTerminalSize(terminalSize);
-
-        AWTTerminalFontConfiguration squareFont = loadSquareFont();
-        terminalFactory.setForceAWTOverSwing(true);
-        terminalFactory.setTerminalEmulatorFontConfiguration(squareFont);
-
-        Terminal terminal = terminalFactory.createTerminal();
-        this.screen = new TerminalScreen(terminal);
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+        Terminal terminal = createTerminal(width, height, fontConfig);
+        this.screen = createScreen(terminal);
     }
 
 
-    public void startScreen() throws IOException {
-        screen.startScreen();
-    }
+    public void startScreen() throws IOException { screen.startScreen(); }
 
     private Screen createScreen(Terminal terminal) throws IOException {
-        final Screen screen;
-        screen = new TerminalScreen(terminal);
+        final Screen screen = new TerminalScreen(terminal);
 
         screen.setCursorPosition(null);
         screen.startScreen();
         screen.doResizeIfNecessary();
+
         return screen;
     }
 
@@ -59,6 +51,7 @@ public class LanternaGUI implements GUI{
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
+
         return terminal;
     }
 
@@ -81,24 +74,21 @@ public class LanternaGUI implements GUI{
         switch (keyStroke.getKeyType()) {
             case EOF:
                 return ACTION.QUIT;
-            case Character:
-                if (keyStroke.getCharacter() == 'q') {
-                    return ACTION.QUIT;
-                }
-                if (keyStroke.getCharacter() == ' ') {
-                    return ACTION.POWER;
-                }
-                break;
-            case ArrowUp:
-                return ACTION.UP;
+
             case ArrowRight:
                 return ACTION.RIGHT;
-            case ArrowDown:
-                return ACTION.DOWN;
             case ArrowLeft:
                 return ACTION.LEFT;
+            case ArrowUp:
+                return ACTION.UP;
+            case ArrowDown:
+                return ACTION.DOWN;
+
+            case Escape:
+                return ACTION.PAUSE;
             case Enter:
                 return ACTION.SELECT;
+
             default:
                 break;
         }
@@ -124,7 +114,8 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMenu() {
-
+        drawImage(new Position(0,0), "mari1.png");
+        //ALTERAR
     }
 
     @Override
@@ -229,6 +220,7 @@ public class LanternaGUI implements GUI{
                     drawMari(currentPosition);
                 } else {
                     boolean isEnemyHere = false;
+                    /*
                     for (Enemy enemy : map.getEnemies()) {
                         if (enemy.getPosition().equals(currentPosition)) {
                             if (enemy.equals('B')) {
@@ -240,7 +232,8 @@ public class LanternaGUI implements GUI{
                             isEnemyHere = true;
                             break;
                         }
-
+                      }
+                    */
                         if (!isEnemyHere) {
                             for (Wall wall : map.getWalls()) {
                                 if (wall.getPosition().equals(currentPosition)) {
@@ -256,7 +249,7 @@ public class LanternaGUI implements GUI{
                 }
             }
         }
-    }
+
 
     @Override
     public void clear() {
@@ -264,12 +257,8 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void refresh() throws IOException {
-        screen.refresh();
-    }
+    public void refresh() throws IOException { screen.refresh(); }
 
     @Override
-    public void close() throws IOException {
-        screen.close();
-    }
+    public void close() throws IOException { screen.close(); }
 }

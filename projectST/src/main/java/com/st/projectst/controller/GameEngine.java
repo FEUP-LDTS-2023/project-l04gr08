@@ -1,8 +1,5 @@
-package com.st.projectst.controler;
+package com.st.projectst.controller;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
@@ -11,13 +8,12 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.st.projectst.gui.LanternaGUI;
-import com.st.projectst.model.Map;
-import com.st.projectst.model.MapBuilder;
+import com.st.projectst.model.game.Map;
+import com.st.projectst.model.game.MapBuilder;
 import com.st.projectst.model.Position;
-import com.st.projectst.model.Mari;
+import com.st.projectst.model.game.Mari;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 public class GameEngine {
