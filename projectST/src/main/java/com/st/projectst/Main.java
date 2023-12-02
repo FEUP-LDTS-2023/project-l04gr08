@@ -1,10 +1,11 @@
 package com.st.projectst;
 
-import com.st.projectst.controler.GameEngine;
 import com.st.projectst.gui.LanternaGUI;
+import com.st.projectst.model.menu.Start;
+import com.st.projectst.states.StartState;
+import com.st.projectst.states.State;
 
 import java.awt.*;
-import java.awt.Menu;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -13,8 +14,8 @@ public class Main {
     private State state;
 
     public Main() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(20, 20);
-        this.state = new MenuState(new Menu());
+        this.gui = new LanternaGUI(1024, 512);
+        this.state = new StartState(new Start());
     }
 
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
@@ -42,6 +43,7 @@ public class Main {
             } catch (InterruptedException e) {
             }
         }
+
         gui.close();
     }
 }
