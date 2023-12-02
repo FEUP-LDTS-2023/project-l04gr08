@@ -7,9 +7,11 @@ import java.util.List;
 
 public class Start {
     private final List<Position> options;
-    private int currentOption = 0;
+    private int currentOption;
 
-    public Start() {
+    public Start(int selectedOption) {
+        this.currentOption = selectedOption;
+
         Position positionStart = new Position(5, 10);
         Position positionInstructions = new Position(5, 11);
         Position positionExit = new Position(5, 12);
