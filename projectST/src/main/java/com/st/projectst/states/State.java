@@ -2,8 +2,8 @@ package com.st.projectst.states;
 
 import com.st.projectst.Main;
 import com.st.projectst.controller.Controller;
-import com.st.projectst.gui.GUI;
 import com.st.projectst.viewer.Viewer;
+import com.st.projectst.gui.GUI;
 
 import java.io.IOException;
 

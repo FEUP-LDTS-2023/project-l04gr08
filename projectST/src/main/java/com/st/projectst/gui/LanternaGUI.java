@@ -218,37 +218,32 @@ public class LanternaGUI implements GUI{
                 Position currentPosition = new Position(x, y);
                 if (mari != null && mari.getPosition().equals(currentPosition)) {
                     drawMari(currentPosition);
-                } else {
-                    boolean isEnemyHere = false;
-                    /*
-                    for (Enemy enemy : map.getEnemies()) {
+                }
+                else {
+                    for (GhostEnemy enemy : map.getGhostEnemies()) {
                         if (enemy.getPosition().equals(currentPosition)) {
-                            if (enemy.equals('B')) {
-                                drawBatEnemy(enemy.getPosition());
-                            }
-                            else{
-                                drawGhostEnemy(enemy.getPosition());
-                            }
-                            isEnemyHere = true;
+                            drawGhostEnemy(enemy.getPosition());
+                        }
+                    }
+                    for (BatEnemy enemy : map.getBatEnemies()) {
+                        if (enemy.getPosition().equals(currentPosition)) {
+                            drawBatEnemy(enemy.getPosition());
+                        }
+                    }
+                    for (Wall wall : map.getWalls()) {
+                        if (wall.getPosition().equals(currentPosition)) {
+                            drawWall(currentPosition);
                             break;
                         }
-                      }
-                    */
-                        if (!isEnemyHere) {
-                            for (Wall wall : map.getWalls()) {
-                                if (wall.getPosition().equals(currentPosition)) {
-                                    drawWall(currentPosition);
-                                    break;
-                                }
-                            }
-                            if (key != null && key.getPosition().equals(currentPosition)) {
-                                //drawKey(currentPosition);
-                            }
-                        }
+                    }
+
+                    if (key != null && key.getPosition().equals(currentPosition)) {
+                        //drawKey(currentPosition);
                     }
                 }
             }
         }
+    }
 
 
     @Override

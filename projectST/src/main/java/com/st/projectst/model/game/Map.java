@@ -15,6 +15,7 @@ public class Map {
     private List<Wall> walls;
     private Key key;
     private List<String> mapData;
+    private boolean[][] potionLocations;
 
     public Map (int width, int height, int currentLevel) {
         this.width = width;
@@ -103,6 +104,19 @@ public class Map {
         for (BatEnemy enemy : getBatEnemies())
             if (enemy.getPosition().equals(position))
                 return true;
+        return false;
+    }
+
+    public void setPotionLocations(boolean[][] potionLocations) {
+        this.potionLocations = potionLocations;
+    }
+
+    public boolean isPotion(Position position) {
+        double x = position.getX();
+        double y = position.getY();
+        if (x >= 0 && x < potionLocations.length && y >= 0 && y < potionLocations[0].length) {
+            return potionLocations[(int) x][(int) y];
+        }
         return false;
     }
 }

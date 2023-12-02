@@ -14,6 +14,7 @@ public class MapBuilder {
     private List<String> linesMap;
     private int width;
     private int height;
+    private boolean[][] potionLocations;
 
     public Map buildMap(String filePath, int level) throws IOException {
         linesMap = loadFromFile(filePath);
@@ -26,6 +27,7 @@ public class MapBuilder {
         map.setBatEnemies(createBatEnemies());
         map.setWalls(createWalls());
         map.setKey(createKey());
+        map.setPotionLocations(potionLocations);
         return map;
     }
 
@@ -104,4 +106,17 @@ public class MapBuilder {
         return null;
     }
 
+    private void initializePotionLocations() {
+        potionLocations = new boolean[width][height];
+    }
+
+    private void identifyPotions() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (linesMap.get(y).charAt(x) == 'P') {
+                    potionLocations[x][y] = true;
+                }
+            }
+        }
+    }
 }
