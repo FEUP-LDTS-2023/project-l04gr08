@@ -32,9 +32,24 @@ public class MariController extends LevelController{
 
     public void moveMariUp() {
         Mari mari = getModel().getMari();
+        Position currentPosition = mari.getPosition();
+
+        // Check if Mari touches a potion
+        if (getModel().isPotion(currentPosition)) {
+            if (mari.getRemainingJumps() > 0) {
+                mari.jump();
+                mari.decreaseJumps();
+
+                // Move Mari after double jump
+                moveMari(currentPosition.getUp());
+                notifyObservers(currentPosition.getUp());
+                return;
+            }
+        }
+        // Regular jump logic when mari is not touching a potion or no remaining jumps
         mari.jump();
-        moveMari(mari.getPosition());
-        notifyObservers(mari.getPosition());
+        moveMari(currentPosition);
+        notifyObservers(currentPosition);
     }
 
     private void notifyObservers(Position position) {
