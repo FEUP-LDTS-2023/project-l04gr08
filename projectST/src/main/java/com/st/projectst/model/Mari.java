@@ -11,8 +11,9 @@ public class Mari extends GameObject {
     private int remainingLives;
     private boolean withKey;
     private boolean isJumping;
-
     private int jumpCounter;
+    private int remainingJumps;
+    private static final int MAX_JUMPS = 2;
 
     public Mari(Position position) {
         super(position);
@@ -21,6 +22,7 @@ public class Mari extends GameObject {
         withKey = false;
         isJumping = false;
         jumpCounter = 0;
+        remainingJumps = MAX_JUMPS;
     }
 
     public void moveRight() {getPosition().setX( getPosition().getX() + (1 * speedX));}
@@ -52,6 +54,13 @@ public class Mari extends GameObject {
 
     public int getRemainingLives() {
         return remainingLives;
+    }
+    public void decreaseJumps() {
+        remainingJumps--;
+    }
+
+    public int getRemainingJumps() {
+        return remainingJumps;
     }
 
     public boolean getIsJumping() {return isJumping;}

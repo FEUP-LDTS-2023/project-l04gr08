@@ -9,7 +9,7 @@ import com.st.projectst.model.Position;
 
 import java.io.IOException;
 
-public class BatEnemyController extends LevelController{
+public class BatEnemyController extends LevelController implements EnemyObserver{
     private long lastMove;
 
     public BatEnemyController(Map map) {
@@ -33,4 +33,41 @@ public class BatEnemyController extends LevelController{
                 getModel().getMari().decreaseLives();
         }
     }
+
+    @Override
+    public void updateOnMariCross(Position position) {
+        for (BatEnemy enemy : getModel().getBatEnemies()) {
+            Position enemyPosition = enemy.getPosition();
+            // Assuming the BatEnemy moves towards Mari when she crosses a specific position
+            if (enemyPosition.distance(position) <= 5) {
+                moveBEnemy(enemy, position);
+            }
+        }
+    }
+
+    private void canBEnemyMove(BatEnemy enemy, Position position) {
+        // Move BatEnemy towards Mari's position
+        int diffX = (int) (position.getX() - enemy.getPosition().getX());
+        int diffY = (int) (position.getY() - enemy.getPosition().getY());
+
+        // Adjust BatEnemy's position towards Mari
+        if (Math.abs(diffX) >= Math.abs(diffY)) {
+            if (diffX > 0) {
+                Position newPos = new Position(enemy.getPosition().getX() + 1, enemy.getPosition().getY());
+                moveBEnemy(enemy, newPos);
+            } else if (diffX < 0) {
+                Position newPos = new Position(enemy.getPosition().getX() - 1, enemy.getPosition().getY());
+                moveBEnemy(enemy, newPos);
+            }
+        } else {
+            if (diffY > 0) {
+                Position newPos = new Position(enemy.getPosition().getX(), enemy.getPosition().getY() + 1);
+                moveBEnemy(enemy, newPos);
+            } else if (diffY < 0) {
+                Position newPos = new Position(enemy.getPosition().getX(), enemy.getPosition().getY() - 1);
+                moveBEnemy(enemy, newPos);
+            }
+        }
+    }
+
 }
