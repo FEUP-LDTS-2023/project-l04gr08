@@ -5,6 +5,7 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.viewer.Viewer;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class StartViewer extends Viewer<Start> {
@@ -13,7 +14,7 @@ public class StartViewer extends Viewer<Start> {
     }
 
     @Override
-    public void drawObject(GUI gui) throws IOException {
+    public void drawObject(GUI gui) throws IOException, FontFormatException {
         gui.drawMenuElements();
         gui.drawText(new Position(5, 5), "Searching For", "#FFFFFF");
         gui.drawText(new Position(5, 6), "   Key-Ty    ", "#DAA520");
@@ -21,7 +22,7 @@ public class StartViewer extends Viewer<Start> {
         for (int i = 0; i < getModel().getNumber(); i++) {
             gui.drawText(
                     getModel().getOptionPosition(i),
-                    getModel().getEntry(i),
+                    getModel().getOption(i),
                     getModel().isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
     }

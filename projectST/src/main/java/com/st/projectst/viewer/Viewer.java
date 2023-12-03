@@ -2,6 +2,7 @@ package com.st.projectst.viewer;
 
 import com.st.projectst.gui.GUI;
 
+import java.awt.*;
 import java.io.IOException;
 
 public abstract class Viewer<T> {
@@ -11,11 +12,11 @@ public abstract class Viewer<T> {
 
     public T getModel() { return model; }
 
-    public void draw(GUI gui) throws IOException {
+    public void draw(GUI gui) throws IOException, FontFormatException {
         gui.clear();
         drawObject(gui);
         gui.refresh();
     }
 
-    protected abstract void drawObject (GUI gui) throws IOException;
+    protected abstract void drawObject (GUI gui) throws IOException, FontFormatException;
 }

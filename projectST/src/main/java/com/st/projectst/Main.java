@@ -26,7 +26,7 @@ public class Main {
         this.state = state;
     }
 
-    private void start() throws IOException {
+    private void start() throws IOException, FontFormatException {
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
