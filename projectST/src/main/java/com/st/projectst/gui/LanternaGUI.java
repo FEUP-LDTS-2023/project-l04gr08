@@ -15,9 +15,12 @@ import com.st.projectst.model.game.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI implements GUI{
     private final Screen screen;
@@ -99,7 +102,8 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMari(Position position) {
-        drawImage(position, "mari1.png");
+        //drawImage(position, "mari1.png");
+        drawCharacter((int) position.getX(), (int) position.getY(), 'M', "#3774D8");
     }
 
     @Override
@@ -114,7 +118,6 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMenu() {
-        drawImage(new Position(0,0), "mari1.png");
         //ALTERAR
     }
 
@@ -129,7 +132,7 @@ public class LanternaGUI implements GUI{
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, color);
+        tg.putString(x, y, "" + c);
     }
     public void drawImage(Position pos, String filename) {
         BufferedImage image = loadImage(filename);
