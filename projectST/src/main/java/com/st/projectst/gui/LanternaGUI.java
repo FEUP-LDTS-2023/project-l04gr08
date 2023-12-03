@@ -63,7 +63,7 @@ public class LanternaGUI implements GUI{
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 24);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 26);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
@@ -114,12 +114,12 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawMenu() throws IOException {
+    public void drawMenuElements() throws IOException {
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, "#BA6156");
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
         screen.refresh();
-        drawImage(new Position(20, 2), "key.png");
+        drawImage(new Position(20, 3), "key.png");
     }
 
 

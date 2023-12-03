@@ -14,12 +14,10 @@ public class StartViewer extends Viewer<Start> {
 
     @Override
     public void drawObject(GUI gui) throws IOException {
-        gui.drawMenu();
+        gui.drawMenuElements();
         gui.drawText(new Position(5, 5), "Searching For", "#FFFFFF");
         gui.drawText(new Position(5, 6), "   Key-Ty    ", "#DAA520");
 
-        gui.drawText(new Position(4, 3), "|\\          /| ", "#a15136");
-        gui.drawText(new Position(4, 4), "| \\        / | ", "#6b2518");
         for (int i = 0; i < getModel().getNumber(); i++) {
             gui.drawText(
                     getModel().getOptionPosition(i),
