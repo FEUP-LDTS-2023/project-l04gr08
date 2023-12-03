@@ -7,6 +7,10 @@ public class Position {
         this.x = x;
         this.y = y;
     }
+    public Position(Position pos){
+        this.x = pos.getX();
+        this.y = pos.getY();
+    }
     public double getX() {
         return x;
     }

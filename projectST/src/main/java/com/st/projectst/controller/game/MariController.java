@@ -9,17 +9,13 @@ import com.st.projectst.model.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MariController extends LevelController{
+public class MariController extends LevelController {
     private List<EnemyObserver> observers;
     public MariController(Map map) {
         super(map);
         observers = new ArrayList<>();
         BatEnemyController batEnemyController = new BatEnemyController(map);
         addObserver(batEnemyController);
-    }
-
-    public void moveMariLeft() {
-        moveMari(getModel().getMari().getPosition().getLeft());
     }
 
     private void addObserver(EnemyObserver observer) {
@@ -29,11 +25,15 @@ public class MariController extends LevelController{
     public void moveMariRight() {
         moveMari(getModel().getMari().getPosition().getRight());
     }
+    public void moveMariLeft() {
+        moveMari(getModel().getMari().getPosition().getLeft());
+    }
 
     public void moveMariUp() {
         Mari mari = getModel().getMari();
         Position currentPosition = mari.getPosition();
 
+        /*
         // Check if Mari touches a potion
         if (getModel().isPotion(currentPosition)) {
             if (mari.getRemainingJumps() > 0) {
@@ -46,10 +46,14 @@ public class MariController extends LevelController{
                 return;
             }
         }
-        // Regular jump logic when mari is not touching a potion or no remaining jumps
+
+         */
+
         mari.jump();
         moveMari(currentPosition);
         notifyObservers(currentPosition);
+
+        // Regular jump logic when mari is not touching a potion or no remaining jumps
     }
 
     private void notifyObservers(Position position) {
@@ -62,11 +66,17 @@ public class MariController extends LevelController{
         if (getModel().isEmpty(position)) {
             getModel().getMari().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getMari().decreaseLives();
+            if (getModel().isKey(position)) getModel().getMari().setWithKey();
+            //if (getModel().isDoor(position) && getModel().getMari().getWithKey()) {
+                // NEXT LEVEL -> getModel().getCurrentLevel().setWin(true);
         }
+
     }
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) {
+        getModel().Grounded();
+        getModel().getMari().update();
         if (action == GUI.ACTION.UP) moveMariUp();
         if (action == GUI.ACTION.RIGHT) moveMariRight();
         if (action == GUI.ACTION.LEFT) moveMariLeft();

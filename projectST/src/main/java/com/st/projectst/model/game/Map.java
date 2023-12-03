@@ -110,6 +110,20 @@ public class Map {
         return false;
     }
 
+    public boolean isKey(Position position) {
+        return key.getPosition().equals(position);
+    }
+
+    public void Grounded() {
+        Position floorPosition = new Position(mari.getPosition());
+        floorPosition.setY(floorPosition.getY()+1);
+
+        for (Wall wall : walls)
+            if (wall.getPosition().equals(floorPosition))
+                mari.setGrounded(true);
+    }
+
+    /*
     public void setPotionLocations(boolean[][] potionLocations) {
         this.potionLocations = potionLocations;
     }
@@ -122,4 +136,6 @@ public class Map {
         }
         return false;
     }
+
+     */
 }
