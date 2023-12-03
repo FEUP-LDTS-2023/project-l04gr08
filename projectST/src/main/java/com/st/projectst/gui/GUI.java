@@ -15,9 +15,10 @@ public interface GUI {
     void drawGhostEnemy(Position position);
     void drawBatEnemy(Position position);
     void drawWall(Position position);
-    void drawMenu();
+    void drawMenuElements() throws IOException;
     void drawText(Position position, String text, String color);
     void drawImage(Position pos, String filename);
+    void setBackgroundTransparent(TextGraphics tg);
     void drawPixel(int x, int y,String color, TextGraphics tg);
     void setTextColor(TextGraphics tg, String color);
     BufferedImage loadImage(String filename);

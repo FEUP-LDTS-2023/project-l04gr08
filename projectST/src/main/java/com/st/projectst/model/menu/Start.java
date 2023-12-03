@@ -31,6 +31,18 @@ public class Start {
     public boolean isSelected(int i) {
         return currentOption == i;
     }
+    public String getEntry(int i) {
+        switch (i){
+            case 0:
+                return "Start";
+            case 1 :
+                return "Instructions";
+            case 2:
+                return "Exit";
+            default:
+        }
+        return "";
+    }
     public boolean isSelectedStart() {
         return isSelected(0);
     }
