@@ -17,6 +17,9 @@ public class Map {
     private List<String> mapData;
     private boolean[][] potionLocations;
 
+    public Map (int currentLevel) {
+        this.currentLevel = currentLevel;
+    }
     public Map (int width, int height, int currentLevel) {
         this.width = width;
         this.height = height;

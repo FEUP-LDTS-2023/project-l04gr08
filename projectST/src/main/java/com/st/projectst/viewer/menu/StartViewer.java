@@ -23,8 +23,6 @@ public class StartViewer extends Viewer<Start> {
                     getModel().getOptionPosition(i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFFFFF" : "#F1A55E");
-
         }
-
     }
 }

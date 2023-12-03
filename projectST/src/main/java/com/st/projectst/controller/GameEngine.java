@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class GameEngine {
+    /*
     private static Screen screen;
     private static TextGraphics graphics;
     private Terminal terminal;
@@ -44,7 +45,7 @@ public class GameEngine {
             screenHeight = height;
 
             MapBuilder mapBuilder = new MapBuilder();
-            String filePath = Objects.requireNonNull(MapBuilder.class.getClassLoader().getResource("map1.txt")).getPath();
+            String filePath = Objects.requireNonNull(MapBuilder.class.getClassLoader().getResource("levels/map1.txt")).getPath();
             gameMap = mapBuilder.buildMap(filePath, 1);
 
             lanternaGUI = new LanternaGUI(screen);
@@ -132,4 +133,6 @@ public class GameEngine {
         GameEngine gameEngine = new GameEngine(80, 24);
         gameEngine.run();
     }
+
+     */
 }

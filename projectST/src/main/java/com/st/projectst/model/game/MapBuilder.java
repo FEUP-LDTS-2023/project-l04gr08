@@ -2,22 +2,30 @@ package com.st.projectst.model.game;
 
 import com.st.projectst.model.Position;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapBuilder {
+    private int level;
 
     private List<String> linesMap;
     private int width;
     private int height;
-    private boolean[][] potionLocations;
+    //private boolean[][] potionLocations;
 
-    public Map buildMap(String filePath, int level) throws IOException {
-        linesMap = loadFromFile(filePath);
+    public MapBuilder(int level) throws IOException {
+        this.level = level;
+
+        URL resource = MapBuilder.class.getResource("/levels/map" + level + ".txt");
+        BufferedReader buff = new BufferedReader(new FileReader(resource.getFile()));
+        this.linesMap = loadFromFile(buff);
+    }
+
+    public Map buildMap() throws IOException {
         width = linesMap.get(0).length();
         height = linesMap.size();
 
@@ -27,13 +35,19 @@ public class MapBuilder {
         map.setBatEnemies(createBatEnemies());
         map.setWalls(createWalls());
         map.setKey(createKey());
-        map.setPotionLocations(potionLocations);
+        //map.setPotionLocations(potionLocations);
         return map;
     }
 
-    public List<String> loadFromFile(String filePath) throws IOException {
-        return Files.readAllLines(Paths.get(filePath), StandardCharsets.UTF_8);
+    public List<String> loadFromFile(BufferedReader buff) throws IOException {
+        List<String> lines = new ArrayList<>();
+
+        for (String line; (line = buff.readLine()) != null; )
+            lines.add(line);
+
+        return lines;
     }
+
 
     private Mari createMari() {
         for (int y = 0; y < height; y++) {
@@ -107,14 +121,14 @@ public class MapBuilder {
     }
 
     private void initializePotionLocations() {
-        potionLocations = new boolean[width][height];
+        //potionLocations = new boolean[width][height];
     }
 
     private void identifyPotions() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'P') {
-                    potionLocations[x][y] = true;
+                    //potionLocations[x][y] = true;
                 }
             }
         }

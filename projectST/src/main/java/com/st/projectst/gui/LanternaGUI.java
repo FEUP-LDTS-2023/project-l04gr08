@@ -16,9 +16,12 @@ import com.st.projectst.model.game.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI implements GUI{
     private Screen screen;
@@ -100,7 +103,8 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMari(Position position) {
-        drawImage(position, "mari1.png");
+        //drawImage(position, "mari1.png");
+        drawCharacter((int) position.getX(), (int) position.getY(), 'M', "#3774D8");
     }
 
     @Override
@@ -114,17 +118,32 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
+    public void drawWall(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#808080");
+        /*
+        TextGraphics tg = screen.newTextGraphics();
+        setTextColor(tg, "#808080");
+
+        tg.putString((int) position.getX(), (int) position.getY(), "W");
+
+         */
+    }
+
+    @Override
+    public void drawKey(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
+    }
+
+
     public void drawMenuElements() throws IOException {
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, "#BA6156");
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
-        screen.refresh();
         drawImage(new Position(20, 3), "key.png");
     }
 
 
-    @Override
-    public void drawText(Position position, String text, String color) {
+    public void drawText (Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString("#BA6156"));
@@ -135,7 +154,7 @@ public class LanternaGUI implements GUI{
     private void drawCharacter(int x, int y, char c, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, color);
+        tg.putString(x, y, "" + c);
     }
     public void drawImage(Position pos, String filename) {
         BufferedImage image = loadImage(filename);
@@ -154,14 +173,6 @@ public class LanternaGUI implements GUI{
                 }
             }
         }
-    }
-
-    @Override
-    public void drawWall(Position position) {
-        TextGraphics tg = screen.newTextGraphics();
-        setTextColor(tg, "#808080");
-
-        tg.putString((int) position.getX(), (int) position.getY(), "W");
     }
 
 
@@ -221,6 +232,9 @@ public class LanternaGUI implements GUI{
                 if (mari != null && mari.getPosition().equals(currentPosition)) {
                     drawMari(currentPosition);
                 }
+                else if (key != null && key.getPosition().equals(currentPosition)) {
+                    drawKey(currentPosition);
+                }
                 else {
                     for (GhostEnemy enemy : map.getGhostEnemies()) {
                         if (enemy.getPosition().equals(currentPosition)) {
@@ -237,10 +251,6 @@ public class LanternaGUI implements GUI{
                             drawWall(currentPosition);
                             break;
                         }
-                    }
-
-                    if (key != null && key.getPosition().equals(currentPosition)) {
-                        //drawKey(currentPosition);
                     }
                 }
             }

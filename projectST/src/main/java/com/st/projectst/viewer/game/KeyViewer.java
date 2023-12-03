@@ -6,6 +6,6 @@ import com.st.projectst.model.game.Key;
 public class KeyViewer implements GameObjectViewer<Key> {
     @Override
     public void draw(Key key, GUI gui) {
-        //gui.drawKey(key.getPosition());
+        gui.drawKey(key.getPosition());
     }
 }
