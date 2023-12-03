@@ -1,5 +1,6 @@
 package com.st.projectst.gui;
 
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -23,7 +24,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGUI implements GUI{
-    private final Screen screen;
+    private Screen screen;
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
@@ -59,13 +60,13 @@ public class LanternaGUI implements GUI{
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
-        InputStream fontStream = getClass().getClassLoader().getResourceAsStream("square.ttf");
+        InputStream fontStream = getClass().getClassLoader().getResourceAsStream("Super Mario Bros. 2.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 26);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
@@ -117,14 +118,35 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawMenu() {
-        //ALTERAR
+    public void drawWall(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#808080");
+        /*
+        TextGraphics tg = screen.newTextGraphics();
+        setTextColor(tg, "#808080");
+
+        tg.putString((int) position.getX(), (int) position.getY(), "W");
+
+         */
     }
 
     @Override
-    public void drawText(Position position, String text, String color) {
+    public void drawKey(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
+    }
+
+
+    public void drawMenuElements() throws IOException {
+        TextGraphics tg = screen.newTextGraphics();
+        setTextColor(tg, "#BA6156");
+        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
+        drawImage(new Position(20, 3), "key.png");
+    }
+
+
+    public void drawText (Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString("#BA6156"));
         tg.putString((int) position.getX(), (int) position.getY(), text);
     }
 
@@ -153,14 +175,6 @@ public class LanternaGUI implements GUI{
         }
     }
 
-    @Override
-    public void drawWall(Position position) {
-        TextGraphics tg = screen.newTextGraphics();
-        setTextColor(tg, "#808080");
-
-        tg.putString((int) position.getX(), (int) position.getY(), "W");
-    }
-
 
     public void drawPixel(int x, int y, String color, TextGraphics tg) {
         setTextColor(tg, color);
@@ -172,39 +186,35 @@ public class LanternaGUI implements GUI{
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
     }
 
+    public void setBackgroundTransparent(TextGraphics tg) {
+        tg.setBackgroundColor(TextColor.ANSI.DEFAULT);
+    }
+
+
     public BufferedImage loadImage(String filename) {
-        try {
-            BufferedImage originalImage = null;
-            InputStream imageStream = null;
+        try (InputStream imageStream = getClass().getResourceAsStream("/" + filename)) {
+            if (imageStream != null) {
+                BufferedImage originalImage = ImageIO.read(imageStream);
 
-            try {
-                imageStream = getClass().getResourceAsStream("/" + filename);
-                if (imageStream != null) {
-                    originalImage = ImageIO.read(imageStream);
-                    int targetWidth = originalImage.getWidth();
-                    int targetHeight = originalImage.getHeight();
-                    double aspectRatio = (double) originalImage.getWidth() / originalImage.getHeight();
+                int targetWidth = originalImage.getWidth();
+                int targetHeight = originalImage.getHeight();
+                double aspectRatio = (double) targetWidth / targetHeight;
 
-                    int newWidth = targetWidth;
-                    int newHeight = (int) (newWidth / aspectRatio);
+                int newWidth = targetWidth;
+                int newHeight = targetHeight;
 
-                    if (newHeight > targetHeight) {
-                        newHeight = targetHeight;
-                        newWidth = (int) (newHeight * aspectRatio);
-                    }
-
-                    Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-                    BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
-                    Graphics2D g = resizedImage.createGraphics();
-                    g.drawImage(scaledImage, 0, 0, null);
-                    g.dispose();
-
-                    return resizedImage;
+                if (aspectRatio > 1) {
+                    newWidth = (int) (targetHeight * aspectRatio);
+                } else {
+                    newHeight = (int) (targetWidth / aspectRatio);
                 }
-            } finally {
-                if (imageStream != null) {
-                    imageStream.close();
-                }
+
+                BufferedImage resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_ARGB);
+                Graphics2D g = resizedImage.createGraphics();
+                g.drawImage(originalImage, 0, 0, newWidth, newHeight, null);
+                g.dispose();
+
+                return resizedImage;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -222,6 +232,9 @@ public class LanternaGUI implements GUI{
                 if (mari != null && mari.getPosition().equals(currentPosition)) {
                     drawMari(currentPosition);
                 }
+                else if (key != null && key.getPosition().equals(currentPosition)) {
+                    drawKey(currentPosition);
+                }
                 else {
                     for (GhostEnemy enemy : map.getGhostEnemies()) {
                         if (enemy.getPosition().equals(currentPosition)) {
@@ -238,10 +251,6 @@ public class LanternaGUI implements GUI{
                             drawWall(currentPosition);
                             break;
                         }
-                    }
-
-                    if (key != null && key.getPosition().equals(currentPosition)) {
-                        //drawKey(currentPosition);
                     }
                 }
             }

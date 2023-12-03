@@ -14,10 +14,11 @@ public class LevelViewer extends Viewer<Map> {
 
     @Override
     public void drawObject(GUI gui) {
-
-        //drawObject(gui, getModel().getWalls(), new WallViewer());
-        //drawElements(gui, getModel().getMonsters(), new MonsterViewer());
         drawGameObject(gui, getModel().getMari(), new MariViewer());
+        drawGameObjects(gui, getModel().getWalls(), new WallViewer());
+        drawGameObjects(gui, getModel().getBatEnemies(), new BatEnemyViewer());
+        drawGameObjects(gui, getModel().getGhostEnemies(), new GhostEnemyViewer());
+        drawGameObject(gui, getModel().getKey(), new KeyViewer());
     }
 
     private <T extends GameObject> void drawGameObjects(GUI gui, List<T> gameObjects, GameObjectViewer<T> viewer) {
