@@ -14,7 +14,6 @@ public class Map {
     private List<BatEnemy> bEnemies;
     private List<Wall> walls;
     private Key key;
-    private List<String> mapData;
     private boolean[][] potionLocations;
 
     public Map (int currentLevel) {
@@ -53,7 +52,6 @@ public class Map {
     public Mari getMari() {
         return mari;
     }
-
     public void setMari(Mari mari) {
         this.mari = mari;
     }
@@ -75,7 +73,6 @@ public class Map {
     public List<Wall> getWalls() {
         return walls;
     }
-
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
@@ -83,16 +80,10 @@ public class Map {
     public Key getKey() {
         return key;
     }
-
     public void setKey(Key key) {
         this.key = key;
     }
-    public void setMapData(List<String> mapData) {
-        this.mapData = mapData;
-    }
-    public List<String> getMapData() {
-        return mapData;
-    }
+
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
@@ -114,13 +105,15 @@ public class Map {
         return key.getPosition().equals(position);
     }
 
-    public void Grounded() {
+    public boolean Grounded() {
         Position floorPosition = new Position(mari.getPosition());
         floorPosition.setY(floorPosition.getY()+1);
 
         for (Wall wall : walls)
             if (wall.getPosition().equals(floorPosition))
-                mari.setGrounded(true);
+                return true;
+
+        return false;
     }
 
     /*

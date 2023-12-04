@@ -73,10 +73,15 @@ public class MariController extends LevelController {
 
     }
 
+    private void updateMari() {
+        getModel().getMari().setGrounded(getModel().Grounded());
+        getModel().getMari().update();
+    }
+
     @Override
     public void step(Main main, GUI.ACTION action, long time) {
-        getModel().Grounded();
-        getModel().getMari().update();
+        updateMari();
+
         if (action == GUI.ACTION.UP) moveMariUp();
         if (action == GUI.ACTION.RIGHT) moveMariRight();
         if (action == GUI.ACTION.LEFT) moveMariLeft();
