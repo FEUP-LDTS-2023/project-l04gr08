@@ -93,10 +93,7 @@ public class Map {
     }
     public boolean verifyTrap(Position position) {
         for (Trap trap : traps){
-            System.out.println(trap.getPosition().getX()); System.out.println(trap.getPosition().getY());
-            System.out.println(position.getX()); System.out.println(position.getY());
             if (trap.getPosition().equals(position)) {
-                System.out.println("AAAAAAAA");
                 trap.notifyObservers();
                 return true;
             }

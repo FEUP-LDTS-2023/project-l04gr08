@@ -7,6 +7,6 @@ public abstract class Enemy extends GameObject {
     public Enemy(Position position) {
         super(position);
     }
-    public abstract void move(Position position);
+    public abstract Position move();
 
 }

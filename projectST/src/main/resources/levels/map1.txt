@@ -2,6 +2,12 @@ WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 W                                                                             W
 W              K                                                              W
 W                                                                             W
+W B                                                                           W
+W                                                                             W
+W                                                                             W
+W                                                                             W
+W                                                                             W
+W                                                                          B  W
 W                                                                             W
 W                                                                             W
 W                                                                             W
@@ -13,15 +19,9 @@ W                                                                             W
 W                                                                             W
 W                                                                             W
 W                                                                             W
-W                     B                                                       W
 W                                                                             W
 W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                          G                  W
-W                                                                             W
-W  X   M                                                                      W
+W  X   M                                                    G              X  W
 W                                                                             W
 W                                                                             W
 W                                                                             W

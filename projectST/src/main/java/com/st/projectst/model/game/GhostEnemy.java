@@ -11,8 +11,9 @@ public class GhostEnemy extends Enemy {
         super(position);
     }
     @Override
-    public void move(Position position) {
-        setPosition(position);
+    public Position move() {
+        Position newPosition = new Position(getPosition());
+        return newPosition.getRandomHorizontal();
     }
 
 }

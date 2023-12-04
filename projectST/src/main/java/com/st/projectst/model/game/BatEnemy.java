@@ -4,19 +4,20 @@ import com.st.projectst.model.Position;
 
 
 public class BatEnemy extends Enemy implements EnemyObserver {
-    private boolean attack;
-    private Position initalPosition;
-    private Position trapPosition;
-
+    private Position FinalPosition;
     public BatEnemy(Position position) {
-        super(position);
+        super(position); FinalPosition = position;
     }
     @Override
-    public void move(Position position) {
-        setPosition(new Position(0,0));
+    public Position move() {
+        Position newPosition = new Position(getPosition());
+        if (getPosition().getY()<FinalPosition.getY()) {
+            newPosition.setY(newPosition.getY()+3);
+        }
+        return newPosition;
     }
     @Override
     public void update(Trap trap) {
-        move(trap.getPosition());
+        this.FinalPosition = trap.getPosition();
     }
 }
