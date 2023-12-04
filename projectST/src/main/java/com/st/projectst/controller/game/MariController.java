@@ -5,6 +5,10 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.game.Mari;
 import com.st.projectst.model.Position;
+import com.st.projectst.model.menu.Level;
+import com.st.projectst.model.menu.Start;
+import com.st.projectst.states.StartState;
+import com.st.projectst.states.WinState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,8 +71,6 @@ public class MariController extends LevelController {
             getModel().getMari().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getMari().decreaseLives();
             if (getModel().isKey(position)) getModel().getMari().setWithKey();
-            //if (getModel().isDoor(position) && getModel().getMari().getWithKey()) {
-                // NEXT LEVEL -> getModel().getCurrentLevel().setWin(true);
         }
 
     }

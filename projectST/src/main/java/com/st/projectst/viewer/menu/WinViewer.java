@@ -13,6 +13,11 @@ public class WinViewer extends Viewer<Win> {
     @Override
     public void drawObject(GUI gui) {
 
+        for (int i = 0; i < getModel().getNumberOptions(); i++)
+            gui.drawText(
+                    new Position(19, 35 + i),
+                    getModel().getOption(i),
+                    getModel().isSelected(i) ? "#FFA212" : "#FFFFFF");
     }
 
 }

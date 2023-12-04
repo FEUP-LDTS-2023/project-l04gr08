@@ -8,7 +8,7 @@ public class Win {
     private int currentOption = 0;
 
     public Win() {
-        this.options = Arrays.asList(" Go Back ");
+        this.options = Arrays.asList(" Go Back ", "Continue");
     }
 
     public void nextOption() {
@@ -33,6 +33,10 @@ public class Win {
 
     public boolean isSelectedGoBackToLevels() {
         return isSelected(0);
+    }
+
+    public boolean isSelectedContinue() {
+        return isSelected(1);
     }
 
     public int getNumberOptions() {

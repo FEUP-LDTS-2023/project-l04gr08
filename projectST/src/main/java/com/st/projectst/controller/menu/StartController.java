@@ -18,7 +18,7 @@ public class StartController extends Controller<Start> {
     }
 
     @Override
-    public void step(Main game, GUI.ACTION action, long time) throws IOException {
+    public void step(Main main, GUI.ACTION action, long time) throws IOException {
         switch (action) {
             case UP:
                 getModel().previousOption();
@@ -27,9 +27,9 @@ public class StartController extends Controller<Start> {
                 getModel().nextOption();
                 break;
             case SELECT:
-                if (getModel().isSelectedStart()) game.setState(new LevelState(new MapBuilder(1).buildMap()));
-                else if (getModel().isSelectedInstructions()) game.setState(new InstructionsState(new Instructions()));
-                else if (getModel().isSelectedExit()) game.setState(null);
+                if (getModel().isSelectedStart()) main.setState(new LevelState(new MapBuilder(1).buildMap()));
+                else if (getModel().isSelectedInstructions()) main.setState(new InstructionsState(new Instructions()));
+                else if (getModel().isSelectedExit()) main.setState(null);
 
         }
     }
