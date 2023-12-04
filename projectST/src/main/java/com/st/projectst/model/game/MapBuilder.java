@@ -35,6 +35,7 @@ public class MapBuilder {
         map.setBatEnemies(createBatEnemies());
         map.setWalls(createWalls());
         map.setKey(createKey());
+        map.setDoor(createDoor());
         //map.setPotionLocations(potionLocations);
         return map;
     }
@@ -115,6 +116,16 @@ public class MapBuilder {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'K')
                     return new Key(new Position(x, y));
+            }
+        }
+        return null;
+    }
+
+    private Door createDoor() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (linesMap.get(y).charAt(x) == 'D')
+                    return new Door(new Position(x, y));
             }
         }
         return null;

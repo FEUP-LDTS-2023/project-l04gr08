@@ -14,6 +14,7 @@ public class Map {
     private List<BatEnemy> bEnemies;
     private List<Wall> walls;
     private Key key;
+    private Door door;
     private boolean[][] potionLocations;
 
     public Map (int currentLevel) {
@@ -104,6 +105,9 @@ public class Map {
     public boolean isKey(Position position) {
         return key.getPosition().equals(position);
     }
+    public boolean isDoor(Position position) {
+        return door.equals(position);
+    }
 
     public boolean Grounded() {
         Position floorPosition = new Position(mari.getPosition());
@@ -116,6 +120,13 @@ public class Map {
         return false;
     }
 
+    public void setDoor(Door door) {
+        this.door = door;
+    }
+
+    public Door getDoor() {
+        return door;
+    }
     /*
     public void setPotionLocations(boolean[][] potionLocations) {
         this.potionLocations = potionLocations;
@@ -131,4 +142,5 @@ public class Map {
     }
 
      */
+
 }

@@ -67,8 +67,9 @@ public class MariController extends LevelController {
             getModel().getMari().setPosition(position);
             if (getModel().isEnemy(position)) getModel().getMari().decreaseLives();
             if (getModel().isKey(position)) getModel().getMari().setWithKey();
-            //if (getModel().isDoor(position) && getModel().getMari().getWithKey()) {
-                // NEXT LEVEL -> getModel().getCurrentLevel().setWin(true);
+            if (getModel().isDoor(position) && getModel().getMari().getWithKey()) {
+                getModel().setCurrentLevel(getModel().getCurrentLevel()+ 1);
+            }
         }
 
     }

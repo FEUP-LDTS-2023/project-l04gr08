@@ -28,7 +28,7 @@ public class LanternaGUI implements GUI{
     }
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont(18);
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont(9);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
@@ -134,6 +134,10 @@ public class LanternaGUI implements GUI{
         //drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
     }
 
+    @Override
+    public void drawDoor(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'D', "#DFD928", "#DFD928");
+    }
 
     public void drawMenuElements() throws IOException {
         TextGraphics tg = screen.newTextGraphics();
@@ -230,6 +234,7 @@ public class LanternaGUI implements GUI{
     public void drawMap(Map map) {
         Mari mari = map.getMari();
         Key key = map.getKey();
+        Door door = map.getDoor();
         for (int y = 0; y < map.getHeight(); y++) {
             for (int x = 0; x < map.getWidth(); x++) {
                 Position currentPosition = new Position(x, y);
@@ -238,6 +243,9 @@ public class LanternaGUI implements GUI{
                 }
                 else if (key != null && key.getPosition().equals(currentPosition)) {
                     drawKey(currentPosition);
+                }
+                else if (door != null && door.getPosition().equals(currentPosition)){
+                    drawDoor(currentPosition);
                 }
                 else {
                     for (GhostEnemy enemy : map.getGhostEnemies()) {

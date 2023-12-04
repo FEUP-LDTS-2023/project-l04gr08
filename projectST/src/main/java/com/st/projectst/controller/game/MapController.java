@@ -3,6 +3,8 @@ package com.st.projectst.controller.game;
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.game.Map;
+import com.st.projectst.model.menu.Start;
+import com.st.projectst.states.StartState;
 
 import java.io.IOException;
 
@@ -21,7 +23,7 @@ public class MapController extends LevelController{
 
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
         if (action == GUI.ACTION.QUIT || getModel().getMari().getRemainingLives() == 0){
-            //main.setState(new MenuState(new Menu()));
+            main.setState(new StartState(new Start(0)));
         }
         else {
             mariController.step(main, action, time);
