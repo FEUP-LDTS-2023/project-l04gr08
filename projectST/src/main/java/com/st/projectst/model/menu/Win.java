@@ -39,7 +39,7 @@ public class Win {
         return isSelected(1);
     }
 
-    public int getNumberOptions() {
+    public int getNumber() {
         return this.options.size();
     }
 

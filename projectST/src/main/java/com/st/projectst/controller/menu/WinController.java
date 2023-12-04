@@ -31,7 +31,7 @@ public class WinController extends Controller<Win> {
                 break;
             case SELECT:
                 if (getModel().isSelectedGoBackToLevels()) {
-                    main.setState(new LevelState(new Map(0)));
+                    main.setState(new StartState(new Start(0)));
                 }
                 if (getModel().isSelectedContinue()){
                     int nextLevel = level.getCurrentLevel() + 1;

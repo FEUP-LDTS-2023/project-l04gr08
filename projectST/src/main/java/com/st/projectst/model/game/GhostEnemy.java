@@ -11,11 +11,9 @@ public class GhostEnemy extends Enemy {
         super(position);
     }
     @Override
-    public void move() {
+    public Position move() {
+        Position newPosition = new Position(getPosition());
+        return newPosition.getRandomHorizontal();
     }
-    @Override
-    public void draw(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.ANSI.BLUE);
-        graphics.putString(new TerminalPosition((int) getPosition().getX(), (int) getPosition().getY()), "G");
-    }
+
 }

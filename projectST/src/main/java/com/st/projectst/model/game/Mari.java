@@ -3,8 +3,11 @@ package com.st.projectst.model.game;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.st.projectst.model.game.EnemyObserver;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.game.GameObject;
+
+import java.util.List;
 
 public class Mari extends GameObject {
     private double speedX;
@@ -27,12 +30,8 @@ public class Mari extends GameObject {
         remainingJumps = MAX_JUMPS;
     }
 
-    public void moveRight() {
-        getPosition().setX( getPosition().getX() + (1 * speedX));
-    }
-    public void moveLeft() {
-        getPosition().setX( getPosition().getX() - (1 * speedX));
-    }
+    //public void moveRight() { getPosition().setX( getPosition().getX() + (1 * speedX)); }
+    //public void moveLeft() { getPosition().setX( getPosition().getX() - (1 * speedX)); }
     public void jump() {
         if (!isJumping && isGrounded)
             isJumping = true;
@@ -75,16 +74,11 @@ public class Mari extends GameObject {
     public boolean getIsJumping() {return isJumping;}
     public int getJumpCounter() {return jumpCounter;}
 
-    @Override
-    public void draw(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.ANSI.CYAN);
-        graphics.putString(new TerminalPosition((int) getPosition().getX(), (int) getPosition().getY()), " ");
-    }
-
     public boolean getGrounded() {
         return isGrounded;
     }
     public void setGrounded(boolean grounded) {
         isGrounded = grounded;
     }
+
 }

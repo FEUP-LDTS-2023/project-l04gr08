@@ -1,6 +1,7 @@
 package com.st.projectst.viewer.game;
 
 import com.st.projectst.gui.GUI;
+import com.st.projectst.model.Position;
 import com.st.projectst.model.game.GameObject;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.viewer.Viewer;
@@ -16,6 +17,8 @@ public class LevelViewer extends Viewer<Map> {
 
     @Override
     public void drawObject(GUI gui) throws IOException, FontFormatException {
+        gui.drawText(new Position(1, 1), "Lives", "#FFFFFF");
+        gui.drawText(new Position(1, 4), "" + getModel().getMari().getRemainingLives(), "#FFFFFF");
         drawGameObject(gui, getModel().getMari(), new MariViewer());
         drawGameObjects(gui, getModel().getWalls(), new WallViewer());
         drawGameObjects(gui, getModel().getBatEnemies(), new BatEnemyViewer());

@@ -12,6 +12,7 @@ public class Map {
     private Mari mari;
     private List<GhostEnemy> gEnemies;
     private List<BatEnemy> bEnemies;
+    private List<Trap> traps;
     private List<Wall> walls;
     private Key key;
     private Door door;
@@ -91,6 +92,15 @@ public class Map {
                 return false;
         return true;
     }
+    public boolean verifyTrap(Position position) {
+        for (Trap trap : traps){
+            if (trap.getPosition().equals(position)) {
+                trap.notifyObservers();
+                return true;
+            }
+        }
+        return false;
+    }
 
     public boolean isEnemy(Position position) {
         for (GhostEnemy enemy : getGhostEnemies())
@@ -111,13 +121,21 @@ public class Map {
 
     public boolean Grounded() {
         Position floorPosition = new Position(mari.getPosition());
-        floorPosition.setY(floorPosition.getY()+1);
+        floorPosition.setY(floorPosition.getY()+8);
 
         for (Wall wall : walls)
             if (wall.getPosition().equals(floorPosition))
                 return true;
 
         return false;
+    }
+
+    public List<Trap> getTraps() {
+        return traps;
+    }
+
+    public void setTraps(List<Trap> traps) {
+        this.traps = traps;
     }
 
     public void setDoor(Door door) {
@@ -127,6 +145,7 @@ public class Map {
     public Door getDoor() {
         return door;
     }
+
     /*
     public void setPotionLocations(boolean[][] potionLocations) {
         this.potionLocations = potionLocations;

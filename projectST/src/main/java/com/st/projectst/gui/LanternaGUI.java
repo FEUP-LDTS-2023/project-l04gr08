@@ -28,7 +28,7 @@ public class LanternaGUI implements GUI{
     }
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont(9);
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont(15);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
@@ -100,7 +100,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMari(Position position) {
-        drawImage(position, "mari1.png", 1.7);
+        drawImage(position, "mari1.png", 1.6);
         //drawCharacter((int) position.getX(), (int) position.getY(), 'M', "#3774D8");
     }
 
@@ -141,7 +141,6 @@ public class LanternaGUI implements GUI{
 
     public void drawMenuElements() throws IOException {
         setBackgroundColor("#BA6156");
-        screen.refresh();
         drawImage(new Position(20, 3), "key.png", 1);
     }
 
@@ -185,7 +184,6 @@ public class LanternaGUI implements GUI{
                 }
             }
         }
-
     }
 
 
@@ -285,4 +283,5 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void close() throws IOException { screen.close(); }
+
 }
