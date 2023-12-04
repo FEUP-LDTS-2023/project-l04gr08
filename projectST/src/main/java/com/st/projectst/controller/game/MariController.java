@@ -10,17 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MariController extends LevelController {
-    private List<EnemyObserver> observers;
     public MariController(Map map) {
         super(map);
-        observers = new ArrayList<>();
-        BatEnemyController batEnemyController = new BatEnemyController(map);
-        addObserver(batEnemyController);
     }
 
-    private void addObserver(EnemyObserver observer) {
-        observers.add(observer);
-    }
 
     public void moveMariRight() {
         moveMari(getModel().getMari().getPosition().getRight());
@@ -51,23 +44,21 @@ public class MariController extends LevelController {
 
         mari.jump();
         moveMari(currentPosition);
-        notifyObservers(currentPosition);
+        //notifyObservers(currentPosition);
 
         // Regular jump logic when mari is not touching a potion or no remaining jumps
     }
 
-    private void notifyObservers(Position position) {
-        for (EnemyObserver observer : observers) {
-            observer.updateOnMariCross(position);
-        }
-    }
-
     private void moveMari(Position position) {
+
         if (getModel().isEmpty(position)) {
             getModel().getMari().setPosition(position);
+
+            getModel().verifyTrap(position);
+
             if (getModel().isEnemy(position)) getModel().getMari().decreaseLives();
             if (getModel().isKey(position)) getModel().getMari().setWithKey();
-            //if (getModel().isDoor(position) && getModel().getMari().getWithKey()) {
+            //if (getModel().getMari().isDoor() && getModel().getMari().getWithKey()) {
                 // NEXT LEVEL -> getModel().getCurrentLevel().setWin(true);
         }
 

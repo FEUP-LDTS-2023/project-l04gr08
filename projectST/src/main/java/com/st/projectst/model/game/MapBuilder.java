@@ -35,6 +35,7 @@ public class MapBuilder {
         map.setBatEnemies(createBatEnemies());
         map.setWalls(createWalls());
         map.setKey(createKey());
+        map.setTraps(createTraps(map));
         //map.setPotionLocations(potionLocations);
         return map;
     }
@@ -118,6 +119,19 @@ public class MapBuilder {
             }
         }
         return null;
+    }
+    private List<Trap> createTraps(Map map) {
+        List<Trap> traps = new ArrayList<>();
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (linesMap.get(y).charAt(x) == 'X') {
+                    Trap newTrap = new Trap(new Position(x,y));
+                    newTrap.addObserver(map.getBatEnemies().get(traps.size()));
+                    traps.add(newTrap);
+                }
+            }
+        }
+        return traps;
     }
 
     private void initializePotionLocations() {

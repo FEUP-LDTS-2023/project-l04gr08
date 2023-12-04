@@ -73,4 +73,14 @@ public class Position {
                 return getLeft();
         }
     }
+
+    public Position getRandomHorizontal() {
+        int n = (int) (Math.random() * 2);
+        switch (n) {
+            case 0:
+                return getRight();
+            default:
+                return getLeft();
+        }
+    }
 }

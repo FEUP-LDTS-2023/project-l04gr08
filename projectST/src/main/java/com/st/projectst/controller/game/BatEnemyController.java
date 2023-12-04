@@ -3,13 +3,12 @@ package com.st.projectst.controller.game;
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.game.BatEnemy;
-import com.st.projectst.controller.game.EnemyObserver;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.Position;
 
 import java.io.IOException;
 
-public class BatEnemyController extends LevelController implements EnemyObserver{
+public class BatEnemyController extends LevelController{
     private long lastMove;
 
     public BatEnemyController(Map map) {
@@ -19,11 +18,16 @@ public class BatEnemyController extends LevelController implements EnemyObserver
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
+
+        /*
         if (time - lastMove > 500) {
             for (BatEnemy enemy : getModel().getBatEnemies())
-                moveBEnemy(enemy, enemy.getPosition().getRandomNeighbour());
+                enemy.updateOnMariCross();
+                //moveBEnemy(enemy, enemy.getPosition().getRandomNeighbour());
             this.lastMove = time;
         }
+
+         */
     }
 
     private void moveBEnemy(BatEnemy enemy, Position position) {
@@ -34,8 +38,10 @@ public class BatEnemyController extends LevelController implements EnemyObserver
         }
     }
 
+    /*
     @Override
     public void updateOnMariCross(Position position) {
+
         for (BatEnemy enemy : getModel().getBatEnemies()) {
             Position enemyPosition = enemy.getPosition();
             // Assuming the BatEnemy moves towards Mari when she crosses a specific position
@@ -69,5 +75,5 @@ public class BatEnemyController extends LevelController implements EnemyObserver
             }
         }
     }
-
+*/
 }

@@ -1,21 +1,22 @@
 package com.st.projectst.model.game;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.st.projectst.model.Position;
-import com.st.projectst.model.game.Enemy;
 
-public class BatEnemy extends Enemy {
+
+public class BatEnemy extends Enemy implements EnemyObserver {
+    private boolean attack;
+    private Position initalPosition;
+    private Position trapPosition;
+
     public BatEnemy(Position position) {
         super(position);
     }
     @Override
-    public void move() {
+    public void move(Position position) {
+        setPosition(new Position(0,0));
     }
     @Override
-    public void draw(TextGraphics graphics) {
-        graphics.setBackgroundColor(TextColor.ANSI.GREEN_BRIGHT);
-        graphics.putString(new TerminalPosition((int) getPosition().getX(), (int) getPosition().getY()), "B");
+    public void update(Trap trap) {
+        move(trap.getPosition());
     }
 }
