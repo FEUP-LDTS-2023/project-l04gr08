@@ -8,8 +8,8 @@ import com.st.projectst.viewer.Viewer;
 import com.st.projectst.viewer.menu.WinViewer;
 
 public class WinState extends State<Win>{
-    private Map level;
-    public WinState(Win win, Map level) {
+    private int level;
+    public WinState(Win win, int level) {
         super(win);
         this.level = level;
     }

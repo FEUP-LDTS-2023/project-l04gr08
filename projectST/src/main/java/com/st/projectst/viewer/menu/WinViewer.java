@@ -15,12 +15,16 @@ public class WinViewer extends Viewer<Win> {
 
     @Override
     public void drawObject(GUI gui) throws IOException, FontFormatException {
+        gui.setBackgroundColor("#BA6156");
+        gui.drawImage(new Position(20, 2), "sword.png", 1.5);
+        gui.drawText(new Position(5, 5), " *** Level Complete *** ", "#FFFFFF");
 
-        for (int i = 0; i < getModel().getNumber(); i++)
+        for (int i = 0; i < getModel().getNumber(); i++){
             gui.drawText(
-                    new Position(0, 0),
+                    new Position(5, 10 + i),
                     getModel().getOption(i),
-                    getModel().isSelected(i) ? "#FFA212" : "#000000");
+                    getModel().isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        }
     }
 
 }

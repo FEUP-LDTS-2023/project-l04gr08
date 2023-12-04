@@ -8,7 +8,7 @@ public class Win {
     private int currentOption = 0;
 
     public Win() {
-        this.options = Arrays.asList(" Go Back ", "Continue");
+        this.options = Arrays.asList(" Go Back ", "Next Level");
     }
 
     public void nextOption() {

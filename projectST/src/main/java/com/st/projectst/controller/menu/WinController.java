@@ -14,8 +14,8 @@ import com.st.projectst.states.StartState;
 import java.io.IOException;
 
 public class WinController extends Controller<Win> {
-    private Map level;
-    public WinController(Win win, Map level) {
+    private int level;
+    public WinController(Win win, int level) {
         super(win);
         this.level = level;
     }
@@ -33,13 +33,14 @@ public class WinController extends Controller<Win> {
                 if (getModel().isSelectedGoBackToLevels()) {
                     main.setState(new StartState(new Start(0)));
                 }
-                if (getModel().isSelectedContinue()){
-                    int nextLevel = level.getCurrentLevel() + 1;
-                    if (nextLevel == 3){
+                else if (getModel().isSelectedContinue()){
+                    if (level == 3){
                         // Go back to the beginning of the game
                         main.setState(new StartState(new Start(0)));
                     }
-                    main.setState(new LevelState(new MapBuilder(nextLevel).buildMap()));
+                    else{
+                        main.setState(new LevelState(new MapBuilder(level+2).buildMap()));
+                    }
                 }
         }
     }
