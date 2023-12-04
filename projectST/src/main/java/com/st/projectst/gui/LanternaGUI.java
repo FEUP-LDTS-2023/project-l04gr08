@@ -118,7 +118,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawWall(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#808080");
+        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E");
         /*
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, "#808080");
@@ -152,9 +152,10 @@ public class LanternaGUI implements GUI{
     }
 
 
-    private void drawCharacter(int x, int y, char c, String color) {
+    private void drawCharacter(int x, int y, char c, String color, String back) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(back));
         tg.putString(x, y, "" + c);
     }
 
