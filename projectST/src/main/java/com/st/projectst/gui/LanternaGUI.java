@@ -16,12 +16,9 @@ import com.st.projectst.model.game.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class LanternaGUI implements GUI{
     private Screen screen;
@@ -109,12 +106,14 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawGhostEnemy(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'G', "#CC0000");
+        drawImage(position, "ghost.png", 1.7);
+        //drawCharacter((int) position.getX(), (int) position.getY(), 'G', "#CC0000");
     }
 
     @Override
     public void drawBatEnemy(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'B', "#CC0000");
+        drawImage(position, "bat.png", 1.6);
+        //drawCharacter((int) position.getX(), (int) position.getY(), 'B', "#CC0000");
     }
 
     @Override
@@ -131,7 +130,8 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawKey(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
+        drawImage(position, "miniKey.png", 1);
+        //drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
     }
 
 
