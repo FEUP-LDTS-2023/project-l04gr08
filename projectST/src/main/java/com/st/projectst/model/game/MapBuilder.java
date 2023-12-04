@@ -36,6 +36,7 @@ public class MapBuilder {
         map.setWalls(createWalls());
         map.setKey(createKey());
         map.setTraps(createTraps(map));
+        map.setDoor(createDoor());
         //map.setPotionLocations(potionLocations);
         return map;
     }
@@ -132,6 +133,16 @@ public class MapBuilder {
             }
         }
         return traps;
+    }
+
+    private Door createDoor() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (linesMap.get(y).charAt(x) == 'D')
+                    return new Door(new Position(x, y));
+            }
+        }
+        return null;
     }
 
     private void initializePotionLocations() {

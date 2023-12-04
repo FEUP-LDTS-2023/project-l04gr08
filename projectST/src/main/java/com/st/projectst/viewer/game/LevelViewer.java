@@ -24,6 +24,7 @@ public class LevelViewer extends Viewer<Map> {
         drawGameObjects(gui, getModel().getBatEnemies(), new BatEnemyViewer());
         drawGameObjects(gui, getModel().getGhostEnemies(), new GhostEnemyViewer());
         drawGameObject(gui, getModel().getKey(), new KeyViewer());
+        drawGameObject(gui, getModel().getDoor(), new DoorViewer());
     }
 
     private <T extends GameObject> void drawGameObjects(GUI gui, List<T> gameObjects, GameObjectViewer<T> viewer) throws IOException, FontFormatException {
