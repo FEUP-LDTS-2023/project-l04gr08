@@ -18,7 +18,7 @@ public class InstructionsController extends Controller<Instructions> {
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
         switch (action) {
             case SELECT:
-                if (getModel().isSelectedBack()) main.setState(new StartState(new Start(1)));
+                if (getModel().isSelectedBack()) main.setState(new StartState(new Start(0)));
                 break;
         }
     }

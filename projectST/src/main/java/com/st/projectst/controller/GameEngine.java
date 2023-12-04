@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class GameEngine {
+    /*
 
     private static Screen screen;
     private static TextGraphics graphics;
@@ -133,6 +134,6 @@ public class GameEngine {
         GameEngine gameEngine = new GameEngine(80, 24);
         gameEngine.run();
     }
-
+*/
 
 }

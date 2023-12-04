@@ -16,12 +16,9 @@ import com.st.projectst.model.game.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class LanternaGUI implements GUI{
     private Screen screen;
@@ -31,7 +28,7 @@ public class LanternaGUI implements GUI{
     }
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont(18);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
@@ -59,14 +56,14 @@ public class LanternaGUI implements GUI{
         return terminal;
     }
 
-    private AWTTerminalFontConfiguration loadSquareFont() throws FontFormatException, IOException {
+    private AWTTerminalFontConfiguration loadSquareFont(int fontSize) throws FontFormatException, IOException {
         InputStream fontStream = getClass().getClassLoader().getResourceAsStream("Super Mario Bros. 2.ttf");
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontStream);
 
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
 
-        Font loadedFont = font.deriveFont(Font.PLAIN, 26);
+        Font loadedFont = font.deriveFont(Font.PLAIN, fontSize);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
     }
@@ -103,23 +100,25 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMari(Position position) {
-        //drawImage(position, "mari1.png");
-        drawCharacter((int) position.getX(), (int) position.getY(), 'M', "#3774D8");
+        drawImage(position, "mari1.png", 1.7);
+        //drawCharacter((int) position.getX(), (int) position.getY(), 'M', "#3774D8");
     }
 
     @Override
     public void drawGhostEnemy(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'G', "#CC0000");
+        drawImage(position, "ghost.png", 1.7);
+        //drawCharacter((int) position.getX(), (int) position.getY(), 'G', "#CC0000");
     }
 
     @Override
     public void drawBatEnemy(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'B', "#CC0000");
+        drawImage(position, "bat.png", 1.6);
+        //drawCharacter((int) position.getX(), (int) position.getY(), 'B', "#CC0000");
     }
 
     @Override
     public void drawWall(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#808080");
+        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E");
         /*
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, "#808080");
@@ -131,7 +130,8 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawKey(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
+        drawImage(position, "miniKey.png", 1);
+        //drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
     }
 
 
@@ -139,7 +139,7 @@ public class LanternaGUI implements GUI{
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, "#BA6156");
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
-        drawImage(new Position(20, 3), "key.png");
+        drawImage(new Position(20, 3), "key.png", 1);
     }
 
 
@@ -151,13 +151,16 @@ public class LanternaGUI implements GUI{
     }
 
 
-    private void drawCharacter(int x, int y, char c, String color) {
+    private void drawCharacter(int x, int y, char c, String color, String back) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(back));
         tg.putString(x, y, "" + c);
     }
-    public void drawImage(Position pos, String filename) {
-        BufferedImage image = loadImage(filename);
+
+
+    public void drawImage(Position pos, String filename, double value) {
+        BufferedImage image = loadImage(filename, value);
         TextGraphics tg = screen.newTextGraphics();
 
         Color backgroundColor = new Color(image.getRGB(0, 0));
@@ -173,6 +176,7 @@ public class LanternaGUI implements GUI{
                 }
             }
         }
+
     }
 
 
@@ -191,13 +195,13 @@ public class LanternaGUI implements GUI{
     }
 
 
-    public BufferedImage loadImage(String filename) {
+    public BufferedImage loadImage(String filename, double value) {
         try (InputStream imageStream = getClass().getResourceAsStream("/" + filename)) {
             if (imageStream != null) {
                 BufferedImage originalImage = ImageIO.read(imageStream);
 
-                int targetWidth = originalImage.getWidth();
-                int targetHeight = originalImage.getHeight();
+                int targetWidth = (int) (originalImage.getWidth() / value);
+                int targetHeight = (int) (originalImage.getHeight() /value);
                 double aspectRatio = (double) targetWidth / targetHeight;
 
                 int newWidth = targetWidth;
