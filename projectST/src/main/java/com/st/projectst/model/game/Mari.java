@@ -7,31 +7,40 @@ import com.st.projectst.model.Position;
 import com.st.projectst.model.game.GameObject;
 
 public class Mari extends GameObject {
-    private static final int screenHeight = 17;
     private double speedX;
-    private double speedY;
     private int remainingLives;
     private boolean withKey;
     private boolean isJumping;
+    private boolean isGrounded;
     private int jumpCounter;
     private int remainingJumps;
     private static final int MAX_JUMPS = 2;
 
     public Mari(Position position) {
         super(position);
-        speedX = 1; speedY = 0;
+        speedX = 1;
         remainingLives = 3;
         withKey = false;
         isJumping = false;
+        isGrounded = false;
         jumpCounter = 0;
         remainingJumps = MAX_JUMPS;
     }
 
-    public void moveRight() {getPosition().setX( getPosition().getX() + (1 * speedX));}
-    public void moveLeft() {getPosition().setX( getPosition().getX() - (1 * speedX));}
+    public void moveRight() {
+        getPosition().setX( getPosition().getX() + (1 * speedX));
+    }
+    public void moveLeft() {
+        getPosition().setX( getPosition().getX() - (1 * speedX));
+    }
+    public void jump() {
+        if (!isJumping && isGrounded)
+            isJumping = true;
+    }
 
     public void update() {
         if (isJumping) {
+            isGrounded = false;
             getPosition().setY(getPosition().getY()-1);
             jumpCounter++;
 
@@ -39,20 +48,18 @@ public class Mari extends GameObject {
                 isJumping = false;
                 jumpCounter = 0;
             }
-        } else if (getPosition().getY() < screenHeight - 1) {
-            getPosition().setY(getPosition().getY()+1);
-        }
-    }
 
-    public void jump() {
-        if (!isJumping) {
-            isJumping = true;
+        }
+        else if (!isGrounded) {
+            getPosition().setY(getPosition().getY()+1);
         }
     }
 
     public void decreaseLives() {
         this.remainingLives--;
     }
+    public void setWithKey() { this.withKey = true; }
+    public boolean getWithKey() { return withKey; }
 
     public int getRemainingLives() {
         return remainingLives;
@@ -72,5 +79,12 @@ public class Mari extends GameObject {
     public void draw(TextGraphics graphics) {
         graphics.setBackgroundColor(TextColor.ANSI.CYAN);
         graphics.putString(new TerminalPosition((int) getPosition().getX(), (int) getPosition().getY()), " ");
+    }
+
+    public boolean getGrounded() {
+        return isGrounded;
+    }
+    public void setGrounded(boolean grounded) {
+        isGrounded = grounded;
     }
 }

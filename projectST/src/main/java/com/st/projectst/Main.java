@@ -28,7 +28,7 @@ public class Main {
 
     private void start() throws IOException, FontFormatException {
         int FPS = 10;
-        int frameTime = 1000 / FPS;
+        int frameTime = 400 / FPS;
 
         while (this.state != null) {
             long startTime = System.currentTimeMillis();

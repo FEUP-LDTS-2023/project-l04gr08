@@ -139,7 +139,6 @@ public class LanternaGUI implements GUI{
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, "#BA6156");
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
-        screen.refresh();
         drawImage(new Position(20, 3), "key.png", 1);
     }
 
@@ -177,6 +176,7 @@ public class LanternaGUI implements GUI{
                 }
             }
         }
+
     }
 
 

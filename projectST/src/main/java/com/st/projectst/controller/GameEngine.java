@@ -18,6 +18,7 @@ import java.util.Objects;
 
 public class GameEngine {
     /*
+
     private static Screen screen;
     private static TextGraphics graphics;
     private Terminal terminal;
@@ -30,7 +31,7 @@ public class GameEngine {
     private Map gameMap;
     private String[] imagePaths = {"mari1.png", "mari3.png", "mari4.png"};
     private int currentImageIndex = 0;
-    private final MapBuilder mapBuilder = new MapBuilder();
+
     private LanternaGUI lanternaGUI;
 
 
@@ -44,9 +45,9 @@ public class GameEngine {
             screenWidth = width;
             screenHeight = height;
 
-            MapBuilder mapBuilder = new MapBuilder();
+            MapBuilder mapBuilder = new MapBuilder(1);
             String filePath = Objects.requireNonNull(MapBuilder.class.getClassLoader().getResource("levels/map1.txt")).getPath();
-            gameMap = mapBuilder.buildMap(filePath, 1);
+            gameMap = mapBuilder.buildMap();
 
             lanternaGUI = new LanternaGUI(screen);
             mariHeight = lanternaGUI.loadImage("mari1.png").getHeight();
@@ -133,6 +134,6 @@ public class GameEngine {
         GameEngine gameEngine = new GameEngine(80, 24);
         gameEngine.run();
     }
+*/
 
-     */
 }
