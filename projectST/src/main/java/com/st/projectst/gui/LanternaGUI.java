@@ -140,10 +140,15 @@ public class LanternaGUI implements GUI{
     }
 
     public void drawMenuElements() throws IOException {
-        TextGraphics tg = screen.newTextGraphics();
-        setTextColor(tg, "#BA6156");
-        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
+        setBackgroundColor("#BA6156");
+        screen.refresh();
         drawImage(new Position(20, 3), "key.png", 1);
+    }
+
+    public void setBackgroundColor(String color){
+        TextGraphics tg = screen.newTextGraphics();
+        setTextColor(tg, color);
+        tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
     }
 
 

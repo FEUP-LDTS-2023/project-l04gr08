@@ -19,6 +19,7 @@ public interface GUI {
     void drawKey(Position position);
     void drawDoor(Position position);
     void drawMenuElements() throws IOException, FontFormatException;
+    void setBackgroundColor(String color);
     void drawText(Position position, String text, String color);
     void drawImage(Position pos, String filename, double value) throws IOException, FontFormatException;
     void setBackgroundTransparent(TextGraphics tg);
