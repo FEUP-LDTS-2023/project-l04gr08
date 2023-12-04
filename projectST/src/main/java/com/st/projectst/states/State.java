@@ -5,6 +5,7 @@ import com.st.projectst.controller.Controller;
 import com.st.projectst.viewer.Viewer;
 import com.st.projectst.gui.GUI;
 
+import java.awt.*;
 import java.io.IOException;
 
 public abstract class State<T> {
@@ -24,7 +25,7 @@ public abstract class State<T> {
         return model;
     }
 
-    public void step(Main main, GUI gui, long time) throws IOException {
+    public void step(Main main, GUI gui, long time) throws IOException, FontFormatException {
         GUI.ACTION action = gui.getNextAction();
         controller.step(main, action, time);
         viewer.draw(gui);

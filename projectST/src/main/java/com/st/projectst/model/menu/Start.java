@@ -33,7 +33,7 @@ public class Start {
     public boolean isSelected(int i) {
         return currentOption == i;
     }
-    public String getEntry(int i) {
+    public String getOption(int i) {
         switch (i){
             case 0:
                 return "Start";
