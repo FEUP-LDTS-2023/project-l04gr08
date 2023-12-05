@@ -139,11 +139,6 @@ public class LanternaGUI implements GUI{
         drawCharacter((int) position.getX(), (int) position.getY(), 'D', "#DFD928", "#DFD928");
     }
 
-    public void drawMenuElements() throws IOException {
-        setBackgroundColor("#BA6156");
-        drawImage(new Position(20, 3), "key.png", 1);
-    }
-
     public void setBackgroundColor(String color){
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, color);

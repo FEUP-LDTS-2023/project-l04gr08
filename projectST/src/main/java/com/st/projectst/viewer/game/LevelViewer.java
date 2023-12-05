@@ -17,7 +17,15 @@ public class LevelViewer extends Viewer<Map> {
 
     @Override
     public void drawObject(GUI gui) throws IOException, FontFormatException {
-        gui.drawText(new Position(1, 1), "Lives", "#FFFFFF");
+        if (getModel().getMari().getRemainingLives() == 3){
+            gui.drawImage(new Position(1, -2), "life3.png", 1);
+        }
+        else if (getModel().getMari().getRemainingLives() == 2){
+            gui.drawImage(new Position(1, -2), "life2.png", 1);
+        }
+        else if (getModel().getMari().getRemainingLives() == 1){
+            gui.drawImage(new Position(1, -2), "life1.png", 1);
+        }
         gui.drawText(new Position(1, 4), "" + getModel().getMari().getRemainingLives(), "#FFFFFF");
         drawGameObject(gui, getModel().getMari(), new MariViewer());
         drawGameObjects(gui, getModel().getWalls(), new WallViewer());

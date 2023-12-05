@@ -12,12 +12,14 @@ import com.st.projectst.states.LevelState;
 import com.st.projectst.states.StartState;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class WinController extends Controller<Win> {
-    private Map level;
-    public WinController(Win win, Map level) {
+
+    public WinController(Win win) {
         super(win);
-        this.level = level;
     }
 
     @Override
@@ -33,13 +35,20 @@ public class WinController extends Controller<Win> {
                 if (getModel().isSelectedGoBackToLevels()) {
                     main.setState(new StartState(new Start(0)));
                 }
-                if (getModel().isSelectedContinue()){
-                    int nextLevel = level.getCurrentLevel() + 1;
-                    if (nextLevel == 3){
+                else if (getModel().isSelectedContinue()){
+                    if (getModel().getLevel() == 4){
                         // Go back to the beginning of the game
                         main.setState(new StartState(new Start(0)));
                     }
-                    main.setState(new LevelState(new MapBuilder(nextLevel).buildMap()));
+                    else if (getModel().getLevel() == 3){
+                        main.setState(new LevelState(new MapBuilder(3).buildMap()));
+                    }
+                    else if (getModel().getLevel() == 2){
+                        main.setState(new LevelState(new MapBuilder(2).buildMap()));
+                    }
+                    else if (getModel().getLevel() == 1){
+                        main.setState(new LevelState(new MapBuilder(1).buildMap()));
+                    }
                 }
         }
     }

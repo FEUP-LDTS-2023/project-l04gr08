@@ -8,15 +8,13 @@ import com.st.projectst.viewer.Viewer;
 import com.st.projectst.viewer.menu.WinViewer;
 
 public class WinState extends State<Win>{
-    private Map level;
-    public WinState(Win win, Map level) {
+    public WinState(Win win) {
         super(win);
-        this.level = level;
     }
 
     @Override
     protected Controller<Win> getController() {
-        return new WinController(getModel(), level);
+        return new WinController(getModel());
     }
     @Override
     protected Viewer<Win> getViewer() {

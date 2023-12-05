@@ -36,7 +36,12 @@ public class StartController extends Controller<Start> {
                     main.setGui(gui);
                     main.setState(new LevelState(new MapBuilder(1).buildMap()));
                 }
-                else if (getModel().isSelectedInstructions()) main.setState(new InstructionsState(new Instructions()));
+                else if (getModel().isSelectedInstructions()) {
+                    main.getGui().close();
+                    LanternaGUI gui = new LanternaGUI(74, 40, 13);
+                    main.setGui(gui);
+                    main.setState(new InstructionsState(new Instructions()));
+                }
                 else if (getModel().isSelectedExit()) main.setState(null);
 
         }
