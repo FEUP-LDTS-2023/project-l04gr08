@@ -30,8 +30,7 @@ public class MapController extends LevelController{
             main.setState(new StartState(new Start(0)));
         }
         else if (getModel().getDoor().getPosition().equals(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
-            int level= getModel().getCurrentLevel();
-            main.setState(new WinState(new Win(), level));
+            main.setState(new WinState(new Win(getModel().getCurrentLevel()+1)));
         }
         else if (getModel().getMari().getRemainingLives() == 0){
             main.setState(new GameOverState(new GameOver()));
