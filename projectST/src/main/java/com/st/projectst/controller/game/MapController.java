@@ -3,8 +3,10 @@ package com.st.projectst.controller.game;
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.game.Map;
+import com.st.projectst.model.menu.GameOver;
 import com.st.projectst.model.menu.Start;
 import com.st.projectst.model.menu.Win;
+import com.st.projectst.states.GameOverState;
 import com.st.projectst.states.StartState;
 import com.st.projectst.states.WinState;
 
@@ -24,12 +26,14 @@ public class MapController extends LevelController{
     }
 
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getMari().getRemainingLives() == 0){
+        if (action == GUI.ACTION.QUIT){
             main.setState(new StartState(new Start(0)));
         }
-        if (getModel().getDoor().getPosition().equals(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
-            int level = getModel().getCurrentLevel();
-            main.setState(new WinState(new Win(), getModel()));
+        else if (getModel().getDoor().getPosition().equals(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
+            main.setState(new WinState(new Win(getModel().getCurrentLevel()+1)));
+        }
+        else if (getModel().getMari().getRemainingLives() == 0){
+            main.setState(new GameOverState(new GameOver()));
         }
         else {
             mariController.step(main, action, time);
