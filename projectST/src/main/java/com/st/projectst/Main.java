@@ -14,7 +14,7 @@ public class Main {
     private State state;
 
     public Main() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(79, 31);
+        this.gui = new LanternaGUI(40, 20, 24);
         this.state = new StartState(new Start(0));
     }
 
@@ -22,11 +22,13 @@ public class Main {
         new Main().start();
     }
 
+    public LanternaGUI getGui() { return this.gui; }
+    public void setGui(LanternaGUI gui) { this.gui = gui; }
     public void setState(State state) {
         this.state = state;
     }
 
-    private void start() throws IOException, FontFormatException {
+    private void start() throws IOException, FontFormatException, URISyntaxException {
         int FPS = 10;
         int frameTime = 400 / FPS;
 
