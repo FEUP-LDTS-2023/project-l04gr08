@@ -27,8 +27,8 @@ public class LanternaGUI implements GUI{
         this.screen = screen;
     }
 
-    public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
-        AWTTerminalFontConfiguration fontConfig = loadSquareFont(15);
+    public LanternaGUI(int width, int height, int size) throws IOException, FontFormatException, URISyntaxException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont(size);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
@@ -100,19 +100,19 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawMari(Position position) {
-        drawImage(position, "mari1.png", 1.6);
+        drawImage(position, "mari1.png", 1);
         //drawCharacter((int) position.getX(), (int) position.getY(), 'M', "#3774D8");
     }
 
     @Override
     public void drawGhostEnemy(Position position) {
-        drawImage(position, "ghost.png", 1.7);
+        drawImage(position, "ghost.png", 1);
         //drawCharacter((int) position.getX(), (int) position.getY(), 'G', "#CC0000");
     }
 
     @Override
     public void drawBatEnemy(Position position) {
-        drawImage(position, "bat.png", 1.6);
+        drawImage(position, "bat.png", 1);
         //drawCharacter((int) position.getX(), (int) position.getY(), 'B', "#CC0000");
     }
 
@@ -137,11 +137,6 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawDoor(Position position) {
         drawCharacter((int) position.getX(), (int) position.getY(), 'D', "#DFD928", "#DFD928");
-    }
-
-    public void drawMenuElements() throws IOException {
-        setBackgroundColor("#BA6156");
-        drawImage(new Position(20, 3), "key.png", 1);
     }
 
     public void setBackgroundColor(String color){

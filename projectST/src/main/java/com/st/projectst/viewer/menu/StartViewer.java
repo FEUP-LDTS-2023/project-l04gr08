@@ -15,7 +15,9 @@ public class StartViewer extends Viewer<Start> {
 
     @Override
     public void drawObject(GUI gui) throws IOException, FontFormatException {
-        gui.drawMenuElements();
+        gui.setBackgroundColor("#BA6156");
+        gui.drawImage(new Position(22, 3), "key.png", 1);
+
         gui.drawText(new Position(5, 5), "Searching For", "#FFFFFF");
         gui.drawText(new Position(5, 6), "   Key-Ty    ", "#DAA520");
 

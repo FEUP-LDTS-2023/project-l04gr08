@@ -3,7 +3,9 @@ package com.st.projectst.controller;
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public abstract class Controller<T> {
     private final T model;
@@ -16,5 +18,5 @@ public abstract class Controller<T> {
         return model;
     }
 
-    public abstract void step(Main game, GUI.ACTION action, long time) throws IOException;
+    public abstract void step(Main game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException;
 }
