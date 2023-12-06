@@ -14,10 +14,14 @@ public class BatEnemy extends Enemy implements EnemyObserver {
         if (getPosition().getY()<FinalPosition.getY()) {
             newPosition.setY(newPosition.getY()+3);
         }
+        else
+            newPosition.setY(FinalPosition.getY());
         return newPosition;
     }
     @Override
     public void update(Trap trap) {
-        this.FinalPosition = trap.getPosition();
+        Position FinalP = new Position(trap.getPosition());
+        FinalP.setY(trap.getPosition().getY()-13);
+        this.FinalPosition = FinalP;
     }
 }

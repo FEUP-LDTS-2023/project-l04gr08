@@ -113,30 +113,24 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawBatEnemy(Position position) {
         drawImage(position, "bat.png", 1);
-        //drawCharacter((int) position.getX(), (int) position.getY(), 'B', "#CC0000");
     }
 
     @Override
     public void drawWall(Position position) {
         drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E");
-        /*
-        TextGraphics tg = screen.newTextGraphics();
-        setTextColor(tg, "#808080");
-
-        tg.putString((int) position.getX(), (int) position.getY(), "W");
-
-         */
     }
 
     @Override
     public void drawKey(Position position) {
         drawImage(position, "miniKey.png", 1);
-        //drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
     }
 
     @Override
     public void drawDoor(Position position) {
         drawCharacter((int) position.getX(), (int) position.getY(), 'D', "#DFD928", "#DFD928");
+    }
+    public void drawTrap(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E");
     }
 
     public void setBackgroundColor(String color){

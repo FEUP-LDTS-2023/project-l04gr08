@@ -32,7 +32,7 @@ public class MapController extends LevelController{
         if (action == GUI.ACTION.QUIT){
             main.setState(new StartState(new Start(0)));
         }
-        else if (getModel().getDoor().getPosition().equals(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
+        else if (getModel().isAtDoor(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(53, 27, 18);
             main.setGui(gui);
