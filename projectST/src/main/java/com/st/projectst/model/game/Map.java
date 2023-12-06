@@ -16,6 +16,7 @@ public class Map {
     private List<Wall> walls;
     private Key key;
     private Door door;
+    private Camera camera;
     private boolean[][] potionLocations;
 
     public Map (int currentLevel) {
@@ -146,6 +147,13 @@ public class Map {
         return door;
     }
 
+    public void setCamera(Camera camera) {
+        this.camera = camera;
+    }
+
+    public Camera getCamera() {
+        return camera;
+    }
     /*
     public void setPotionLocations(boolean[][] potionLocations) {
         this.potionLocations = potionLocations;
@@ -156,7 +164,7 @@ public class Map {
         double y = position.getY();
         if (x >= 0 && x < potionLocations.length && y >= 0 && y < potionLocations[0].length) {
             return potionLocations[(int) x][(int) y];
-        }
+        }c
         return false;
     }
 

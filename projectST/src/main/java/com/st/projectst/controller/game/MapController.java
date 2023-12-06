@@ -2,20 +2,26 @@ package com.st.projectst.controller.game;
 
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
+import com.st.projectst.gui.LanternaGUI;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.menu.GameOver;
+import com.st.projectst.model.menu.Pause;
 import com.st.projectst.model.menu.Start;
 import com.st.projectst.model.menu.Win;
 import com.st.projectst.states.GameOverState;
+import com.st.projectst.states.PauseState;
 import com.st.projectst.states.StartState;
 import com.st.projectst.states.WinState;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class MapController extends LevelController{
     private final MariController mariController;
     private final GhostEnemyController ghostController;
     private final BatEnemyController batController;
+    private final CameraController cameraController;
 
     public MapController(Map map) {
         super(map);
@@ -23,12 +29,15 @@ public class MapController extends LevelController{
         this.mariController = new MariController(map);
         this.ghostController = new GhostEnemyController(map);
         this.batController = new BatEnemyController(map);
+        this.cameraController = new CameraController(map);
     }
 
-    public void step(Main main, GUI.ACTION action, long time) throws IOException {
+    public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.QUIT){
             main.setState(new StartState(new Start(0)));
         }
+        if (action == GUI.ACTION.PAUSE){
+            main.setState(new PauseState(new Pause(main.getState())));}
         else if (getModel().getDoor().getPosition().equals(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
             main.setState(new WinState(new Win(getModel().getCurrentLevel()+1)));
         }
@@ -37,6 +46,7 @@ public class MapController extends LevelController{
         }
         else {
             mariController.step(main, action, time);
+            // cameraController.step(main, action, time);
             ghostController.step(main, action, time);
             batController.step(main, action, time);
         }

@@ -75,7 +75,6 @@ public class LanternaGUI implements GUI{
         switch (keyStroke.getKeyType()) {
             case EOF:
                 return ACTION.QUIT;
-
             case ArrowRight:
                 return ACTION.RIGHT;
             case ArrowLeft:
@@ -84,16 +83,13 @@ public class LanternaGUI implements GUI{
                 return ACTION.UP;
             case ArrowDown:
                 return ACTION.DOWN;
-
             case Escape:
                 return ACTION.PAUSE;
             case Enter:
                 return ACTION.SELECT;
-
             default:
                 break;
         }
-
         return ACTION.NONE;
     }
 

@@ -43,7 +43,6 @@ public class MariController extends LevelController {
                 return;
             }
         }
-
          */
 
         mari.jump();

@@ -1,32 +1,61 @@
-WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W        B                                                                    W
-W                                                                             W
-W                                                                          B  W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W  X   M                                       K            G              X DW
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-W                                                                             W
-WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W B                                                                                                                                                                                                                                            W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                  B                                                                                                                                                                           W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                       WWWWWWWWWW                                                                                                                                                                                                             W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W  X   M                                       K            G              X D                                                                                                                                                                 W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                       WWWWWWWWWW                                                                                                                                                                                             W
+W                                                 WWWWWW                                                                                                                                                                                       W
+W                                                                                                                                                                                                                                              W
+W                  WWWWWWWW                                                                                                                                                                                                                    W
+W                                                                                                                                                                                                                                              W
+W             WWWWWWWWWWWW                                                                                                                                                                                                                     W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                                                                                                                                              W
+W                                                                                                                      W                                                                                                                       W
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
