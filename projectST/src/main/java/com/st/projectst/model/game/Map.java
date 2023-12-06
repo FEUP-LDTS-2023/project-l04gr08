@@ -2,6 +2,7 @@ package com.st.projectst.model.game;
 
 import com.st.projectst.model.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Map {
@@ -86,48 +87,94 @@ public class Map {
         this.key = key;
     }
 
+    public boolean isAtDoor(Position position) {
+        Position mariPosition = new Position(position);
+        mariPosition.setX(mariPosition.getX()+11);
+        return door.getPosition().equals(mariPosition);
+    }
+
     public boolean isEmpty(Position position) {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
         return true;
     }
-    public boolean verifyTrap(Position position) {
-        for (Trap trap : traps){
-            if (trap.getPosition().equals(position)) {
-                trap.notifyObservers();
+
+    public boolean isEnemy(Position position) {
+        Position position2 = new Position(position); position2.setX(position.getX()+13);
+        for (GhostEnemy enemy : getGhostEnemies()) {
+            Position enemyPosition = new Position(enemy.getPosition());
+            enemyPosition.setX(enemyPosition.getX()+4);
+            if (enemyPosition.equals(position) || enemyPosition.equals(position2))
                 return true;
+        }
+        for (BatEnemy enemy : getBatEnemies()) {
+            Position enemyPosition = new Position(enemy.getPosition());
+            enemyPosition.setX(enemyPosition.getX()+7);
+            if (enemyPosition.equals(position) || enemyPosition.equals(position2))
+                return true;
+        }
+        return false;
+    }
+
+    public boolean Grounded() {
+        Position floorPosition = new Position(mari.getPosition());
+        floorPosition.setY(floorPosition.getY()+14);
+
+        List<Position> floorPositions = new ArrayList<>();
+        for (int i = 3; i < 9; i++) {
+            Position newFloorPosition = new Position(floorPosition);
+            newFloorPosition.setX(newFloorPosition.getX()+i);
+            floorPositions.add(newFloorPosition);
+        }
+
+        for (Position pos: floorPositions) {
+            for (Wall wall : walls) {
+                if (wall.getPosition().equals(pos))
+                    return true;
             }
         }
         return false;
     }
 
-    public boolean isEnemy(Position position) {
-        for (GhostEnemy enemy : getGhostEnemies())
-            if (enemy.getPosition().equals(position))
-                return true;
-        for (BatEnemy enemy : getBatEnemies())
-            if (enemy.getPosition().equals(position))
-                return true;
+    public boolean isTrap() {
+        Position trapPosition = new Position(mari.getPosition());
+        trapPosition.setY(trapPosition.getY()+13);
+
+        List<Position> trapPositions = new ArrayList<>();
+        for (int i = 3; i < 9; i++) {
+            Position newFloorPosition = new Position(trapPosition);
+            newFloorPosition.setX(newFloorPosition.getX()+i);
+            trapPositions.add(newFloorPosition);
+        }
+
+
+        for (Position pos: trapPositions) {
+            for (Trap trap : traps){
+                if (trap.getPosition().equals(pos)) {
+                    trap.notifyObservers();
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     public boolean isKey(Position position) {
-        return key.getPosition().equals(position);
+        if (key != null) {
+            Position pos = new Position(position);
+            pos.setY(position.getY()+7);
+            return key.getPosition().equals(pos);
+        }
+        return false;
     }
+
+    public void removeKey() {
+        this.key = null;
+    }
+
     public boolean isDoor(Position position) {
         return door.equals(position);
-    }
-
-    public boolean Grounded() {
-        Position floorPosition = new Position(mari.getPosition());
-        floorPosition.setY(floorPosition.getY()+8);
-
-        for (Wall wall : walls)
-            if (wall.getPosition().equals(floorPosition))
-                return true;
-
-        return false;
     }
 
     public List<Trap> getTraps() {

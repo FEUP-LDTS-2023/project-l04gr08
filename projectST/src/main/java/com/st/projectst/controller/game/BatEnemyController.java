@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class BatEnemyController extends LevelController{
     private long lastMove;
+    private long lastAttack;
 
     public BatEnemyController(Map map) {
         super(map);
@@ -18,11 +19,20 @@ public class BatEnemyController extends LevelController{
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
+        /*
+        if (getModel().getMari().getPosition().equals(enemy.getPosition())) {
+                    System.out.println("aaaaaaaaaaaaa");
+                    //if (time - lastAttack > 800) {
+                    getModel().getMari().decreaseLives();
+                        //this.lastAttack = time;
+                    //}
+                }
+         */
+
+
         if (time - lastMove > 300) {
             for (BatEnemy enemy : getModel().getBatEnemies()) {
                 enemy.setPosition(enemy.move());
-                if (getModel().getMari().getPosition().equals(enemy.getPosition()))
-                    getModel().getMari().decreaseLives();
             }
             this.lastMove = time;
         }
