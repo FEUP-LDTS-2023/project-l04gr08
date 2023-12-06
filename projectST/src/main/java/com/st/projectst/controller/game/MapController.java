@@ -3,6 +3,7 @@ package com.st.projectst.controller.game;
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.gui.LanternaGUI;
+import com.st.projectst.model.Position;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.menu.GameOver;
 import com.st.projectst.model.menu.Pause;
@@ -46,9 +47,11 @@ public class MapController extends LevelController{
         }
         else {
             mariController.step(main, action, time);
-            // cameraController.step(main, action, time);
             ghostController.step(main, action, time);
             batController.step(main, action, time);
+            if (action == GUI.ACTION.RIGHT){
+                cameraController.step(main, action, time);
+            }
         }
     }
 }

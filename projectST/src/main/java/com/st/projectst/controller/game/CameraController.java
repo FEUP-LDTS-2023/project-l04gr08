@@ -16,54 +16,52 @@ public class CameraController extends LevelController {
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
 
         Map map = getModel();
-        Position cameraPosition = map.getCamera().getPosition();
 
         for (GhostEnemy ghostEnemy : map.getGhostEnemies()) {
             Position enemyScreenPosition = new Position(
-                    ghostEnemy.getPosition().getX() - cameraPosition.getX() + 5,
-                    ghostEnemy.getPosition().getY() - cameraPosition.getY()
+                    ghostEnemy.getPosition().getX() - getModel().getMari().getPosition().getX() ,
+                    ghostEnemy.getPosition().getY()
             );
             ghostEnemy.setPosition(enemyScreenPosition);
         }
 
         for (BatEnemy batEnemy : map.getBatEnemies()) {
             Position enemyScreenPosition = new Position(
-                    batEnemy.getPosition().getX() - cameraPosition.getX() + 5,
-                    batEnemy.getPosition().getY() - cameraPosition.getY()
+                    batEnemy.getPosition().getX() - getModel().getMari().getPosition().getX() ,
+                    batEnemy.getPosition().getY()
             );
             batEnemy.setPosition(enemyScreenPosition);
         }
 
         for (Wall wall : map.getWalls()) {
             Position wallScreenPosition = new Position(
-                    wall.getPosition().getX() - cameraPosition.getX() + 5,
-                    wall.getPosition().getY() - cameraPosition.getY()
+                    wall.getPosition().getX() - getModel().getMari().getPosition().getX()  ,
+                    wall.getPosition().getY()
             );
             wall.setPosition(wallScreenPosition);
         }
 
         for (Trap trap : map.getTraps()){
             Position trapScreenPosition = new Position(
-                    trap.getPosition().getX() - cameraPosition.getX() + 5,
-                    trap.getPosition().getY() - cameraPosition.getY()
+                    trap.getPosition().getX() - getModel().getMari().getPosition().getX()  ,
+                    trap.getPosition().getY()
             );
             trap.setPosition(trapScreenPosition);
         }
 
         Key key = map.getKey();
         Position keyScreenPosition = new Position(
-                key.getPosition().getX() - cameraPosition.getX() + 5,
-                key.getPosition().getY() - cameraPosition.getY()
+                key.getPosition().getX() - getModel().getMari().getPosition().getX()  ,
+                key.getPosition().getY()
         );
         key.setPosition(keyScreenPosition);
 
         Door door = map.getDoor();
         Position doorScreenPosition = new Position(
-                door.getPosition().getX() - cameraPosition.getX() + 5,
-                door.getPosition().getY() - cameraPosition.getY()
+                door.getPosition().getX() - getModel().getMari().getPosition().getX() ,
+                door.getPosition().getY()
         );
         door.setPosition(doorScreenPosition);
-        main.getGui().drawMap(getModel());
     }
 }
 

@@ -3,7 +3,6 @@ package com.st.projectst.viewer.game;
 import com.googlecode.lanterna.TerminalPosition;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
-import com.st.projectst.model.game.Camera;
 import com.st.projectst.model.game.GameObject;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.viewer.Viewer;
@@ -19,6 +18,8 @@ public class LevelViewer extends Viewer<Map> {
 
     @Override
     public void drawObject(GUI gui) throws IOException, FontFormatException {
+
+        gui.setBackgroundColor("#432121");
         if (getModel().getMari().getRemainingLives() == 3){
             gui.drawImage(new Position(1, -2), "life3.png", 1);
         }

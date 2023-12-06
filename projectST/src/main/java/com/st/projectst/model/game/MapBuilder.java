@@ -15,7 +15,6 @@ public class MapBuilder {
     private List<String> linesMap;
     private int width;
     private int height;
-    private Camera camera;
     //private boolean[][] potionLocations;
 
     public MapBuilder(int level) throws IOException {
@@ -38,7 +37,6 @@ public class MapBuilder {
         map.setKey(createKey());
         map.setTraps(createTraps(map));
         map.setDoor(createDoor());
-        map.setCamera(createCamera());
         //map.setPotionLocations(potionLocations);
         return map;
     }
@@ -145,11 +143,6 @@ public class MapBuilder {
             }
         }
         return null;
-    }
-
-    private Camera createCamera() {
-        Position position = new Position(width-1,height-1 );
-        return new Camera(position);
     }
 
 
