@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public interface GUI {
+
     enum ACTION {RIGHT, LEFT, UP, DOWN, SELECT, QUIT, PAUSE, NONE}
     ACTION getNextAction() throws IOException;
     void drawMari(Position position) throws IOException, FontFormatException;
@@ -18,6 +19,7 @@ public interface GUI {
     void drawWall(Position position);
     void drawKey(Position position);
     void drawDoor(Position position);
+    void drawTrap(Position position);
     void setBackgroundColor(String color);
     void drawText(Position position, String text, String color);
     void drawImage(Position pos, String filename, double value) throws IOException, FontFormatException;
@@ -25,7 +27,6 @@ public interface GUI {
     void drawPixel(int x, int y,String color, TextGraphics tg);
     void setTextColor(TextGraphics tg, String color);
     BufferedImage loadImage(String filename, double value);
-    void drawMap(Map map) throws IOException, FontFormatException;
 
     void clear();
 

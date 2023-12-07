@@ -109,30 +109,24 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawBatEnemy(Position position) {
         drawImage(position, "bat.png", 1);
-        //drawCharacter((int) position.getX(), (int) position.getY(), 'B', "#CC0000");
     }
 
     @Override
     public void drawWall(Position position) {
         drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E");
-        /*
-        TextGraphics tg = screen.newTextGraphics();
-        setTextColor(tg, "#808080");
-
-        tg.putString((int) position.getX(), (int) position.getY(), "W");
-
-         */
     }
 
     @Override
     public void drawKey(Position position) {
         drawImage(position, "miniKey.png", 1);
-        //drawCharacter((int) position.getX(), (int) position.getY(), 'K', "#DFD928");
     }
 
     @Override
     public void drawDoor(Position position) {
         drawCharacter((int) position.getX(), (int) position.getY(), 'D', "#DFD928", "#DFD928");
+    }
+    public void drawTrap(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E");
     }
 
     public void setBackgroundColor(String color){
@@ -223,46 +217,6 @@ public class LanternaGUI implements GUI{
         }
         return null;
     }
-
-    @Override
-    public void drawMap(Map map) {
-        Mari mari = map.getMari();
-        Key key = map.getKey();
-        Door door = map.getDoor();
-        for (int y = 0; y < map.getHeight(); y++) {
-            for (int x = 0; x < map.getWidth(); x++) {
-                Position currentPosition = new Position(x, y);
-                if (mari != null && mari.getPosition().equals(currentPosition)) {
-                    drawMari(currentPosition);
-                }
-                else if (key != null && key.getPosition().equals(currentPosition)) {
-                    drawKey(currentPosition);
-                }
-                else if (door != null && door.getPosition().equals(currentPosition)){
-                    drawDoor(currentPosition);
-                }
-                else {
-                    for (GhostEnemy enemy : map.getGhostEnemies()) {
-                        if (enemy.getPosition().equals(currentPosition)) {
-                            drawGhostEnemy(enemy.getPosition());
-                        }
-                    }
-                    for (BatEnemy enemy : map.getBatEnemies()) {
-                        if (enemy.getPosition().equals(currentPosition)) {
-                            drawBatEnemy(enemy.getPosition());
-                        }
-                    }
-                    for (Wall wall : map.getWalls()) {
-                        if (wall.getPosition().equals(currentPosition)) {
-                            drawWall(currentPosition);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 
     @Override
     public void clear() {

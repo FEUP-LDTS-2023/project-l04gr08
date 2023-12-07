@@ -11,13 +11,15 @@ import com.st.projectst.states.StartState;
 import com.st.projectst.states.WinState;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MariController extends LevelController {
+    private long lastAttack;
     public MariController(Map map) {
         super(map);
+        this.lastAttack = 0;
     }
-
 
     public void moveMariRight() {
         moveMari(getModel().getMari().getPosition().getRight());
@@ -29,6 +31,8 @@ public class MariController extends LevelController {
     public void moveMariUp() {
         Mari mari = getModel().getMari();
         Position currentPosition = mari.getPosition();
+        mari.jump();
+        moveMari(currentPosition);
 
         /*
         // Check if Mari touches a potion
@@ -36,46 +40,59 @@ public class MariController extends LevelController {
             if (mari.getRemainingJumps() > 0) {
                 mari.jump();
                 mari.decreaseJumps();
-
-                // Move Mari after double jump
-                moveMari(currentPosition.getUp());
-                notifyObservers(currentPosition.getUp());
-                return;
             }
         }
          */
 
-        mari.jump();
-        moveMari(currentPosition);
-        //notifyObservers(currentPosition);
-
-        // Regular jump logic when mari is not touching a potion or no remaining jumps
     }
 
     private void moveMari(Position position) {
+        Position posEC = new Position(position);
+        Position posEB = new Position(position); posEB.setY(posEC.getY()+13); posEB.setX(posEC.getX()+3);
+        Position posDC = new Position(position); posDC.setX(posEC.getX()+11);
+        Position posDB = new Position(position); posDB.setY(posEC.getY()+13); posDB.setX(posEC.getX()+8);
+        List<Position> mariPositions = Arrays.asList(posEC, posEB, posDC, posDB);
 
-        if (getModel().isEmpty(position)) {
-            getModel().getMari().setPosition(position);
-
-            getModel().verifyTrap(position);
-
-            if (getModel().isEnemy(position)) getModel().getMari().decreaseLives();
-            if (getModel().isKey(position)) getModel().getMari().setWithKey();
+        boolean Empty = true;
+        for (Position pos: mariPositions) {
+            if (!getModel().isEmpty(pos)) {
+                Empty = false; break;
+            }
         }
-
+        if (Empty && position.getX() >= 0) {
+            getModel().getMari().setPosition(position);
+            for (Position pos2: mariPositions) {
+                getModel().isTrap();
+                if (getModel().isKey(pos2)) {
+                    getModel().getMari().setWithKey();
+                    getModel().removeKey();
+                }
+            }
+        }
     }
 
-    private void updateMari() {
+    private void updateMari(long time) {
+        // Verify if Mari is grounded
         getModel().getMari().setGrounded(getModel().Grounded());
         getModel().getMari().update();
+
+        // Verify if Mari was attacked
+        if ((time - lastAttack) > 600)
+            if (getModel().isEnemy(getModel().getMari().getPosition())) {
+                getModel().getMari().decreaseLives();
+                lastAttack = time;
+            }
+
     }
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) {
-        updateMari();
+        updateMari(time);
 
         if (action == GUI.ACTION.UP) moveMariUp();
         if (action == GUI.ACTION.RIGHT) moveMariRight();
         if (action == GUI.ACTION.LEFT) moveMariLeft();
+
     }
+
 }

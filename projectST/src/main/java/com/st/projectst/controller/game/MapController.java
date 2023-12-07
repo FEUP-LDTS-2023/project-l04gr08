@@ -38,18 +38,25 @@ public class MapController extends LevelController{
         if (action == GUI.ACTION.QUIT){
             main.setState(new StartState(new Start(0)));
         }
-        if (action == GUI.ACTION.PAUSE){
+        else if (action == GUI.ACTION.PAUSE){
             main.setState(new PauseState(new Pause(main.getState())));}
-        else if (getModel().getDoor().getPosition().equals(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
+        else if (getModel().isAtDoor(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
+            main.getGui().close();
+            LanternaGUI gui = new LanternaGUI(53, 27, 18);
+            main.setGui(gui);
             main.setState(new WinState(new Win(getModel().getCurrentLevel()+1)));
         }
         else if (getModel().getMari().getRemainingLives() == 0){
+            main.getGui().close();
+            LanternaGUI gui = new LanternaGUI(74, 40, 13);
+            main.setGui(gui);
             main.setState(new GameOverState(new GameOver()));
         }
         else {
             mariController.step(main, action, time);
             ghostController.step(main, action, time);
             batController.step(main, action, time);
+
             if (Objects.equals(getModel().getMari().getPosition(), new Position(100, getModel().getMari().getPosition().getY()))){
                 if (action == GUI.ACTION.RIGHT){
                     cameraController.step(main, action, time);
