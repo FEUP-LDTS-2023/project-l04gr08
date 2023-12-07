@@ -13,15 +13,11 @@ public class Map {
     private Mari mari;
     private List<GhostEnemy> gEnemies;
     private List<BatEnemy> bEnemies;
-    private List<Trap> traps;
     private List<Wall> walls;
     private Key key;
     private Door door;
-    private boolean[][] potionLocations;
+    private List<Trap> traps;
 
-    public Map (int currentLevel) {
-        this.currentLevel = currentLevel;
-    }
     public Map (int width, int height, int currentLevel) {
         this.width = width;
         this.height = height;

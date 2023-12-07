@@ -15,6 +15,7 @@ public class Mari extends GameObject {
     private boolean withKey;
     private boolean isJumping;
     private boolean isGrounded;
+    private boolean jumpRight;
     private int jumpCounter;
     private int remainingJumps;
     private static final int MAX_JUMPS = 2;
@@ -26,38 +27,58 @@ public class Mari extends GameObject {
         withKey = false;
         isJumping = false;
         isGrounded = false;
+        jumpRight = true;
         jumpCounter = 0;
         remainingJumps = MAX_JUMPS;
     }
 
-    //public void moveRight() { getPosition().setX( getPosition().getX() + (1 * speedX)); }
-    //public void moveLeft() { getPosition().setX( getPosition().getX() - (1 * speedX)); }
+    public Position moveRight() {
+        jumpRight = true;
+        Position newPosition = new Position(getPosition());
+        newPosition.setX( getPosition().getX() + (1 * speedX));
+        return newPosition;
+    }
+    public Position moveLeft() {
+        jumpRight = false;
+        Position newPosition = new Position(getPosition());
+        newPosition.setX( getPosition().getX() - (1 * speedX));
+        return newPosition;
+    }
     public void jump() {
         if (!isJumping && isGrounded)
             isJumping = true;
     }
 
-    public void update() {
+    public Position update() {
+        Position newPosition = new Position(getPosition());
+
         if (isJumping) {
             isGrounded = false;
-            getPosition().setY(getPosition().getY()-1);
             jumpCounter++;
+
+            newPosition.setY(getPosition().getY()-1);
+            if (jumpRight) newPosition.setX(getPosition().getX()+1);
+            else newPosition.setX(getPosition().getX()-1);
 
             if (jumpCounter >= 6) {
                 isJumping = false;
                 jumpCounter = 0;
             }
+            return newPosition;
 
         }
         else if (!isGrounded) {
-            getPosition().setY(getPosition().getY()+1);
+            newPosition.setY(getPosition().getY()+1);
+            return newPosition;
         }
+
+        return newPosition;
     }
 
     public void decreaseLives() {
         this.remainingLives--;
     }
-    public void setWithKey() { this.withKey = true; }
+    public void setWithKey(boolean key) { this.withKey = key; }
     public boolean getWithKey() { return withKey; }
 
     public int getRemainingLives() {

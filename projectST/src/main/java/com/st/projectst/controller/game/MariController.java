@@ -22,10 +22,10 @@ public class MariController extends LevelController {
     }
 
     public void moveMariRight() {
-        moveMari(getModel().getMari().getPosition().getRight());
+        moveMari(getModel().getMari().moveRight());
     }
     public void moveMariLeft() {
-        moveMari(getModel().getMari().getPosition().getLeft());
+        moveMari(getModel().getMari().moveLeft());
     }
 
     public void moveMariUp() {
@@ -48,11 +48,37 @@ public class MariController extends LevelController {
     }
 
     private void moveMari(Position position) {
+        List<Position> mariPositions = new ArrayList<>();
+
         Position posEC = new Position(position);
-        Position posEB = new Position(position); posEB.setY(posEC.getY()+13); posEB.setX(posEC.getX()+3);
-        Position posDC = new Position(position); posDC.setX(posEC.getX()+11);
-        Position posDB = new Position(position); posDB.setY(posEC.getY()+13); posDB.setX(posEC.getX()+8);
-        List<Position> mariPositions = Arrays.asList(posEC, posEB, posDC, posDB);
+        // Top of Mari head
+        for (int x = 0; x <= 11; x++) {
+            Position newPosition = new Position(posEC);
+            newPosition.setX(newPosition.getX()+x);
+            mariPositions.add(newPosition);
+        }
+
+        // Sides of Mari head
+        Position posDC = new Position(position); posDC.setX(posDC.getX()+11);
+        for (int y = 0; y <= 10; y++) {
+            Position newPos1 = new Position(posEC); Position newPos2 = new Position(posDC);
+            newPos1.setY(newPos1.getY()+y); newPos2.setY(newPos2.getY()+y);
+            mariPositions.add(newPos1); mariPositions.add(newPos2);
+        }
+
+        // Sides of head
+        Position posEB = new Position(posEC); Position posDB = new Position(posEC);
+        posEB.setX(posEB.getX() + 3); posDB.setX(posDB.getX() + 8);
+        for (int y = 11; y <= 13; y++) {
+            Position newPos3 = new Position(posEB); Position newPos4 = new Position(posDB);
+            newPos3.setY(newPos3.getY()+y); newPos4.setY(newPos4.getY()+y);
+            mariPositions.add(newPos3); mariPositions.add(newPos4);
+        }
+
+        //Position posEB = new Position(position); posEB.setY(posEC.getY()+13); posEB.setX(posEC.getX()+3);
+        //Position posDC = new Position(position); posDC.setX(posEC.getX()+11);
+        //Position posDB = new Position(position); posDB.setY(posEC.getY()+13); posDB.setX(posEC.getX()+8);
+        //List<Position> mariPositions = Arrays.asList(posEC, posEB, posDC, posDB);
 
         boolean Empty = true;
         for (Position pos: mariPositions) {
@@ -65,7 +91,7 @@ public class MariController extends LevelController {
             for (Position pos2: mariPositions) {
                 getModel().isTrap();
                 if (getModel().isKey(pos2)) {
-                    getModel().getMari().setWithKey();
+                    getModel().getMari().setWithKey(true);
                     getModel().removeKey();
                 }
             }
@@ -75,7 +101,7 @@ public class MariController extends LevelController {
     private void updateMari(long time) {
         // Verify if Mari is grounded
         getModel().getMari().setGrounded(getModel().Grounded());
-        getModel().getMari().update();
+        moveMari(getModel().getMari().update());
 
         // Verify if Mari was attacked
         if ((time - lastAttack) > 600)
