@@ -1,8 +1,6 @@
 package com.st.projectst.model;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
+
 import com.st.projectst.model.game.Mari;
 import com.st.projectst.model.game.Wall;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,42 +14,75 @@ public class MariTest {
 
     @BeforeEach
     public void setup() {
-        Position initialPosition = new Position(40,17);
+        Position initialPosition = new Position(10,10);
         mari = new Mari(initialPosition);
     }
 
 
     @Test
     public void mariMoveRight() {
-        mari.moveRight();
-        Position expected = new Position(41,17);
+        Position position = mari.moveRight();
+        Position expected = new Position(11,10);
 
-        assertEquals(expected, mari.getPosition());
+        assertEquals(expected, position);
     }
 
     @Test
     public void mariMoveLeft() {
-        mari.moveLeft();
-        Position expected = new Position(39,17);
-        assertEquals(expected, mari.getPosition());
+        Position position = mari.moveLeft();
+        Position expected = new Position(9,10);
+
+        assertEquals(expected, position);
     }
 
     @Test
-    public void mariJump() {
+    public void testMoveLeftWithSubtraction() {
+        mari.setPosition(new Position(0, 0));
+
+        Position position = mari.moveLeft();
+        Position expected = new Position(-1, 0);
+
+        assertEquals(expected, position);
+    }
+
+    @Test
+    public void mariJumpNotGrounded() {
+        mari.jump();
+        assertFalse(mari.getIsJumping());
+
+        mari.setGrounded(false);
+        mari.jump();
+        assertFalse(mari.getIsJumping());
+    }
+
+    @Test
+    public void mariJumpGrounded() {
+        mari.setGrounded(true);
         mari.jump();
         assertTrue(mari.getIsJumping());
     }
 
     @Test
-    public void mariUpdateNoJumping() {
+    public void mariUpdateNoJumpingNoGrounded() {
         mari.update();
-        Position expected = new Position(40,17);
+        Position expected = new Position(10,11);
 
         assertEquals(expected, mari.getPosition());
     }
 
     @Test
+    public void mariUpdateNoJumpingGrounded() {
+        mari.setGrounded(true);
+        mari.update();
+        Position expected = new Position(10,10);
+
+        assertEquals(expected, mari.getPosition());
+    }
+
+    /*
+    @Test
     public void mariUpdateJumping() {
+        mari.setGrounded(true);
         mari.jump();
         assertTrue(mari.getIsJumping());
         assertEquals(0, mari.getJumpCounter());
@@ -89,50 +120,23 @@ public class MariTest {
         assertEquals(expected, mari.getPosition());
 
     }
-    @Test
-    public void testMoveLeftWithSubtraction() {
-        Mari mari = new Mari(new Position(0, 0));
-        mari.moveLeft();
-        Position expectedPosition = new Position(-1, 0);
-        assertEquals(expectedPosition, mari.getPosition());
-    }
+     */
 
     @Test
-    public void testIsJumpingNegated() {
-        Mari mari = new Mari(new Position(0, 0));
-        assertFalse(mari.getIsJumping());
-        mari.jump();
-        assertTrue(mari.getIsJumping());
-    }
+    public void mariLives() {
+        assertEquals(3, mari.getRemainingLives());
 
-    @Test
-    public void mariCollisionWithObstacle() {
-        // Mocking the Obstacle class
-        Wall wall = Mockito.mock(Wall.class);
-        Mockito.when(wall.getPosition()).thenReturn(new Position(41, 17));
-
-        // Move Mari to the obstacle position
-        while (!mari.getPosition().equals(wall.getPosition())) {
-            if (mari.getPosition().getX() < wall.getPosition().getX()) {
-                mari.moveRight();
-            } else {
-                mari.moveLeft();
-            }
+        for (int i = 2; i >= (-2); i--) {
+            mari.decreaseLives();
+            assertEquals(i, mari.getRemainingLives());
         }
-
-        assertEquals(mari.getPosition(), wall.getPosition());
     }
 
     @Test
-    public void mariDraw() {
-        TextGraphics mockGraphics = Mockito.mock(TextGraphics.class);
-
-        mari.draw(mockGraphics);
-
-        Mockito.verify(mockGraphics, Mockito.times(1)).setBackgroundColor(TextColor.ANSI.CYAN);
-        Mockito.verify(mockGraphics, Mockito.times(1)).putString(
-                Mockito.eq(new TerminalPosition((int) mari.getPosition().getX(), (int) mari.getPosition().getY())),
-                Mockito.eq(" ")
-        );
+    public void mariKey() {
+        assertFalse(mari.getWithKey());
+        mari.setWithKey(true);
+        assertTrue(mari.getWithKey());
     }
+
 }

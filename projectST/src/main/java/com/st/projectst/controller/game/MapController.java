@@ -35,11 +35,15 @@ public class MapController extends LevelController{
     }
 
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-        if (action == GUI.ACTION.QUIT){
+        if (action == GUI.ACTION.QUIT) {
             main.setState(new StartState(new Start(0)));
         }
-        else if (action == GUI.ACTION.PAUSE){
-            main.setState(new PauseState(new Pause(main.getState())));}
+        else if (action == GUI.ACTION.PAUSE) {
+            main.getGui().close();
+            LanternaGUI gui = new LanternaGUI(53, 27, 18);
+            main.setGui(gui);
+            main.setState(new PauseState(new Pause(main.getState())));
+        }
         else if (getModel().isAtDoor(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(53, 27, 18);

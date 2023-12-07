@@ -14,15 +14,15 @@ public class PauseViewer extends Viewer<Pause> {
     public void drawObject(GUI gui) {
         gui.setBackgroundColor("#BA6156");
 
-        gui.drawText(new Position(39, 10), "OOOOO  OOOOOO  OO  OO  OOOOOO  OOOOOO", "#f9dbbe");
-        gui.drawText(new Position(39, 11), "OO OO  OO  OO  OO  OO  OO      OO", "#ffbc6e");
-        gui.drawText(new Position(39, 12), "OOOOO  OOOOOO  OO  OO  OOOOOO  OOOOOO", "#FF9966");
-        gui.drawText(new Position(39, 13), "OO     OO  OO  OO  OO      OO  OO", "#ff8066");
-        gui.drawText(new Position(39, 14), "OO     OO  OO  OOOOOO  OOOOOO  OOOOOO", "#ff9aab");
+        gui.drawText(new Position(7, 5), "OOOOO  OOOOOO  OO  OO  OOOOOO  OOOOOO", "#f9dbbe");
+        gui.drawText(new Position(7, 6), "OO OO  OO  OO  OO  OO  OO      OO", "#ffbc6e");
+        gui.drawText(new Position(7, 7), "OOOOO  OOOOOO  OO  OO  OOOOOO  OOOOOO", "#FF9966");
+        gui.drawText(new Position(7, 8), "OO     OO  OO  OO  OO      OO  OO", "#ff8066");
+        gui.drawText(new Position(7, 9), "OO     OO  OO  OOOOOO  OOOOOO  OOOOOO", "#ff9aab");
 
         for (int i = 0; i < getModel().getNumberOptions(); i++){
             gui.drawText(
-                    new Position(52, 25 + i),
+                    new Position(21, 14 + i),
                     getModel().getOption(i),
                     getModel().isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }

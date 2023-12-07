@@ -43,7 +43,6 @@ public class StartController extends Controller<Start> {
                     main.setState(new InstructionsState(new Instructions()));
                 }
                 else if (getModel().isSelectedExit()) main.setState(null);
-
         }
     }
 }
