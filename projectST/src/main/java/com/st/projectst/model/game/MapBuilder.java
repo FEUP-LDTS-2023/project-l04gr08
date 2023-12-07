@@ -145,6 +145,7 @@ public class MapBuilder {
         return null;
     }
 
+
     private void initializePotionLocations() {
         //potionLocations = new boolean[width][height];
     }

@@ -16,6 +16,7 @@ public class WinViewer extends Viewer<Win> {
     @Override
     public void drawObject(GUI gui) throws IOException, FontFormatException {
         gui.setBackgroundColor("#BA6156");
+
         gui.drawText(new Position(5, 5), "OO        OO  OO  OO    OOO", "#f9dbbe");
         gui.drawText(new Position(5, 6), " OO      OO   OO  OOO   OO ", "#ffbc6e");
         gui.drawText(new Position(5, 7), "  OO OO OO    OO  OO OO OO ", "#FF9966");
