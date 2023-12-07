@@ -92,12 +92,14 @@ public class Mari extends GameObject {
         return remainingJumps;
     }
 
-    public boolean getIsJumping() {return isJumping;}
     public int getJumpCounter() {return jumpCounter;}
 
     public boolean getGrounded() {
         return isGrounded;
     }
+
+    public boolean getIsJumping() {return isJumping;}
+
     public void setGrounded(boolean grounded) {
         isGrounded = grounded;
     }

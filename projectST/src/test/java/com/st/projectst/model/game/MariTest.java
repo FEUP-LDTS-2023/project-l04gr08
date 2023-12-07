@@ -1,6 +1,6 @@
-package com.st.projectst.model;
+package com.st.projectst.model.game;
 
-
+import com.st.projectst.model.Position;
 import com.st.projectst.model.game.Mari;
 import com.st.projectst.model.game.Wall;
 import org.junit.jupiter.api.BeforeEach;
@@ -64,10 +64,9 @@ public class MariTest {
 
     @Test
     public void mariUpdateNoJumpingNoGrounded() {
-        mari.update();
+        Position position = mari.update();
         Position expected = new Position(10,11);
-
-        assertEquals(expected, mari.getPosition());
+        assertEquals(expected, position);
     }
 
     @Test
@@ -78,49 +77,6 @@ public class MariTest {
 
         assertEquals(expected, mari.getPosition());
     }
-
-    /*
-    @Test
-    public void mariUpdateJumping() {
-        mari.setGrounded(true);
-        mari.jump();
-        assertTrue(mari.getIsJumping());
-        assertEquals(0, mari.getJumpCounter());
-
-        // Testing the character moving up on the jump
-        Position expected = new Position(40,17);
-        for (int i = 1; i <= 5; i++) {
-            mari.update();
-
-            assertTrue(mari.getIsJumping());
-            expected.setY(expected.getY()-1);
-            assertEquals(expected, mari.getPosition());
-            assertEquals(i, mari.getJumpCounter());
-        }
-
-        // Testing the character reaching the highest position on the jump
-        mari.update();
-        assertFalse(mari.getIsJumping());
-        expected.setY(expected.getY()-1);
-        assertEquals(expected, mari.getPosition());
-        assertEquals(0, mari.getJumpCounter());
-
-        // Testing the character moving down
-        for (int i = 1; i <= 5; i++) {
-            mari.update();
-            expected.setY(expected.getY() + 1);
-
-            assertEquals(expected, mari.getPosition());
-            assertFalse(mari.getIsJumping());
-            assertEquals(0, mari.getJumpCounter());
-        }
-
-        // Testing the character reach the ground
-        mari.update();
-        assertEquals(expected, mari.getPosition());
-
-    }
-     */
 
     @Test
     public void mariLives() {
