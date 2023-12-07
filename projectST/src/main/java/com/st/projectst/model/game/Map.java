@@ -189,6 +189,7 @@ public class Map {
         return door;
     }
 
+
     /*
     public void setPotionLocations(boolean[][] potionLocations) {
         this.potionLocations = potionLocations;
@@ -199,7 +200,7 @@ public class Map {
         double y = position.getY();
         if (x >= 0 && x < potionLocations.length && y >= 0 && y < potionLocations[0].length) {
             return potionLocations[(int) x][(int) y];
-        }
+        }c
         return false;
     }
 

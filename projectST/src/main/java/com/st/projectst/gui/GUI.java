@@ -27,7 +27,6 @@ public interface GUI {
     void drawPixel(int x, int y,String color, TextGraphics tg);
     void setTextColor(TextGraphics tg, String color);
     BufferedImage loadImage(String filename, double value);
-    void drawMap(Map map) throws IOException, FontFormatException;
 
     void clear();
 

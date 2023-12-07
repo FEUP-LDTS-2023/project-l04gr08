@@ -75,7 +75,6 @@ public class LanternaGUI implements GUI{
         switch (keyStroke.getKeyType()) {
             case EOF:
                 return ACTION.QUIT;
-
             case ArrowRight:
                 return ACTION.RIGHT;
             case ArrowLeft:
@@ -84,16 +83,13 @@ public class LanternaGUI implements GUI{
                 return ACTION.UP;
             case ArrowDown:
                 return ACTION.DOWN;
-
             case Escape:
                 return ACTION.PAUSE;
             case Enter:
                 return ACTION.SELECT;
-
             default:
                 break;
         }
-
         return ACTION.NONE;
     }
 
@@ -221,46 +217,6 @@ public class LanternaGUI implements GUI{
         }
         return null;
     }
-
-    @Override
-    public void drawMap(Map map) {
-        Mari mari = map.getMari();
-        Key key = map.getKey();
-        Door door = map.getDoor();
-        for (int y = 0; y < map.getHeight(); y++) {
-            for (int x = 0; x < map.getWidth(); x++) {
-                Position currentPosition = new Position(x, y);
-                if (mari != null && mari.getPosition().equals(currentPosition)) {
-                    drawMari(currentPosition);
-                }
-                else if (key != null && key.getPosition().equals(currentPosition)) {
-                    drawKey(currentPosition);
-                }
-                else if (door != null && door.getPosition().equals(currentPosition)){
-                    drawDoor(currentPosition);
-                }
-                else {
-                    for (GhostEnemy enemy : map.getGhostEnemies()) {
-                        if (enemy.getPosition().equals(currentPosition)) {
-                            drawGhostEnemy(enemy.getPosition());
-                        }
-                    }
-                    for (BatEnemy enemy : map.getBatEnemies()) {
-                        if (enemy.getPosition().equals(currentPosition)) {
-                            drawBatEnemy(enemy.getPosition());
-                        }
-                    }
-                    for (Wall wall : map.getWalls()) {
-                        if (wall.getPosition().equals(currentPosition)) {
-                            drawWall(currentPosition);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 
     @Override
     public void clear() {

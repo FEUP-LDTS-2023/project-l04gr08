@@ -42,7 +42,6 @@ public class MariController extends LevelController {
                 mari.decreaseJumps();
             }
         }
-
          */
 
     }
@@ -86,7 +85,7 @@ public class MariController extends LevelController {
                 Empty = false; break;
             }
         }
-        if (Empty) {
+        if (Empty && position.getX() >= 0) {
             getModel().getMari().setPosition(position);
             for (Position pos2: mariPositions) {
                 getModel().isTrap();

@@ -28,6 +28,10 @@ public class Main {
         this.state = state;
     }
 
+    public State getState() {
+        return state;
+    }
+
     private void start() throws IOException, FontFormatException, URISyntaxException {
         int FPS = 10;
         int frameTime = 400 / FPS;

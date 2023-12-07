@@ -126,7 +126,13 @@ public class MapBuilder {
         return null;
     }
 
+
     /* MUDAR CÓDIGOOOOO
+
+    private void initializePotionLocations() {
+        //potionLocations = new boolean[width][height];
+    }
+
     private void createPotions() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
