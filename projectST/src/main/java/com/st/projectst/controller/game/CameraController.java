@@ -19,7 +19,7 @@ public class CameraController extends LevelController {
 
         for (GhostEnemy ghostEnemy : map.getGhostEnemies()) {
             Position enemyScreenPosition = new Position(
-                    ghostEnemy.getPosition().getX() - getModel().getMari().getPosition().getX() ,
+                    ghostEnemy.getPosition().getX() - 100 ,
                     ghostEnemy.getPosition().getY()
             );
             ghostEnemy.setPosition(enemyScreenPosition);
@@ -27,7 +27,7 @@ public class CameraController extends LevelController {
 
         for (BatEnemy batEnemy : map.getBatEnemies()) {
             Position enemyScreenPosition = new Position(
-                    batEnemy.getPosition().getX() - getModel().getMari().getPosition().getX() ,
+                    batEnemy.getPosition().getX() - 100 ,
                     batEnemy.getPosition().getY()
             );
             batEnemy.setPosition(enemyScreenPosition);
@@ -35,7 +35,7 @@ public class CameraController extends LevelController {
 
         for (Wall wall : map.getWalls()) {
             Position wallScreenPosition = new Position(
-                    wall.getPosition().getX() - getModel().getMari().getPosition().getX()  ,
+                    wall.getPosition().getX() - 100  ,
                     wall.getPosition().getY()
             );
             wall.setPosition(wallScreenPosition);
@@ -43,7 +43,7 @@ public class CameraController extends LevelController {
 
         for (Trap trap : map.getTraps()){
             Position trapScreenPosition = new Position(
-                    trap.getPosition().getX() - getModel().getMari().getPosition().getX()  ,
+                    trap.getPosition().getX() - 100  ,
                     trap.getPosition().getY()
             );
             trap.setPosition(trapScreenPosition);
@@ -51,17 +51,24 @@ public class CameraController extends LevelController {
 
         Key key = map.getKey();
         Position keyScreenPosition = new Position(
-                key.getPosition().getX() - getModel().getMari().getPosition().getX()  ,
+                key.getPosition().getX() - 100  ,
                 key.getPosition().getY()
         );
         key.setPosition(keyScreenPosition);
 
         Door door = map.getDoor();
         Position doorScreenPosition = new Position(
-                door.getPosition().getX() - getModel().getMari().getPosition().getX() ,
+                door.getPosition().getX() - 100 ,
                 door.getPosition().getY()
         );
         door.setPosition(doorScreenPosition);
+
+        Mari mari = map.getMari();
+        Position mariScreenPosition = new Position(
+                mari.getPosition().getX() - 100 ,
+                mari.getPosition().getY()
+        );
+        mari.setPosition(mariScreenPosition);
     }
 }
 

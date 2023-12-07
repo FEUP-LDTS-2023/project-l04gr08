@@ -17,6 +17,7 @@ import com.st.projectst.states.WinState;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class MapController extends LevelController{
     private final MariController mariController;
@@ -49,8 +50,10 @@ public class MapController extends LevelController{
             mariController.step(main, action, time);
             ghostController.step(main, action, time);
             batController.step(main, action, time);
-            if (action == GUI.ACTION.RIGHT){
-                cameraController.step(main, action, time);
+            if (Objects.equals(getModel().getMari().getPosition(), new Position(100, getModel().getMari().getPosition().getY()))){
+                if (action == GUI.ACTION.RIGHT){
+                    cameraController.step(main, action, time);
+                }
             }
         }
     }
