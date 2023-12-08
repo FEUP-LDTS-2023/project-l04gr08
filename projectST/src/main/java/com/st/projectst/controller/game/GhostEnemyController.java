@@ -31,7 +31,7 @@ public class GhostEnemyController extends LevelController{
 
          */
 
-        if ((time - lastMove) > 300) {
+        if ((time - lastMove) > 500) {
             for (GhostEnemy enemy : getModel().getGhostEnemies())  {
                 Position newPosition = new Position(enemy.move());
                 if (getModel().isEmpty(newPosition))

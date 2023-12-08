@@ -24,6 +24,7 @@ public class MapController extends LevelController{
     private final GhostEnemyController ghostController;
     private final BatEnemyController batController;
     private final CameraController cameraController;
+    private int cameraCount;
 
     public MapController(Map map) {
         super(map);
@@ -32,6 +33,7 @@ public class MapController extends LevelController{
         this.ghostController = new GhostEnemyController(map);
         this.batController = new BatEnemyController(map);
         this.cameraController = new CameraController(map);
+        this.cameraCount = 0;
     }
 
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
@@ -61,9 +63,10 @@ public class MapController extends LevelController{
             ghostController.step(main, action, time);
             batController.step(main, action, time);
 
-            if (Objects.equals(getModel().getMari().getPosition(), new Position(100, getModel().getMari().getPosition().getY()))){
+            if (cameraCount < 2 && Objects.equals(getModel().getMari().getPosition(), new Position(100, getModel().getMari().getPosition().getY()))){
                 if (action == GUI.ACTION.RIGHT){
                     cameraController.step(main, action, time);
+                    cameraCount++;
                 }
             }
         }

@@ -23,7 +23,7 @@ public class WinViewer extends Viewer<Win> {
         gui.drawText(new Position(5, 8), "   OO  OO     OO  OO   OOO ", "#ff8066");
         gui.drawText(new Position(5, 9), "   OO  OO     OO  OO    OO ", "#ff9aab");
 
-        gui.drawImage(new Position(29, 4), "sword.png", 1.5);
+        gui.drawImage(new Position(29, 4), "images/sword.png", 1.5);
         gui.drawText(new Position(7, 12), " *** Level Complete *** ", "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumber(); i++){

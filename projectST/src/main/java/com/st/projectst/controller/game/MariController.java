@@ -103,7 +103,7 @@ public class MariController extends LevelController {
         moveMari(getModel().getMari().update());
 
         // Verify if Mari was attacked
-        if ((time - lastAttack) > 600)
+        if ((time - lastAttack) > 1000)
             if (getModel().isEnemy(getModel().getMari().getPosition())) {
                 getModel().getMari().decreaseLives();
                 lastAttack = time;

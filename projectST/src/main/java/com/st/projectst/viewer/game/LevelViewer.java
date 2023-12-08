@@ -1,6 +1,5 @@
 package com.st.projectst.viewer.game;
 
-import com.googlecode.lanterna.TerminalPosition;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.game.GameObject;
@@ -21,22 +20,22 @@ public class LevelViewer extends Viewer<Map> {
 
         gui.setBackgroundColor("#432121");
         if (getModel().getMari().getRemainingLives() == 3){
-            gui.drawImage(new Position(1, -2), "life3.png", 1);
+            gui.drawImage(new Position(1, -2), "gameObjects/life3.png", 1);
         }
         else if (getModel().getMari().getRemainingLives() == 2){
-            gui.drawImage(new Position(1, -2), "life2.png", 1);
+            gui.drawImage(new Position(1, -2), "gameObjects/life2.png", 1);
         }
         else if (getModel().getMari().getRemainingLives() == 1){
-            gui.drawImage(new Position(1, -2), "life1.png", 1);
+            gui.drawImage(new Position(1, -2), "gameObjects/life1.png", 1);
         }
 
         gui.drawText(new Position(1, 4), "" + getModel().getMari().getRemainingLives(), "#FFFFFF");
-        drawGameObject(gui, getModel().getMari(), new MariViewer());
         drawGameObjects(gui, getModel().getWalls(), new WallViewer());
-        drawGameObjects(gui, getModel().getBatEnemies(), new BatEnemyViewer());
-        drawGameObjects(gui, getModel().getGhostEnemies(), new GhostEnemyViewer());
         drawGameObjects(gui, getModel().getTraps(), new TrapViewer());
         drawGameObject(gui, getModel().getDoor(), new DoorViewer());
+        drawGameObject(gui, getModel().getMari(), new MariViewer());
+        drawGameObjects(gui, getModel().getBatEnemies(), new BatEnemyViewer());
+        drawGameObjects(gui, getModel().getGhostEnemies(), new GhostEnemyViewer());
 
         if (getModel().getKey() != null)
             drawGameObject(gui, getModel().getKey(), new KeyViewer());
