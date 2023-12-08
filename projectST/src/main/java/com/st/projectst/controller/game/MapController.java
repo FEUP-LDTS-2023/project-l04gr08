@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
-public class MapController extends LevelController{
+public class  MapController extends LevelController {
     private final MariController mariController;
     private final GhostEnemyController ghostController;
     private final BatEnemyController batController;
@@ -39,26 +39,22 @@ public class MapController extends LevelController{
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.QUIT) {
             main.setState(new StartState(new Start(0)));
-        }
-        else if (action == GUI.ACTION.PAUSE) {
+        } else if (action == GUI.ACTION.PAUSE) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(53, 27, 18);
             main.setGui(gui);
             main.setState(new PauseState(new Pause(main.getState())));
-        }
-        else if (getModel().isAtDoor(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
+        } else if (getModel().isAtDoor(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(53, 27, 18);
             main.setGui(gui);
-            main.setState(new WinState(new Win(getModel().getCurrentLevel()+1)));
-        }
-        else if (getModel().getMari().getRemainingLives() == 0){
+            main.setState(new WinState(new Win(getModel().getCurrentLevel() + 1)));
+        } else if (getModel().getMari().getRemainingLives() == 0) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(74, 40, 13);
             main.setGui(gui);
             main.setState(new GameOverState(new GameOver()));
-        }
-        else {
+        } else {
             mariController.step(main, action, time);
             ghostController.step(main, action, time);
             batController.step(main, action, time);
@@ -70,5 +66,21 @@ public class MapController extends LevelController{
                 }
             }
         }
+    }
+
+    public CameraController getCameraController() {
+        return cameraController;
+    }
+
+    public MariController getMariController() {
+        return mariController;
+    }
+
+    public BatEnemyController getBatController() {
+        return batController;
+    }
+
+    public GhostEnemyController getGhostController() {
+        return ghostController;
     }
 }

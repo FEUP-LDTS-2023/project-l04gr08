@@ -46,7 +46,7 @@ public class MariController extends LevelController {
 
     }
 
-    private void moveMari(Position position) {
+    public void moveMari(Position position) {
         List<Position> mariPositions = new ArrayList<>();
 
         Position posEC = new Position(position);
@@ -74,11 +74,6 @@ public class MariController extends LevelController {
             mariPositions.add(newPos3); mariPositions.add(newPos4);
         }
 
-        //Position posEB = new Position(position); posEB.setY(posEC.getY()+13); posEB.setX(posEC.getX()+3);
-        //Position posDC = new Position(position); posDC.setX(posEC.getX()+11);
-        //Position posDB = new Position(position); posDB.setY(posEC.getY()+13); posDB.setX(posEC.getX()+8);
-        //List<Position> mariPositions = Arrays.asList(posEC, posEB, posDC, posDB);
-
         boolean Empty = true;
         for (Position pos: mariPositions) {
             if (!getModel().isEmpty(pos)) {
@@ -97,7 +92,7 @@ public class MariController extends LevelController {
         }
     }
 
-    private void updateMari(long time) {
+    void updateMari(long time) {
         // Verify if Mari is grounded
         getModel().getMari().setGrounded(getModel().Grounded());
         moveMari(getModel().getMari().update());
