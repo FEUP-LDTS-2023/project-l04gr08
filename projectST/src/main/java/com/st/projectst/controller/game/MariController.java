@@ -46,7 +46,7 @@ public class MariController extends LevelController {
 
     }
 
-    private void moveMari(Position position) {
+    public void moveMari(Position position) {
         List<Position> mariPositions = new ArrayList<>();
 
         Position posEC = new Position(position);
@@ -97,7 +97,7 @@ public class MariController extends LevelController {
         }
     }
 
-    private void updateMari(long time) {
+    void updateMari(long time) {
         // Verify if Mari is grounded
         getModel().getMari().setGrounded(getModel().Grounded());
         moveMari(getModel().getMari().update());
