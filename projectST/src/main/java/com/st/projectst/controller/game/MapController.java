@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
-public class MapController extends LevelController{
+public class  MapController extends LevelController{
     private final MariController mariController;
     private final GhostEnemyController ghostController;
     private final BatEnemyController batController;

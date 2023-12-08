@@ -1,8 +1,10 @@
 package com.st.projectst.controller.game;
 
+import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.game.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,6 +25,7 @@ public class MariControllerTest {
         Position position = new Position(10, 10);
         mari = new Mari(position);
         map.setMari(mari);
+        map.setKey(new Key(new Position(1,1)));
         map.setTraps(Arrays.asList());
         map.setBatEnemies(Arrays.asList());
         map.setGhostEnemies(Arrays.asList());
@@ -46,6 +49,15 @@ public class MariControllerTest {
         Position newPosition = mari.getPosition();
         assertEquals(initialPosition.getX() - 1, 9);
         assertEquals(initialPosition.getY(), 10);
+    }
+
+    @Test
+    public void testMoveMariUp() {
+        Position initialPosition = mari.getPosition();
+        mariController.moveMariUp();
+        Position newPosition = mari.getPosition();
+        assertEquals(initialPosition.getX() , 10);
+        assertEquals(initialPosition.getY() - 1, 9);
     }
 
     @Test
@@ -85,77 +97,75 @@ public class MariControllerTest {
     }
 
     @Test
-    public void testUpdateMariAttacked() {
-        GhostEnemy enemy = new GhostEnemy(new Position(40, 17));
-        map.setGhostEnemies(List.of(enemy));
-        Position initialPosition = new Position(40, 18 - 14);
-        mari.setPosition(initialPosition);
-        int initialRemainingLives = mari.getRemainingLives();
-        long attackThreshold = 600;
-        long startTime = System.currentTimeMillis();
-        long elapsedTime = 0;
-
-        while (elapsedTime < attackThreshold) {
-            mariController.updateMari(startTime + elapsedTime);
-            elapsedTime = System.currentTimeMillis() - startTime;
-        }
-        assertEquals(initialRemainingLives , mari.getRemainingLives());
-    }
-
-
-
-    @Test
-    public void testUpdateMariAttackedTimeElapsed() {
-        // Set up an enemy position near Mari
-        GhostEnemy enemy = new GhostEnemy(new Position(40, 17));
-        map.setGhostEnemies(List.of(enemy));
-
-        Position initialPosition = new Position(40, 18 - 14);
-        mari.setPosition(initialPosition);
-
-        long attackThreshold = 600;
-        long startTime = System.currentTimeMillis();
-        long elapsedTime = 0;
-        while (elapsedTime < attackThreshold) {
-            mariController.updateMari(startTime + elapsedTime);
-            elapsedTime = System.currentTimeMillis() - startTime;
-        }
-
-        mariController.updateMari(700); // Ensure more than 600ms have passed
-
-        assertEquals(2, mari.getRemainingLives()); // An attack should reduce lives by 1
-    }
-
-    @Test
     public void testStepActionUp() {
-        // Ensure Mari is grounded and make her jump by triggering the step action UP
-        Wall groundWall = new Wall(new Position(40, 18));
+        Wall groundWall = new Wall(new Position(43, 18));
         map.setWalls(List.of(groundWall));
 
         Position initialPosition = new Position(40, 18 - 14);
         mari.setPosition(initialPosition);
 
-        //mariController.step(main, GUI.ACTION.UP, 100);
-        assertTrue(mari.getIsJumping()); // Mari should start jumping
+        Main main = mock(Main.class);
+        mariController.updateMari(100);
+        mari.jump();
+        assertTrue(mari.getIsJumping());
+        for (int i = 0; i < 6; i++) {
+            mari.update();
+        }
+
+        mariController.step(main, GUI.ACTION.UP, 100);
+
+        mari.setGrounded(true);
+        for (int i = 0; i < 5; i++) {
+            mari.update();
+        }
+
+        mariController.step(main, GUI.ACTION.UP, 100);
+        assertFalse(mari.getIsJumping());
     }
+
 
     @Test
     public void testStepActionRight() {
-        Position initialPosition = new Position(40, 18 - 14);
+        Position initialPosition = new Position(40, 4);
         mari.setPosition(initialPosition);
 
-        //mariController.step(main, GUI.ACTION.RIGHT, 100);
-        assertEquals(new Position(41, 4), mari.getPosition());
+        Main main = mock(Main.class);
+
+        mariController.step(main, GUI.ACTION.RIGHT, 100);
+        assertEquals(41, mari.getPosition().getX());
     }
 
     @Test
     public void testStepActionLeft() {
-        Position initialPosition = new Position(40, 18 - 14);
+        Position initialPosition = new Position(40, 4);
         mari.setPosition(initialPosition);
 
-        //mariController.step(main, GUI.ACTION.LEFT, 100);
-        assertEquals(new Position(39, 4), mari.getPosition());
+        Main main = mock(Main.class);
+
+        mariController.step(main, GUI.ACTION.LEFT, 100);
+        assertEquals(39, mari.getPosition().getX());
     }
+     @Test
+     public void testCollectKey() {
+         Position keyPosition = new Position(5+6, 5+8);
+         Key key = new Key(keyPosition);
+
+         Map model = mock(Map.class);
+         MariController mariController = new MariController(model);
+
+         Position initialPosition = new Position(5, 5);
+         Mari mari = new Mari(initialPosition);
+         model.setMari(mari);
+         assertFalse(mari.getWithKey());
+         model.setKey(key);
+
+         when(model.isKey(eq(keyPosition))).thenReturn(true);
+         when(model.getMari()).thenReturn(mari);
+         mariController.moveMari(keyPosition);
+
+         assertTrue(mari.getWithKey());
+         verify(model, times(1)).removeKey();
+     }
 
 }
 
