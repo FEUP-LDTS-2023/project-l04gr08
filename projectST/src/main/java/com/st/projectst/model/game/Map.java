@@ -14,6 +14,7 @@ public class Map {
     private List<GhostEnemy> gEnemies;
     private List<BatEnemy> bEnemies;
     private List<Wall> walls;
+    private List<Platform> platforms;
     private Key key;
     private Door door;
     private List<Trap> traps;
@@ -72,6 +73,15 @@ public class Map {
     public List<Wall> getWalls() {
         return walls;
     }
+
+    public void setPlatforms(List<Platform> platforms) {
+        this.platforms = platforms;
+    }
+
+    public List<Platform> getPlatforms() {
+        return platforms;
+    }
+
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }

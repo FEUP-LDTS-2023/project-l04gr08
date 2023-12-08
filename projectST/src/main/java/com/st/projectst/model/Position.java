@@ -78,4 +78,15 @@ public class Position {
                 return getLeft();
         }
     }
+
+    public Position getRandomVertical() {
+        int n = (int) (Math.random() * 2);
+        switch (n) {
+            case 0:
+                return getUp();
+            default:
+                return getDown();
+        }
+    }
+
 }

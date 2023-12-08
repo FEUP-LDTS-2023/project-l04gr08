@@ -5,6 +5,8 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.game.GameObject;
 import com.st.projectst.model.game.Map;
+import com.st.projectst.model.game.Platform;
+import com.st.projectst.model.game.Wall;
 import com.st.projectst.viewer.Viewer;
 
 import java.awt.*;
@@ -33,6 +35,7 @@ public class LevelViewer extends Viewer<Map> {
         gui.drawText(new Position(1, 4), "" + getModel().getMari().getRemainingLives(), "#FFFFFF");
         drawGameObject(gui, getModel().getMari(), new MariViewer());
         drawGameObjects(gui, getModel().getWalls(), new WallViewer());
+        drawGameObjects(gui, getModel().getPlatforms(), new PlatformViewer());
         drawGameObjects(gui, getModel().getBatEnemies(), new BatEnemyViewer());
         drawGameObjects(gui, getModel().getGhostEnemies(), new GhostEnemyViewer());
         drawGameObjects(gui, getModel().getTraps(), new TrapViewer());
