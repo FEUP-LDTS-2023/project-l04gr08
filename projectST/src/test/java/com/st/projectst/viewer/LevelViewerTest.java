@@ -75,6 +75,18 @@ public class LevelViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawGhostEnemy(new Position(25,10));
     }
 
-    
+    @Test
+    void testDrawLives() throws IOException, FontFormatException {
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, Mockito.times(1)).drawImage(new Position(1, -2), "gameObjects/life3.png", 1);
+
+        map.getMari().decreaseLives();
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, Mockito.times(1)).drawImage(new Position(1, -2), "gameObjects/life2.png", 1);
+
+        map.getMari().decreaseLives();
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, Mockito.times(1)).drawImage(new Position(1, -2), "gameObjects/life1.png", 1);
+    }
 
 }
