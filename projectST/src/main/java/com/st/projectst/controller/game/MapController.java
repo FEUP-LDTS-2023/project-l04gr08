@@ -58,7 +58,7 @@ public class  MapController extends LevelController {
             mariController.step(main, action, time);
             ghostController.step(main, action, time);
             batController.step(main, action, time);
-            //platformController.step(main, action, time);
+            platformController.step(main, action, time);
 
             if (getModel().getMari().getPosition().getX() == 100) {
                 cameraController.step(main, action, time);

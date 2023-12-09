@@ -19,13 +19,12 @@ public class PlatformController extends LevelController{
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
-        int movementDuration = 500;
-        double currentTime = (time % (2 * movementDuration));
-        int directionY = currentTime < movementDuration ? -1 : 1;
-
-        for (Platform platform : getModel().getPlatforms()) {
-            platform.moveAllPlatforms(0, directionY);
+        int movementDuration = 100;
+        if (time - lastMove > movementDuration) {
+            for (Platform platform : getModel().getPlatforms()) {
+                platform.moveAllPlatforms();
+            }
+            this.lastMove = time;
         }
-        this.lastMove = time;
     }
 }
