@@ -35,6 +35,7 @@ public class MapBuilder {
         map.setKey(createKey());
         map.setTraps(createTraps(map));
         map.setDoor(createDoor());
+        map.setPlatforms(createPlatforms());
         //map.setPotion(createPotions();
         return map;
     }
@@ -85,11 +86,37 @@ public class MapBuilder {
         List<Wall> walls = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                if (linesMap.get(y).charAt(x) == 'W')
+                if (linesMap.get(y).charAt(x) == 'W'){
                     walls.add(new Wall(new Position(x,y)));
+                }
             }
         }
         return walls;
+    }
+
+    private List<Platform> createPlatforms() {
+        List<Platform> platforms = new ArrayList<>();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                char currentChar = linesMap.get(y).charAt(x);
+                Position position = new Position(x, y);
+                if (currentChar == 'F') {
+                    Platform platform = new Platform(position);
+                    platforms.add(platform);
+                }
+            }
+        }
+
+        for (Platform platform : platforms) {
+            for (Platform otherPlatform : platforms) {
+                if (platform != otherPlatform && platform.isOnSameLevel(otherPlatform)) {
+                    platform.addConnectedPlatform(otherPlatform);
+                }
+            }
+        }
+
+        return platforms;
     }
 
     private Key createKey() {

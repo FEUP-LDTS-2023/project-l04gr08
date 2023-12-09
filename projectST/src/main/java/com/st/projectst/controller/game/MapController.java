@@ -23,6 +23,7 @@ public class  MapController extends LevelController {
     private final MariController mariController;
     private final GhostEnemyController ghostController;
     private final BatEnemyController batController;
+    private final PlatformController platformController;
     private final CameraController cameraController;
     private int cameraCount;
 
@@ -32,6 +33,7 @@ public class  MapController extends LevelController {
         this.mariController = new MariController(map);
         this.ghostController = new GhostEnemyController(map);
         this.batController = new BatEnemyController(map);
+        this.platformController = new PlatformController(map);
         this.cameraController = new CameraController(map);
         this.cameraCount = 0;
     }
@@ -58,14 +60,17 @@ public class  MapController extends LevelController {
             mariController.step(main, action, time);
             ghostController.step(main, action, time);
             batController.step(main, action, time);
+            platformController.step(main, action, time);
 
-            if (cameraCount < 2 && Objects.equals(getModel().getMari().getPosition(), new Position(100, getModel().getMari().getPosition().getY()))){
+
+            if (cameraCount < 2 && (getModel().getMari().getPosition().getX() == 100)){
                 if (action == GUI.ACTION.RIGHT){
                     cameraController.step(main, action, time);
                     cameraCount++;
                 }
             }
         }
+
     }
 
     public CameraController getCameraController() {

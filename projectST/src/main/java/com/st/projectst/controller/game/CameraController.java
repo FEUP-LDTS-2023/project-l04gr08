@@ -6,6 +6,8 @@ import com.st.projectst.model.Position;
 import com.st.projectst.model.game.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CameraController extends LevelController {
     public CameraController(Map map) {
@@ -39,6 +41,14 @@ public class CameraController extends LevelController {
                     wall.getPosition().getY()
             );
             wall.setPosition(wallScreenPosition);
+        }
+
+        for (Platform platform: map.getPlatforms()){
+            Position platformScreenPosition = new Position(
+                    platform.getPosition().getX() - 100  ,
+                    platform.getPosition().getY()
+            );
+            platform.setPosition(platformScreenPosition);
         }
 
         for (Trap trap : map.getTraps()){
