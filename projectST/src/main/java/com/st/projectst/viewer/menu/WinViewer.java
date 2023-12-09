@@ -26,7 +26,7 @@ public class WinViewer extends Viewer<Win> {
         gui.drawImage(new Position(29, 4), "images/sword.png", 1.5);
         gui.drawText(new Position(7, 12), " *** Level Complete *** ", "#FFFFFF");
 
-        for (int i = 0; i < getModel().getNumber(); i++){
+        for (int i = 0; i < getModel().getNumberOptions(); i++){
             gui.drawText(
                     new Position(14, 14 + i),
                     getModel().getOption(i),

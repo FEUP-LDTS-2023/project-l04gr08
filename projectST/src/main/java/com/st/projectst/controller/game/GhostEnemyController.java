@@ -10,12 +10,10 @@ import java.io.IOException;
 
 public class GhostEnemyController extends LevelController{
     private long lastMove;
-    private long lastAttack;
 
     public GhostEnemyController(Map map) {
         super(map);
         this.lastMove = 0;
-        this.lastAttack = 0;
     }
 
     @Override

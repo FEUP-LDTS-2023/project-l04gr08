@@ -1,4 +1,4 @@
-package com.st.projectst.viewer;
+package com.st.projectst.viewer.game;
 
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;

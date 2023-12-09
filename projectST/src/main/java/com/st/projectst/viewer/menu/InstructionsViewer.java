@@ -40,8 +40,7 @@ public class InstructionsViewer extends Viewer<Instructions> {
         gui.drawText(new Position(5, 36), "  Click Enter to go back to the Menu", "#FFFFFF");
 
 
-        for (int i = 0; i < getModel().getNumber(); i++)
-            gui.drawText(new Position(55, 40 + i), " ", "#FFFFFF");
+        gui.drawText(new Position(55, 40), " ", "#FFFFFF");
     }
 
 }
