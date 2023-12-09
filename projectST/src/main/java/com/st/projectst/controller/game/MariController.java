@@ -5,6 +5,7 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.game.Mari;
 import com.st.projectst.model.Position;
+import com.st.projectst.model.game.Platform;
 import com.st.projectst.model.menu.Level;
 import com.st.projectst.model.menu.Start;
 import com.st.projectst.states.StartState;
@@ -79,6 +80,7 @@ public class MariController extends LevelController {
         //Position posDB = new Position(position); posDB.setY(posEC.getY()+13); posDB.setX(posEC.getX()+8);
         //List<Position> mariPositions = Arrays.asList(posEC, posEB, posDC, posDB);
 
+
         boolean Empty = true;
         for (Position pos: mariPositions) {
             if (!getModel().isEmpty(pos)) {
@@ -98,17 +100,27 @@ public class MariController extends LevelController {
     }
 
     void updateMari(long time) {
-        // Verify if Mari is grounded
         getModel().getMari().setGrounded(getModel().Grounded());
         moveMari(getModel().getMari().update());
 
+        Position currentMariPosition = getModel().getMari().getPosition();
+        Platform platform = getModel().getPlatformAt(currentMariPosition);
+
+        if (getModel().isAtPlatform(currentMariPosition)) {
+            if (platform != null) {
+                Position platformPosition = platform.getPosition();
+                currentMariPosition.setY(platformPosition.getY() - 15);
+                getModel().getMari().setPosition(currentMariPosition);
+            }
+        }
+
         // Verify if Mari was attacked
-        if ((time - lastAttack) > 600)
+        if ((time - lastAttack) > 600){
             if (getModel().isEnemy(getModel().getMari().getPosition())) {
                 getModel().getMari().decreaseLives();
                 lastAttack = time;
             }
-
+        }
     }
 
     @Override

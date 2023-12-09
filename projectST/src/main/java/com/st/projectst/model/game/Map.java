@@ -14,6 +14,7 @@ public class Map {
     private List<GhostEnemy> gEnemies;
     private List<BatEnemy> bEnemies;
     private List<Wall> walls;
+    private List<Platform> platforms;
     private Key key;
     private Door door;
     private List<Trap> traps;
@@ -72,6 +73,15 @@ public class Map {
     public List<Wall> getWalls() {
         return walls;
     }
+
+    public void setPlatforms(List<Platform> platforms) {
+        this.platforms = platforms;
+    }
+
+    public List<Platform> getPlatforms() {
+        return platforms;
+    }
+
     public void setWalls(List<Wall> walls) {
         this.walls = walls;
     }
@@ -93,6 +103,12 @@ public class Map {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
+        for (Platform platform : platforms) {
+            for (Wall wall : platform.getConnectedPlatforms()) {
+                if (wall.getPosition().equals(position))
+                    return false;
+            }
+        }
         return true;
     }
 
@@ -128,6 +144,12 @@ public class Map {
             for (Wall wall : walls) {
                 if (wall.getPosition().equals(pos))
                     return true;
+            }
+            for (Platform platform : platforms){
+                for (Wall wall : platform.getConnectedPlatforms()){
+                    if (wall.getPosition().equals(pos))
+                        return true;
+                }
             }
         }
         return false;
@@ -187,6 +209,39 @@ public class Map {
 
     public Door getDoor() {
         return door;
+    }
+
+    public boolean isAtPlatform(Position currentMariPosition) {
+        Position floorPosition = new Position(mari.getPosition());
+        floorPosition.setY(floorPosition.getY()+14);
+
+        List<Position> floorPositions = new ArrayList<>();
+        for (int i = 3; i < 9; i++) {
+            Position newFloorPosition = new Position(floorPosition);
+            newFloorPosition.setX(newFloorPosition.getX()+i);
+            floorPositions.add(newFloorPosition);
+        }
+
+        for (Position pos: floorPositions) {
+            for (Platform platform : platforms){
+                for (Wall wall : platform.getConnectedPlatforms()){
+                    if (wall.getPosition().equals(pos)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public Platform getPlatformAt(Position currentMariPosition) {
+        currentMariPosition = new Position(currentMariPosition.getX(), currentMariPosition.getY()-14);
+        for (Platform platform : platforms) {
+            if (platform.getPosition().equals(currentMariPosition)){
+                return platform;
+            }
+        }
+        return null;
     }
 
 
