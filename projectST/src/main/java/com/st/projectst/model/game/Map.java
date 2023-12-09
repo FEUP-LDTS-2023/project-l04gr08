@@ -211,6 +211,39 @@ public class Map {
         return door;
     }
 
+    public boolean isAtPlatform(Position currentMariPosition) {
+        Position floorPosition = new Position(mari.getPosition());
+        floorPosition.setY(floorPosition.getY()+14);
+
+        List<Position> floorPositions = new ArrayList<>();
+        for (int i = 3; i < 9; i++) {
+            Position newFloorPosition = new Position(floorPosition);
+            newFloorPosition.setX(newFloorPosition.getX()+i);
+            floorPositions.add(newFloorPosition);
+        }
+
+        for (Position pos: floorPositions) {
+            for (Platform platform : platforms){
+                for (Wall wall : platform.getConnectedPlatforms()){
+                    if (wall.getPosition().equals(pos)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public Platform getPlatformAt(Position currentMariPosition) {
+        currentMariPosition = new Position(currentMariPosition.getX(), currentMariPosition.getY()-14);
+        for (Platform platform : platforms) {
+            if (platform.getPosition().equals(currentMariPosition)){
+                return platform;
+            }
+        }
+        return null;
+    }
+
 
     /*
     public void setPotionLocations(boolean[][] potionLocations) {
