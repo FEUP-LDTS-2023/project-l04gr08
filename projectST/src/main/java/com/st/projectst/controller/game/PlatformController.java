@@ -2,8 +2,10 @@ package com.st.projectst.controller.game;
 
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
+import com.st.projectst.model.Position;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.game.Platform;
+import com.st.projectst.model.game.Wall;
 
 import java.io.IOException;
 
@@ -17,11 +19,13 @@ public class PlatformController extends LevelController{
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMove > 500) {
-            for (Platform platform : getModel().getPlatforms()){
-                platform.moveAllPlatforms();
-            }
-            this.lastMove = time;
+        int movementDuration = 500;
+        double currentTime = (time % (2 * movementDuration));
+        int directionY = currentTime < movementDuration ? -1 : 1;
+
+        for (Platform platform : getModel().getPlatforms()) {
+            platform.moveAllPlatforms(0, directionY);
         }
+        this.lastMove = time;
     }
 }

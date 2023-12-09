@@ -44,16 +44,12 @@ public class CameraController extends LevelController {
         }
 
         for (Platform platform: map.getPlatforms()){
+            Position platformScreenPosition = new Position(
+                    platform.getPosition().getX() - 100  ,
+                    platform.getPosition().getY()
+            );
+            platform.setPosition(platformScreenPosition);
             List<Wall> newPlatform = new ArrayList<>();
-            for (Wall wall : platform.getConnectedPlatforms()) {
-                Position wallScreenPosition = new Position(
-                        wall.getPosition().getX() - 100  ,
-                        wall.getPosition().getY()
-                );
-                wall.setPosition(wallScreenPosition);
-                newPlatform.add(wall);
-            }
-            platform.setConnectedPlatforms(newPlatform);
         }
 
         for (Trap trap : map.getTraps()){

@@ -103,6 +103,12 @@ public class Map {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
+        for (Platform platform : platforms) {
+            for (Wall wall : platform.getConnectedPlatforms()) {
+                if (wall.getPosition().equals(position))
+                    return false;
+            }
+        }
         return true;
     }
 
@@ -138,6 +144,12 @@ public class Map {
             for (Wall wall : walls) {
                 if (wall.getPosition().equals(pos))
                     return true;
+            }
+            for (Platform platform : platforms){
+                for (Wall wall : platform.getConnectedPlatforms()){
+                    if (wall.getPosition().equals(pos))
+                        return true;
+                }
             }
         }
         return false;
