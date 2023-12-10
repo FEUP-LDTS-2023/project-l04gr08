@@ -6,16 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Start {
-    private final List<Position> options;
+    private final List<String> options;
     private int currentOption;
 
     public Start(int selectedOption) {
         this.currentOption = selectedOption;
-
-        Position positionStart = new Position(5, 10);
-        Position positionInstructions = new Position(5, 11);
-        Position positionExit = new Position(5, 12);
-        options = Arrays.asList(positionStart, positionInstructions, positionExit);
+        this.options = Arrays.asList("Start", "Instructions", "Exit");
     }
 
     public void previousOption() {
@@ -26,24 +22,12 @@ public class Start {
         if (currentOption < (options.size() - 1))
             currentOption++;
     }
-    public Position getOptionPosition(int i) {
+    public String getOption(int i) {
         return options.get(i);
     }
 
     public boolean isSelected(int i) {
         return currentOption == i;
-    }
-    public String getOption(int i) {
-        switch (i){
-            case 0:
-                return "Start";
-            case 1 :
-                return "Instructions";
-            case 2:
-                return "Exit";
-            default:
-        }
-        return "";
     }
     public boolean isSelectedStart() {
         return isSelected(0);
@@ -55,7 +39,7 @@ public class Start {
         return isSelected(2);
     }
 
-    public int getNumber() {
+    public int getNumberOptions() {
         return options.size();
     }
 }

@@ -10,7 +10,6 @@ import com.st.projectst.model.game.GameObject;
 import java.util.List;
 
 public class Mari extends GameObject {
-    private double speedX;
     private int remainingLives;
     private boolean withKey;
     private boolean isJumping;
@@ -22,7 +21,6 @@ public class Mari extends GameObject {
 
     public Mari(Position position) {
         super(position);
-        speedX = 1;
         remainingLives = 3;
         withKey = false;
         isJumping = false;
@@ -35,13 +33,13 @@ public class Mari extends GameObject {
     public Position moveRight() {
         jumpRight = true;
         Position newPosition = new Position(getPosition());
-        newPosition.setX( getPosition().getX() + (1 * speedX));
+        newPosition.setX( getPosition().getX() + 1);
         return newPosition;
     }
     public Position moveLeft() {
         jumpRight = false;
         Position newPosition = new Position(getPosition());
-        newPosition.setX( getPosition().getX() - (1 * speedX));
+        newPosition.setX( getPosition().getX() - 1);
         return newPosition;
     }
     public void jump() {

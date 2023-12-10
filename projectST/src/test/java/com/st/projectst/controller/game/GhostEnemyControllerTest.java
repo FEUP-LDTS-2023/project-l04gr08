@@ -42,7 +42,7 @@ public class GhostEnemyControllerTest {
         when(map.getGhostEnemies()).thenReturn(Arrays.asList(ghostEnemy));
         when(map.isEmpty(any(Position.class))).thenReturn(true);
 
-        controller.step(main, GUI.ACTION.NONE, 400);
+        controller.step(main, GUI.ACTION.NONE, 600);
 
         assertNotEquals(new Position(5, 5), ghostEnemy.getPosition());
         verify(map, times(1)).isEmpty(any(Position.class));
@@ -54,7 +54,7 @@ public class GhostEnemyControllerTest {
         when(map.getGhostEnemies()).thenReturn(Arrays.asList(ghostEnemy));
         when(map.isEmpty(any(Position.class))).thenReturn(false);
 
-        controller.step(main, GUI.ACTION.NONE, 400);
+        controller.step(main, GUI.ACTION.NONE, 600);
 
         assertEquals(new Position(5, 5), ghostEnemy.getPosition());
         verify(map, times(1)).isEmpty(any(Position.class));

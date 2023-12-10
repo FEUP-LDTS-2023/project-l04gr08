@@ -49,7 +49,7 @@ public class Win {
         return isSelected(1);
     }
 
-    public int getNumber() {
+    public int getNumberOptions() {
         return this.options.size();
     }
 

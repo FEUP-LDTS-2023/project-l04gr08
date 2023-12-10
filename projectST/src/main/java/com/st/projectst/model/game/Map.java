@@ -213,7 +213,7 @@ public class Map {
 
     public boolean isAtPlatform(Position currentMariPosition) {
         Position floorPosition = new Position(mari.getPosition());
-        floorPosition.setY(floorPosition.getY()+14);
+        floorPosition.setY(floorPosition.getY()+13);
 
         List<Position> floorPositions = new ArrayList<>();
         for (int i = 3; i < 9; i++) {

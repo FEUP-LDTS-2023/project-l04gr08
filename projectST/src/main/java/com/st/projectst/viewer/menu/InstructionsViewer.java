@@ -17,7 +17,7 @@ public class InstructionsViewer extends Viewer<Instructions> {
     public void drawObject(GUI gui) throws IOException, FontFormatException {
 
         gui.setBackgroundColor("#BA6156");
-        gui.drawImage(new Position(50, 11), "cat.png", 1);
+        gui.drawImage(new Position(50, 11), "images/cat.png", 1);
 
         gui.drawText(new Position(20, 3), "OO  OO OOOOO OO    OOOOO", "#f9dbbe");
         gui.drawText(new Position(20, 4), "OO  OO OO    OO    OO OO", "#ffbc6e");
@@ -32,15 +32,15 @@ public class InstructionsViewer extends Viewer<Instructions> {
         gui.drawText(new Position(5, 19), "because the bats are skillfull.", "#FFFFFF");
 
         gui.drawText(new Position(5, 22), "Rules:", "#FFA212");
-        gui.drawText(new Position(5, 24), "  -> Arrow Up   - Jump          ", "#FFFFFF");
-        gui.drawText(new Position(5, 26), "  -> Arrow Left - Move left     ", "#FFFFFF");
-        gui.drawText(new Position(5, 28), "  -> Arrow Right- Move right    ", "#FFFFFF");
-        gui.drawText(new Position(5, 30), "  -> Touch a potion - Double jump", "#FFFFFF");
-        gui.drawText(new Position(5, 34), "  Click Enter to go back to the Menu", "#FFFFFF");
+        gui.drawText(new Position(5, 24), "  -> ESC - Pause the game", "#FFFFFF");
+        gui.drawText(new Position(5, 26), "  -> Arrow Up   - Jump          ", "#FFFFFF");
+        gui.drawText(new Position(5, 28), "  -> Arrow Left - Move left     ", "#FFFFFF");
+        gui.drawText(new Position(5, 30), "  -> Arrow Right- Move right    ", "#FFFFFF");
+        gui.drawText(new Position(5, 32), "  -> Touch a potion - Double jump", "#FFFFFF");
+        gui.drawText(new Position(5, 36), "  Click Enter to go back to the Menu", "#FFFFFF");
 
 
-        for (int i = 0; i < getModel().getNumber(); i++)
-            gui.drawText(new Position(55, 40 + i), " ", "#FFFFFF");
+        gui.drawText(new Position(55, 40), " ", "#FFFFFF");
     }
 
 }

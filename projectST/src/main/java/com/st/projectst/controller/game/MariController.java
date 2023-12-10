@@ -75,11 +75,6 @@ public class MariController extends LevelController {
             mariPositions.add(newPos3); mariPositions.add(newPos4);
         }
 
-        //Position posEB = new Position(position); posEB.setY(posEC.getY()+13); posEB.setX(posEC.getX()+3);
-        //Position posDC = new Position(position); posDC.setX(posEC.getX()+11);
-        //Position posDB = new Position(position); posDB.setY(posEC.getY()+13); posDB.setX(posEC.getX()+8);
-        //List<Position> mariPositions = Arrays.asList(posEC, posEB, posDC, posDB);
-
 
         boolean Empty = true;
         for (Position pos: mariPositions) {
@@ -107,15 +102,11 @@ public class MariController extends LevelController {
         Platform platform = getModel().getPlatformAt(currentMariPosition);
 
         if (getModel().isAtPlatform(currentMariPosition)) {
-            if (platform != null) {
-                Position platformPosition = platform.getPosition();
-                currentMariPosition.setY(platformPosition.getY() - 15);
-                getModel().getMari().setPosition(currentMariPosition);
-            }
+            getModel().getMari().getPosition().setY(getModel().getMari().getPosition().getY()-1);
         }
 
         // Verify if Mari was attacked
-        if ((time - lastAttack) > 600){
+        if ((time - lastAttack) > 1000) {
             if (getModel().isEnemy(getModel().getMari().getPosition())) {
                 getModel().getMari().decreaseLives();
                 lastAttack = time;
