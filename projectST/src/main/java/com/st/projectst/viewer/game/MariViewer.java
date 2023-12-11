@@ -9,6 +9,11 @@ import java.io.IOException;
 public class MariViewer implements GameObjectViewer<Mari> {
     @Override
     public void draw(Mari mari, GUI gui) throws IOException, FontFormatException {
-        gui.drawMari(mari.getPosition());
+        if (mari.getIsJumping()){
+            gui.drawMariJump(mari.getPosition());
+        }
+        else {
+            gui.drawMari(mari.getPosition());
+        }
     }
 }

@@ -94,8 +94,13 @@ public class LanternaGUI implements GUI{
 
 
     @Override
-    public void drawMari(Position position) {
+    public void drawMari(Position position) throws IOException {
         drawImage(position, "gameObjects/mari1.png", 1);
+    }
+
+    @Override
+    public void drawMariJump(Position position) {
+        drawImage(position, "gameObjects/mari2.png", 1);
     }
 
     @Override

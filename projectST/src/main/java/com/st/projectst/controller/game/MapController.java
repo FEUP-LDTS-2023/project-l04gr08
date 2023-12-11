@@ -65,7 +65,6 @@ public class  MapController extends LevelController {
             platformController.step(main, action, time);
             potionController.step(main, action, time);
 
-
             if (cameraCount < 2 && (getModel().getMari().getPosition().getX() == 100)){
                 cameraController.step(main, action, time);
                 cameraCount++;

@@ -17,9 +17,11 @@ import java.util.List;
 
 public class MariController extends LevelController {
     private long lastAttack;
+    private int doubleJumpsRemaining;
     public MariController(Map map) {
         super(map);
         this.lastAttack = 0;
+        this.doubleJumpsRemaining = 0;
     }
 
     public void moveMariRight() {
@@ -34,16 +36,6 @@ public class MariController extends LevelController {
         Position currentPosition = mari.getPosition();
         mari.jump();
         moveMari(currentPosition);
-
-        /*
-        // Check if Mari touches a potion
-        if (getModel().isPotion(currentPosition)) {
-            if (mari.getRemainingJumps() > 0) {
-                mari.jump();
-                mari.decreaseJumps();
-            }
-        }
-         */
 
     }
 
@@ -99,13 +91,14 @@ public class MariController extends LevelController {
         moveMari(getModel().getMari().update());
 
         Position currentMariPosition = getModel().getMari().getPosition();
-        Platform platform = getModel().getPlatformAt(currentMariPosition);
+
+        if (getModel().touchPotion(getModel().getMari().getPosition())){
+            //applyPotionEffect();
+        }
 
         if (getModel().isAtPlatform(currentMariPosition)) {
             getModel().getMari().getPosition().setY(getModel().getMari().getPosition().getY()-1);
         }
-
-        //if (getModel().touchPotion()){}
 
         // Verify if Mari was attacked
         if ((time - lastAttack) > 1000) {
@@ -116,14 +109,26 @@ public class MariController extends LevelController {
         }
     }
 
+    public void applyPotionEffect() {
+        doubleJumpsRemaining = 2;
+    }
+
     @Override
     public void step(Main main, GUI.ACTION action, long time) {
         updateMari(time);
 
-        if (action == GUI.ACTION.UP) moveMariUp();
-        if (action == GUI.ACTION.RIGHT) moveMariRight();
-        if (action == GUI.ACTION.LEFT) moveMariLeft();
-
+        if (doubleJumpsRemaining > 0 && action == GUI.ACTION.UP) {
+            getModel().getMari().jump();
+            doubleJumpsRemaining--;
+        } else {
+            if (action == GUI.ACTION.UP) {
+                moveMariUp();
+            } else if (action == GUI.ACTION.RIGHT) {
+                moveMariRight();
+            } else if (action == GUI.ACTION.LEFT) {
+                moveMariLeft();
+            }
+        }
     }
 
 }

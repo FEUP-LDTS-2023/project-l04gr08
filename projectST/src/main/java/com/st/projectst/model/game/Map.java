@@ -243,17 +243,8 @@ public class Map {
         return false;
     }
 
-    public Platform getPlatformAt(Position currentMariPosition) {
-        currentMariPosition = new Position(currentMariPosition.getX(), currentMariPosition.getY()-14);
-        for (Platform platform : platforms) {
-            if (platform.getPosition().equals(currentMariPosition)){
-                return platform;
-            }
-        }
-        return null;
-    }
-
-    public boolean touchPotion() {
+    public boolean touchPotion(Position position) {
+        /*
         Position possiblePosition = new Position(mari.getPosition());
         possiblePosition.setY(possiblePosition.getY()+14);
 
@@ -271,6 +262,12 @@ public class Map {
             }
         }
         return false;
+
+         */
+        for (Potion potion : potions)
+            if (potion.getPosition().equals(position))
+                return false;
+        return true;
     }
 
 }
