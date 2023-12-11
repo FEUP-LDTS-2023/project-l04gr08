@@ -105,6 +105,8 @@ public class MariController extends LevelController {
             getModel().getMari().getPosition().setY(getModel().getMari().getPosition().getY()-1);
         }
 
+        //if (getModel().touchPotion()){}
+
         // Verify if Mari was attacked
         if ((time - lastAttack) > 1000) {
             if (getModel().isEnemy(getModel().getMari().getPosition())) {

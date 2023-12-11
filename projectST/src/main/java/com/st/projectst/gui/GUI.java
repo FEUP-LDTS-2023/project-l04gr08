@@ -19,6 +19,7 @@ public interface GUI {
     void drawWall(Position position);
     void drawKey(Position position);
     void drawDoor(Position position);
+    void drawPotion(Position position);
     void drawTrap(Position position);
     void setBackgroundColor(String color);
     void drawText(Position position, String text, String color);
