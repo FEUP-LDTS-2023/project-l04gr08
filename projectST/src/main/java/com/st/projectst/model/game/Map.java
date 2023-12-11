@@ -18,6 +18,7 @@ public class Map {
     private Key key;
     private Door door;
     private List<Trap> traps;
+    private List<Potion> potions;
 
     public Map (int width, int height, int currentLevel) {
         this.width = width;
@@ -91,6 +92,14 @@ public class Map {
     }
     public void setKey(Key key) {
         this.key = key;
+    }
+
+    public List<Potion> getPotions() {
+        return potions;
+    }
+
+    public void setPotions(List<Potion> potions) {
+        this.potions = potions;
     }
 
     public boolean isAtDoor(Position position) {
@@ -234,31 +243,31 @@ public class Map {
         return false;
     }
 
-    public Platform getPlatformAt(Position currentMariPosition) {
-        currentMariPosition = new Position(currentMariPosition.getX(), currentMariPosition.getY()-14);
-        for (Platform platform : platforms) {
-            if (platform.getPosition().equals(currentMariPosition)){
-                return platform;
+    public boolean touchPotion(Position position) {
+        /*
+        Position possiblePosition = new Position(mari.getPosition());
+        possiblePosition.setY(possiblePosition.getY()+14);
+
+        List<Position> possiblePositions = new ArrayList<>();
+        for (int i = 3; i < 9; i++) {
+            Position newPossiblePosition = new Position(possiblePosition);
+            newPossiblePosition.setX(newPossiblePosition.getX()+i);
+            possiblePositions.add(newPossiblePosition);
+        }
+
+        for (Position pos: possiblePositions) {
+            for (Potion potion : potions) {
+                if (potion.getPosition().equals(pos))
+                    return true;
             }
         }
-        return null;
-    }
-
-
-    /*
-    public void setPotionLocations(boolean[][] potionLocations) {
-        this.potionLocations = potionLocations;
-    }
-
-    public boolean isPotion(Position position) {
-        double x = position.getX();
-        double y = position.getY();
-        if (x >= 0 && x < potionLocations.length && y >= 0 && y < potionLocations[0].length) {
-            return potionLocations[(int) x][(int) y];
-        }c
         return false;
-    }
 
-     */
+         */
+        for (Potion potion : potions)
+            if (potion.getPosition().equals(position))
+                return false;
+        return true;
+    }
 
 }

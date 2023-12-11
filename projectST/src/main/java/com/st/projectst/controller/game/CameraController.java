@@ -59,6 +59,7 @@ public class CameraController extends LevelController {
             trap.setPosition(trapScreenPosition);
         }
 
+
         if (map.getKey() != null) {
             Key key = map.getKey();
             Position keyScreenPosition = new Position(
@@ -67,6 +68,15 @@ public class CameraController extends LevelController {
             );
             key.setPosition(keyScreenPosition);
         }
+
+        for (Potion potion : map.getPotions()){
+            Position potionScreenPosition = new Position(
+                    potion.getPosition().getX() - 100  ,
+                    potion.getPosition().getY()
+            );
+            potion.setPosition(potionScreenPosition);
+        }
+
 
         Door door = map.getDoor();
         Position doorScreenPosition = new Position(

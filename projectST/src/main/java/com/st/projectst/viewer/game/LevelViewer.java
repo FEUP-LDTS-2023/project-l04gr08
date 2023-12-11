@@ -39,6 +39,8 @@ public class LevelViewer extends Viewer<Map> {
         drawGameObject(gui, getModel().getMari(), new MariViewer());
         drawGameObjects(gui, getModel().getBatEnemies(), new BatEnemyViewer());
         drawGameObjects(gui, getModel().getGhostEnemies(), new GhostEnemyViewer());
+        drawGameObjects(gui, getModel().getPotions(), new PotionViewer());
+
 
         if (getModel().getKey() != null)
             drawGameObject(gui, getModel().getKey(), new KeyViewer());

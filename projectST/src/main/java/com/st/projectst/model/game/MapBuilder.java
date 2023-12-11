@@ -36,7 +36,7 @@ public class MapBuilder {
         map.setTraps(createTraps(map));
         map.setDoor(createDoor());
         map.setPlatforms(createPlatforms());
-        //map.setPotion(createPotions();
+        map.setPotions(createPotions());
         return map;
     }
 
@@ -154,21 +154,15 @@ public class MapBuilder {
     }
 
 
-    /* MUDAR CÓDIGOOOOO
-
-    private void initializePotionLocations() {
-        //potionLocations = new boolean[width][height];
-    }
-
-    private void createPotions() {
+    private List<Potion> createPotions() {
+        List<Potion> potions = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                if (linesMap.get(y).charAt(x) == 'P') {
-                    //potionLocations[x][y] = true;
-                }
+                if (linesMap.get(y).charAt(x) == 'P')
+                    potions.add(new Potion(new Position(x, y)));
             }
         }
+        return potions;
     }
-     */
 
 }

@@ -13,12 +13,14 @@ public interface GUI {
     enum ACTION {RIGHT, LEFT, UP, DOWN, SELECT, QUIT, PAUSE, NONE}
     ACTION getNextAction() throws IOException;
     void drawMari(Position position) throws IOException, FontFormatException;
+    void drawMariJump(Position position);
 
     void drawGhostEnemy(Position position);
     void drawBatEnemy(Position position);
     void drawWall(Position position);
     void drawKey(Position position);
     void drawDoor(Position position);
+    void drawPotion(Position position);
     void drawTrap(Position position);
     void setBackgroundColor(String color);
     void drawText(Position position, String text, String color);

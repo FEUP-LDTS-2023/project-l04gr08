@@ -94,15 +94,18 @@ public class LanternaGUI implements GUI{
 
 
     @Override
-    public void drawMari(Position position) {
+    public void drawMari(Position position) throws IOException {
         drawImage(position, "gameObjects/mari1.png", 1);
-        //drawCharacter((int) position.getX(), (int) position.getY(), 'M', "#3774D8");
+    }
+
+    @Override
+    public void drawMariJump(Position position) {
+        drawImage(position, "gameObjects/mari2.png", 1);
     }
 
     @Override
     public void drawGhostEnemy(Position position) {
         drawImage(position, "gameObjects/ghost.png", 1);
-        //drawCharacter((int) position.getX(), (int) position.getY(), 'G', "#CC0000");
     }
 
     @Override
@@ -122,8 +125,14 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawDoor(Position position) { drawImage(position, "gameObjects/door.png", 1); }
+    @Override
     public void drawTrap(Position position) {
         drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E");
+    }
+
+    @Override
+    public void drawPotion(Position position) {
+        drawImage(position, "potion.png", 1);
     }
 
     public void setBackgroundColor(String color){

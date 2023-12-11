@@ -25,6 +25,7 @@ public class  MapController extends LevelController {
     private final BatEnemyController batController;
     private final PlatformController platformController;
     private final CameraController cameraController;
+    private final PotionController potionController;
     private int cameraCount;
 
     public MapController(Map map) {
@@ -35,6 +36,7 @@ public class  MapController extends LevelController {
         this.batController = new BatEnemyController(map);
         this.platformController = new PlatformController(map);
         this.cameraController = new CameraController(map);
+        this.potionController = new PotionController(map);
         this.cameraCount = 0;
     }
 
@@ -61,7 +63,7 @@ public class  MapController extends LevelController {
             ghostController.step(main, action, time);
             batController.step(main, action, time);
             platformController.step(main, action, time);
-
+            potionController.step(main, action, time);
 
             if (cameraCount < 2 && (getModel().getMari().getPosition().getX() == 100)){
                 cameraController.step(main, action, time);
