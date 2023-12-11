@@ -17,7 +17,7 @@ public class BatEnemyController extends LevelController{
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMove > 500) {
+        if (time - lastMove > 150) {
             for (BatEnemy enemy : getModel().getBatEnemies())
                 enemy.setPosition(enemy.move());
             this.lastMove = time;

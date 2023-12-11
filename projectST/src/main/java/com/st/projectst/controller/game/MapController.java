@@ -64,10 +64,8 @@ public class  MapController extends LevelController {
 
 
             if (cameraCount < 2 && (getModel().getMari().getPosition().getX() == 100)){
-                if (action == GUI.ACTION.RIGHT){
-                    cameraController.step(main, action, time);
-                    cameraCount++;
-                }
+                cameraController.step(main, action, time);
+                cameraCount++;
             }
         }
 

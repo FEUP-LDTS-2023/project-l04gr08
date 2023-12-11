@@ -59,12 +59,14 @@ public class CameraController extends LevelController {
             trap.setPosition(trapScreenPosition);
         }
 
-        Key key = map.getKey();
-        Position keyScreenPosition = new Position(
-                key.getPosition().getX() - 100  ,
-                key.getPosition().getY()
-        );
-        key.setPosition(keyScreenPosition);
+        if (map.getKey() != null) {
+            Key key = map.getKey();
+            Position keyScreenPosition = new Position(
+                    key.getPosition().getX() - 100  ,
+                    key.getPosition().getY()
+            );
+            key.setPosition(keyScreenPosition);
+        }
 
         Door door = map.getDoor();
         Position doorScreenPosition = new Position(

@@ -33,7 +33,7 @@ public class Main {
     }
 
     private void start() throws IOException, FontFormatException, URISyntaxException {
-        int FPS = 60;
+        int FPS = 30;
         int frameTime = 400 / FPS;
 
         while (this.state != null) {

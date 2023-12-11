@@ -58,7 +58,7 @@ public class Mari extends GameObject {
             if (jumpRight) newPosition.setX(getPosition().getX()+1);
             else newPosition.setX(getPosition().getX()-1);
 
-            if (jumpCounter >= 6) {
+            if (jumpCounter >= 8) {
                 isJumping = false;
                 jumpCounter = 0;
             }

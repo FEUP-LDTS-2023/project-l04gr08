@@ -25,7 +25,7 @@ public class Platform extends Wall {
         connectedPlatforms.add(wall);
     }
     public void moveAllPlatforms() {
-        int speed = 10;
+        int speed = 16;
 
         if (movingUp) {
             setPosition(new Position(getPosition().getX(), getPosition().getY() - 1));
