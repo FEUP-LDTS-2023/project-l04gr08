@@ -30,6 +30,8 @@ public class MariControllerTest {
         map.setBatEnemies(Arrays.asList());
         map.setGhostEnemies(Arrays.asList());
         map.setWalls(Arrays.asList());
+        map.setPlatforms(Arrays.asList());
+        map.setPotions(Arrays.asList());
         mariController = new MariController(map);
     }
 

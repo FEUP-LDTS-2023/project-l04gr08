@@ -28,6 +28,8 @@ public class LevelViewerTest {
         map.setWalls(Arrays.asList(new Wall(new Position(0,0))));
         map.setTraps(Arrays.asList(new Trap(new Position(20,20))));
         map.setBatEnemies(Arrays.asList(new BatEnemy(new Position(20,5))));
+        map.setPotions(Arrays.asList(new Potion(new Position(25,25))));
+        map.setPlatforms(Arrays.asList(new Platform(new Position(40,45))));
         map.setGhostEnemies(Arrays.asList(new GhostEnemy(new Position(25,10))));
 
         levelViewer = new LevelViewer(map);

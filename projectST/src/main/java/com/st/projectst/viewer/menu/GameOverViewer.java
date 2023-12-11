@@ -41,6 +41,6 @@ public class GameOverViewer extends Viewer<GameOver> {
                 getModel().isSelected(0) ? "#F1A55E" : "#FFFFFF"
         );
 
-        gui.drawText(new Position(30, 31), "Click ESC" , "#FFFFFF");
+        gui.drawText(new Position(30, 31), "Click ENTER" , "#FFFFFF");
     }
 }
