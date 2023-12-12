@@ -244,30 +244,12 @@ public class Map {
     }
 
     public boolean touchPotion(Position position) {
-        /*
-        Position possiblePosition = new Position(mari.getPosition());
-        possiblePosition.setY(possiblePosition.getY()+14);
-
-        List<Position> possiblePositions = new ArrayList<>();
-        for (int i = 3; i < 9; i++) {
-            Position newPossiblePosition = new Position(possiblePosition);
-            newPossiblePosition.setX(newPossiblePosition.getX()+i);
-            possiblePositions.add(newPossiblePosition);
-        }
-
-        for (Position pos: possiblePositions) {
-            for (Potion potion : potions) {
-                if (potion.getPosition().equals(pos))
-                    return true;
+        for (Potion potion : potions) {
+            if (potion.getPosition().equals(position)) {
+                return true;
             }
         }
         return false;
-
-         */
-        for (Potion potion : potions)
-            if (potion.getPosition().equals(position))
-                return false;
-        return true;
     }
-
 }
+

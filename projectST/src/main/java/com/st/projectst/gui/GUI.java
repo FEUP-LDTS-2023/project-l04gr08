@@ -14,6 +14,7 @@ public interface GUI {
     ACTION getNextAction() throws IOException;
     void drawMari(Position position) throws IOException, FontFormatException;
     void drawMariJump(Position position);
+    void drawMariDoubleJump(Position position);
 
     void drawGhostEnemy(Position position);
     void drawBatEnemy(Position position);
