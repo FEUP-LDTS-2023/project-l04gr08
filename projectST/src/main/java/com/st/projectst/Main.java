@@ -23,13 +23,12 @@ public class Main {
     }
 
     public LanternaGUI getGui() { return this.gui; }
+    public State getState() {
+        return state;
+    }
     public void setGui(LanternaGUI gui) { this.gui = gui; }
     public void setState(State state) {
         this.state = state;
-    }
-
-    public State getState() {
-        return state;
     }
 
     private void start() throws IOException, FontFormatException, URISyntaxException {
@@ -47,6 +46,7 @@ public class Main {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+
             }
         }
 

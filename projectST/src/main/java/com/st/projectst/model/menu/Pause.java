@@ -11,7 +11,7 @@ public class Pause {
     private final List<String> options;
     int currentOption = 0;
     public Pause(State gameState) {
-        this.options = Arrays.asList("Continue","Exit");
+        this.options = Arrays.asList("Continue", "Go back to menu");
         this.gameState = gameState;
     }
 
