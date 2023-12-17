@@ -109,10 +109,7 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawBatEnemy(Position position) {
-
-        //drawImage(position, "gameObjects/bat.png", 1);
-    }
+    public void drawBatEnemy(Position position) { drawImage(position, "gameObjects/bat.png", 1); }
 
     @Override
     public void drawKey(Position position) {

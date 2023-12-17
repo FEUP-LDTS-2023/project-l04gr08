@@ -43,21 +43,12 @@ public class MariController extends LevelController {
             mariPositions.add(newPosition);
         }
 
-        // Sides of Mari head
+        // Sides of Mari
         Position posDC = new Position(position); posDC.setX(posDC.getX()+11);
-        for (int y = 0; y <= 10; y++) {
+        for (int y = 0; y <= 13; y++) {
             Position newPos1 = new Position(posEC); Position newPos2 = new Position(posDC);
             newPos1.setY(newPos1.getY()+y); newPos2.setY(newPos2.getY()+y);
             mariPositions.add(newPos1); mariPositions.add(newPos2);
-        }
-
-        // Sides of head
-        Position posEB = new Position(posEC); Position posDB = new Position(posEC);
-        posEB.setX(posEB.getX() + 3); posDB.setX(posDB.getX() + 8);
-        for (int y = 11; y <= 13; y++) {
-            Position newPos3 = new Position(posEB); Position newPos4 = new Position(posDB);
-            newPos3.setY(newPos3.getY()+y); newPos4.setY(newPos4.getY()+y);
-            mariPositions.add(newPos3); mariPositions.add(newPos4);
         }
 
 
