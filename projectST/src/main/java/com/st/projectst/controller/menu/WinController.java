@@ -6,7 +6,6 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.gui.LanternaGUI;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.game.MapBuilder;
-import com.st.projectst.model.menu.Level;
 import com.st.projectst.model.menu.Start;
 import com.st.projectst.model.menu.Win;
 import com.st.projectst.states.LevelState;

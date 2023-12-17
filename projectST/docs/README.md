@@ -114,27 +114,8 @@ We decided to use the Factory Method Pattern, where a base class (GameObject) is
 **Consequences**:
 - Encapsulation:  By encapsulating the object creation process in a separate method, it allows the subclasses to provide their own implementations and variations while maintaining the rest of the code.
 - Consistent Creation: This pattern ensures a unified and consistent approach for creating diverse game objects, by enabling many classes to share a common interface.
-- Extensibility: Adding new elements to the game becomes more easier and straightforward, as they adhere to the common creation interface. A centralized creation logic simplifies additions without modifying the existing code.
+- Extensibility: Adding new elements to the game becomes easier and straightforward, as they adhere to the common creation interface. A centralized creation logic simplifies additions without modifying the existing code.
 
-
-### Jump action changes according to character’s state
-**Problem**:
-Initially, our code contained scattered conditional statements to manage Mari's jumping behavior. Depending on the items collected during gameplay (e.g., a potion granting double jumping ability), the jumping logic varied significantly. This approach violated the Single Responsibility Principle, as one method was overloaded with various conditional checks.
-
-**Pattern**:
-We applied the State pattern to address this issue. By employing this pattern, we restructured Mari's jumping behavior into distinct state classes, each representing a different jumping state. For instance:
-- Normal State - Mari jumps with default behavior.
-- Potion State - Upon collecting a potion, Mari can perform double jumps.
-
-**Implementation**:
-
-![](../docs/PNGs/implementation6.png)
-
-**Consequences**:
-The adoption of the State Pattern in our design has resulted in several positive outcomes:
-- Explicit state representation: Our code now explicitly defines the various states that control the character's jumping abilities. This clarity replaces the flag-based systems, offering a straightforward and understandable representation of different jumping behaviors.
-- Simplified control flow: The several conditional statements have been replaced by a more streamlined approach. By using polymorphism, we've simplified the activation of specific behaviors associated with each state. This approach reduces code complexity and enhances code readability.
-- Manageable structure: While introducing more classes and instances to manage different states, the design maintains a manageable number. This ensures that the codebase remains organized without overwhelming complexity, allowing for effective maintenance and extension.
 
 
 ### Enemies should have different strategies to attack the main character

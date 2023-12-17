@@ -5,14 +5,8 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.game.Mari;
 import com.st.projectst.model.Position;
-import com.st.projectst.model.game.Platform;
-import com.st.projectst.model.menu.Level;
-import com.st.projectst.model.menu.Start;
-import com.st.projectst.states.StartState;
-import com.st.projectst.states.WinState;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MariController extends LevelController {
@@ -90,7 +84,6 @@ public class MariController extends LevelController {
 
         if (getModel().touchPotion(getModel().getMari().getPosition())){
             getModel().getMari().setWithPotion(true);
-            getModel().getMari().decreaseLives();
         }
 
         if (getModel().getMari().getIsWithPotion() && getModel().getMari().getRemainingJumps() >= 0){
@@ -115,12 +108,6 @@ public class MariController extends LevelController {
             }
         }
     }
-
-    public void setDoubleJump(){
-        getModel().getMari().setRemainingJumps(2);
-        getModel().getMari().setWithPotion(false);
-    }
-
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) {
