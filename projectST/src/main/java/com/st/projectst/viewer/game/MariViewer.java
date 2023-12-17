@@ -10,7 +10,12 @@ public class MariViewer implements GameObjectViewer<Mari> {
     @Override
     public void draw(Mari mari, GUI gui) throws IOException, FontFormatException {
         if (mari.getIsJumping()){
-            gui.drawMariJump(mari.getPosition());
+            if (mari.getIsWithPotion()){
+                gui.drawMariDoubleJump(mari.getPosition());
+            }
+            else{
+                gui.drawMariJump(mari.getPosition());
+            }
         }
         else {
             gui.drawMari(mari.getPosition());

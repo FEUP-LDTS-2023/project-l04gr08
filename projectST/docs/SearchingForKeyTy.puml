@@ -44,6 +44,14 @@ class PlatformViewer <<viewer>> {
     + draw(GUI, gameObject)
 }
 
+class PotionViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
+class TrapViewer <<viewer>> {
+    + draw(GUI, gameObject)
+}
+
 class StartViewer <<viewer>> {
     + draw(GUI)
 }
@@ -73,8 +81,10 @@ GameObjectViewer <|-- MariViewer
 GameObjectViewer <|-- BatEnemyViewer
 GameObjectViewer -- GhostEnemyViewer
 GameObjectViewer <|-- WallViewer
+GameObjectViewer <|-- PotionViewer
+GameObjectViewer <|-- TrapViewer
 GameObjectViewer -- KeyViewer
-WallViewer <|-- PlatformViewer
+GameObjectViewer <|-- PlatformViewer
 MapViewer -- GameObjectViewer
 Viewer *-- MapViewer
 Viewer *-- GameOverViewer
@@ -99,8 +109,6 @@ abstract class Enemy <<model>> {
     + move()
 }
 
-class Vector <<model>> {
-}
 
 class Wall <<model>> {
 
@@ -152,6 +160,18 @@ class Platform <<model>> {
 
 }
 
+class Door <<model>> {
+
+}
+
+class Potion <<model>> {
+
+}
+
+class Trap <<model>> {
+
+}
+
 class Start <<model>> {
 
 }
@@ -172,11 +192,10 @@ class Instructions <<model>> {
 
 }
 
-class Level <<model>> {
-
-}
-
 GameObject <|-- Mari
+GameObject <|-- Door
+GameObject <|-- Potion
+GameObject <|-- Trap
 GameObject <|-- Enemy
 GameObject <|-- BatEnemy
 GameObject -- GhostEnemy
@@ -185,7 +204,6 @@ GameObject -- Key
 Wall <|-- Platform
 Enemy <|-- GhostEnemy
 Enemy <|-- BatEnemy
-Position <|-- Vector
 
 Map -- GameObject
 Position -- GameObject
@@ -227,6 +245,14 @@ class PlatformController <<controller>> {
 
 }
 
+class CameraController <<controller>> {
+
+}
+
+class PotionController <<controller>> {
+
+}
+
 class LevelController <<controller>> {
 
 }
@@ -236,8 +262,10 @@ abstract class Controller <<controller>> {
 }
 LevelController <|-- MariController
 LevelController <|-- BatEnemyController
+LevelController <|-- CameraController
 LevelController <|-- GhostEnemyController
 LevelController <|-- PlatformController
+LevelController <|-- PotionController
 
 Controller *-- LevelController
 Controller *-- GameOverController
@@ -246,7 +274,7 @@ Controller *-- WinController
 Controller *-- PauseController
 Controller *-- InstructionsController
 
-Map -- LevelState
+
 
 
 class StartState #line:mediumslateblue;back:plum
@@ -266,7 +294,7 @@ State -- WinState
 State <|-- PauseState
 State -- InstructionsState
 
-LevelState <|-- Level
+LevelState <|--Map
 StartState <|-- Start
 GameOverState <|-- GameOver
 WinState <|-- Win

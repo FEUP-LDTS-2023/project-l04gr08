@@ -104,6 +104,11 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
+    public void drawMariDoubleJump(Position position) {
+        drawImage(position, "gameObjects/mari3.png", 1);
+    }
+
+    @Override
     public void drawGhostEnemy(Position position) {
         drawImage(position, "gameObjects/ghost.png", 1);
     }

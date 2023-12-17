@@ -25,19 +25,21 @@ public class InstructionsViewer extends Viewer<Instructions> {
         gui.drawText(new Position(20, 6), "OO  OO OO    OO    OO   ", "#ff8066");
         gui.drawText(new Position(20, 7), "OO  OO OOOOO OOOOO OO   ", "#ff9aab");
 
-        gui.drawText(new Position(5, 11), "Mari, our heroine, is looking for her cat.", "#FFFFFF");
+        gui.drawText(new Position(5, 11), "-> Mari, our heroine, is looking for her cat.", "#FFFFFF");
         gui.drawText(new Position(5, 13), "To find her you will have to face the bats", "#FFFFFF");
         gui.drawText(new Position(5, 15), "and ghosts present in her library.", "#FFFFFF");
         gui.drawText(new Position(5, 17), "Just be careful with the traps, ", "#FFFFFF");
         gui.drawText(new Position(5, 19), "because the bats are skillfull.", "#FFFFFF");
+        gui.drawText(new Position(5, 21), "-> To avoid being trapped inside the rooms,", "#FFFFFF");
+        gui.drawText(new Position(5, 23), "Mari has to collect a key.", "#FFFFFF");
 
-        gui.drawText(new Position(5, 22), "Rules:", "#FFA212");
-        gui.drawText(new Position(5, 24), "  -> ESC - Pause the game", "#FFFFFF");
-        gui.drawText(new Position(5, 26), "  -> Arrow Up   - Jump          ", "#FFFFFF");
-        gui.drawText(new Position(5, 28), "  -> Arrow Left - Move left     ", "#FFFFFF");
-        gui.drawText(new Position(5, 30), "  -> Arrow Right- Move right    ", "#FFFFFF");
-        gui.drawText(new Position(5, 32), "  -> Touch a potion - Double jump", "#FFFFFF");
-        gui.drawText(new Position(5, 36), "  Click Enter to go back to the Menu", "#FFFFFF");
+        gui.drawText(new Position(5, 25), "Rules:", "#FFA212");
+        gui.drawText(new Position(5, 27), "  -> ESC - Pause the game", "#FFFFFF");
+        gui.drawText(new Position(5, 29), "  -> Arrow Up   - Jump          ", "#FFFFFF");
+        gui.drawText(new Position(5, 31), "  -> Arrow Left - Move left     ", "#FFFFFF");
+        gui.drawText(new Position(5, 33), "  -> Arrow Right- Move right    ", "#FFFFFF");
+        gui.drawText(new Position(5, 35), "  -> Touch a potion - Double jump", "#FFFFFF");
+        gui.drawText(new Position(5, 37), "  Click Enter to go back to the Menu", "#FFFFFF");
 
 
         gui.drawText(new Position(55, 40), " ", "#FFFFFF");

@@ -31,7 +31,9 @@ public class LevelViewer extends Viewer<Map> {
             gui.drawImage(new Position(1, -2), "gameObjects/life1.png", 1);
         }
 
-        //gui.drawText(new Position(1, 4), "" + getModel().getMari().getRemainingLives(), "#FFFFFF");
+        if (getModel().getMari().getIsWithPotion()){
+            gui.drawText(new Position(2, 58), "Powered jumps:" + getModel().getMari().getRemainingJumps(), "#FFFFFF");
+        }
         drawGameObjects(gui, getModel().getWalls(), new WallViewer());
         drawGameObjects(gui, getModel().getPlatforms(), new PlatformViewer());
         drawGameObjects(gui, getModel().getTraps(), new TrapViewer());
