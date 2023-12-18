@@ -24,4 +24,12 @@ public class BatEnemy extends Enemy implements EnemyObserver {
         FinalP.setY(trap.getPosition().getY()-13);
         this.FinalPosition = FinalP;
     }
+
+    public Position getFinalPosition() {
+        return FinalPosition;
+    }
+
+    public void setFinalPosition(Position finalPosition) {
+        FinalPosition = finalPosition;
+    }
 }

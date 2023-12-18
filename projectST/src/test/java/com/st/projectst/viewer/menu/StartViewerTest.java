@@ -1,5 +1,6 @@
 package com.st.projectst.viewer.menu;
 
+import com.groupcdg.pitest.annotations.DoNotMutate;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.menu.Start;
@@ -30,6 +31,7 @@ public class StartViewerTest {
 
     }
 
+    @DoNotMutate
     @Test
     void testDraw() throws IOException, FontFormatException {
         startViewer.draw(gui);
@@ -38,6 +40,7 @@ public class StartViewerTest {
 
     }
 
+    @DoNotMutate
     @Test
     void testDrawObject() throws IOException, FontFormatException {
         startViewer.drawObject(gui);
@@ -45,6 +48,7 @@ public class StartViewerTest {
         verify(gui).setBackgroundColor("#BA6156");
     }
 
+    @DoNotMutate
     @Test
     void testDrawSelected1() throws IOException, FontFormatException {
         when(start.isSelected(0)).thenReturn(true);
@@ -60,6 +64,7 @@ public class StartViewerTest {
         }
     }
 
+    @DoNotMutate
     @Test
     void testDrawSelected2() throws IOException, FontFormatException {
         when(start.isSelected(0)).thenReturn(false);
@@ -75,6 +80,7 @@ public class StartViewerTest {
         }
     }
 
+    @DoNotMutate
     @Test
     void testDrawSelected3() throws IOException, FontFormatException {
         when(start.isSelected(0)).thenReturn(false);

@@ -75,6 +75,10 @@ public class Mari extends GameObject {
         return newPosition;
     }
 
+    public void setJumpRight(boolean jumpRight) {
+        this.jumpRight = jumpRight;
+    }
+
     public Position doubleJump(){
         Position newPosition = new Position(getPosition());
 
