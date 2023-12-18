@@ -46,12 +46,32 @@ public class MariTest {
     }
 
     @Test
+    void testUpdateWhenJumpingAndMovingLeft() {
+        Mari mari = new Mari(new Position(0, 0));
+        mari.jump();
+        mari.setJumpRight(false);
+        mari.update();
+
+        assertEquals(0, mari.getJumpCounter());
+    }
+
+    @Test
     public void mariJumpNotGrounded() {
         mari.jump();
         assertFalse(mari.getIsJumping());
 
         mari.setGrounded(false);
         mari.jump();
+        assertFalse(mari.getIsJumping());
+    }
+
+    @Test
+    public void mariDoubleJumpNotGrounded() {
+        mari.doubleJump();
+        assertFalse(mari.getIsJumping());
+
+        mari.setGrounded(false);
+        mari.doubleJump();
         assertFalse(mari.getIsJumping());
     }
 
@@ -76,6 +96,18 @@ public class MariTest {
         Position expected = new Position(10,10);
 
         assertEquals(expected, mari.getPosition());
+    }
+
+    @Test
+    void testDoubleJump() {
+        Mari mari = new Mari(new Position(0, 0));
+        mari.setGrounded(true);
+        mari.jump();
+        mari.update();
+        Position newPosition = mari.doubleJump();
+        assertTrue(mari.getIsJumping());
+        assertFalse(mari.getGrounded());
+        assertEquals(-1, newPosition.getY());
     }
 
     @Test

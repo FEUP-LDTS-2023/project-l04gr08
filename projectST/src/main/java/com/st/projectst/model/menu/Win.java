@@ -23,10 +23,6 @@ public class Win {
         return level;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
     public void previousOption() {
         currentOption--;
         if (currentOption < 0)
