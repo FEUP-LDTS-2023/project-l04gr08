@@ -4,14 +4,11 @@ Welcome to “Searching for Key-ty”, a game centered around the kidnapping of 
 This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia Gonçalves.
 
 
-## IMPLEMENTED FEATURES
+## PLANNED AND IMPLEMENTED FEATURES
 
 **- Moving right and left**: The character moves to the right when the right arrow key is pressed and to the left when the left arrow key is pressed
 
 **- Jumping**: The character jumps when the up arrow key is pressed.
-
-
-## PLANNED FEATURES
 
 **- Double jumping**: The character can jump twice in a row if it takes a potion.
 
@@ -21,7 +18,13 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 **- Pause Menu**: A menu accessible during the game that allows the players to temporarily pause it and resume the gameplay when they want.
 
+**- Game Over Menu**:
+
+**- Win Menu**:
+
 **- Enemies**: The enemies will have different strategies to chase and try to kill the character.
+
+**- Traps**: The enemies will have different strategies to chase and try to kill the character.
 
 **- Character lives**: If the character is touched by an enemy, she loses a life and remains in the game. When all her lives are lost, the game over screen appears and gives the option to restart or return to the menu.
 
@@ -29,8 +32,14 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 **- Platforms**: Structures where the character can jump on top of.
 
+**- Camera**: Structures where the character can jump on top of.
 
-## MOCKUPS
+**- Three levels**:
+
+**- Original designs**: 
+
+
+## MOCKUPS 
 ![](../docs/PNGs/Menu.png)
 
 ![](../docs/PNGs/Enemies2.png)
@@ -42,7 +51,7 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 ## DESIGN PROBLEMS
 
-### A organized design structure was need for the gameplay
+### An organized design structure was need for the gameplay
 **Problem**:
 The absence of a structured design led to a long and confusing code for each class representing game objects. Managing different aspects of these elements was challenging without an organized structure and it was difficult to navigate through the code.
 
@@ -137,15 +146,16 @@ To address this issue, we implemented the Strategy Pattern for enemy behavior. T
 
 ### The bat enemy should attack if the character passes through a certain place
 **Problem**:
-In our game, a specific enemy (Bat) should be triggered to attack based on a specific event, in this case, the character passing through a particular place on the map.
+In our game, a specific enemy (Bat) should be triggered to attack based on a specific event, in this case, the character passing through a particular place on the map where a trap is.
 
 **Pattern**:
-For this problem, we implemented the Observer Pattern. This pattern allows a subject to notify its observers about any state changes. In this context, the character is the subject and the enemies are the observers waiting for the signal to attack. When the character passes through a specific place on the map, it triggers a state change. The enemies, acting as observers, receive this notification and initiate their attack based on that updated state.
+For this problem, we implemented the Observer Pattern. This pattern allows a subject to notify its observers about any state changes. In this context, the trap is the subject and the bat enemies are the observers waiting for the signal to attack, and each bat is associated to a trap.
+When the character passes through the trap, it triggers a change on it. The enemies, acting as observers, receive this notification and initiate their attack based on that updated state.
 This approach provides a flexible solution, as the character's movement and the enemies' reactions are independent.
 
 **Implementation**:
 
-![](../docs/PNGs/implementation7.png)
+![](../docs/PNGs/implementation6.png)
 
 **Consequences**:
 - Decoupling: The Observer Pattern promotes a loose coupling between the subject and the observers, allowing them to interact without having detailed knowledge of each other.

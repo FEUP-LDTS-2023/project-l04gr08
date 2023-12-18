@@ -16,9 +16,6 @@ public class Trap extends GameObject {
     public void addObserver(EnemyObserver observer) {
         observers.add(observer);
     }
-    public void removeObserver(EnemyObserver observer) {
-        observers.remove(observer);
-    }
     public void notifyObservers() {
         for (EnemyObserver observer : observers)
             observer.update(this);
