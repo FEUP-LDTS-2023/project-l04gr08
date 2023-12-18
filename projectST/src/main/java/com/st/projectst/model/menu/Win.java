@@ -14,9 +14,8 @@ public class Win {
     }
 
     public void nextOption() {
-        currentOption++;
-        if (currentOption > this.options.size() - 1)
-            currentOption = 0;
+        if (currentOption < (options.size() - 1))
+            currentOption++;
     }
 
     public int getLevel() {
@@ -24,9 +23,8 @@ public class Win {
     }
 
     public void previousOption() {
-        currentOption--;
-        if (currentOption < 0)
-            currentOption = this.options.size() - 1;
+        if (currentOption > 0)
+            currentOption--;
     }
 
     public String getOption(int i) {
