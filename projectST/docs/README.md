@@ -4,11 +4,12 @@ Welcome to “Searching for Key-ty”, a game centered around the kidnapping of 
 This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia Gonçalves.
 
 
+
 ## PLANNED AND IMPLEMENTED FEATURES
 
 **- Moving right and left**: The character moves to the right when the right arrow key is pressed and to the left when the left arrow key is pressed
 
-**- Jumping**: The character jumps when the up arrow key is pressed.
+**- Jumping**: The character jumps when the up arrow key is pressed. The last direction she moved towards (right or left) is the direction she will jump to, or by default to the right.
 
 **- Double jumping**: The character can jump twice in a row if it takes a potion.
 
@@ -18,25 +19,27 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 **- Pause Menu**: A menu accessible during the game that allows the players to temporarily pause it and resume the gameplay when they want.
 
-**- Game Over Menu**:
+**- Enemies**: The enemies will have different strategies to try to kill the character.
 
-**- Win Menu**:
+**- Ghosts**: The ghosts will randomly move left or right.
 
-**- Enemies**: The enemies will have different strategies to chase and try to kill the character.
+**- Bats and traps**: When the character steps on a trap, a bat will quickly come down to where the trap is.
 
-**- Traps**: The enemies will have different strategies to chase and try to kill the character.
+**- Character lives**: If the character is touched by an enemy, she loses a life and remains in the game. She has 3 lives for level.
 
-**- Character lives**: If the character is touched by an enemy, she loses a life and remains in the game. When all her lives are lost, the game over screen appears and gives the option to restart or return to the menu.
+**- Game Over Menu**: When all her lives are lost, the Game Over screen appears and the player has to return to the initial menu. They can play again, but from the beginning at level 1.
 
-**- Collecting the key**: If the character collects the key of the level, when she comes near the door it goes to the next level.
+**- Collecting the key**: If the character collects the key of the level, when she comes near the door it goes to the Win screen.
 
-**- Platforms**: Structures where the character can jump on top of.
+**- Win Menu**: After a level is completed, the player can choose to play the next one or exit.
 
-**- Camera**: Structures where the character can jump on top of.
+**- Platforms**: Structures where the character can jump on top of that are moving up and down.
 
-**- Three levels**:
+**- Camera**: When the character reaches a certain position to the right of the screen, the map shifts. A different section of the map is shown and she can´t go back.
 
-**- Original designs**: 
+**- Three levels**: There are three levels that are played consecutively.
+
+**- Original designs**: Mari, the enemies and the drawings presented throughout the game were drawn by us.
 
 
 ## MOCKUPS 
@@ -51,7 +54,7 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 ## DESIGN PROBLEMS
 
-### An organized design structure was need for the gameplay
+### An organized design structure was needed for the gameplay
 **Problem**:
 The absence of a structured design led to a long and confusing code for each class representing game objects. Managing different aspects of these elements was challenging without an organized structure and it was difficult to navigate through the code.
 
@@ -73,24 +76,7 @@ The adoption of the MVC Design Pattern brings several advantages:
 - Reusability: Allows the reuse of individual components.
 - Testability: Each component (model, view, controller) can be tested independently, facilitating unit testing and ensuring toughness.
 
-
-### What appears on the terminal differs depending on the game state
-**Problem**:
-In our current terminal-based game, our idea was to have different information displayed on the screen based on where the game is at (menu, instructions, gameplay,...) and the management of the game states lacked a centralized structure. This results in scattered logic and dispersed responsibility throughout the code.
-
-**Pattern**:
-We've used the State Pattern to represent various game states as separate classes, each containing specific behavior. This approach enables smooth transitions between states by switching to their respective implementations.
-
-**Implementation**:
-
-![](../docs/PNGs/implementation3.png)
-
-**Consequences**:
-- Defined state representation: Game states are now distinct classes, replacing scattered logic for a clear structure.
-- Efficient transitions of state: Using the State Pattern simplifies switching between states, enhancing the code readability.
-- Organized state management: Despite more classes, the structured design ensures maintainability and scalability.
-
-
+-------------------------------------------------------------
 ### A sequence of events is constantly getting updated
 **Problem**:
 In our beginning game's structure, the absence of a centralized game loop disturbs the organized management of critical functions. Our design lacked this unified system, which results in scattered rendering logic and distributed event management responsibilities across the codebase.
@@ -108,7 +94,24 @@ Introducing a structured game loop owns impressive advantages:
 - Organization: The loop fosters a structured codebase, simplifying comprehension and facilitating more effective modification of specific game phases.
 - Streamlined game flow: With an organized loop, game events flow more smoothly, enhancing user experience and enabling easier expansion or updates to the game.
 
+-------------------------------------------------------------
+### What appears on the terminal differs depending on the game state
+**Problem**:
+In our current terminal-based game, our idea was to have different information displayed on the screen based on where the game is at (menu, instructions, gameplay,...) and the management of the game states lacked a centralized structure. This results in scattered logic and dispersed responsibility throughout the code.
 
+**Pattern**:
+We've used the State Pattern to represent various game states as separate classes, each containing specific behavior. This approach enables smooth transitions between states by switching to their respective implementations.
+
+**Implementation**:
+
+![](../docs/PNGs/implementation3.png)
+
+**Consequences**:
+- Defined state representation: Game states are now distinct classes, replacing scattered logic for a clear structure.
+- Efficient transitions of state: Using the State Pattern simplifies switching between states, enhancing the code readability.
+- Organized state management: Despite more classes, the structured design ensures maintainability and scalability.
+
+-------------------------------------------------------------
 ### Multiple classes for objects in the game with the same functions, but different implementations
 **Problem**:
 In the beginning of this project, we thought about how we had to organize various game elements in classes that shared similar functions, but where their implementations diverge. The creation of a different class for every object results in a code characterized by redundancy and repeated code.
@@ -125,8 +128,7 @@ We decided to use the Factory Method Pattern, where a base class (GameObject) is
 - Consistent Creation: This pattern ensures a unified and consistent approach for creating diverse game objects, by enabling many classes to share a common interface.
 - Extensibility: Adding new elements to the game becomes easier and straightforward, as they adhere to the common creation interface. A centralized creation logic simplifies additions without modifying the existing code.
 
-
-
+-------------------------------------------------------------
 ### Enemies should have different strategies to attack the main character
 **Problem**:
 The game faced issues with disorganized enemy behavior management. The code lacked structure, resulting in tangled logic that made it hard to maintain and grow the game. Different enemy behaviors were entangled, lacking clear distinctions between enemy types and their attack strategies, causing a lack of code organization.
@@ -143,7 +145,7 @@ To address this issue, we implemented the Strategy Pattern for enemy behavior. T
 - Dynamic enemy variation: Distinct classes for each enemy type enable effortless switching of attack strategies mid-game, diversifying enemy behaviors without complicating the game's structure.
 - Modularity: By isolating enemy behaviors into separate classes, our codebase gained modularity, improving readability, scalability and supporting future expansions.
 
-
+-------------------------------------------------------------
 ### The bat enemy should attack if the character passes through a certain place
 **Problem**:
 In our game, a specific enemy (Bat) should be triggered to attack based on a specific event, in this case, the character passing through a particular place on the map where a trap is.
@@ -162,7 +164,7 @@ This approach provides a flexible solution, as the character's movement and the 
 - Scalability: It also facilitates the addition of new observers without modifying the subject, making the system more scalable and adaptable to some changing requirements.
 - Event Handling: Effectively handles relationships one to many, where a single event can notify multiple observers.
 
-
+-------------------------------------------------------------
 ### Implementation - UML
 
 ![](../docs/PNGs/UML.png)
@@ -170,16 +172,20 @@ This approach provides a flexible solution, as the character's movement and the 
 
 ## KNOWN CODE SMELLS
 
-**Jump forward**:
+- **Jump forward**:
 
-- Tangled Input Handling: The code might have intertwined logic for handling multiple key inputs simultaneously. Handling both the arrow-up and arrow-right keys for jumping forward seems to be resulting in infinite flight, suggesting a conflict in input processing.
+- **Platforms**:
 
-- Lack of Collision Handling: There might be a missing check for collision or obstruction during the character's forward jump. Without collision detection, the character can move infinitely, ignoring any obstacles or boundaries.
 
 
 ## TESTING
 ### Coverage
 ![](../docs/PNGs/coverage.png)
+
+
+### Pitest
+![](../docs/PNGs/coverage.png)
+
 
 
 ## SELF-EVALUATION
