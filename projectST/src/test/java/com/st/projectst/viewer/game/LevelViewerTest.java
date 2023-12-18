@@ -3,7 +3,6 @@ package com.st.projectst.viewer.game;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.game.*;
-import com.st.projectst.viewer.game.LevelViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -11,6 +10,8 @@ import org.mockito.Mockito;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
+
+import static org.mockito.ArgumentMatchers.any;
 
 public class LevelViewerTest {
     private Map map;
@@ -39,6 +40,16 @@ public class LevelViewerTest {
     void testDrawMari() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
         Mockito.verify(gui, Mockito.times(1)).drawMari(new Position(10,10));
+
+        map.getMari().update();
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, Mockito.times(1)).drawMariJump(new Position(10,9));
+
+        map.getMari().setWithPotion(true);
+        map.getMari().jump();
+        map.getMari().update();
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, Mockito.times(1)).drawMariDoubleJump(new Position(10,10));
     }
 
     @Test
@@ -57,6 +68,16 @@ public class LevelViewerTest {
     void testDrawWalls() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
         Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(0,0));
+    }
+
+    @Test
+    void testDrawPlatforms() throws IOException, FontFormatException {
+        levelViewer.drawObject(gui);
+        for (Platform platform: map.getPlatforms()){
+            for (Wall wall: platform.getConnectedPlatforms()){
+                Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(40,45));
+            }
+        }
     }
 
     @Test
@@ -91,4 +112,10 @@ public class LevelViewerTest {
         Mockito.verify(gui, Mockito.times(1)).drawImage(new Position(1, -2), "gameObjects/life1.png", 1);
     }
 
+    @Test
+    void testDrawPowerAction() throws IOException, FontFormatException {
+        map.getMari().setWithPotion(true);
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(2, 58), "Powered jumps:" + map.getMari().getRemainingJumps(), "#FFFFFF");
+    }
 }

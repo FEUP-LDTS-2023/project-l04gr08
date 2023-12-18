@@ -28,7 +28,6 @@ public class PotionController extends LevelController {
         if ((time - lastToggle) > 3000) {
             isVisible = !isVisible;
 
-
             if (isVisible) {
                 for (int i = 0; i < getModel().getPotions().size(); i++) {
                     Potion potion = getModel().getPotions().get(i);
