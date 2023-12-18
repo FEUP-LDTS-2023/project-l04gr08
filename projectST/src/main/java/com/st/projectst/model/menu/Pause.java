@@ -46,7 +46,4 @@ public class Pause {
         return options.get(i);
     }
 
-    public void setGameState(LevelState gameState) {
-        this.gameState = gameState;
-    }
 }

@@ -35,7 +35,4 @@ public class GameOver {
         return isSelected(0);
     }
 
-    public int getNumberOptions() {
-        return this.options.size();
-    }
 }
