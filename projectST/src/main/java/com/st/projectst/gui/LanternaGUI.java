@@ -22,18 +22,12 @@ import java.net.URISyntaxException;
 public class LanternaGUI implements GUI{
     private Screen screen;
 
-    public LanternaGUI(Screen screen) {
-        this.screen = screen;
-    }
-
     public LanternaGUI(int width, int height, int size) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont(size);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
 
-
-    public void startScreen() throws IOException { screen.startScreen(); }
 
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen = new TerminalScreen(terminal);
@@ -48,6 +42,7 @@ public class LanternaGUI implements GUI{
     private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
+
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         Terminal terminal = terminalFactory.createTerminal();
@@ -64,8 +59,10 @@ public class LanternaGUI implements GUI{
 
         Font loadedFont = font.deriveFont(Font.PLAIN, fontSize);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+
         return fontConfig;
     }
+
 
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
@@ -94,9 +91,7 @@ public class LanternaGUI implements GUI{
 
 
     @Override
-    public void drawMari(Position position) throws IOException {
-        drawImage(position, "gameObjects/mari1.png", 1);
-    }
+    public void drawMari(Position position) { drawImage(position, "gameObjects/mari1.png", 1); }
 
     @Override
     public void drawMariJump(Position position) {
@@ -114,14 +109,7 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawBatEnemy(Position position) {
-        drawImage(position, "gameObjects/bat.png", 1);
-    }
-
-    @Override
-    public void drawWall(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E");
-    }
+    public void drawBatEnemy(Position position) { drawImage(position, "gameObjects/bat.png", 1); }
 
     @Override
     public void drawKey(Position position) {
@@ -130,22 +118,24 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawDoor(Position position) { drawImage(position, "gameObjects/door.png", 1); }
-    @Override
-    public void drawTrap(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E");
-    }
 
     @Override
     public void drawPotion(Position position) {
         drawImage(position, "potion.png", 1);
     }
 
+    @Override
+    public void drawWall(Position position) { drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E"); }
+
+    @Override
+    public void drawTrap(Position position) { drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E"); }
+
+
     public void setBackgroundColor(String color){
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, color);
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
     }
-
 
     public void drawText (Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -154,14 +144,12 @@ public class LanternaGUI implements GUI{
         tg.putString((int) position.getX(), (int) position.getY(), text);
     }
 
-
     private void drawCharacter(int x, int y, char c, String color, String back) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString(back));
         tg.putString(x, y, "" + c);
     }
-
 
     public void drawImage(Position pos, String filename, double value) {
         BufferedImage image = loadImage(filename, value);
@@ -182,12 +170,12 @@ public class LanternaGUI implements GUI{
         }
     }
 
-
     public void drawPixel(int x, int y, String color, TextGraphics tg) {
         setTextColor(tg, color);
         tg.putString(x, y, ".");
     }
-        
+
+
     public void setTextColor(TextGraphics tg, String color) {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
@@ -223,11 +211,13 @@ public class LanternaGUI implements GUI{
 
                 return resizedImage;
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
+
 
     @Override
     public void clear() {

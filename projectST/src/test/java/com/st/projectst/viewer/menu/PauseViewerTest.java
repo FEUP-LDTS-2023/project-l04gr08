@@ -23,7 +23,7 @@ public class PauseViewerTest {
 
         when(pause.getNumberOptions()).thenReturn(2);
         when(pause.getOption(0)).thenReturn("Continue");
-        when(pause.getOption(1)).thenReturn("Exit");
+        when(pause.getOption(1)).thenReturn("Go back to menu");
     }
 
     @DoNotMutate
@@ -43,7 +43,7 @@ public class PauseViewerTest {
         pauseViewer.drawObject(gui);
         for (int i = 0; i < pause.getNumberOptions(); i++) {
             verify(gui, times(1)).drawText(
-                    new Position(21 + (i * 2), 14 + i),
+                    new Position(21 - (i * 3), 15 + i),
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
@@ -57,7 +57,7 @@ public class PauseViewerTest {
         pauseViewer.drawObject(gui);
         for (int i = 0; i < pause.getNumberOptions(); i++) {
             verify(gui, times(1)).drawText(
-                    new Position(21 + (i * 2), 14 + i),
+                    new Position(21 - (i * 3), 15 + i),
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }

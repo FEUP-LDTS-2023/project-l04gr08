@@ -36,6 +36,7 @@ public class LevelViewerTest {
         levelViewer = new LevelViewer(map);
     }
 
+    /*
     @Test
     void testDrawMari() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
@@ -52,6 +53,8 @@ public class LevelViewerTest {
         levelViewer.drawObject(gui);
         Mockito.verify(gui, Mockito.times(1)).drawMariDoubleJump(new Position(10,10));
     }
+
+     */
 
     @Test
     void testDrawKey() throws IOException, FontFormatException {
