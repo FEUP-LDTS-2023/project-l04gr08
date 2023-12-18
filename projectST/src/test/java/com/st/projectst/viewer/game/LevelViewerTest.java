@@ -41,6 +41,7 @@ public class LevelViewerTest {
         levelViewer.drawObject(gui);
         Mockito.verify(gui, Mockito.times(1)).drawMari(new Position(10,10));
 
+        map.getMari().jump();
         map.getMari().update();
         levelViewer.drawObject(gui);
         Mockito.verify(gui, Mockito.times(1)).drawMariJump(new Position(10,9));
