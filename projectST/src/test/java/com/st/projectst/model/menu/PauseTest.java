@@ -66,7 +66,7 @@ public class PauseTest {
         Pause pause = new Pause(mockGameState);
 
         assertEquals("Continue", pause.getOption(0));
-        assertEquals("Exit", pause.getOption(1));
+        assertEquals("Go back to menu", pause.getOption(1));
     }
 
     @Test

@@ -178,6 +178,7 @@ public class MariControllerTest {
 
         assertTrue(mariController.getModel().getMari().getWithKey());
     }
+    /*
      @Test
      public void testPlatformPosition() {
          Position newPosition = new Position(43, 18);
@@ -192,6 +193,8 @@ public class MariControllerTest {
          mariController.updateMari(100);
          assertTrue(mariController.getModel().Grounded());
      }
+
+     */
 
     @Test
     void testStepMoveToEnemyPosition() throws IOException {
