@@ -22,12 +22,15 @@ import java.net.URISyntaxException;
 public class LanternaGUI implements GUI{
     private Screen screen;
 
+    public LanternaGUI(Screen screen) {
+        this.screen = screen;
+    }
+
     public LanternaGUI(int width, int height, int size) throws IOException, FontFormatException, URISyntaxException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont(size);
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
     }
-
 
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen = new TerminalScreen(terminal);
@@ -144,7 +147,7 @@ public class LanternaGUI implements GUI{
         tg.putString((int) position.getX(), (int) position.getY(), text);
     }
 
-    private void drawCharacter(int x, int y, char c, String color, String back) {
+    public void drawCharacter(int x, int y, char c, String color, String back) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString(back));
@@ -179,10 +182,6 @@ public class LanternaGUI implements GUI{
     public void setTextColor(TextGraphics tg, String color) {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
-    }
-
-    public void setBackgroundTransparent(TextGraphics tg) {
-        tg.setBackgroundColor(TextColor.ANSI.DEFAULT);
     }
 
 
