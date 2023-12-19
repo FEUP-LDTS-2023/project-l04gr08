@@ -36,6 +36,7 @@ public class MariController extends LevelController {
         List<Position> mariPositions = new ArrayList<>();
 
         Position posEC = new Position(position);
+
         // Top of Mari head
         for (int x = 0; x <= 11; x++) {
             Position newPosition = new Position(posEC);
@@ -100,7 +101,6 @@ public class MariController extends LevelController {
             getModel().getMari().getPosition().setY(getModel().getMari().getPosition().getY()-1);
         }
 
-        // Verify if Mari was attacked
         if ((time - lastAttack) > 1000) {
             if (getModel().isEnemy(getModel().getMari().getPosition())) {
                 getModel().getMari().decreaseLives();

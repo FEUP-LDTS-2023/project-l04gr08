@@ -1,5 +1,6 @@
 package com.st.projectst.viewer.menu;
 
+import com.groupcdg.pitest.annotations.DoNotMutate;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.menu.Pause;
@@ -22,9 +23,10 @@ public class PauseViewerTest {
 
         when(pause.getNumberOptions()).thenReturn(2);
         when(pause.getOption(0)).thenReturn("Continue");
-        when(pause.getOption(1)).thenReturn("Exit");
+        when(pause.getOption(1)).thenReturn("Go back to menu");
     }
 
+    @DoNotMutate
     @Test
     void testDrawObject() {
         pauseViewer.drawObject(gui);
@@ -32,6 +34,7 @@ public class PauseViewerTest {
         verify(gui).setBackgroundColor("#BA6156");
     }
 
+    @DoNotMutate
     @Test
     void testDrawSelected1() {
         when(pause.isSelected(0)).thenReturn(true);
@@ -40,12 +43,12 @@ public class PauseViewerTest {
         pauseViewer.drawObject(gui);
         for (int i = 0; i < pause.getNumberOptions(); i++) {
             verify(gui, times(1)).drawText(
-                    new Position(21 + (i * 2), 14 + i),
+                    new Position(21 - (i * 3), 15 + i),
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
     }
-
+    @DoNotMutate
     @Test
     void testDrawSelected2() {
         when(pause.isSelected(0)).thenReturn(false);
@@ -54,7 +57,7 @@ public class PauseViewerTest {
         pauseViewer.drawObject(gui);
         for (int i = 0; i < pause.getNumberOptions(); i++) {
             verify(gui, times(1)).drawText(
-                    new Position(21 + (i * 2), 14 + i),
+                    new Position(21 - (i * 3), 15 + i),
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }

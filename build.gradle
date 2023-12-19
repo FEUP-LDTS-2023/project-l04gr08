@@ -20,14 +20,16 @@ repositories {
 pitest {
     junit5PluginVersion = '1.2.0'
     targetClasses = ['com.st.projectst.model.*', 'com.st.projectst.states.*', 'com.st.projectst.viewer.*']
+
 }
 
 dependencies {
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
+    implementation 'com.groupcdg:pitest-annotations:1.1.2'
     testImplementation 'org.mockito:mockito-core:3.7.7'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'junit:junit:4.13.2'
 }
 
 test {

@@ -26,7 +26,6 @@ public interface GUI {
     void setBackgroundColor(String color);
     void drawText(Position position, String text, String color);
     void drawImage(Position pos, String filename, double value) throws IOException, FontFormatException;
-    void setBackgroundTransparent(TextGraphics tg);
     void drawPixel(int x, int y,String color, TextGraphics tg);
     void setTextColor(TextGraphics tg, String color);
     BufferedImage loadImage(String filename, double value);

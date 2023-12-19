@@ -3,7 +3,6 @@ package com.st.projectst.controller.game;
 import com.st.projectst.Main;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.gui.LanternaGUI;
-import com.st.projectst.model.Position;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.menu.GameOver;
 import com.st.projectst.model.menu.Pause;
@@ -17,15 +16,14 @@ import com.st.projectst.states.WinState;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Objects;
 
 public class  MapController extends LevelController {
-    private final MariController mariController;
-    private final GhostEnemyController ghostController;
-    private final BatEnemyController batController;
-    private final PlatformController platformController;
-    private final CameraController cameraController;
-    private final PotionController potionController;
+    private MariController mariController;
+    private GhostEnemyController ghostController;
+    private BatEnemyController batController;
+    private PlatformController platformController;
+    private CameraController cameraController;
+    private PotionController potionController;
     private int cameraCount;
 
     public MapController(Map map) {
@@ -73,19 +71,35 @@ public class  MapController extends LevelController {
 
     }
 
-    public CameraController getCameraController() {
-        return cameraController;
+    public void setCameraController(CameraController cameraController) {
+        this.cameraController = cameraController;
     }
 
-    public MariController getMariController() {
-        return mariController;
+    public void setPlatformController(PlatformController platformController) {
+        this.platformController = platformController;
     }
 
-    public BatEnemyController getBatController() {
-        return batController;
+    public void setMariController(MariController mariController){
+        this.mariController = mariController;
     }
 
-    public GhostEnemyController getGhostController() {
-        return ghostController;
+    public void setGhostController(GhostEnemyController ghostController) {
+        this.ghostController = ghostController;
+    }
+
+    public void setBatController(BatEnemyController batController) {
+        this.batController = batController;
+    }
+
+    public void setPotionController(PotionController potionController) {
+        this.potionController = potionController;
+    }
+
+    public int getCameraCount() {
+        return cameraCount;
+    }
+
+    public void incrementCameraCount(){
+         cameraCount++;
     }
 }

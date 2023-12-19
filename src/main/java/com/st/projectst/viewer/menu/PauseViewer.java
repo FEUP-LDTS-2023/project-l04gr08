@@ -22,7 +22,7 @@ public class PauseViewer extends Viewer<Pause> {
 
         for (int i = 0; i < getModel().getNumberOptions(); i++){
             gui.drawText(
-                    new Position(21+(i*2), 14 + i),
+                    new Position(21-(i*3), 15 + i),
                     getModel().getOption(i),
                     getModel().isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }

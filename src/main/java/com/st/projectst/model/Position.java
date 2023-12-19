@@ -34,14 +34,6 @@ public class Position {
         return new Position(x + 1, y);
     }
 
-    public Position getUp() {
-        return new Position(x, y - 1);
-    }
-
-    public Position getDown() {
-        return new Position(x, y + 1);
-    }
-
 
     @SuppressWarnings("EqualsHashCode")
     @Override
@@ -55,20 +47,6 @@ public class Position {
         return Double.compare(position.y, y) == 0;
     }
 
-    public Position getRandomNeighbour() {
-        int n = (int) (Math.random() * 4);
-        switch (n) {
-            case 0:
-                return getUp();
-            case 1:
-                return getRight();
-            case 2:
-                return getDown();
-            default:
-                return getLeft();
-        }
-    }
-
     public Position getRandomHorizontal() {
         int n = (int) (Math.random() * 2);
         switch (n) {
@@ -76,16 +54,6 @@ public class Position {
                 return getRight();
             default:
                 return getLeft();
-        }
-    }
-
-    public Position getRandomVertical() {
-        int n = (int) (Math.random() * 2);
-        switch (n) {
-            case 0:
-                return getUp();
-            default:
-                return getDown();
         }
     }
 

@@ -7,7 +7,10 @@ import com.st.projectst.model.game.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
+import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class MariControllerTest {
     private Map map;
     private MariController mariController;
     private Mari mari;
+    private Main main;
 
     @BeforeEach
     public void setup() {
@@ -33,6 +37,7 @@ public class MariControllerTest {
         map.setPlatforms(Arrays.asList());
         map.setPotions(Arrays.asList());
         mariController = new MariController(map);
+        main = mock(Main.class);
     }
 
     @Test
@@ -147,33 +152,72 @@ public class MariControllerTest {
         mariController.step(main, GUI.ACTION.LEFT, 100);
         assertEquals(39, mari.getPosition().getX());
     }
+
+    @Test
+    void testUpdateMari_WithPotion() {
+        Position newPosition = new Position(10, 10);
+        Potion potion = new Potion(newPosition);
+        mariController.getModel().setPotions(List.of(potion));
+
+        Position initialPosition = new Position(10, 10);
+        mariController.getModel().getMari().setPosition(initialPosition);
+        mariController.updateMari(100);
+
+        assertTrue(mariController.getModel().getMari().getIsWithPotion());
+    }
+
+    @Test
+    void testMoveMariWithKey() {
+        Position newPosition = new Position(10, 18);
+        Key key = new Key(newPosition);
+        mariController.getModel().setKey(key);
+
+        Position initialPosition = new Position(10, 10);
+        mariController.getModel().getMari().setPosition(initialPosition);
+        mariController.updateMari(100);
+
+        assertTrue(mariController.getModel().getMari().getWithKey());
+    }
+    /*
      @Test
-     public void testCollectKey() {
-        /*
-         Position newPosition = new Position(15, 15);
-         Mari mari = new Mari(newPosition);
+     public void testPlatformPosition() {
+         Position newPosition = new Position(43, 18);
+         Wall wall = new Wall(newPosition);
+         Platform platform = new Platform(newPosition);
+         platform.addConnectedPlatform(wall);
+         mariController.getModel().setPlatforms(List.of(platform));
 
+         Position initialPosition = new Position(40, 5);
+         mariController.getModel().getMari().setPosition(initialPosition);
 
-         Map model = mock(Map.class);
-         model.setMari(mari);
-         assertFalse(mari.getWithKey());
-         MariController mariController = new MariController(model);
-
-
-         Position keyPosition = new Position(15+11, 15+7);
-         Key key = new Key(keyPosition);
-         model.setKey(key);
-
-
-         when(model.isKey(eq(keyPosition))).thenReturn(true);
-         when(model.getMari()).thenReturn(mari);
-         mariController.moveMari(newPosition);
-
-         assertTrue(mari.getWithKey());
-         verify(model, times(1)).removeKey();
-
-         */
+         mariController.updateMari(100);
+         assertTrue(mariController.getModel().Grounded());
      }
+
+     */
+
+    @Test
+    void testStepMoveToEnemyPosition() throws IOException {
+        MariController mariController = new MariController(map);
+
+        GhostEnemy ghostEnemy = Mockito.mock(GhostEnemy.class);
+        BatEnemy batEnemy = Mockito.mock(BatEnemy.class);
+
+        Position position = new Position(10, 10);
+        Position position2 = new Position(10, 10);
+
+        Mockito.when(ghostEnemy.getPosition()).thenReturn(position);
+        Mockito.when(batEnemy.getPosition()).thenReturn(position2);
+
+        mariController.getModel().setGhostEnemies(List.of(ghostEnemy));
+        mariController.getModel().setBatEnemies(List.of(batEnemy));
+
+        mariController.step(main, GUI.ACTION.NONE, 100);
+
+        assertTrue(mariController.getModel().isEnemy(new Position(14, 10)));
+        assertTrue(mariController.getModel().isEnemy(new Position(17, 10)));
+        assertFalse(mariController.getModel().isEnemy(new Position(15, 10)));
+    }
 
 }
 

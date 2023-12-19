@@ -18,7 +18,7 @@ public class Mari extends GameObject {
     private boolean jumpRight;
     private int jumpCounter;
     private int remainingJumps;
-    private static final int MAX_JUMPS = 2;
+    private static final int maxJumps = 2;
 
     public Mari(Position position) {
         super(position);
@@ -28,7 +28,7 @@ public class Mari extends GameObject {
         isGrounded = false;
         jumpRight = true;
         jumpCounter = 0;
-        remainingJumps = MAX_JUMPS;
+        remainingJumps = maxJumps;
         withPotion = false;
     }
 
@@ -73,6 +73,10 @@ public class Mari extends GameObject {
         }
 
         return newPosition;
+    }
+
+    public void setJumpRight(boolean jumpRight) {
+        this.jumpRight = jumpRight;
     }
 
     public Position doubleJump(){
@@ -139,12 +143,16 @@ public class Mari extends GameObject {
         isGrounded = grounded;
     }
 
+    public void setJumping(boolean jumping) {
+        isJumping = jumping;
+    }
+
     public void setRemainingJumps(int remainingJumps) {
         this.remainingJumps = remainingJumps;
     }
 
     public void resetJumps(){
         withPotion = false;
-        remainingJumps = MAX_JUMPS;
+        remainingJumps = maxJumps;
     }
 }

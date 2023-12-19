@@ -1,5 +1,6 @@
 package com.st.projectst.viewer.menu;
 
+import com.groupcdg.pitest.annotations.DoNotMutate;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.menu.Pause;
@@ -30,6 +31,7 @@ public class WinViewerTest {
         when(win.getOption(1)).thenReturn("Next Level");
     }
 
+    @DoNotMutate
     @Test
     void testDrawObject() throws IOException, FontFormatException {
         winViewer.drawObject(gui);
@@ -37,6 +39,7 @@ public class WinViewerTest {
         verify(gui).setBackgroundColor("#BA6156");
     }
 
+    @DoNotMutate
     @Test
     void testDrawSelected1() throws IOException, FontFormatException {
         when(win.isSelected(0)).thenReturn(true);
@@ -51,6 +54,7 @@ public class WinViewerTest {
         }
     }
 
+    @DoNotMutate
     @Test
     void testDrawSelected2() throws IOException, FontFormatException {
         when(win.isSelected(0)).thenReturn(false);

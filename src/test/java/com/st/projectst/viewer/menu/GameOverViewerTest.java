@@ -1,5 +1,6 @@
 package com.st.projectst.viewer.menu;
 
+import com.groupcdg.pitest.annotations.DoNotMutate;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.menu.GameOver;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,7 +18,7 @@ public class GameOverViewerTest {
         gui = Mockito.mock(GUI.class);
         gameOver = Mockito.mock(GameOver.class);
     }
-
+    @DoNotMutate
     @Test
     void testDrawObject() {
         GameOverViewer gameOverViewer = new GameOverViewer(gameOver);

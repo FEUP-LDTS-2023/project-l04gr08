@@ -14,16 +14,8 @@ public class Instructions {
         options = Arrays.asList(positionBack);
     }
 
-    public void previousOption() {
-        if (currentOption > 0)
-            currentOption--;
-    }
-    public void nextOption() {
-        if (currentOption < (options.size() - 1))
-            currentOption++;
-    }
-    public Position getOptionPosition(int i) {
-        return options.get(i);
+    public void setCurrentOption(int currentOption) {
+        this.currentOption = currentOption;
     }
 
     public boolean isSelected(int i) {

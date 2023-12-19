@@ -1,5 +1,6 @@
 package com.st.projectst.viewer.menu;
 
+import com.groupcdg.pitest.annotations.DoNotMutate;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.menu.Instructions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,6 +22,7 @@ public class InstructionsViewerTest {
         instructions = Mockito.mock(Instructions.class);
     }
 
+    @DoNotMutate
     @Test
     void testDrawObject() throws IOException, FontFormatException {
         InstructionsViewer instructionsViewer = new InstructionsViewer(instructions);
