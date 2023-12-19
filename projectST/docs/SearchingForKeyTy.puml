@@ -12,28 +12,28 @@ skinparam ClassBackgroundColor<<controller>> LightCoral
 
 
 class GameObjectViewer <<viewer>>{
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class MariViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 
 class WallViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class KeyViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class GhostEnemyViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class BatEnemyViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class MapViewer <<viewer>> {
@@ -41,15 +41,15 @@ class MapViewer <<viewer>> {
 }
 
 class PlatformViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class PotionViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class TrapViewer <<viewer>> {
-    + draw(GUI, gameObject)
+    + draw(gameObject, GUI)
 }
 
 class StartViewer <<viewer>> {
@@ -77,14 +77,14 @@ abstract class Viewer <<viewer>> {
     + draw(GUI)
 }
 
-GameObjectViewer <|-- MariViewer
-GameObjectViewer <|-- BatEnemyViewer
+GameObjectViewer -- MariViewer
+GameObjectViewer -- BatEnemyViewer
 GameObjectViewer -- GhostEnemyViewer
-GameObjectViewer <|-- WallViewer
-GameObjectViewer <|-- PotionViewer
-GameObjectViewer <|-- TrapViewer
+GameObjectViewer -- WallViewer
+GameObjectViewer -- PotionViewer
+GameObjectViewer -- TrapViewer
 GameObjectViewer -- KeyViewer
-GameObjectViewer <|-- PlatformViewer
+GameObjectViewer -- PlatformViewer
 MapViewer -- GameObjectViewer
 Viewer *-- MapViewer
 Viewer *-- GameOverViewer
@@ -96,12 +96,9 @@ Viewer *-- InstructionsViewer
 class Position <<model>> {
     x : double
     y : double
-    + getX()
-    + getY()
-    + equals()
 }
 
-class GameObject <<model>> {
+abstract GameObject <<model>> {
     - position : Position
 }
 
@@ -124,14 +121,7 @@ class BatEnemy <<model>> {
 }
 
 class Mari <<model>> {
-    - speedX : double
-    - speedY : double
-    - withKey : boolean
-    - isJumping : boolean
-    - jumpCounter : int
-    + moveRight()
-    + moveLeft()
-    + update()
+
 }
 
 class Key <<model>> {
@@ -139,21 +129,11 @@ class Key <<model>> {
 }
 
 class Map <<model>> {
-    - wall : Wall
-    - enemy : Enemy
-    - mari : Mari
+
 }
 
 class MapBuilder <<model>> {
-    - width : int
-    - height : int
-    - linesMap : List<String>
-    - createWalls()
-    - createKey)
-    - createMari()
-    - createEnemies()
-    + loadFromFile()
-    + buildMap()
+
 }
 
 class Platform <<model>> {
@@ -192,14 +172,14 @@ class Instructions <<model>> {
 
 }
 
-GameObject <|-- Mari
-GameObject <|-- Door
-GameObject <|-- Potion
-GameObject <|-- Trap
-GameObject <|-- Enemy
-GameObject <|-- BatEnemy
+GameObject -- Mari
+GameObject -- Door
+GameObject -- Potion
+GameObject -- Trap
+GameObject -- Enemy
+GameObject -- BatEnemy
 GameObject -- GhostEnemy
-GameObject <|-- Wall
+GameObject -- Wall
 GameObject -- Key
 Wall <|-- Platform
 Enemy <|-- GhostEnemy
@@ -210,62 +190,62 @@ Position -- GameObject
 Map-- MapBuilder
 
 class StartController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class GameOverController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class PauseController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class InstructionsController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class WinController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class MariController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class GhostEnemyController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class BatEnemyController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class PlatformController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class CameraController <<controller>> {
-
+    + step (main, action, time)
 }
 
 class PotionController <<controller>> {
-
+    + step (main, action, time)
 }
 
-class LevelController <<controller>> {
+abstract LevelController <<controller>> {
 
 }
 
 abstract class Controller <<controller>> {
-
+    + step (main, action, time)
 }
-LevelController <|-- MariController
-LevelController <|-- BatEnemyController
-LevelController <|-- CameraController
-LevelController <|-- GhostEnemyController
-LevelController <|-- PlatformController
-LevelController <|-- PotionController
+LevelController -- MariController
+LevelController -- BatEnemyController
+LevelController -- CameraController
+LevelController -- GhostEnemyController
+LevelController -- PlatformController
+LevelController -- PotionController
 
 Controller *-- LevelController
 Controller *-- GameOverController
@@ -282,7 +262,7 @@ class GameOverState #line:mediumslateblue;back:plum
 class WinState #line:mediumslateblue;back:plum
 class PauseState #line:mediumslateblue;back:plum
 class InstructionsState #line:mediumslateblue;back:plum
-interface State #line:mediumslateblue;back:plum
+abstract State #line:mediumslateblue;back:plum
 class LevelState #line:mediumslateblue;back:plum
 
 

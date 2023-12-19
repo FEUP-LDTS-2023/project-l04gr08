@@ -18,5 +18,5 @@ public abstract class Controller<T> {
         return model;
     }
 
-    public abstract void step(Main game, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException;
+    public abstract void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException;
 }

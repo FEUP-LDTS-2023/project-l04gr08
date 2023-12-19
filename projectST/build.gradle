@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'info.solidsoft.pitest' version '1.9.0'
+    id 'info.solidsoft.pitest' version '1.15.0'
     id 'application'
 }
 
@@ -18,7 +18,7 @@ repositories {
 }
 
 pitest {
-    junit5PluginVersion = '1.0.0'
+    junit5PluginVersion = '1.2.0'
 }
 
 dependencies {

@@ -7,5 +7,5 @@ import java.awt.*;
 import java.io.IOException;
 
 public interface GameObjectViewer<T extends GameObject> {
-    void draw(T element, GUI gui) throws IOException, FontFormatException;
+    void draw(T gameObject, GUI gui) throws IOException, FontFormatException;
 }
