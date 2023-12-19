@@ -47,6 +47,7 @@ public class Main {
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
+
             }
         }
 

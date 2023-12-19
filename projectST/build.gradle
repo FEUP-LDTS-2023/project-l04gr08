@@ -19,6 +19,7 @@ repositories {
 
 pitest {
     junit5PluginVersion = '1.2.0'
+    targetClasses = ['com.st.projectst.model.*', 'com.st.projectst.states.*', 'com.st.projectst.viewer.*']
 }
 
 dependencies {

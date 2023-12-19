@@ -172,9 +172,10 @@ This approach provides a flexible solution, as the character's movement and the 
 
 ## KNOWN CODE SMELLS
 
-- **Jump forward**:
+- **Jump forward**: As the design of our character Mari isn't an exact rectangle, we used an hitbox matching the character's shape to detect collision with walls. However, this approach can sometimes lead to her hanging with her head on the floor or the platforms when jumping.
+  Still, we opted for this rather than having a rectangular hitbox, as we saw that this difficult the jumping on top of walls or plataforms, as the hitbox extends slightly on the legs, and disrupts the fluidity of the game.
 
-- **Platforms**:
+- **Platforms**: The platforms can get the character stuck to a wall or to the platform itself, because the plataforms keep moving even if there is a wall above the character or if the character is below the platform. 
 
 
 

@@ -137,7 +137,7 @@ public class LanternaGUI implements GUI{
 
     @Override
     public void drawPotion(Position position) {
-        drawImage(position, "potion.png", 1);
+        drawImage(position, "gameObjects/potion.png", 1);
     }
 
     public void setBackgroundColor(String color){
