@@ -11,11 +11,11 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 **- Jumping**: The character jumps when the up arrow key is pressed. The last direction she moved towards (right or left) is the direction she will jump to, or by default to the right.
 
-**- Double jumping**: The character can jump twice in a row if it takes a potion.
+**- Potions and Double jumping**: The character can jump twice in a row if it takes a potion that appears randomly on the map.
 
 **- Menu**: The initial menu that offers options to start or exit the game, as well as access the instructions.
 
-**- Instruction Menu**: An informational menu that provides details on how to play the game.
+**- Instruction Menu**: An informational menu that provides details on the basic controls and how to play the game.
 
 **- Pause Menu**: A menu accessible during the game that allows the players to temporarily pause it and resume the gameplay when they want.
 
@@ -29,11 +29,11 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 **- Game Over Menu**: When all her lives are lost, the Game Over screen appears and the player has to return to the initial menu. They can play again, but from the beginning at level 1.
 
-**- Collecting the key**: If the character collects the key of the level, when she comes near the door it goes to the Win screen.
+**- Collecting the key**: If the character collects the key of the level, when she comes near the door the level is won and it goes to the Win screen.
 
-**- Win Menu**: After a level is completed, the player can choose to play the next one or exit.
+**- Win Menu**: After a level is completed, the player can decide whether to play the next one or exit.
 
-**- Platforms**: Structures where the character can jump on top of that are moving up and down.
+**- Platforms**: Structures where the character can jump on top of that are constantly moving up and down.
 
 **- Camera**: When the character reaches a certain position to the right of the screen, the map shifts. A different section of the map is shown and she can´t go back.
 
@@ -42,7 +42,7 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 **- Original designs**: Mari, the enemies and the drawings presented throughout the game were drawn by us.
 
 
-## MOCKUPS 
+## SCREENSHOTS 
 ![](PNGs/Mockups/Menu.png)
 
 ![](PNGs/Mockups/Enemies.png)
