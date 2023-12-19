@@ -143,6 +143,10 @@ public class Mari extends GameObject {
         isGrounded = grounded;
     }
 
+    public void setJumping(boolean jumping) {
+        isJumping = jumping;
+    }
+
     public void setRemainingJumps(int remainingJumps) {
         this.remainingJumps = remainingJumps;
     }

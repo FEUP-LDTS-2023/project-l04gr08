@@ -3,15 +3,19 @@ package com.st.projectst.viewer.game;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.game.*;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.mockito.ArgumentMatchers.any;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 public class LevelViewerTest {
     private Map map;
@@ -36,90 +40,92 @@ public class LevelViewerTest {
         levelViewer = new LevelViewer(map);
     }
 
-    /*
     @Test
     void testDrawMari() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawMari(new Position(10,10));
+        Mockito.verify(gui, times(1)).drawMari(new Position(10,10));
 
-        map.getMari().jump();
-        map.getMari().update();
-        levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawMariJump(new Position(10,9));
-
-        map.getMari().setWithPotion(true);
-        map.getMari().jump();
-        map.getMari().update();
-        levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawMariDoubleJump(new Position(10,10));
     }
 
-     */
+    @Test
+    void testDrawMariJump() throws IOException, FontFormatException {
+        map.getMari().setWithPotion(false);
+        map.getMari().setJumping(true);
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, times(1)).drawMariJump(new Position(10,10));
+
+        map.getMari().setWithPotion(true);
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, times(1)).drawMariDoubleJump(new Position(10,10));
+    }
+
 
     @Test
     void testDrawKey() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawKey(new Position(15,10));
+        Mockito.verify(gui, times(1)).drawKey(new Position(15,10));
     }
 
     @Test
     void testDrawDoor() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawDoor(new Position(40,10));
+        Mockito.verify(gui, times(1)).drawDoor(new Position(40,10));
     }
 
     @Test
     void testDrawWalls() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(0,0));
+        Mockito.verify(gui, times(1)).drawWall(new Position(0,0));
     }
 
     @Test
     void testDrawPlatforms() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        for (Platform platform: map.getPlatforms()){
-            for (Wall wall: platform.getConnectedPlatforms()){
-                Mockito.verify(gui, Mockito.times(1)).drawWall(new Position(40,45));
+        for (Platform platform : map.getPlatforms()) {
+            for (Wall w : platform.getConnectedPlatforms()) {
+                Mockito.verify(gui, times(1)).drawWall(new Position(40, 45));
             }
         }
+
     }
 
     @Test
     void testDrawTraps() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawTrap(new Position(20,20));
+        Mockito.verify(gui, times(1)).drawTrap(new Position(20,20));
     }
 
     @Test
     void testDrawBatEnemies() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawBatEnemy(new Position(20,5));
+        Mockito.verify(gui, times(1)).drawBatEnemy(new Position(20,5));
     }
 
     @Test
     void testDrawGhostEnemies() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawGhostEnemy(new Position(25,10));
+        Mockito.verify(gui, times(1)).drawGhostEnemy(new Position(25,10));
     }
 
     @Test
     void testDrawLives() throws IOException, FontFormatException {
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawImage(new Position(1, -2), "gameObjects/life3.png", 1);
+        Mockito.verify(gui, times(1)).drawImage(new Position(1, -2), "gameObjects/life3.png", 1);
 
         map.getMari().decreaseLives();
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawImage(new Position(1, -2), "gameObjects/life2.png", 1);
+        Mockito.verify(gui, times(1)).drawImage(new Position(1, -2), "gameObjects/life2.png", 1);
 
         map.getMari().decreaseLives();
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawImage(new Position(1, -2), "gameObjects/life1.png", 1);
+        Mockito.verify(gui, times(1)).drawImage(new Position(1, -2), "gameObjects/life1.png", 1);
     }
 
     @Test
     void testDrawPowerAction() throws IOException, FontFormatException {
         map.getMari().setWithPotion(true);
         levelViewer.drawObject(gui);
-        Mockito.verify(gui, Mockito.times(1)).drawText(new Position(2, 58), "Powered jumps:" + map.getMari().getRemainingJumps(), "#FFFFFF");
+        Mockito.verify(gui, times(1)).drawText(new Position(2, 58), "Powered jumps:" + map.getMari().getRemainingJumps(), "#FFFFFF");
     }
+
 }
