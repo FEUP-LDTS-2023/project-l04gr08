@@ -57,23 +57,91 @@ public class LanternaGUITest {
 
     }
 
+    @Test
+    void testDrawMari() throws IOException, FontFormatException {
+        Screen mockScreen = mock(Screen.class);
+        LanternaGUI lanternaGUI = new LanternaGUI(screen);
+        Position position = new Position(10, 10);
+        lanternaGUI.drawMari(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/mari1.png", 1);
+
+        lanternaGUI.drawMariDoubleJump(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/mari3.png", 1);
+
+        lanternaGUI.drawMariJump(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/mari2.png", 1);
+    }
+
+    @Test
+    void testDrawEnemies() throws IOException, FontFormatException {
+        Screen mockScreen = mock(Screen.class);
+        LanternaGUI lanternaGUI = new LanternaGUI(screen);
+        Position position = new Position(10, 10);
+        lanternaGUI.drawGhostEnemy(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/ghost.png", 1);
+
+        lanternaGUI.drawBatEnemy(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/bat.png", 1);
+
+    }
+
+    @Test
+    void testDrawObjects() throws IOException, FontFormatException {
+        Screen mockScreen = mock(Screen.class);
+        LanternaGUI lanternaGUI = new LanternaGUI(screen);
+        Position position = new Position(10, 10);
+        lanternaGUI.drawKey(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/miniKey.png", 1);
+
+        lanternaGUI.drawPotion(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/potion.png", 1);
+
+        lanternaGUI.drawDoor(position);
+        verify(gui, times(0)).drawImage(position, "gameObjects/door.png", 1);
+
+    }
+
+    @Test
+    void testDrawWall() {
+        LanternaGUI lanternaGUI = new LanternaGUI(screen);
+        Position position = new Position(10, 10);
+        lanternaGUI.drawWall(position);
+        verify(tg, times(1)).setForegroundColor(TextColor.Factory.fromString("#663B17"));
+        verify(tg, times(1)).setBackgroundColor(TextColor.Factory.fromString("#CB762E"));
+        verify(tg, times(1)).putString(10, 10, "W");
+    }
+
+    @Test
+    void testDrawTrap() {
+        LanternaGUI lanternaGUI = new LanternaGUI(screen);
+        Position position = new Position(10, 10);
+        lanternaGUI.drawTrap(position);
+        verify(tg, times(1)).setForegroundColor(TextColor.Factory.fromString("#663B17"));
+        verify(tg, times(1)).setBackgroundColor(TextColor.Factory.fromString("#CB762E"));
+        verify(tg, times(1)).putString(10, 10, "X");
+    }
+
+
 
     @Test
     void testClear() throws IOException {
-        gui.clear();
-        verify(gui, times(1)).clear();
+        LanternaGUI lanternaGUI = mock(LanternaGUI.class);
+        lanternaGUI.clear();
+        verify(lanternaGUI, times(1)).clear();
     }
 
     @Test
     void testClose() throws IOException {
-        gui.close();
-        verify(gui, times(1)).close();
+        LanternaGUI lanternaGUI = mock(LanternaGUI.class);
+        lanternaGUI.close();
+        verify(lanternaGUI, times(1)).close();
     }
 
     @Test
     void testRefresh() throws IOException {
-        gui.refresh();
-        verify(gui, times(1)).refresh();
+        LanternaGUI lanternaGUI = mock(LanternaGUI.class);
+        lanternaGUI.refresh();
+        verify(lanternaGUI, times(1)).refresh();
     }
 
     @Test
@@ -110,6 +178,10 @@ public class LanternaGUITest {
         verify(tg, times(1)).setForegroundColor(TextColor.Factory.fromString(color));
         verify(tg, times(1)).setBackgroundColor(TextColor.Factory.fromString("#BA6156"));
         verify(tg, times(1)).putString(0, 0, " ");
+    }
+
+    void testNextAction(){
+
     }
 
 

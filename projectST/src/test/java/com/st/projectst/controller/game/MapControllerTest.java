@@ -10,6 +10,7 @@ import com.st.projectst.states.StartState;
 import com.st.projectst.states.WinState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.io.IOException;
@@ -25,12 +26,31 @@ public class MapControllerTest {
     private MapController mapController;
     private Map map;
     private Main main;
+    private MariController mockMariController;
+    @Mock
+    private GhostEnemyController mockGhostController;
+    @Mock
+    private BatEnemyController mockBatController;
+    @Mock
+    private PlatformController mockPlatformController;
+    @Mock
+    private PotionController mockPotionController;
+    @Mock
+    private CameraController mockCameraController;
 
     @BeforeEach
     void setUp() {
         map = mock(Map.class);
         mapController = new MapController(map);
         main = mock(Main.class);
+        mockMariController = new MariController(map);
+
+        mapController.setMariController(mockMariController);
+        mapController.setGhostController(mockGhostController);
+        mapController.setBatController(mockBatController);
+        mapController.setPlatformController(mockPlatformController);
+        mapController.setPotionController(mockPotionController);
+        mapController.setCameraController(mockCameraController);
     }
 
     @Test

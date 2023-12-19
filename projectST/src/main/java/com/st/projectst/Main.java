@@ -31,7 +31,7 @@ public class Main {
         this.state = state;
     }
 
-    private void start() throws IOException, FontFormatException, URISyntaxException {
+    public void start() throws IOException, FontFormatException, URISyntaxException {
         int FPS = 30;
         int frameTime = 400 / FPS;
 
@@ -51,5 +51,6 @@ public class Main {
         }
 
         gui.close();
+        System.exit(0);
     }
 }
