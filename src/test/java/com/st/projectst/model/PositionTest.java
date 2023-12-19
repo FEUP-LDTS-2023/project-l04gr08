@@ -1,9 +1,10 @@
 package com.st.projectst.model;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 public class PositionTest {
 
@@ -37,14 +38,14 @@ public class PositionTest {
     void testEqualsReturnsTrueForEqualPositions() {
         Position position1 = new Position(5, 5);
         Position position2 = new Position(5, 5);
-        assertTrue(position1.equals(position2));
+        assertEquals(position1, position2);
     }
 
     @Test
     void testEqualsReturnsFalseForEqualPositions() {
         Position position1 = new Position(4, 5);
         Position position2 = new Position(5, 5);
-        assertFalse(position1.equals(position2));
+        assertNotEquals(position1, position2);
     }
 
     @Test
@@ -61,7 +62,39 @@ public class PositionTest {
         assertNotNull(random);
     }
 
+    @Test
+    public void testEqualsWithDifferentType() {
+        Position position = new Position(0, 0);
+        Object otherObject = "type_string";
+        assertNotEquals(position, otherObject);
+    }
 
+    @Test
+    public void testEqualsWithSameObject() {
+        Position position = new Position(0, 0);
+        assertEquals(position, position);
+    }
+
+    @Test
+    public void testGetRandomHorizontalWhenNIsZero() {
+        Position realPosition = new Position(5, 5);
+        Position spyPosition = spy(realPosition);
+        when(spyPosition.random()).thenReturn(0.0d);
+        Position result = spyPosition.getRandomHorizontal();
+        assertEquals(realPosition.getRight(), result);
+    }
+
+    @Test
+    public void testGetRandomHorizontalWhenNIsOne() {
+        Position initialPosition = new Position(5, 5);
+
+        Position spyPosition = spy(initialPosition);
+        doReturn(0.999).when(spyPosition).random();
+
+        Position result = spyPosition.getRandomHorizontal();
+
+        assertEquals(initialPosition.getLeft(), result);
+    }
 
 }
 
