@@ -46,12 +46,14 @@ public class WinTest {
         win.setCurrentOption(win.getNumberOptions());
         assertEquals(win.getCurrentOption(), win.getNumberOptions());
 
-        win = new Win(5);
-        win.setCurrentOption(win.getNumberOptions() - 2);
+        win.setCurrentOption(0);
         win.nextOption();
-        assertEquals(win.getNumberOptions() - 1, win.getCurrentOption());
-        win.setCurrentOption(1);
-        assertEquals(1, win.getCurrentOption());
+        assertEquals(win.getCurrentOption(), 1);
+        win.nextOption();
+        assertEquals(win.getCurrentOption(), 1);
+        win.setCurrentOption(3);
+        win.nextOption();
+        assertEquals(win.getCurrentOption(), 3);
     }
     @Test
     void testNumberOptions() {
