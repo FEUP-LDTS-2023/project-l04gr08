@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
@@ -34,7 +35,7 @@ public class LevelViewerTest {
         map.setTraps(Arrays.asList(new Trap(new Position(20,20))));
         map.setBatEnemies(Arrays.asList(new BatEnemy(new Position(20,5))));
         map.setPotions(Arrays.asList(new Potion(new Position(25,25))));
-        map.setPlatforms(Arrays.asList(new Platform(new Position(40,45))));
+        map.setPlatforms(Arrays.asList(new Platform(new Position(39,45)), new Platform(new Position(40,45))));
         map.setGhostEnemies(Arrays.asList(new GhostEnemy(new Position(25,10))));
 
         levelViewer = new LevelViewer(map);
@@ -80,10 +81,18 @@ public class LevelViewerTest {
 
     @Test
     void testDrawPlatforms() throws IOException, FontFormatException {
+        for (Platform platform : map.getPlatforms())
+            for (Platform otherPlatform : map.getPlatforms())
+                if (platform != otherPlatform && platform.isOnSameLevel(otherPlatform))
+                    platform.addConnectedPlatform(otherPlatform);
+
         levelViewer.drawObject(gui);
         for (Platform platform : map.getPlatforms()) {
-            for (Wall w : platform.getConnectedPlatforms()) {
-                Mockito.verify(gui, times(1)).drawWall(new Position(40, 45));
+            for (Wall wall : platform.getConnectedPlatforms()) {
+                if (platform.getPosition().equals(new Position(39,45)))
+                    Mockito.verify(gui, times(1)).drawWall(new Position(40,45));
+                if (platform.getPosition().equals(new Position(40,45)))
+                    Mockito.verify(gui, times(1)).drawWall(new Position(39,45));
             }
         }
 
