@@ -50,7 +50,7 @@ public class MapBuilder {
     }
 
 
-    private Mari createMari() {
+    public Mari createMari() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'M')
@@ -60,7 +60,7 @@ public class MapBuilder {
         return null;
     }
 
-    private List<GhostEnemy> createGhostEnemies() {
+    public List<GhostEnemy> createGhostEnemies() {
         List<GhostEnemy> gEnemies = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -71,7 +71,7 @@ public class MapBuilder {
         return gEnemies;
     }
 
-    private List<BatEnemy> createBatEnemies() {
+    public List<BatEnemy> createBatEnemies() {
         List<BatEnemy> bEnemies = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -82,7 +82,7 @@ public class MapBuilder {
         return bEnemies;
     }
 
-    private List<Wall> createWalls() {
+    public List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -94,7 +94,7 @@ public class MapBuilder {
         return walls;
     }
 
-    private List<Platform> createPlatforms() {
+    public List<Platform> createPlatforms() {
         List<Platform> platforms = new ArrayList<>();
 
         for (int y = 0; y < height; y++) {
@@ -119,7 +119,7 @@ public class MapBuilder {
         return platforms;
     }
 
-    private Key createKey() {
+    public Key createKey() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'K')
@@ -129,7 +129,7 @@ public class MapBuilder {
         return null;
     }
 
-    private List<Trap> createTraps(Map map) {
+    public List<Trap> createTraps(Map map) {
         List<Trap> traps = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -143,7 +143,7 @@ public class MapBuilder {
         return traps;
     }
 
-    private Door createDoor() {
+    public Door createDoor() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (linesMap.get(y).charAt(x) == 'D')
@@ -154,7 +154,7 @@ public class MapBuilder {
     }
 
 
-    private List<Potion> createPotions() {
+    public List<Potion> createPotions() {
         List<Potion> potions = new ArrayList<>();
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -164,5 +164,4 @@ public class MapBuilder {
         }
         return potions;
     }
-
 }

@@ -17,28 +17,6 @@ public class MapBuilderTest {
     private MapBuilder mapBuilder;
     private List<String> linesMap;
 
-    @BeforeEach
-    public void setUp() throws IOException {
-        String testMap =
-                "MWPPPPPPP\n" +
-                        "WPXPPPPPW\n" +
-                        "WPWMMMMMW\n" +
-                        "WWWWWWWWW";
-
-        BufferedReader reader = new BufferedReader(new StringReader(testMap));
-        linesMap = new ArrayList<>();
-        try {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                linesMap.add(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        mapBuilder = new MapBuilder(1);
-    }
-
     @Test
     public void testMapBuilder() {
         int level = 1;
@@ -71,5 +49,73 @@ public class MapBuilderTest {
         }
     }
 
-    
+    @Test
+    public void testCreateMari() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Mari mari = mapBuilder.createMari();
+        assertNull(mari);
+        Map map = mapBuilder.buildMap();
+        mari = mapBuilder.createMari();
+        assertNotNull(mari);
+    }
+
+    @Test
+    public void testCreateGhostEnemies() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Map map = mapBuilder.buildMap();
+        List<GhostEnemy> ghostEnemies = mapBuilder.createGhostEnemies();
+        assertNotNull(ghostEnemies);
+    }
+
+    @Test
+    public void testCreateBatEnemies() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Map map = mapBuilder.buildMap();
+        List<BatEnemy> batEnemies = mapBuilder.createBatEnemies();
+        assertNotNull(batEnemies);
+    }
+
+    @Test
+    public void testCreatePotions() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Map map = mapBuilder.buildMap();
+        List<Potion> potions = mapBuilder.createPotions();
+        assertNotNull(potions);
+    }
+
+    @Test
+    public void testCreateWalls() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Map map = mapBuilder.buildMap();
+        List<Wall> walls = mapBuilder.createWalls();
+        assertNotNull(walls);
+    }
+
+    @Test
+    public void testCreatePlatforms() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Map map = mapBuilder.buildMap();
+        List<Platform> platforms = mapBuilder.createPlatforms();
+        assertNotNull(platforms);
+    }
+
+    @Test
+    public void testCreateDoor() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Door door = mapBuilder.createDoor();
+        assertNull(door);
+        Map map = mapBuilder.buildMap();
+        door = mapBuilder.createDoor();
+        assertNotNull(door);
+    }
+
+    @Test
+    public void testCreateKey() throws IOException {
+        mapBuilder = new MapBuilder(1);
+        Key key = mapBuilder.createKey();
+        assertNull(key);
+        Map map = mapBuilder.buildMap();
+        key = mapBuilder.createKey();
+        assertNotNull(key);
+    }
 }
