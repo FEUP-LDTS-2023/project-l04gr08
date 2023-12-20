@@ -155,10 +155,10 @@ public class Map {
                     return true;
             }
             for (Platform platform : platforms){
-                for (Wall wall : platform.getConnectedPlatforms()){
-                    if (wall.getPosition().equals(pos))
-                        return true;
-                }
+                Position newPos = new Position(pos);
+                newPos.setY(newPos.getY()-1);
+                if (platform.getPosition().equals(pos) || platform.getPosition().equals(newPos))
+                    return true;
             }
         }
         return false;
@@ -200,10 +200,6 @@ public class Map {
         this.key = null;
     }
 
-    public boolean isDoor(Position position) {
-        return door.equals(position);
-    }
-
     public List<Trap> getTraps() {
         return traps;
     }
@@ -221,7 +217,7 @@ public class Map {
     }
 
     public boolean isAtPlatform(Position currentMariPosition) {
-        Position floorPosition = new Position(mari.getPosition());
+        Position floorPosition = new Position(currentMariPosition);
         floorPosition.setY(floorPosition.getY()+13);
 
         List<Position> floorPositions = new ArrayList<>();

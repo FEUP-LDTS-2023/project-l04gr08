@@ -178,10 +178,10 @@ public class MariControllerTest {
 
         assertTrue(mariController.getModel().getMari().getWithKey());
     }
-    /*
+
      @Test
-     public void testPlatformPosition() {
-         Position newPosition = new Position(43, 18);
+     public void testIsAtPlatformPosition() {
+         Position newPosition = new Position(45, 18);
          Wall wall = new Wall(newPosition);
          Platform platform = new Platform(newPosition);
          platform.addConnectedPlatform(wall);
@@ -190,14 +190,16 @@ public class MariControllerTest {
          Position initialPosition = new Position(40, 5);
          mariController.getModel().getMari().setPosition(initialPosition);
 
-         mariController.updateMari(100);
-         assertTrue(mariController.getModel().Grounded());
+         assertTrue(mariController.getModel().isAtPlatform(mariController.getModel().getMari().getPosition()));
+
+         mariController.updateMari(0);
+         Position expectedPosition = new Position(40, 4);
+         assertEquals(mariController.getModel().getMari().getPosition(), expectedPosition);
      }
 
-     */
 
     @Test
-    void testStepMoveToEnemyPosition() throws IOException {
+    void testStepMoveToEnemyPosition() {
         MariController mariController = new MariController(map);
 
         GhostEnemy ghostEnemy = Mockito.mock(GhostEnemy.class);
@@ -217,6 +219,23 @@ public class MariControllerTest {
         assertTrue(mariController.getModel().isEnemy(new Position(14, 10)));
         assertTrue(mariController.getModel().isEnemy(new Position(17, 10)));
         assertFalse(mariController.getModel().isEnemy(new Position(15, 10)));
+    }
+
+    @Test
+    void testAttackMari() {
+        Position newPosition = new Position(14, 24);
+        Wall wall = new Wall(newPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        GhostEnemy ghostEnemy = Mockito.mock(GhostEnemy.class);
+        Position ghostPosition = new Position(6, 10);
+        Mockito.when(ghostEnemy.getPosition()).thenReturn(ghostPosition);
+
+        mariController.getModel().setGhostEnemies(List.of(ghostEnemy));
+
+        mariController.updateMari(1010);
+        assertEquals(2, mariController.getModel().getMari().getRemainingLives());
+        assertEquals(1010, mariController.getLastAttack());
     }
 
 }

@@ -12,8 +12,8 @@ public class Platform extends Wall {
     private int moveCounter;
     private boolean movingUp;
     public Platform(Position position) {
-
         super(position);
+
         this.connectedPlatforms = new ArrayList<>();
         this.moveCounter = 0;
         this.movingUp = true;

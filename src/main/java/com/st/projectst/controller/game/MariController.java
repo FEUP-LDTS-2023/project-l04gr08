@@ -17,27 +17,26 @@ public class MariController extends LevelController {
         this.lastAttack = 0;
     }
 
+    public long getLastAttack() {return lastAttack;}
+
     public void moveMariRight() {
         moveMari(getModel().getMari().moveRight());
     }
     public void moveMariLeft() {
         moveMari(getModel().getMari().moveLeft());
     }
-
     public void moveMariUp() {
         Mari mari = getModel().getMari();
         Position currentPosition = mari.getPosition();
         mari.jump();
         moveMari(currentPosition);
-
     }
 
     public void moveMari(Position position) {
         List<Position> mariPositions = new ArrayList<>();
 
-        Position posEC = new Position(position);
-
         // Top of Mari head
+        Position posEC = new Position(position);
         for (int x = 0; x <= 11; x++) {
             Position newPosition = new Position(posEC);
             newPosition.setX(newPosition.getX()+x);
@@ -52,7 +51,7 @@ public class MariController extends LevelController {
             mariPositions.add(newPos1); mariPositions.add(newPos2);
         }
 
-        // Sides of head
+        // Sides of Mari
         Position posEB = new Position(posEC); Position posDB = new Position(posEC);
         posEB.setX(posEB.getX() + 3); posDB.setX(posDB.getX() + 8);
         for (int y = 11; y <= 13; y++) {
@@ -62,13 +61,13 @@ public class MariController extends LevelController {
         }
 
 
-        boolean Empty = true;
+        boolean empty = true;
         for (Position pos: mariPositions) {
             if (!getModel().isEmpty(pos)) {
-                Empty = false; break;
+                empty = false; break;
             }
         }
-        if (Empty && position.getX() >= 0) {
+        if (empty && position.getX() >= 0) {
             getModel().getMari().setPosition(position);
             for (Position pos2: mariPositions) {
                 getModel().isTrap();
@@ -83,22 +82,20 @@ public class MariController extends LevelController {
     void updateMari(long time) {
         getModel().getMari().setGrounded(getModel().Grounded());
 
-        if (getModel().touchPotion(getModel().getMari().getPosition())){
-            getModel().getMari().setWithPotion(true);
-        }
-
-        if (getModel().getMari().getIsWithPotion() && getModel().getMari().getRemainingJumps() >= 0){
-            moveMari(getModel().getMari().doubleJump());
-        }
-        else{
-            getModel().getMari().resetJumps();
-            moveMari(getModel().getMari().update());
-        }
-
         Position currentMariPosition = getModel().getMari().getPosition();
 
         if (getModel().isAtPlatform(currentMariPosition)) {
             getModel().getMari().getPosition().setY(getModel().getMari().getPosition().getY()-1);
+        }
+
+        if (getModel().touchPotion(currentMariPosition)) {
+            getModel().getMari().setWithPotion(true);
+        }
+        if (getModel().getMari().getIsWithPotion() && getModel().getMari().getRemainingJumps() >= 0){
+            moveMari(getModel().getMari().doubleJump());
+        } else {
+            getModel().getMari().resetJumps();
+            moveMari(getModel().getMari().update());
         }
 
         if ((time - lastAttack) > 1000) {
