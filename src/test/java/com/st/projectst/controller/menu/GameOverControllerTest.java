@@ -29,17 +29,6 @@ public class GameOverControllerTest {
         when(main.getGui()).thenReturn(mock(LanternaGUI.class));
     }
 
-    @Test
-    public void testStepUp() throws IOException, URISyntaxException, FontFormatException {
-        gameOverController.step(main, GUI.ACTION.UP, 1000);
-        verify(gameOver, times(1)).previousOption();
-    }
-
-    @Test
-    public void testStepDown() throws IOException, URISyntaxException, FontFormatException {
-        gameOverController.step(main, GUI.ACTION.DOWN, 1000);
-        verify(gameOver, times(1)).nextOption();
-    }
 
     @Test
     public void testStepSelectGoBack() throws IOException, URISyntaxException, FontFormatException {

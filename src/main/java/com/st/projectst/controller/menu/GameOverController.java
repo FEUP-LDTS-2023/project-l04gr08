@@ -19,12 +19,6 @@ public class GameOverController extends Controller<GameOver> {
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         switch (action) {
-            case UP:
-                getModel().previousOption();
-                break;
-            case DOWN:
-                getModel().nextOption();
-                break;
             case SELECT:
                 if (getModel().isSelectedGoBack()) {
                     main.getGui().close();

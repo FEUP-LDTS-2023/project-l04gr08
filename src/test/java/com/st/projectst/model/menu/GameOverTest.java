@@ -12,13 +12,6 @@ public class GameOverTest {
         assertTrue(gameOver.isSelectedGoBack());
     }
 
-    @Test
-    void testNextOption() {
-        GameOver gameOver = new GameOver();
-        assertTrue(gameOver.isSelectedGoBack());
-        gameOver.nextOption();
-        assertTrue(gameOver.isSelectedGoBack());
-    }
 
     @Test
     void testGetOption() {
@@ -32,8 +25,7 @@ public class GameOverTest {
     void testPreviousOption() {
         GameOver gameOver = new GameOver();
         assertTrue(gameOver.isSelectedGoBack());
-        gameOver.previousOption();
-        assertTrue(gameOver.isSelectedGoBack());
+        assertEquals(gameOver.isSelectedGoBack(), gameOver.isSelected(0));
     }
 }
 
