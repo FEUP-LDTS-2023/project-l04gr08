@@ -2,6 +2,7 @@ package com.st.projectst.viewer.menu;
 
 import com.groupcdg.pitest.annotations.DoNotMutate;
 import com.st.projectst.gui.GUI;
+import com.st.projectst.model.Position;
 import com.st.projectst.model.menu.GameOver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,6 +26,8 @@ public class GameOverViewerTest {
         gameOverViewer.drawObject(gui);
 
         verify(gui).setBackgroundColor("#BA6156");
+        verify(gui).drawText(new Position(15, 3), "  OOOO                                  " , "#f9dbbe");
     }
+
 }
 
