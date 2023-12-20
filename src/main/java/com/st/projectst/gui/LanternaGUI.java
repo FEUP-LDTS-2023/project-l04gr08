@@ -17,6 +17,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UncheckedIOException;
 import java.net.URISyntaxException;
 
 public class LanternaGUI implements GUI{
@@ -66,7 +67,7 @@ public class LanternaGUI implements GUI{
         return fontConfig;
     }
 
-
+    @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
@@ -133,13 +134,14 @@ public class LanternaGUI implements GUI{
     @Override
     public void drawTrap(Position position) { drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E"); }
 
-
+    @Override
     public void setBackgroundColor(String color){
         TextGraphics tg = screen.newTextGraphics();
         setTextColor(tg, color);
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(1024, 512), ' ');
     }
 
+    @Override
     public void drawText (Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
@@ -154,6 +156,7 @@ public class LanternaGUI implements GUI{
         tg.putString(x, y, "" + c);
     }
 
+    @Override
     public void drawImage(Position pos, String filename, double value) {
         BufferedImage image = loadImage(filename, value);
         TextGraphics tg = screen.newTextGraphics();
@@ -173,18 +176,19 @@ public class LanternaGUI implements GUI{
         }
     }
 
+    @Override
     public void drawPixel(int x, int y, String color, TextGraphics tg) {
         setTextColor(tg, color);
         tg.putString(x, y, ".");
     }
 
-
+    @Override
     public void setTextColor(TextGraphics tg, String color) {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
     }
 
-
+    @Override
     public BufferedImage loadImage(String filename, double value) {
         try (InputStream imageStream = getClass().getResourceAsStream("/" + filename)) {
             if (imageStream != null) {
@@ -212,7 +216,7 @@ public class LanternaGUI implements GUI{
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new UncheckedIOException(e);
         }
         return null;
     }

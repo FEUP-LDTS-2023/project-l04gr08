@@ -22,5 +22,11 @@ public class GameOver {
     public boolean isSelectedGoBack() {
         return isSelected(0);
     }
+    public int getNumber() {
+        return options.size();
+    }
 
+    public void setCurrentOption(int currentOption) {
+        this.currentOption = currentOption;
+    }
 }

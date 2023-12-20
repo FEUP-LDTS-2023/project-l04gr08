@@ -59,18 +59,6 @@ public class WinTest {
         assertEquals(2, win.getNumberOptions());
     }
 
-    @Test
-    void testPreviousOption(){
-        Win win = new Win(1);
-        win.setCurrentOption(0);
-        win.previousOption();
-        assertEquals(win.getCurrentOption(), 0);
-
-        win.setCurrentOption(1);
-        win.previousOption();
-        assertEquals(win.getCurrentOption(), 0);
-
-    }
 
     @Test
     void testIsSelected(){
@@ -98,5 +86,31 @@ public class WinTest {
             assertEquals(options.get(i), win.getOption(i));
         }
     }
+    @Test
+    void testInitialSelectedOptions() {
+        Win win = new Win(1);
+
+        assertFalse(win.isSelectedContinue());
+        assertTrue(win.isSelectedGoBackToLevels());
+    }
+
+    @Test
+    void testPreviousOption() {
+        Win win = new Win(1);
+
+        win.previousOption();
+        assertTrue(win.isSelectedGoBackToLevels());
+
+        win.nextOption();
+        win.previousOption();
+        assertTrue(win.isSelectedGoBackToLevels());
+    }
+
+    @Test
+    void testNumberOptionsForWin() {
+        Win win = new Win(1);
+        assertEquals(2, win.getNumberOptions());
+    }
+
 }
 
