@@ -3,13 +3,14 @@ package com.st.projectst.model.game;
 import com.st.projectst.Main;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
 
 import com.st.projectst.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -47,6 +48,22 @@ public class MapTest {
         Position expectedTrapPosition = new Position(10, 20);
         map.getMari().setPosition(expectedTrapPosition);
         assertTrue(map.isTrap());
+
+        map.getMari().setPosition(new Position(10, 25));
+        assertFalse(map.isTrap());
+    }
+
+    @Test
+    public void testIsTrapMock() {
+        Mari mari = new Mari(new Position(10, 20));
+        map.setMari(mari);
+        Trap mockTrap = Mockito.mock(Trap.class);
+        Mockito.when(mockTrap.getPosition()).thenReturn(new Position(13, 33));
+        List<Trap> traps = new ArrayList<>();
+        traps.add(mockTrap);
+        map.setTraps(traps);
+        verify(mockTrap, times(0)).notifyObservers();
+        assertTrue(map.isTrap());
     }
 
     @Test
@@ -69,6 +86,10 @@ public class MapTest {
         Position expectedMariPosition = new Position(11, 21);
         map.getMari().setPosition(expectedMariPosition);
         assertTrue(map.isAtPlatform(new Position(11, 21)));
+
+        expectedMariPosition = new Position(17, 25);
+        map.getMari().setPosition(expectedMariPosition);
+        assertFalse(map.isAtPlatform(new Position(11, 21)));
     }
 
     @Test
@@ -120,6 +141,10 @@ public class MapTest {
         platforms.add(platform);
         map.setPlatforms(platforms);
         assertTrue(map.Grounded());
+
+        mariPosition = new Position(20, 12);
+        map.setMari(new Mari(mariPosition));
+        assertFalse(map.Grounded());
     }
 
     @Test
@@ -158,6 +183,7 @@ public class MapTest {
         List<Platform> platforms = Arrays.asList(new Platform(new Position(10, 10)));
         map.setPlatforms(platforms);
         assertNotEquals(platforms, Collections.emptyList());
+        assertNotNull(platforms);
     }
 
     @Test
@@ -165,6 +191,7 @@ public class MapTest {
         List<Potion> potions = Arrays.asList(new Potion(new Position(15, 15)));
         map.setPotions(potions);
         assertNotEquals(potions, Collections.emptyList());
+        assertNotNull(potions);
     }
 
     @Test

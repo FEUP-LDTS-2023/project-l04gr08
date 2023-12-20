@@ -79,6 +79,14 @@ public class Map {
         this.key = key;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     public List<Potion> getPotions() {
         return potions;
     }
