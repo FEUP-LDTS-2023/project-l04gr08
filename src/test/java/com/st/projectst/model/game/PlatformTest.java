@@ -38,14 +38,25 @@ public class PlatformTest {
         Position position = new Position(0, 0);
         Platform platform = new Platform(position);
         double initialY = position.getY();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 34; i++) {
             platform.moveAllPlatforms();
-            if (i == 16)
-                assertFalse(platform.isMovingUp());
             if (i <= 15) {
                 assertTrue(platform.isMovingUp());
                 assertEquals(platform.getMoveCounter(), i+1);
             }
+            if (i == 16) {
+                assertFalse(platform.isMovingUp());
+            }
+
+            if (i == 31) {
+                assertFalse(platform.isMovingUp());
+                assertEquals(16, platform.getMoveCounter());
+            }
+            if (i == 32) {
+                assertTrue(platform.isMovingUp());
+                assertEquals(1, platform.getMoveCounter());
+            }
+
         }
 
         double newY = platform.getPosition().getY();

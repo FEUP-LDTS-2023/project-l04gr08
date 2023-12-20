@@ -75,10 +75,6 @@ public class Mari extends GameObject {
         return newPosition;
     }
 
-    public void setJumpRight(boolean jumpRight) {
-        this.jumpRight = jumpRight;
-    }
-
     public Position doubleJump(){
         Position newPosition = new Position(getPosition());
 
@@ -86,19 +82,20 @@ public class Mari extends GameObject {
             isGrounded = false;
             jumpCounter++;
 
-            newPosition.setY(getPosition().getY()-1);
-            if (jumpRight) newPosition.setX(getPosition().getX()+1);
-            else newPosition.setX(getPosition().getX()-1);
-
             if (jumpCounter == 8) {
                 newPosition.setY(getPosition().getY()+1);
                 if (jumpRight) newPosition.setX(getPosition().getX()+1);
                 else newPosition.setX(getPosition().getX()-1);
-            }
 
-            if (jumpCounter >= 16){
+            }
+            else if (jumpCounter >= 16){
                 isJumping = false;
                 jumpCounter = 0;
+
+            } else {
+                newPosition.setY(getPosition().getY()-1);
+                if (jumpRight) newPosition.setX(getPosition().getX()+1);
+                else newPosition.setX(getPosition().getX()-1);
             }
         }
         else if (!isGrounded) {
@@ -108,9 +105,16 @@ public class Mari extends GameObject {
         return newPosition;
     }
 
+    public void setJumpRight(boolean jumpRight) {
+        this.jumpRight = jumpRight;
+    }
+    public boolean getJumpRight() {
+        return this.jumpRight;
+    }
     public void decreaseLives() {
         this.remainingLives--;
     }
+
     public void setWithKey(boolean key) { this.withKey = key; }
     public boolean getWithKey() { return withKey; }
 
@@ -147,9 +151,7 @@ public class Mari extends GameObject {
         isJumping = jumping;
     }
 
-    public void setRemainingJumps(int remainingJumps) {
-        this.remainingJumps = remainingJumps;
-    }
+    public void setRemainingJumps(int remainingJumps) { this.remainingJumps = remainingJumps; }
 
     public void resetJumps(){
         withPotion = false;

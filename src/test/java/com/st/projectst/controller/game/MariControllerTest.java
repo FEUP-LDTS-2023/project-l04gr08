@@ -45,8 +45,8 @@ public class MariControllerTest {
         Position initialPosition = mari.getPosition();
         mariController.moveMariRight();
         Position newPosition = mari.getPosition();
-        assertEquals(initialPosition.getX() + 1, 11);
-        assertEquals(initialPosition.getY(), 10);
+        assertEquals(initialPosition.getX() + 1, newPosition.getX());
+        assertEquals(initialPosition.getY(), newPosition.getY());
     }
 
     @Test
@@ -54,17 +54,19 @@ public class MariControllerTest {
         Position initialPosition = mari.getPosition();
         mariController.moveMariLeft();
         Position newPosition = mari.getPosition();
-        assertEquals(initialPosition.getX() - 1, 9);
-        assertEquals(initialPosition.getY(), 10);
+        assertEquals(initialPosition.getX() - 1, newPosition.getX());
+        assertEquals(initialPosition.getY(), newPosition.getY());
     }
 
     @Test
     public void testMoveMariUp() {
-        Position initialPosition = mari.getPosition();
-        mariController.moveMariUp();
-        Position newPosition = mari.getPosition();
-        assertEquals(initialPosition.getX() , 10);
-        assertEquals(initialPosition.getY() - 1, 9);
+        Mari mariMock = mock(Mari.class);
+        map.setMari(mariMock);
+        MariController mariController2 = new MariController(map);
+
+        when(mariController2.getModel().getMari().getPosition()).thenReturn(new Position(10,10));
+        mariController2.moveMariUp();
+        verify(mariController2.getModel().getMari(), times(1)).jump();
     }
 
     @Test
