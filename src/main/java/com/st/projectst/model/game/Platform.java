@@ -1,7 +1,5 @@
 package com.st.projectst.model.game;
 
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.gui2.Direction;
 import com.st.projectst.model.Position;
 
 import java.util.ArrayList;

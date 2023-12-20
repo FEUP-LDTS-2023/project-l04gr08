@@ -12,10 +12,12 @@ import com.st.projectst.model.game.Mari;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.internal.matchers.Null;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,21 +28,23 @@ import static org.mockito.Mockito.*;
 public class LanternaGUITest {
 
     private Screen screen;
+    private LanternaGUI lanternaGUI;
     private GUI gui;
     private TextGraphics tg;
 
     @BeforeEach
     void setUp() {
         screen = Mockito.mock(Screen.class);
+        lanternaGUI = new LanternaGUI(screen);
+
+        gui = Mockito.mock(GUI.class);
         tg = Mockito.mock(TextGraphics.class);
         Mockito.when(screen.newTextGraphics()).thenReturn(tg);
-        gui = Mockito.mock(GUI.class);
     }
 
     @Test
     void testDrawImage() {
         Screen mockScreen = mock(Screen.class);
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
 
         BufferedImage testImage = new BufferedImage(5, 5, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = testImage.createGraphics();
@@ -59,8 +63,6 @@ public class LanternaGUITest {
 
     @Test
     void testDrawMari() throws IOException, FontFormatException {
-        Screen mockScreen = mock(Screen.class);
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         Position position = new Position(10, 10);
         lanternaGUI.drawMari(position);
         verify(gui, times(0)).drawImage(position, "gameObjects/mari1.png", 1);
@@ -74,8 +76,6 @@ public class LanternaGUITest {
 
     @Test
     void testDrawEnemies() throws IOException, FontFormatException {
-        Screen mockScreen = mock(Screen.class);
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         Position position = new Position(10, 10);
         lanternaGUI.drawGhostEnemy(position);
         verify(gui, times(0)).drawImage(position, "gameObjects/ghost.png", 1);
@@ -87,8 +87,6 @@ public class LanternaGUITest {
 
     @Test
     void testDrawObjects() throws IOException, FontFormatException {
-        Screen mockScreen = mock(Screen.class);
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         Position position = new Position(10, 10);
         lanternaGUI.drawKey(position);
         verify(gui, times(0)).drawImage(position, "gameObjects/miniKey.png", 1);
@@ -103,7 +101,6 @@ public class LanternaGUITest {
 
     @Test
     void testDrawWall() {
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         Position position = new Position(10, 10);
         lanternaGUI.drawWall(position);
         verify(tg, times(1)).setForegroundColor(TextColor.Factory.fromString("#663B17"));
@@ -113,7 +110,6 @@ public class LanternaGUITest {
 
     @Test
     void testDrawTrap() {
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         Position position = new Position(10, 10);
         lanternaGUI.drawTrap(position);
         verify(tg, times(1)).setForegroundColor(TextColor.Factory.fromString("#663B17"));
@@ -121,35 +117,9 @@ public class LanternaGUITest {
         verify(tg, times(1)).putString(10, 10, "X");
     }
 
-
-
-    @Test
-    void testClear() throws IOException {
-        LanternaGUI lanternaGUI = mock(LanternaGUI.class);
-        lanternaGUI.clear();
-        verify(lanternaGUI, times(1)).clear();
-    }
-
-    @Test
-    void testClose() throws IOException {
-        LanternaGUI lanternaGUI = mock(LanternaGUI.class);
-        lanternaGUI.close();
-        verify(lanternaGUI, times(1)).close();
-    }
-
-    @Test
-    void testRefresh() throws IOException {
-        LanternaGUI lanternaGUI = mock(LanternaGUI.class);
-        lanternaGUI.refresh();
-        verify(lanternaGUI, times(1)).refresh();
-    }
-
     @Test
     void testSetBackgroundColor() {
-
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         String color = "#BA6156";
-
         lanternaGUI.setBackgroundColor(color);
 
         verify(tg, times(1)).setForegroundColor(new TextColor.RGB(186, 97, 86));
@@ -159,7 +129,6 @@ public class LanternaGUITest {
 
     @Test
     void testDrawText() {
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         String color = "#FF0000";
         Position position = new Position(10, 10);
         String text = "Hello";
@@ -171,7 +140,6 @@ public class LanternaGUITest {
 
     @Test
     void testDrawCharacter() {
-        LanternaGUI lanternaGUI = new LanternaGUI(screen);
         String color = "#FF0000";
         Position position = new Position(10, 10);
         lanternaGUI.drawCharacter(0,0, ' ', color, "#BA6156");
@@ -180,10 +148,118 @@ public class LanternaGUITest {
         verify(tg, times(1)).putString(0, 0, " ");
     }
 
-    void testNextAction(){
-
+    @Test
+    void testLoadImage() {
+        BufferedImage image = lanternaGUI.loadImage("/teste", 1);
+        assertNull(image);
     }
 
+    @Test
+    void testNextActionNone() throws IOException {
+        when(screen.pollInput()).thenReturn(null);
 
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.NONE;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionEOF() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.EOF));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.QUIT;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionArrowRight() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowRight));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.RIGHT;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionArrowLeft() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowLeft));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.LEFT;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionArrowUp() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowUp));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.UP;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionArrowDown() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowDown));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.DOWN;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionEscape() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Escape));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.PAUSE;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionEnter() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Enter));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.SELECT;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testNextActionOther() throws IOException {
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Backspace));
+
+        GUI.ACTION action = lanternaGUI.getNextAction();
+        GUI.ACTION expected = GUI.ACTION.NONE;
+
+        assertEquals(expected, action);
+    }
+
+    @Test
+    void testClear() {
+        lanternaGUI.clear();
+        verify(screen, times(1)).clear();
+    }
+
+    @Test
+    void testRefresh() throws IOException {
+        lanternaGUI.refresh();
+        verify(screen, times(1)).refresh();
+    }
+
+    @Test
+    void testClose() throws IOException {
+        lanternaGUI.close();
+        verify(screen, times(1)).close();
+    }
 }
 
