@@ -79,7 +79,9 @@ public class PositionTest {
     public void testGetRandomHorizontalWhenNIsZero() {
         Position realPosition = new Position(5, 5);
         Position spyPosition = spy(realPosition);
+        assertNotEquals(spyPosition.random(), 0);
         when(spyPosition.random()).thenReturn(0.0d);
+        assertEquals(spyPosition.random(), 0);
         Position result = spyPosition.getRandomHorizontal();
         assertEquals(realPosition.getRight(), result);
     }
@@ -90,7 +92,7 @@ public class PositionTest {
 
         Position spyPosition = spy(initialPosition);
         doReturn(0.999).when(spyPosition).random();
-
+        assertNotEquals(spyPosition.random(), 0);
         Position result = spyPosition.getRandomHorizontal();
 
         assertEquals(initialPosition.getLeft(), result);

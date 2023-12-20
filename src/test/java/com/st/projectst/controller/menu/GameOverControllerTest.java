@@ -5,6 +5,7 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.gui.LanternaGUI;
 import com.st.projectst.model.menu.GameOver;
 import com.st.projectst.states.StartState;
+import com.st.projectst.states.State;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -57,5 +58,6 @@ public class GameOverControllerTest {
         verify(main, never()).setGui(any(LanternaGUI.class));
         verify(main, never()).setState(any(StartState.class));
     }
+
 }
 

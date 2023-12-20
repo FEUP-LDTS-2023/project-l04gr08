@@ -35,7 +35,6 @@ public class WinViewerTest {
     @Test
     void testDrawObject() throws IOException, FontFormatException {
         winViewer.drawObject(gui);
-
         verify(gui).setBackgroundColor("#BA6156");
 
         verify(gui).drawText(new Position(5, 5), "OO        OO  OO  OO    OOO", "#f9dbbe");
