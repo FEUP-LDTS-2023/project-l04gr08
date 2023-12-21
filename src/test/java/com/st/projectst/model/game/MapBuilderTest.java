@@ -2,24 +2,19 @@ package com.st.projectst.model.game;
 
 import com.st.projectst.model.Position;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+
 
 public class MapBuilderTest {
 
     private MapBuilder mapBuilder;
-    private List<String> linesMap;
 
     @Test
     public void testMapBuilder() {
@@ -60,6 +55,7 @@ public class MapBuilderTest {
         assertNull(mari);
         Map map = mapBuilder.buildMap();
         mari = mapBuilder.createMari();
+        map.setMari(mari);
         assertNotNull(mari);
 
         List<String> lineMaps = new ArrayList<>();
@@ -127,6 +123,7 @@ public class MapBuilderTest {
         mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Potion> potions = mapBuilder.createPotions();
+        map.setPotions(potions);
         assertNotNull(potions);
 
         List<String> lineMaps = new ArrayList<>();
@@ -151,6 +148,7 @@ public class MapBuilderTest {
         mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Wall> walls = mapBuilder.createWalls();
+        map.setWalls(walls);
         assertNotNull(walls);
 
         List<String> lineMaps = new ArrayList<>();
@@ -175,6 +173,7 @@ public class MapBuilderTest {
         mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Platform> platforms = mapBuilder.createPlatforms();
+        map.setPlatforms(platforms);
         assertNotNull(platforms);
 
         List<String> lineMaps = new ArrayList<>();
@@ -194,7 +193,10 @@ public class MapBuilderTest {
         assertEquals(platforms2.get(2).getPosition(), new Position(1, 1), "Platform should be at position (1, 1)");
         assertEquals(platforms2.get(3).getPosition(), new Position(2, 2), "Platform should be at position (2, 2)");
 
-        assertTrue(platforms2.get(0).isOnSameLevel(platforms2.get(1)));
+        assertTrue(platforms2.get(0).isOnSameLevel(platforms2.get(1)) && !platforms2.get(0).equals(platforms2.get(1)));
+        assertEquals(platforms2.get(0).getConnectedPlatforms().size(), 1);
+        assertEquals(platforms2.get(2).getConnectedPlatforms().size(), 0);
+        assertFalse(platforms2.get(0).isOnSameLevel(platforms2.get(1)) && !platforms2.get(0).equals(platforms2.get(0)));
         assertFalse(platforms2.get(0).isOnSameLevel(platforms2.get(2)));
 
         assertNotEquals(platforms2.get(0), platforms2.get(1));
@@ -208,6 +210,7 @@ public class MapBuilderTest {
         assertNull(door);
         Map map = mapBuilder.buildMap();
         door = mapBuilder.createDoor();
+        map.setDoor(door);
         assertNotNull(door);
 
         List<String> lineMaps = new ArrayList<>();
@@ -229,6 +232,7 @@ public class MapBuilderTest {
         assertNull(key);
         Map map = mapBuilder.buildMap();
         key = mapBuilder.createKey();
+        map.setKey(key);
         assertNotNull(key);
 
         List<String> lineMaps = new ArrayList<>();
@@ -256,7 +260,8 @@ public class MapBuilderTest {
         Map map = mapBuilder2.buildMap();
         List<Trap> traps = mapBuilder2.createTraps(map);
         List<BatEnemy> batEnemies = mapBuilder2.createBatEnemies();
-
+        map.setTraps(traps);
+        map.setBatEnemies(batEnemies);
         assertEquals(1, traps.size(), "Number of traps created should match");
         assertEquals(1, batEnemies.size(), "Number of bat enemies created should match");
         assertEquals(traps.get(0).getObservers().size(),batEnemies.size());

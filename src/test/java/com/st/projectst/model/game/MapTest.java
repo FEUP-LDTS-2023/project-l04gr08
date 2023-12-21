@@ -29,12 +29,12 @@ public class MapTest {
         mari = new Mari(position);
         map.setMari(mari);
         map.setKey(new Key(new Position(1,1)));
-        map.setTraps(Arrays.asList());
-        map.setBatEnemies(Arrays.asList());
-        map.setGhostEnemies(Arrays.asList());
-        map.setWalls(Arrays.asList());
-        map.setPlatforms(Arrays.asList());
-        map.setPotions(Arrays.asList());
+        map.setTraps(List.of());
+        map.setBatEnemies(List.of());
+        map.setGhostEnemies(List.of());
+        map.setWalls(List.of());
+        map.setPlatforms(List.of());
+        map.setPotions(List.of());
         main = mock(Main.class);
     }
 
