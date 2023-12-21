@@ -4,6 +4,7 @@ import com.st.projectst.model.Position;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -50,6 +51,52 @@ public class PlatformTest {
 
         double newY = platform.getPosition().getY();
         assertTrue(initialY != newY);
+    }
+
+    @Test
+    void testIsOnSameLevel_Walls() {
+        Wall wall1 = new Wall(new Position(5, 10));
+        Wall wall2 = new Wall(new Position(8, 10));
+
+        Platform platform = new Platform(new Position(5, 10));
+
+        assertTrue(platform.isOnSameLevel(wall1));
+        assertTrue(platform.isOnSameLevel(wall2));
+    }
+
+    @Test
+    void testIsMovingUp() {
+        Platform platformMovingUp = new Platform(new Position(5, 10));
+        platformMovingUp.setMovingUp(true);
+
+        Platform platformNotMovingUp = new Platform(new Position(5, 10));
+        platformNotMovingUp.setMovingUp(false);
+
+        assertTrue(platformMovingUp.isMovingUp());
+        assertFalse(platformNotMovingUp.isMovingUp());
+    }
+
+    @Test
+    void testGetMoveCounter_MutationSurvived() {
+        Platform platform = new Platform(new Position(5, 10));
+        assertEquals(0, platform.getMoveCounter());
+    }
+
+    @Test
+    void testMoveAllPlatforms_PositionChanged() {
+        Platform platform = new Platform(new Position(5, 10));
+        Position initialPosition = platform.getPosition();
+
+        platform.moveAllPlatforms();
+
+        assertNotEquals(initialPosition, platform.getPosition());
+    }
+
+    @Test
+    void testGetConnectedPlatforms() {
+        Platform platform = new Platform(new Position(5, 10));
+        List<Wall> connectedPlatforms = platform.getConnectedPlatforms();
+        assertEquals(Collections.emptyList(), connectedPlatforms);
     }
 
 }

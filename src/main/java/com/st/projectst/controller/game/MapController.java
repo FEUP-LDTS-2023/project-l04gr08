@@ -38,6 +38,7 @@ public class  MapController extends LevelController {
         this.cameraCount = 0;
     }
 
+    @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.QUIT) {
             main.setState(new StartState(new Start(0)));

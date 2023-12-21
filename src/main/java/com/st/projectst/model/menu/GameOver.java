@@ -11,18 +11,6 @@ public class GameOver {
         this.options = Arrays.asList(" Return to the Menu ");
     }
 
-    public void nextOption() {
-        currentOption++;
-        if (currentOption > this.options.size() - 1)
-            currentOption = 0;
-    }
-
-    public void previousOption() {
-        currentOption--;
-        if (currentOption < 0)
-            currentOption = this.options.size() - 1;
-    }
-
     public String getOption(int i) {
         return options.get(i);
     }
@@ -34,5 +22,11 @@ public class GameOver {
     public boolean isSelectedGoBack() {
         return isSelected(0);
     }
+    public int getNumber() {
+        return options.size();
+    }
 
+    public void setCurrentOption(int currentOption) {
+        this.currentOption = currentOption;
+    }
 }

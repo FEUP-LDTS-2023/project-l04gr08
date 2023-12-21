@@ -31,5 +31,13 @@ public class InstructionsTest {
         assertTrue(instructions.isSelected(1));
         assertFalse(instructions.isSelected(0));
     }
+
+    @Test
+    void testSelectBack() {
+        Instructions instructions = new Instructions();
+        assertEquals(instructions.isSelectedBack(), instructions.isSelected(0));
+        instructions.setCurrentOption(1);
+        assertFalse(instructions.isSelectedBack());
+    }
 }
 

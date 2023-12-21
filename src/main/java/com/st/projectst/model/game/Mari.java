@@ -155,4 +155,8 @@ public class Mari extends GameObject {
         withPotion = false;
         remainingJumps = maxJumps;
     }
+
+    public boolean getJumpRight() {
+        return jumpRight;
+    }
 }

@@ -56,6 +56,10 @@ public class Platform extends Wall {
         return moveCounter;
     }
 
+    public void setMovingUp(boolean movingUp) {
+        this.movingUp = movingUp;
+    }
+
     public void setConnectedPlatforms(List<Wall> connectedPlatforms) {
         this.connectedPlatforms = connectedPlatforms;
     }

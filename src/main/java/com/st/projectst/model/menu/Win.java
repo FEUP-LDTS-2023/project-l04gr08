@@ -31,6 +31,14 @@ public class Win {
         return options.get(i);
     }
 
+    public int getCurrentOption() {
+        return currentOption;
+    }
+
+    public void setCurrentOption(int currentOption) {
+        this.currentOption = currentOption;
+    }
+
     public boolean isSelected(int i) {
         return currentOption == i;
     }

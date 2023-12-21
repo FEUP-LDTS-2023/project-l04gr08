@@ -59,7 +59,7 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas (up202206
 ### Game preview
 
 **Level 2**
-![](./docs/PNGs/Screenshots/gameplay2.png)
+![](./docs/PNGs/Screenshots/level2.1.gif)
 
 
 ![](./docs/PNGs/Screenshots/level2.gif)

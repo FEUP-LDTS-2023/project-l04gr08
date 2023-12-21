@@ -11,6 +11,7 @@ import com.st.projectst.states.StartState;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class GameOverController extends Controller<GameOver> {
     public GameOverController(GameOver gameover) {
@@ -18,20 +19,13 @@ public class GameOverController extends Controller<GameOver> {
     }
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-        switch (action) {
-            case UP:
-                getModel().previousOption();
-                break;
-            case DOWN:
-                getModel().nextOption();
-                break;
-            case SELECT:
-                if (getModel().isSelectedGoBack()) {
-                    main.getGui().close();
-                    LanternaGUI gui = new LanternaGUI(40, 20, 24);
-                    main.setGui(gui);
-                    main.setState(new StartState(new Start(0)));
-                }
+        if (action == GUI.ACTION.SELECT) {
+            if (getModel().isSelectedGoBack()) {
+                main.getGui().close();
+                LanternaGUI gui = new LanternaGUI(40, 20, 24);
+                main.setGui(gui);
+                main.setState(new StartState(new Start(0)));
+            }
         }
     }
 }

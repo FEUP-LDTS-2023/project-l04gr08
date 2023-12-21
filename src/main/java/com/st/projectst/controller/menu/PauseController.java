@@ -38,6 +38,9 @@ public class PauseController extends Controller<Pause> {
                     main.setGui(gui);
                     main.setState(new StartState(new Start(0)));
                 }
+                break;
+            default:
+                break;
         }
     }
 }
