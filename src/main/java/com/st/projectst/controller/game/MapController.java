@@ -42,21 +42,25 @@ public class  MapController extends LevelController {
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
         if (action == GUI.ACTION.QUIT) {
             main.setState(new StartState(new Start(0)));
+
         } else if (action == GUI.ACTION.PAUSE) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(53, 27, 18);
             main.setGui(gui);
             main.setState(new PauseState(new Pause(main.getState())));
+
         } else if (getModel().isAtDoor(getModel().getMari().getPosition()) && getModel().getMari().getWithKey()) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(53, 27, 18);
             main.setGui(gui);
             main.setState(new WinState(new Win(getModel().getCurrentLevel() + 1)));
+
         } else if (getModel().getMari().getRemainingLives() == 0) {
             main.getGui().close();
             LanternaGUI gui = new LanternaGUI(74, 40, 13);
             main.setGui(gui);
             main.setState(new GameOverState(new GameOver()));
+
         } else {
             mariController.step(main, action, time);
             ghostController.step(main, action, time);
@@ -72,35 +76,28 @@ public class  MapController extends LevelController {
 
     }
 
-    public void setCameraController(CameraController cameraController) {
-        this.cameraController = cameraController;
-    }
-
-    public void setPlatformController(PlatformController platformController) {
-        this.platformController = platformController;
-    }
 
     public void setMariController(MariController mariController){
         this.mariController = mariController;
     }
+    public MariController getMariController() { return this.mariController; }
 
-    public void setGhostController(GhostEnemyController ghostController) {
-        this.ghostController = ghostController;
-    }
+    public void setGhostController(GhostEnemyController ghostController) { this.ghostController = ghostController; }
+    public GhostEnemyController getGhostController() { return this.ghostController; }
 
-    public void setBatController(BatEnemyController batController) {
-        this.batController = batController;
-    }
+    public void setBatController(BatEnemyController batController) { this.batController = batController; }
+    public BatEnemyController getBatController() { return this.batController; }
 
-    public void setPotionController(PotionController potionController) {
-        this.potionController = potionController;
-    }
+    public void setPlatformController(PlatformController platformController) { this.platformController = platformController; }
+    public PlatformController getPlatformController() { return this.platformController; }
 
-    public int getCameraCount() {
-        return cameraCount;
-    }
+    public void setPotionController(PotionController potionController) { this.potionController = potionController; }
+    public PotionController getPotionController() { return this.potionController; }
 
-    public void incrementCameraCount(){
-         cameraCount++;
-    }
+    public void setCameraController(CameraController cameraController) { this.cameraController = cameraController; }
+    public CameraController getCameraController() { return this.cameraController; }
+
+    public void setCameraCount(int cameraCount) {this.cameraCount = cameraCount; }
+    public int getCameraCount() { return this.cameraCount; }
+
 }

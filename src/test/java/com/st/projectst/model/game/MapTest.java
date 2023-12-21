@@ -1,7 +1,5 @@
 package com.st.projectst.model.game;
 
-import com.st.projectst.Main;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.times;
@@ -10,7 +8,7 @@ import com.st.projectst.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;;
+import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,7 +18,6 @@ import java.util.List;
 public class MapTest {
     private Map map;
     private Mari mari;
-    private Main main;
 
     @BeforeEach
     public void setup() {
@@ -35,36 +32,54 @@ public class MapTest {
         map.setWalls(List.of());
         map.setPlatforms(List.of());
         map.setPotions(List.of());
-        main = mock(Main.class);
     }
 
     @Test
     public void testIsTrap() {
-        Position trapPosition = new Position(13, 33);
+        Position trapPosition = new Position(19, 33);
         Trap trap = new Trap(trapPosition);
         List<Trap> traps = new ArrayList<>();
         traps.add(trap);
         map.setTraps(traps);
-        Position expectedTrapPosition = new Position(10, 20);
-        map.getMari().setPosition(expectedTrapPosition);
-        assertTrue(map.isTrap());
 
-        map.getMari().setPosition(new Position(10, 25));
+        Position mariPosition = new Position(10, 20);
+        map.getMari().setPosition(mariPosition);
         assertFalse(map.isTrap());
+
+        for (int i = 3; i < 9; i++) {
+            mariPosition.setX(mariPosition.getX()+1);
+            map.getMari().setPosition(mariPosition);
+            assertTrue(map.isTrap());
+        }
+
+        mariPosition.setX(mariPosition.getX()+1);
+        map.getMari().setPosition(mariPosition);
+        assertFalse(map.isTrap());
+
+        mariPosition.setX(mariPosition.getX()-1);
+        mariPosition.setY(mariPosition.getY()+1);
+        map.getMari().setPosition(mariPosition);
+        assertFalse(map.isTrap());
+
     }
+
 
     @Test
     public void testIsTrapMock() {
         Mari mari = new Mari(new Position(10, 20));
         map.setMari(mari);
+
         Trap mockTrap = Mockito.mock(Trap.class);
         Mockito.when(mockTrap.getPosition()).thenReturn(new Position(13, 33));
         List<Trap> traps = new ArrayList<>();
         traps.add(mockTrap);
         map.setTraps(traps);
-        verify(mockTrap, times(0)).notifyObservers();
+
         assertTrue(map.isTrap());
+        verify(mockTrap, times(1)).notifyObservers();
     }
+
+
 
     @Test
     public void testIsKey() {
@@ -78,18 +93,21 @@ public class MapTest {
 
     @Test
     public void testIsAtPlatform() {
-        Platform platform = new Platform(new Position(14,34));
         List<Platform> platforms = new ArrayList<>();
-        platform.setConnectedPlatforms(Arrays.asList(new Wall(new Position(14, 34))));
+        Platform platform = new Platform(new Position(19,34));
         platforms.add(platform);
         map.setPlatforms(platforms);
-        Position expectedMariPosition = new Position(11, 21);
-        map.getMari().setPosition(expectedMariPosition);
-        assertTrue(map.isAtPlatform(new Position(11, 21)));
 
-        expectedMariPosition = new Position(17, 25);
-        map.getMari().setPosition(expectedMariPosition);
-        assertFalse(map.isAtPlatform(new Position(11, 21)));
+        Position mariPosition = new Position(10, 21);
+        assertFalse(map.isAtPlatform(mariPosition));
+
+        for (int i = 3; i < 9; i++) {
+            mariPosition.setX(mariPosition.getX()+1);
+            assertTrue(map.isAtPlatform(mariPosition));
+        }
+
+        mariPosition.setX(mariPosition.getX()+1);
+        assertFalse(map.isAtPlatform(mariPosition));
     }
 
     @Test
@@ -114,58 +132,93 @@ public class MapTest {
 
     @Test
     public void testGroundedWalls() {
-        Position mariPosition = new Position(5, 10);
-        map.setMari(new Mari(mariPosition));
         List<Wall> walls = new ArrayList<>();
-        for (int i = 3; i < 9; i++) {
-            walls.add(new Wall(new Position(5+i, 24)));
-        }
+        walls.add(new Wall(new Position(19, 24)));
         map.setWalls(walls);
-        assertTrue(map.Grounded());
 
-        mariPosition = new Position(20, 12);
+        Position mariPosition = new Position(10, 10);
         map.setMari(new Mari(mariPosition));
-        assertFalse(map.Grounded());
+        assertFalse(map.mariIsGrounded());
+
+        for (int i = 3; i < 9; i++) {
+            mariPosition.setX(mariPosition.getX()+1);
+            map.getMari().setPosition(mariPosition);
+            assertTrue(map.mariIsGrounded());
+        }
+
+        mariPosition.setX(mariPosition.getX()+1);
+        map.getMari().setPosition(mariPosition);
+        assertFalse(map.mariIsGrounded());
     }
 
     @Test
     public void testGroundedPlatforms(){
-        Position mariPosition = new Position(5, 12);
+        Position mariPosition = new Position(9, 12);
         map.setMari(new Mari(mariPosition));
-        Platform platform = new Platform(new Position(8, 26));
-        for (int i = 3; i < 9; i++) {
-            platform.addConnectedPlatform(new Wall(new Position(i+5, 26)));
-        }
 
         List<Platform> platforms = new ArrayList<>();
+        Platform platform = new Platform(new Position(18, 26));
         platforms.add(platform);
         map.setPlatforms(platforms);
-        assertTrue(map.Grounded());
+        assertFalse(map.mariIsGrounded());
 
-        mariPosition = new Position(20, 12);
+        for (int i = 3; i < 9; i++) {
+            mariPosition.setX(mariPosition.getX()+1);
+            map.getMari().setPosition(mariPosition);
+            assertTrue(map.mariIsGrounded());
+        }
+
+        mariPosition.setX(mariPosition.getX()+1);
+        map.getMari().setPosition(mariPosition);
+        assertFalse(map.mariIsGrounded());
+    }
+
+    @Test
+    public void testGroundedPlatforms2(){
+        Position mariPosition = new Position(9, 12);
         map.setMari(new Mari(mariPosition));
-        assertFalse(map.Grounded());
+
+        List<Platform> platforms = new ArrayList<>();
+        Platform platform = new Platform(new Position(18, 25));
+        platforms.add(platform);
+        map.setPlatforms(platforms);
+        assertFalse(map.mariIsGrounded());
+
+        for (int i = 3; i < 9; i++) {
+            mariPosition.setX(mariPosition.getX()+1);
+            map.getMari().setPosition(mariPosition);
+            assertTrue(map.mariIsGrounded());
+        }
+
+        mariPosition.setY(mariPosition.getY()-1);
+        map.getMari().setPosition(mariPosition);
+        assertTrue(map.mariIsGrounded());
+
+        mariPosition.setY(mariPosition.getY()-1);
+        map.getMari().setPosition(mariPosition);
+        assertFalse(map.mariIsGrounded());
     }
 
     @Test
     public void testIsEmpty() {
         Position emptyPosition = new Position(10, 10);
         assertTrue(map.isEmpty(emptyPosition));
+
         Position wallPosition = new Position(5, 5);
         Wall wall = new Wall(wallPosition);
         List<Wall> walls = new ArrayList<>();
         walls.add(wall);
         map.setWalls(walls);
         assertFalse(map.isEmpty(wallPosition));
-        Position connectedPlatformPosition = new Position(8, 8);
-        Platform platform = new Platform(connectedPlatformPosition);
-        Wall connectedWall = new Wall(new Position(9, 8));
-        platform.addConnectedPlatform(connectedWall);
+
+        Platform platform = new Platform(new Position(8, 8));
         List<Platform> platforms = new ArrayList<>();
         platforms.add(platform);
         map.setPlatforms(platforms);
-        assertTrue(map.isEmpty(connectedPlatformPosition));
-        assertFalse(map.isEmpty(new Position(9, 8)));
+
+        for (Platform plat: map.getPlatforms()) {
+            assertFalse(map.isEmpty(plat.getPosition()));
+        }
     }
 
     @Test
@@ -180,9 +233,11 @@ public class MapTest {
 
     @Test
     public void testGetPlatformsNotNull() {
+        assertEquals(map.getPlatforms(), Collections.emptyList());
+
         List<Platform> platforms = Arrays.asList(new Platform(new Position(10, 10)));
         map.setPlatforms(platforms);
-        assertNotEquals(platforms, Collections.emptyList());
+        assertNotEquals(map.getPlatforms(), Collections.emptyList());
         assertNotNull(platforms);
     }
 

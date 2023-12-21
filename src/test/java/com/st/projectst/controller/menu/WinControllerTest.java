@@ -60,9 +60,6 @@ public class WinControllerTest {
         LanternaGUI gui = mock(LanternaGUI.class);
         when(main.getGui()).thenReturn(gui);
 
-        MapBuilder mapBuilder = mock(MapBuilder.class);
-        when(mapBuilder.buildMap()).thenReturn(mock(Map.class));
-
         WinController winController = new WinController(win);
 
         winController.step(main, GUI.ACTION.SELECT, 1000);
@@ -98,9 +95,6 @@ public class WinControllerTest {
         LanternaGUI gui = mock(LanternaGUI.class);
         when(main.getGui()).thenReturn(gui);
 
-        MapBuilder mapBuilder = mock(MapBuilder.class);
-        when(mapBuilder.buildMap()).thenReturn(mock(Map.class));
-
         WinController winController = new WinController(win);
 
         winController.step(main, GUI.ACTION.SELECT, 1000);
@@ -119,9 +113,6 @@ public class WinControllerTest {
         LanternaGUI gui = mock(LanternaGUI.class);
         when(main.getGui()).thenReturn(gui);
 
-        Start start = mock(Start.class);
-
-        StartState startState = mock(StartState.class);
         WinController winController = new WinController(win);
         winController.step(main, GUI.ACTION.SELECT, 1000);
 

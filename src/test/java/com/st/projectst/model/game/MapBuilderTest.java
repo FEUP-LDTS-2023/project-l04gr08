@@ -1,20 +1,27 @@
 package com.st.projectst.model.game;
 
 import com.st.projectst.model.Position;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 
 public class MapBuilderTest {
-
     private MapBuilder mapBuilder;
+
+    @BeforeEach
+    public void setup() throws IOException {
+        mapBuilder = new MapBuilder(1);
+    }
 
     @Test
     public void testMapBuilder() {
@@ -50,7 +57,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateMari() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Mari mari = mapBuilder.createMari();
         assertNull(mari);
         Map map = mapBuilder.buildMap();
@@ -64,7 +70,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         Mari mari2 = mapBuilder2.createMari();
 
         assertEquals(mari2.getPosition(), new Position(1, 1), "Mari should be at position (1, 1)");
@@ -72,8 +78,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateGhostEnemies() throws IOException {
-        mapBuilder = new MapBuilder(1);
-        Map map = mapBuilder.buildMap();
         List<GhostEnemy> ghostEnemies = mapBuilder.createGhostEnemies();
         assertNotNull(ghostEnemies);
 
@@ -84,7 +88,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         List<GhostEnemy> ghostEnemies2 = mapBuilder2.createGhostEnemies();
 
         assertEquals(3, ghostEnemies2.size(), "Number of ghost enemies created should match");
@@ -96,8 +100,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateBatEnemies() throws IOException {
-        mapBuilder = new MapBuilder(1);
-        Map map = mapBuilder.buildMap();
         List<BatEnemy> batEnemies = mapBuilder.createBatEnemies();
         assertNotNull(batEnemies);
 
@@ -108,7 +110,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         List<BatEnemy> batEnemies2 = mapBuilder2.createBatEnemies();
 
         assertEquals(3, batEnemies2.size(), "Number of bat enemies created should match");
@@ -120,7 +122,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreatePotions() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Potion> potions = mapBuilder.createPotions();
         map.setPotions(potions);
@@ -133,7 +134,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         List<Potion> potions2 = mapBuilder2.createPotions();
 
         assertEquals(3, potions2.size(), "Number of potions created should match");
@@ -145,7 +146,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateWalls() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Wall> walls = mapBuilder.createWalls();
         map.setWalls(walls);
@@ -158,7 +158,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         List<Wall> walls2 = mapBuilder2.createWalls();
 
         assertEquals(3, walls2.size(), "Number of walls created should match");
@@ -170,7 +170,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreatePlatforms() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Platform> platforms = mapBuilder.createPlatforms();
         map.setPlatforms(platforms);
@@ -183,7 +182,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         List<Platform> platforms2 = mapBuilder2.createPlatforms();
 
         assertEquals(4, platforms2.size(), "Number of platforms created should match");
@@ -205,7 +204,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateDoor() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Door door = mapBuilder.createDoor();
         assertNull(door);
         Map map = mapBuilder.buildMap();
@@ -219,7 +217,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         Door door2 = mapBuilder2.createDoor();
 
         assertEquals(door2.getPosition(), new Position(1, 1), "Door should be at position (1, 1)");
@@ -227,7 +225,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateKey() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Key key = mapBuilder.createKey();
         assertNull(key);
         Map map = mapBuilder.buildMap();
@@ -241,7 +238,7 @@ public class MapBuilderTest {
 
         MapBuilder mapBuilder2 = new MapBuilder(1);
         mapBuilder2.setLinesMap(lineMaps);
-        map = mapBuilder2.buildMap();
+        mapBuilder2.buildMap();
         Key key2 = mapBuilder2.createKey();
 
         assertEquals(key2.getPosition(), new Position(1, 1), "Key should be at position (1, 1)");
@@ -265,5 +262,20 @@ public class MapBuilderTest {
         assertEquals(1, traps.size(), "Number of traps created should match");
         assertEquals(1, batEnemies.size(), "Number of bat enemies created should match");
         assertEquals(traps.get(0).getObservers().size(),batEnemies.size());
+    }
+
+    @Test
+    public void testSets() throws IOException {
+        Map map = mapBuilder.buildMap();
+
+        assertNotNull(map.getMari());
+        assertNotNull(map.getGhostEnemies());
+        assertNotNull(map.getBatEnemies());
+        assertNotNull(map.getWalls());
+        assertNotNull(map.getKey());
+        assertNotNull(map.getTraps());
+        assertNotNull(map.getDoor());
+        assertNotNull(map.getPlatforms());
+        assertNotNull(map.getPotions());
     }
 }

@@ -20,7 +20,7 @@ import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.net.URISyntaxException;
 
-public class LanternaGUI implements GUI{
+public class LanternaGUI implements GUI {
     private Screen screen;
 
     public LanternaGUI(Screen screen) {
@@ -95,7 +95,9 @@ public class LanternaGUI implements GUI{
 
 
     @Override
-    public void drawMari(Position position) { drawImage(position, "gameObjects/mari1.png", 1); }
+    public void drawMari(Position position) {
+        drawImage(position, "gameObjects/mari1.png", 1);
+    }
 
     @Override
     public void drawMariJump(Position position) {
@@ -113,7 +115,9 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawBatEnemy(Position position) { drawImage(position, "gameObjects/bat.png", 1); }
+    public void drawBatEnemy(Position position) {
+        drawImage(position, "gameObjects/bat.png", 1);
+    }
 
     @Override
     public void drawKey(Position position) {
@@ -121,7 +125,9 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawDoor(Position position) { drawImage(position, "gameObjects/door.png", 1); }
+    public void drawDoor(Position position) {
+        drawImage(position, "gameObjects/door.png", 1);
+    }
 
     @Override
     public void drawPotion(Position position) {
@@ -129,10 +135,15 @@ public class LanternaGUI implements GUI{
     }
 
     @Override
-    public void drawWall(Position position) { drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E"); }
+    public void drawWall(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E");
+    }
 
     @Override
-    public void drawTrap(Position position) { drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E"); }
+    public void drawTrap(Position position) {
+        drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E");
+    }
+
 
     @Override
     public void setBackgroundColor(String color){
@@ -195,7 +206,7 @@ public class LanternaGUI implements GUI{
                 BufferedImage originalImage = ImageIO.read(imageStream);
 
                 int targetWidth = (int) (originalImage.getWidth() / value);
-                int targetHeight = (int) (originalImage.getHeight() /value);
+                int targetHeight = (int) (originalImage.getHeight() / value);
                 double aspectRatio = (double) targetWidth / targetHeight;
 
                 int newWidth = targetWidth;
@@ -223,13 +234,9 @@ public class LanternaGUI implements GUI{
 
 
     @Override
-    public void clear() {
-        screen.clear();
-    }
-
+    public void clear() { screen.clear(); }
     @Override
     public void refresh() throws IOException { screen.refresh(); }
-
     @Override
     public void close() throws IOException { screen.close(); }
 

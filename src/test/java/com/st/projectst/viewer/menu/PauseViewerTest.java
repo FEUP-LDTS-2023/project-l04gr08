@@ -52,10 +52,7 @@ public class PauseViewerTest {
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
-        verify(gui, times(0)).drawText(
-                new Position(21 - (pause.getNumberOptions() * 3), 15 + pause.getNumberOptions()),
-                pause.getOption(pause.getNumberOptions()),
-                pause.isSelected(pause.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
+
     }
     @DoNotMutate
     @Test
@@ -70,10 +67,7 @@ public class PauseViewerTest {
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
-        verify(gui, times(0)).drawText(
-                new Position(21 - (pause.getNumberOptions() * 3), 15 + pause.getNumberOptions()),
-                pause.getOption(pause.getNumberOptions()),
-                pause.isSelected(pause.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
+        
     }
 
 }

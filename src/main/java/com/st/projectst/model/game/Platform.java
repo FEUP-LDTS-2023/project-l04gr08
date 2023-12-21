@@ -1,7 +1,5 @@
 package com.st.projectst.model.game;
 
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.gui2.Direction;
 import com.st.projectst.model.Position;
 
 import java.util.ArrayList;
@@ -12,8 +10,8 @@ public class Platform extends Wall {
     private int moveCounter;
     private boolean movingUp;
     public Platform(Position position) {
-
         super(position);
+
         this.connectedPlatforms = new ArrayList<>();
         this.moveCounter = 0;
         this.movingUp = true;
@@ -47,20 +45,14 @@ public class Platform extends Wall {
     public List<Wall> getConnectedPlatforms() {
         return connectedPlatforms;
     }
-
-    public boolean isMovingUp() {
-        return movingUp;
-    }
-
     public int getMoveCounter() {
         return moveCounter;
     }
 
-    public void setMovingUp(boolean movingUp) {
-        this.movingUp = movingUp;
+    public void setMovingUp(boolean movingUp) { this.movingUp = movingUp; }
+    public boolean isMovingUp() {
+        return movingUp;
     }
 
-    public void setConnectedPlatforms(List<Wall> connectedPlatforms) {
-        this.connectedPlatforms = connectedPlatforms;
-    }
 }
+

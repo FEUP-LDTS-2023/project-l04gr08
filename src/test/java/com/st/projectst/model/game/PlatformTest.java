@@ -37,16 +37,36 @@ public class PlatformTest {
     @Test
     void movePlatformsTest() {
         Position position = new Position(0, 0);
+        Position expected = new Position(0, 0);
         Platform platform = new Platform(position);
         double initialY = position.getY();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 34; i++) {
             platform.moveAllPlatforms();
-            if (i == 16)
-                assertFalse(platform.isMovingUp());
+
+            // Testing the positions
+            if (i <= 16 || i >= 33) {
+                expected.setY(expected.getY()-1);
+                assertEquals(expected, platform.getPosition());
+            }
+            else {
+                expected.setY(expected.getY()+1);
+                assertEquals(expected, platform.getPosition());
+            }
+
+            // Testing the movement
             if (i <= 15) {
                 assertTrue(platform.isMovingUp());
                 assertEquals(platform.getMoveCounter(), i+1);
+            } else if (i == 16) {
+                assertFalse(platform.isMovingUp());
+            } else if (i == 31) {
+                assertFalse(platform.isMovingUp());
+                assertEquals(16, platform.getMoveCounter());
+            } else if (i == 32) {
+                assertTrue(platform.isMovingUp());
+                assertEquals(1, platform.getMoveCounter());
             }
+
         }
 
         double newY = platform.getPosition().getY();

@@ -30,7 +30,6 @@ public class Map {
     public int getCurrentLevel() {
         return currentLevel;
     }
-
     public void setCurrentLevel(int currentLevel) {
         this.currentLevel = currentLevel;
     }
@@ -45,12 +44,12 @@ public class Map {
     public List<GhostEnemy> getGhostEnemies() {
         return gEnemies;
     }
-    public List<BatEnemy> getBatEnemies() {
-        return bEnemies;
-    }
-
     public void setGhostEnemies(List<GhostEnemy> gEnemies) {
         this.gEnemies = gEnemies;
+    }
+
+    public List<BatEnemy> getBatEnemies() {
+        return bEnemies;
     }
     public void setBatEnemies(List<BatEnemy> bEnemies) {
         this.bEnemies = bEnemies;
@@ -59,17 +58,15 @@ public class Map {
     public List<Wall> getWalls() {
         return walls;
     }
-
-    public void setPlatforms(List<Platform> platforms) {
-        this.platforms = platforms;
+    public void setWalls(List<Wall> walls) {
+        this.walls = walls;
     }
 
     public List<Platform> getPlatforms() {
         return platforms;
     }
-
-    public void setWalls(List<Wall> walls) {
-        this.walls = walls;
+    public void setPlatforms(List<Platform> platforms) {
+        this.platforms = platforms;
     }
 
     public Key getKey() {
@@ -79,21 +76,20 @@ public class Map {
         this.key = key;
     }
 
+    public List<Potion> getPotions() {
+        return potions;
+    }
+    public void setPotions(List<Potion> potions) {
+        this.potions = potions;
+    }
+
     public int getWidth() {
         return width;
     }
-
     public int getHeight() {
         return height;
     }
 
-    public List<Potion> getPotions() {
-        return potions;
-    }
-
-    public void setPotions(List<Potion> potions) {
-        this.potions = potions;
-    }
 
     public boolean isAtDoor(Position position) {
         Position mariPosition = new Position(position);
@@ -105,17 +101,15 @@ public class Map {
         for (Wall wall : walls)
             if (wall.getPosition().equals(position))
                 return false;
-        for (Platform platform : platforms) {
-            for (Wall wall : platform.getConnectedPlatforms()) {
-                if (wall.getPosition().equals(position))
+        for (Platform platform : platforms)
+                if (platform.getPosition().equals(position))
                     return false;
-            }
-        }
         return true;
     }
 
     public boolean isEnemy(Position position) {
         Position position2 = new Position(position); position2.setX(position.getX()+13);
+
         for (GhostEnemy enemy : getGhostEnemies()) {
             Position enemyPosition = new Position(enemy.getPosition());
             enemyPosition.setX(enemyPosition.getX()+4);
@@ -131,7 +125,7 @@ public class Map {
         return false;
     }
 
-    public boolean Grounded() {
+    public boolean mariIsGrounded() {
         Position floorPosition = new Position(mari.getPosition());
         floorPosition.setY(floorPosition.getY()+14);
 
@@ -148,10 +142,10 @@ public class Map {
                     return true;
             }
             for (Platform platform : platforms){
-                for (Wall wall : platform.getConnectedPlatforms()){
-                    if (Objects.equals(wall.getPosition(), pos))
-                        return true;
-                }
+                Position newPos = new Position(pos);
+                newPos.setY(newPos.getY()-1);
+                if (platform.getPosition().equals(pos) || platform.getPosition().equals(newPos))
+                    return true;
             }
         }
         return false;
@@ -193,7 +187,6 @@ public class Map {
         this.key = null;
     }
 
-
     public List<Trap> getTraps() {
         return traps;
     }
@@ -211,7 +204,7 @@ public class Map {
     }
 
     public boolean isAtPlatform(Position currentMariPosition) {
-        Position floorPosition = new Position(mari.getPosition());
+        Position floorPosition = new Position(currentMariPosition);
         floorPosition.setY(floorPosition.getY()+13);
 
         List<Position> floorPositions = new ArrayList<>();
@@ -223,10 +216,8 @@ public class Map {
 
         for (Position pos: floorPositions) {
             for (Platform platform : platforms){
-                for (Wall wall : platform.getConnectedPlatforms()){
-                    if (Objects.equals(wall.getPosition(), pos)){
-                        return true;
-                    }
+                if (platform.getPosition().equals(pos)){
+                    return true;
                 }
             }
         }
