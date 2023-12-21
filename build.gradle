@@ -33,10 +33,6 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 }
 
-tasks.withType(JavaCompile) {
-    options.errorprone.errorproneArgs = ['-XepAllErrorsAsWarnings']
-}
-
 test {
     useJUnitPlatform()
 }
