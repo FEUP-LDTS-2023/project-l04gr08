@@ -20,13 +20,15 @@ public class PauseControllerTest {
     private Pause pause;
     private PauseController pauseController;
     private Main main;
+    private LanternaGUI gui;
 
     @BeforeEach
     public void setUp() {
         pause = mock(Pause.class);
         pauseController = new PauseController(pause);
         main = mock(Main.class);
-        when(main.getGui()).thenReturn(mock(LanternaGUI.class));
+        gui = mock(LanternaGUI.class);
+        when(main.getGui()).thenReturn(gui);
     }
 
     @Test
@@ -37,7 +39,7 @@ public class PauseControllerTest {
 
         pauseController.step(main, GUI.ACTION.SELECT, 1000);
 
-        verify(main.getGui(), times(1)).close();
+        verify(gui, times(1)).close();
         verify(main).setGui(any(LanternaGUI.class));
         verify(main).setState(levelState);
     }
@@ -53,7 +55,7 @@ public class PauseControllerTest {
 
         pauseController.step(main, GUI.ACTION.SELECT, 1000);
 
-        verify(main.getGui(), times(1)).close();
+        verify(gui, times(1)).close();
         verify(main).setGui(any(LanternaGUI.class));
         verify(main).setState(any(StartState.class));
     }
@@ -62,7 +64,7 @@ public class PauseControllerTest {
     public void testStepOtherAction() throws IOException, URISyntaxException, FontFormatException {
         pauseController.step(main, GUI.ACTION.UP, 1000);
 
-        verify(main.getGui(), never()).close();
+        verify(gui, never()).close();
         verify(main, never()).setGui(any(LanternaGUI.class));
         verify(main, never()).setState(any(LevelState.class));
     }

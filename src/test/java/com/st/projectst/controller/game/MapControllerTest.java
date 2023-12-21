@@ -77,8 +77,11 @@ public class MapControllerTest {
         when(map.isAtDoor(any())).thenReturn(true);
         when(map.getMari()).thenReturn(mock(Mari.class));
         when(map.getCurrentLevel()).thenReturn(1);
-        when(map.getMari().getWithKey()).thenReturn(true);
         when(main.getGui()).thenReturn(mock(LanternaGUI.class));
+
+        Mari mari = mock(Mari.class);
+        when(map.getMari()).thenReturn(mari);
+        when(mari.getWithKey()).thenReturn(true);
 
         mapController.step(main, GUI.ACTION.NONE, 1000);
 
@@ -103,9 +106,9 @@ public class MapControllerTest {
     void testStepUp() throws IOException, URISyntaxException, FontFormatException {
         Mari mari = mock(Mari.class);
         when(map.getMari()).thenReturn(mari);
-        when(map.isAtDoor(any())).thenReturn(false);
         when(mari.getRemainingLives()).thenReturn(1);
-        when(map.getMari().getPosition()).thenReturn(new Position(0,0));
+        when(mari.getPosition()).thenReturn(new Position(0,0));
+        when(map.isAtDoor(any())).thenReturn(false);
         when(main.getGui()).thenReturn(mock(LanternaGUI.class));
 
         mapController.step(main, GUI.ACTION.UP, 1000);
@@ -121,9 +124,9 @@ public class MapControllerTest {
     void testStepLeft() throws IOException, URISyntaxException, FontFormatException {
         Mari mari = mock(Mari.class);
         when(map.getMari()).thenReturn(mari);
-        when(map.isAtDoor(any())).thenReturn(false);
         when(mari.getRemainingLives()).thenReturn(1);
-        when(map.getMari().getPosition()).thenReturn(new Position(0,0));
+        when(mari.getPosition()).thenReturn(new Position(0,0));
+        when(map.isAtDoor(any())).thenReturn(false);
         when(main.getGui()).thenReturn(mock(LanternaGUI.class));
 
         mapController.step(main, GUI.ACTION.LEFT, 1000);
@@ -139,9 +142,9 @@ public class MapControllerTest {
     void testStepRight() throws IOException, URISyntaxException, FontFormatException {
         Mari mari = mock(Mari.class);
         when(map.getMari()).thenReturn(mari);
-        when(map.isAtDoor(any())).thenReturn(false);
         when(mari.getRemainingLives()).thenReturn(1);
-        when(map.getMari().getPosition()).thenReturn(new Position(0,0));
+        when(mari.getPosition()).thenReturn(new Position(0,0));
+        when(map.isAtDoor(any())).thenReturn(false);
         when(main.getGui()).thenReturn(mock(LanternaGUI.class));
 
         mapController.step(main, GUI.ACTION.RIGHT, 1000);
@@ -157,12 +160,12 @@ public class MapControllerTest {
     void testMoveCamera() throws IOException, URISyntaxException, FontFormatException {
         Mari mari = mock(Mari.class);
         when(map.getMari()).thenReturn(mari);
-        when(map.isAtDoor(any())).thenReturn(false);
         when(mari.getRemainingLives()).thenReturn(1);
+        when(mari.getPosition()).thenReturn(new Position(100,0));
+        when(map.isAtDoor(any())).thenReturn(false);
         when(main.getGui()).thenReturn(mock(LanternaGUI.class));
 
         mapController.setCameraCount(0);
-        when(map.getMari().getPosition()).thenReturn(new Position(100,0));
 
         mapController.step(main, GUI.ACTION.RIGHT, 1000);
 
