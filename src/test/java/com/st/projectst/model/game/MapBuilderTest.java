@@ -2,6 +2,7 @@ package com.st.projectst.model.game;
 
 import com.st.projectst.model.Position;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class MapBuilderTest {
 
@@ -237,5 +241,24 @@ public class MapBuilderTest {
         Key key2 = mapBuilder2.createKey();
 
         assertEquals(key2.getPosition(), new Position(1, 1), "Key should be at position (1, 1)");
+    }
+
+    @Test
+    void testCreateTraps() throws IOException {
+        List<String> lineMaps = new ArrayList<>();
+        lineMaps.add("---");
+        lineMaps.add("-XB");
+        lineMaps.add("---");
+
+
+        MapBuilder mapBuilder2 = new MapBuilder(1);
+        mapBuilder2.setLinesMap(lineMaps);
+        Map map = mapBuilder2.buildMap();
+        List<Trap> traps = mapBuilder2.createTraps(map);
+        List<BatEnemy> batEnemies = mapBuilder2.createBatEnemies();
+
+        assertEquals(1, traps.size(), "Number of traps created should match");
+        assertEquals(1, batEnemies.size(), "Number of bat enemies created should match");
+        assertEquals(traps.get(0).getObservers().size(),batEnemies.size());
     }
 }
