@@ -94,14 +94,11 @@ public class LevelViewerTest {
 
         levelViewer.drawObject(gui);
         for (Platform platform : map.getPlatforms()) {
-            for (Wall wall : platform.getConnectedPlatforms()) {
-                if (platform.getPosition().equals(new Position(39,45)))
-                    Mockito.verify(gui, times(1)).drawWall(new Position(40,45));
-                if (platform.getPosition().equals(new Position(40,45)))
-                    Mockito.verify(gui, times(1)).drawWall(new Position(39,45));
-            }
+            if (platform.getPosition().equals(new Position(39,45)))
+                Mockito.verify(gui, times(1)).drawWall(new Position(40,45));
+            if (platform.getPosition().equals(new Position(40,45)))
+                Mockito.verify(gui, times(1)).drawWall(new Position(39,45));
         }
-
     }
 
     @Test

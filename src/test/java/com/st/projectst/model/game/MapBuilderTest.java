@@ -7,6 +7,11 @@ import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +24,7 @@ public class MapBuilderTest {
     private MapBuilder mapBuilder;
 
     @BeforeEach
-    public void setup() throws IOException {
+    public void setup() throws IOException, URISyntaxException {
         mapBuilder = new MapBuilder(1);
     }
 
@@ -36,14 +41,16 @@ public class MapBuilderTest {
 
         } catch (IOException e) {
             fail("IOException occurred: " + e.getMessage());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Test
     public void testLoadFromFile() {
-        String filePath = "src/main/resources/levels/map1.txt";
+        URL resource = MapBuilder.class.getResource("/levels/map1.txt");
 
-        try (BufferedReader buff = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader buff = Files.newBufferedReader(Paths.get(resource.toURI()), Charset.defaultCharset());) {
             MapBuilder mapBuilder = new MapBuilder(1);
             List<String> lines = mapBuilder.loadFromFile(buff);
 
@@ -52,11 +59,13 @@ public class MapBuilderTest {
 
         } catch (IOException e) {
             fail("IOException occurred: " + e.getMessage());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
     }
 
     @Test
-    public void testCreateMari() throws IOException {
+    public void testCreateMari() throws IOException, URISyntaxException {
         Mari mari = mapBuilder.createMari();
         assertNull(mari);
         Map map = mapBuilder.buildMap();
@@ -77,7 +86,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void testCreateGhostEnemies() throws IOException {
+    public void testCreateGhostEnemies() throws IOException, URISyntaxException {
         List<GhostEnemy> ghostEnemies = mapBuilder.createGhostEnemies();
         assertNotNull(ghostEnemies);
 
@@ -99,7 +108,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void testCreateBatEnemies() throws IOException {
+    public void testCreateBatEnemies() throws IOException, URISyntaxException {
         List<BatEnemy> batEnemies = mapBuilder.createBatEnemies();
         assertNotNull(batEnemies);
 
@@ -121,7 +130,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void testCreatePotions() throws IOException {
+    public void testCreatePotions() throws IOException, URISyntaxException {
         Map map = mapBuilder.buildMap();
         List<Potion> potions = mapBuilder.createPotions();
         map.setPotions(potions);
@@ -145,7 +154,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void testCreateWalls() throws IOException {
+    public void testCreateWalls() throws IOException, URISyntaxException {
         Map map = mapBuilder.buildMap();
         List<Wall> walls = mapBuilder.createWalls();
         map.setWalls(walls);
@@ -169,7 +178,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void testCreatePlatforms() throws IOException {
+    public void testCreatePlatforms() throws IOException, URISyntaxException {
         Map map = mapBuilder.buildMap();
         List<Platform> platforms = mapBuilder.createPlatforms();
         map.setPlatforms(platforms);
@@ -203,7 +212,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void testCreateDoor() throws IOException {
+    public void testCreateDoor() throws IOException, URISyntaxException {
         Door door = mapBuilder.createDoor();
         assertNull(door);
         Map map = mapBuilder.buildMap();
@@ -224,7 +233,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    public void testCreateKey() throws IOException {
+    public void testCreateKey() throws IOException, URISyntaxException {
         Key key = mapBuilder.createKey();
         assertNull(key);
         Map map = mapBuilder.buildMap();
@@ -245,7 +254,7 @@ public class MapBuilderTest {
     }
 
     @Test
-    void testCreateTraps() throws IOException {
+    void testCreateTraps() throws IOException, URISyntaxException {
         List<String> lineMaps = new ArrayList<>();
         lineMaps.add("---");
         lineMaps.add("-XB");

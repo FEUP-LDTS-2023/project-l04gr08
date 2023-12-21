@@ -5,7 +5,11 @@ import com.st.projectst.model.Position;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +19,11 @@ public class MapBuilder {
     private int width;
     private int height;
 
-    public MapBuilder(int level) throws IOException {
+    public MapBuilder(int level) throws IOException, URISyntaxException {
         this.level = level;
 
         URL resource = MapBuilder.class.getResource("/levels/map" + level + ".txt");
-        BufferedReader buff = new BufferedReader(new FileReader(resource.getFile()));
+        BufferedReader buff = Files.newBufferedReader(Paths.get(resource.toURI()), Charset.defaultCharset());
         this.linesMap = loadFromFile(buff);
     }
 

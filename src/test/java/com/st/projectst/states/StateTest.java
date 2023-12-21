@@ -115,6 +115,7 @@ public class StateTest {
                 return mockViewer;
             }
         };
+
         when(gui.getNextAction()).thenReturn(GUI.ACTION.NONE);
         state.step(main, gui, 100L);
         verify(gui).getNextAction();
