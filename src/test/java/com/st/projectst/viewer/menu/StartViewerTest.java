@@ -46,6 +46,11 @@ public class StartViewerTest {
         startViewer.drawObject(gui);
 
         verify(gui).setBackgroundColor("#BA6156");
+        verify(gui).drawImage(new Position(22, 3), "images/key.png", 1);
+
+        verify(gui).drawText(new Position(5, 5), "Searching For", "#FFFFFF");
+        verify(gui).drawText(new Position(5, 6), "   Key-Ty    ", "#DAA520");
+
     }
 
     @DoNotMutate
@@ -57,11 +62,14 @@ public class StartViewerTest {
 
         startViewer.drawObject(gui);
         for (int i = 0; i < start.getNumberOptions(); i++) {
-            gui.drawText(
+            verify(gui).drawText(
                     new Position(5, 10 + i),
                     start.getOption(i),
                     start.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
+        verify(gui, times(0)).drawText(new Position(5, 10 + start.getNumberOptions()),
+                start.getOption(start.getNumberOptions()),
+                start.isSelected(start.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 
     @DoNotMutate
@@ -73,11 +81,14 @@ public class StartViewerTest {
 
         startViewer.drawObject(gui);
         for (int i = 0; i < start.getNumberOptions(); i++) {
-            gui.drawText(
+            verify(gui).drawText(
                     new Position(5, 10 + i),
                     start.getOption(i),
                     start.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
+        verify(gui, times(0)).drawText(new Position(5, 10 + start.getNumberOptions()),
+                start.getOption(start.getNumberOptions()),
+                start.isSelected(start.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 
     @DoNotMutate
@@ -89,10 +100,13 @@ public class StartViewerTest {
 
         startViewer.drawObject(gui);
         for (int i = 0; i < start.getNumberOptions(); i++) {
-            gui.drawText(
+            verify(gui).drawText(
                     new Position(5, 10 + i),
                     start.getOption(i),
                     start.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
+        verify(gui, times(0)).drawText(new Position(5, 10 + start.getNumberOptions()),
+                start.getOption(start.getNumberOptions()),
+                start.isSelected(start.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 }

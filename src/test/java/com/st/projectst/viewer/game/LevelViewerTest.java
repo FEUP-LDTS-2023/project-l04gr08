@@ -80,6 +80,12 @@ public class LevelViewerTest {
     }
 
     @Test
+    void testDrawPotions() throws IOException, FontFormatException {
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, times(1)).drawPotion(new Position(25,25));
+    }
+
+    @Test
     void testDrawPlatforms() throws IOException, FontFormatException {
         for (Platform platform : map.getPlatforms())
             for (Platform otherPlatform : map.getPlatforms())
@@ -137,4 +143,9 @@ public class LevelViewerTest {
         Mockito.verify(gui, times(1)).drawText(new Position(2, 58), "Powered jumps:" + map.getMari().getRemainingJumps(), "#FFFFFF");
     }
 
+    @Test
+    void testDrawBackground() throws IOException, FontFormatException {
+        levelViewer.drawObject(gui);
+        Mockito.verify(gui, times(1)).setBackgroundColor("#432121");
+    }
 }

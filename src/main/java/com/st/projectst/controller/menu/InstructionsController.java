@@ -11,6 +11,7 @@ import com.st.projectst.states.StartState;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class InstructionsController extends Controller<Instructions> {
     public InstructionsController(Instructions instructions) {
@@ -19,15 +20,13 @@ public class InstructionsController extends Controller<Instructions> {
 
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException, URISyntaxException, FontFormatException {
-        switch (action) {
-            case SELECT:
-                if (getModel().isSelectedBack()) {
-                    main.getGui().close();
-                    LanternaGUI gui = new LanternaGUI(40, 20, 24);
-                    main.setGui(gui);
-                    main.setState(new StartState(new Start(1)));
-                }
-                break;
+        if (action == GUI.ACTION.SELECT) {
+            if (getModel().isSelectedBack()) {
+                main.getGui().close();
+                LanternaGUI gui = new LanternaGUI(40, 20, 24);
+                main.setGui(gui);
+                main.setState(new StartState(new Start(1)));
+            }
         }
     }
 }

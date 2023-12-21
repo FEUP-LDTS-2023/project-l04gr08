@@ -39,6 +39,14 @@ public class Start {
         return isSelected(2);
     }
 
+    public int getCurrentOption() {
+        return currentOption;
+    }
+
+    public void setCurrentOption(int currentOption) {
+        this.currentOption = currentOption;
+    }
+
     public int getNumberOptions() {
         return options.size();
     }

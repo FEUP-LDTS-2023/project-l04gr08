@@ -32,6 +32,11 @@ public class PauseViewerTest {
         pauseViewer.drawObject(gui);
 
         verify(gui).setBackgroundColor("#BA6156");
+        verify(gui).drawText(new Position(7, 5), "OOOOO  OOOOOO  OO  OO  OOOOOO  OOOOOO", "#f9dbbe");
+        verify(gui).drawText(new Position(7, 6), "OO OO  OO  OO  OO  OO  OO      OO", "#ffbc6e");
+        verify(gui).drawText(new Position(7, 7), "OOOOO  OOOOOO  OO  OO  OOOOOO  OOOOOO", "#FF9966");
+        verify(gui).drawText(new Position(7, 8), "OO     OO  OO  OO  OO      OO  OO", "#ff8066");
+        verify(gui).drawText(new Position(7, 9), "OO     OO  OO  OOOOOO  OOOOOO  OOOOOO", "#ff9aab");
     }
 
     @DoNotMutate
@@ -47,6 +52,10 @@ public class PauseViewerTest {
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
+        verify(gui, times(0)).drawText(
+                new Position(21 - (pause.getNumberOptions() * 3), 15 + pause.getNumberOptions()),
+                pause.getOption(pause.getNumberOptions()),
+                pause.isSelected(pause.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
     @DoNotMutate
     @Test
@@ -61,6 +70,10 @@ public class PauseViewerTest {
                     pause.getOption(i),
                     pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
+        verify(gui, times(0)).drawText(
+                new Position(21 - (pause.getNumberOptions() * 3), 15 + pause.getNumberOptions()),
+                pause.getOption(pause.getNumberOptions()),
+                pause.isSelected(pause.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 
 }

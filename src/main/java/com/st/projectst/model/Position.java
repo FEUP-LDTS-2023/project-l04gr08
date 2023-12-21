@@ -1,5 +1,7 @@
 package com.st.projectst.model;
 
+import java.util.Random;
+
 public class Position {
     private double x;
     private double y;
@@ -48,13 +50,18 @@ public class Position {
     }
 
     public Position getRandomHorizontal() {
-        int n = (int) (Math.random() * 2);
+        int n = (int) (random() * 2);
         switch (n) {
             case 0:
                 return getRight();
             default:
                 return getLeft();
         }
+    }
+
+    public double random() {
+        Random random = new Random();
+        return random.nextDouble();
     }
 
 }

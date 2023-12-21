@@ -14,7 +14,7 @@ public class MariTest {
 
     @BeforeEach
     public void setup() {
-        Position initialPosition = new Position(10,10);
+        Position initialPosition = new Position(10, 10);
         mari = new Mari(initialPosition);
     }
 
@@ -22,7 +22,7 @@ public class MariTest {
     @Test
     public void mariMoveRight() {
         Position position = mari.moveRight();
-        Position expected = new Position(11,10);
+        Position expected = new Position(11, 10);
 
         assertEquals(expected, position);
     }
@@ -30,7 +30,7 @@ public class MariTest {
     @Test
     public void mariMoveLeft() {
         Position position = mari.moveLeft();
-        Position expected = new Position(9,10);
+        Position expected = new Position(9, 10);
 
         assertEquals(expected, position);
     }
@@ -226,15 +226,16 @@ public class MariTest {
     @Test
     public void mariUpdateNoJumpingNoGrounded() {
         Position position = mari.update();
-        Position expected = new Position(10,11);
+        Position expected = new Position(10, 11);
         assertEquals(expected, position);
+        assertNotNull(position);
     }
 
     @Test
     public void mariUpdateNoJumpingGrounded() {
         mari.setGrounded(true);
         mari.update();
-        Position expected = new Position(10,10);
+        Position expected = new Position(10, 10);
 
         assertEquals(expected, mari.getPosition());
     }
@@ -249,6 +250,7 @@ public class MariTest {
         assertTrue(mari.getIsJumping());
         assertFalse(mari.getGrounded());
         assertEquals(-1, newPosition.getY());
+        assertNotNull(newPosition);
     }
 
     @Test
@@ -292,5 +294,6 @@ public class MariTest {
         mari.setWithKey(true);
         assertTrue(mari.getWithKey());
     }
+
 
 }

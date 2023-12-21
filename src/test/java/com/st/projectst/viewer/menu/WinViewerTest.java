@@ -35,8 +35,16 @@ public class WinViewerTest {
     @Test
     void testDrawObject() throws IOException, FontFormatException {
         winViewer.drawObject(gui);
-
         verify(gui).setBackgroundColor("#BA6156");
+
+        verify(gui).drawText(new Position(5, 5), "OO        OO  OO  OO    OOO", "#f9dbbe");
+        verify(gui).drawText(new Position(5, 6), " OO      OO   OO  OOO   OO ", "#ffbc6e");
+        verify(gui).drawText(new Position(5, 7), "  OO OO OO    OO  OO OO OO ", "#FF9966");
+        verify(gui).drawText(new Position(5, 8), "   OO  OO     OO  OO   OOO ", "#ff8066");
+        verify(gui).drawText(new Position(5, 9), "   OO  OO     OO  OO    OO ", "#ff9aab");
+
+        verify(gui).drawImage(new Position(29, 4), "images/sword.png", 1.5);
+        verify(gui).drawText(new Position(7, 12), " *** Level Complete *** ", "#FFFFFF");
     }
 
     @DoNotMutate
@@ -52,6 +60,10 @@ public class WinViewerTest {
                     win.getOption(i),
                     win.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
+        verify(gui, times(0)).drawText(
+                new Position(14, 14 + win.getNumberOptions()),
+                win.getOption(win.getNumberOptions()),
+                win.isSelected(win.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 
     @DoNotMutate
@@ -67,5 +79,9 @@ public class WinViewerTest {
                     win.getOption(i),
                     win.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
+        verify(gui, times(0)).drawText(
+                new Position(14, 14 + win.getNumberOptions()),
+                win.getOption(win.getNumberOptions()),
+                win.isSelected(win.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 }

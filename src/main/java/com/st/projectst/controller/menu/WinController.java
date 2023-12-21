@@ -64,6 +64,9 @@ public class WinController extends Controller<Win> {
                         }
                     }
                 }
+                break;
+            default:
+                break;
         }
     }
 }

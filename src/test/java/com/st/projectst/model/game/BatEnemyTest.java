@@ -32,4 +32,33 @@ public class BatEnemyTest {
         batEnemy.update(mockTrap);
         assertEquals(trapPosition.getY() - 13, batEnemy.getFinalPosition().getY());
     }
+
+    @Test
+    void testMoveWhenAboveFinalPosition() {
+        Position initialPosition = new Position(10, 20);
+        Position finalPosition = new Position(10, 10);
+        BatEnemy batEnemy = new BatEnemy(initialPosition);
+        batEnemy.setFinalPosition(finalPosition);
+        Position newPosition = batEnemy.move();
+        assertEquals(finalPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    void testMoveWhenFinalPositionIsOnTheSameHeight() {
+        Position initialPosition = new Position(10, 10);
+        Position finalPosition = new Position(10, 10);
+        BatEnemy batEnemy = new BatEnemy(initialPosition);
+        batEnemy.setFinalPosition(finalPosition);
+        Position newPosition = batEnemy.move();
+        assertEquals(finalPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    public void testGetFinalPosition() {
+        Position position = new Position(5, 5);
+        BatEnemy batEnemy = new BatEnemy(position);
+        batEnemy.setFinalPosition(null);
+        assertEquals(null, batEnemy.getFinalPosition());
+    }
+
 }

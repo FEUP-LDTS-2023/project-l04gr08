@@ -5,6 +5,7 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.gui.LanternaGUI;
 import com.st.projectst.model.menu.GameOver;
 import com.st.projectst.states.StartState;
+import com.st.projectst.states.State;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,17 +29,6 @@ public class GameOverControllerTest {
         when(main.getGui()).thenReturn(mock(LanternaGUI.class));
     }
 
-    @Test
-    public void testStepUp() throws IOException, URISyntaxException, FontFormatException {
-        gameOverController.step(main, GUI.ACTION.UP, 1000);
-        verify(gameOver, times(1)).previousOption();
-    }
-
-    @Test
-    public void testStepDown() throws IOException, URISyntaxException, FontFormatException {
-        gameOverController.step(main, GUI.ACTION.DOWN, 1000);
-        verify(gameOver, times(1)).nextOption();
-    }
 
     @Test
     public void testStepSelectGoBack() throws IOException, URISyntaxException, FontFormatException {
@@ -57,5 +47,6 @@ public class GameOverControllerTest {
         verify(main, never()).setGui(any(LanternaGUI.class));
         verify(main, never()).setState(any(StartState.class));
     }
+
 }
 

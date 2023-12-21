@@ -4,6 +4,7 @@ import com.st.projectst.model.Position;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Map {
     private int width;
@@ -24,22 +25,6 @@ public class Map {
         this.width = width;
         this.height = height;
         this.currentLevel = currentLevel;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 
     public int getCurrentLevel() {
@@ -92,6 +77,14 @@ public class Map {
     }
     public void setKey(Key key) {
         this.key = key;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     public List<Potion> getPotions() {
@@ -151,7 +144,7 @@ public class Map {
 
         for (Position pos: floorPositions) {
             for (Wall wall : walls) {
-                if (wall.getPosition().equals(pos))
+                if (Objects.equals(wall.getPosition(), pos))
                     return true;
             }
             for (Platform platform : platforms){
@@ -230,7 +223,7 @@ public class Map {
         for (Position pos: floorPositions) {
             for (Platform platform : platforms){
                 for (Wall wall : platform.getConnectedPlatforms()){
-                    if (wall.getPosition().equals(pos)){
+                    if (Objects.equals(wall.getPosition(), pos)){
                         return true;
                     }
                 }
