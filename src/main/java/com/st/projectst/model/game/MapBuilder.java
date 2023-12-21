@@ -164,4 +164,8 @@ public class MapBuilder {
         }
         return potions;
     }
+
+    public void setLinesMap(List<String> linesMap) {
+        this.linesMap = linesMap;
+    }
 }
