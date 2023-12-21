@@ -28,19 +28,17 @@ public class StartViewerTest {
         when(start.getOption(0)).thenReturn("Start");
         when(start.getOption(1)).thenReturn("Instructions");
         when(start.getOption(2)).thenReturn("Exit");
-
     }
 
-    @DoNotMutate
+
     @Test
     void testDraw() throws IOException, FontFormatException {
         startViewer.draw(gui);
+
         verify(gui, times(1)).clear();
         verify(gui, times(1)).refresh();
-
     }
 
-    @DoNotMutate
     @Test
     void testDrawObject() throws IOException, FontFormatException {
         startViewer.drawObject(gui);
@@ -50,10 +48,8 @@ public class StartViewerTest {
 
         verify(gui).drawText(new Position(5, 5), "Searching For", "#FFFFFF");
         verify(gui).drawText(new Position(5, 6), "   Key-Ty    ", "#DAA520");
-
     }
 
-    @DoNotMutate
     @Test
     void testDrawSelected1() throws IOException, FontFormatException {
         when(start.isSelected(0)).thenReturn(true);
@@ -61,18 +57,27 @@ public class StartViewerTest {
         when(start.isSelected(2)).thenReturn(false);
 
         startViewer.drawObject(gui);
-        for (int i = 0; i < start.getNumberOptions(); i++) {
-            verify(gui).drawText(
-                    new Position(5, 10 + i),
-                    start.getOption(i),
-                    start.isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        for (int i = 0; i < 3; i++) {
+            if (i == 0)
+                verify(gui).drawText(
+                        new Position(5, 10),
+                        "Start",
+                        "#FFFFFF");
+            if (i == 1)
+                verify(gui).drawText(
+                        new Position(5, 10 + 1),
+                        "Instructions",
+                        "#F1A55E");
+            if (i == 2)
+                verify(gui).drawText(
+                        new Position(5, 10 + 2),
+                        "Exit",
+                        "#F1A55E");
         }
-        verify(gui, times(0)).drawText(new Position(5, 10 + start.getNumberOptions()),
-                start.getOption(start.getNumberOptions()),
-                start.isSelected(start.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
+        verify(start, times(0)).getOption(3);
+        verify(start, times(0)).isSelected(3);
     }
 
-    @DoNotMutate
     @Test
     void testDrawSelected2() throws IOException, FontFormatException {
         when(start.isSelected(0)).thenReturn(false);
@@ -80,18 +85,27 @@ public class StartViewerTest {
         when(start.isSelected(2)).thenReturn(false);
 
         startViewer.drawObject(gui);
-        for (int i = 0; i < start.getNumberOptions(); i++) {
-            verify(gui).drawText(
-                    new Position(5, 10 + i),
-                    start.getOption(i),
-                    start.isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        for (int i = 0; i < 3; i++) {
+            if (i == 0)
+                verify(gui).drawText(
+                        new Position(5, 10),
+                        "Start",
+                        "#F1A55E");
+            if (i == 1)
+                verify(gui).drawText(
+                        new Position(5, 10 + 1),
+                        "Instructions",
+                        "#FFFFFF");
+            if (i == 2)
+                verify(gui).drawText(
+                        new Position(5, 10 + 2),
+                        "Exit",
+                        "#F1A55E");
         }
-        verify(gui, times(0)).drawText(new Position(5, 10 + start.getNumberOptions()),
-                start.getOption(start.getNumberOptions()),
-                start.isSelected(start.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
+        verify(start, times(0)).getOption(3);
+        verify(start, times(0)).isSelected(3);
     }
 
-    @DoNotMutate
     @Test
     void testDrawSelected3() throws IOException, FontFormatException {
         when(start.isSelected(0)).thenReturn(false);
@@ -99,14 +113,25 @@ public class StartViewerTest {
         when(start.isSelected(2)).thenReturn(true);
 
         startViewer.drawObject(gui);
-        for (int i = 0; i < start.getNumberOptions(); i++) {
-            verify(gui).drawText(
-                    new Position(5, 10 + i),
-                    start.getOption(i),
-                    start.isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        for (int i = 0; i < 3; i++) {
+            if (i == 0)
+                verify(gui).drawText(
+                        new Position(5, 10),
+                        "Start",
+                        "#F1A55E");
+            if (i == 1)
+                verify(gui).drawText(
+                        new Position(5, 10 + 1),
+                        "Instructions",
+                        "#F1A55E");
+            if (i == 2)
+                verify(gui).drawText(
+                        new Position(5, 10 + 2),
+                        "Exit",
+                        "#FFFFFF");
         }
-        verify(gui, times(0)).drawText(new Position(5, 10 + start.getNumberOptions()),
-                start.getOption(start.getNumberOptions()),
-                start.isSelected(start.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
+        verify(start, times(0)).getOption(3);
+        verify(start, times(0)).isSelected(3);
     }
+
 }

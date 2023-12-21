@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class GameOverViewerTest {
     private GUI gui;
@@ -18,8 +19,9 @@ public class GameOverViewerTest {
     void setup() {
         gui = Mockito.mock(GUI.class);
         gameOver = Mockito.mock(GameOver.class);
+        when(gameOver.getOption(0)).thenReturn(" Return to the Menu ");
     }
-    @DoNotMutate
+
     @Test
     void testDrawObject() {
         GameOverViewer gameOverViewer = new GameOverViewer(gameOver);
@@ -44,12 +46,14 @@ public class GameOverViewerTest {
         verify(gui).drawText(new Position(18, 21), "OOO   OO   OOOO    OOO     OO      " , "#ff8066");
         verify(gui).drawText(new Position(18, 22), " OOOOOOO   OOOO    OOOOO  OOO      " , "#ff9aab");
         verify(gui).drawText(new Position(18, 23), "  OOOO     OOO      OOOO  OOO      " , "#ff9aab");
-        verify(gui).drawText(new Position(28, 31), "Click ENTER" , "#FFFFFF");
 
-        verify(gui).drawText(new Position(24, 29 ),
-        gameOver.getOption(0),
-        gameOver.isSelected(0) ? "#F1A55E" : "#FFFFFF"
+        verify(gui).drawText(
+                new Position(24, 29 ),
+                " Return to the Menu ",
+                "#FFFFFF"
         );
+
+        verify(gui).drawText(new Position(28, 31), "Click ENTER" , "#FFFFFF");
     }
 
 }

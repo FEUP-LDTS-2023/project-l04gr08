@@ -31,7 +31,7 @@ public class WinViewerTest {
         when(win.getOption(1)).thenReturn("Next Level");
     }
 
-    @DoNotMutate
+
     @Test
     void testDrawObject() throws IOException, FontFormatException {
         winViewer.drawObject(gui);
@@ -47,41 +47,48 @@ public class WinViewerTest {
         verify(gui).drawText(new Position(7, 12), " *** Level Complete *** ", "#FFFFFF");
     }
 
-    @DoNotMutate
     @Test
     void testDrawSelected1() throws IOException, FontFormatException {
         when(win.isSelected(0)).thenReturn(true);
         when(win.isSelected(1)).thenReturn(false);
 
         winViewer.drawObject(gui);
-        for (int i = 0; i < win.getNumberOptions(); i++) {
-            verify(gui, times(1)).drawText(
-                    new Position(14, 14 + i),
-                    win.getOption(i),
-                    win.isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        for (int i = 0; i < 2; i++) {
+            if (i == 0)
+                verify(gui, times(1)).drawText(
+                        new Position(14, 14),
+                        " Go Back ",
+                        "#FFFFFF");
+            if (i == 1)
+                verify(gui, times(1)).drawText(
+                        new Position(14, 14 + 1),
+                        "Next Level",
+                        "#F1A55E");
         }
-        verify(gui, times(0)).drawText(
-                new Position(14, 14 + win.getNumberOptions()),
-                win.getOption(win.getNumberOptions()),
-                win.isSelected(win.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
+        verify(win, times(0)).getOption(2);
+        verify(win, times(0)).isSelected(2);
     }
 
-    @DoNotMutate
     @Test
     void testDrawSelected2() throws IOException, FontFormatException {
         when(win.isSelected(0)).thenReturn(false);
         when(win.isSelected(1)).thenReturn(true);
 
         winViewer.drawObject(gui);
-        for (int i = 0; i < win.getNumberOptions(); i++) {
-            verify(gui, times(1)).drawText(
-                    new Position(14, 14 + i),
-                    win.getOption(i),
-                    win.isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        for (int i = 0; i < 2; i++) {
+            if (i == 0)
+                verify(gui, times(1)).drawText(
+                        new Position(14, 14),
+                        " Go Back ",
+                        "#F1A55E");
+            if (i == 1)
+                verify(gui, times(1)).drawText(
+                        new Position(14, 14 + 1),
+                        "Next Level",
+                        "#FFFFFF");
         }
-        verify(gui, times(0)).drawText(
-                new Position(14, 14 + win.getNumberOptions()),
-                win.getOption(win.getNumberOptions()),
-                win.isSelected(win.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
+        verify(win, times(0)).getOption(2);
+        verify(win, times(0)).isSelected(2);
     }
+
 }
