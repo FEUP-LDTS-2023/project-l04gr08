@@ -194,7 +194,8 @@ This approach provides a flexible solution, as the character's movement and the 
 
 
 ### Pitest
-link!!!!!!!!!!!!!
+In order to consult the report, click [here](pitest/index.html).
+
 ![](PNGs/Tests/pitest.png)
 
 
