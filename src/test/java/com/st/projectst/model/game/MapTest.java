@@ -20,7 +20,6 @@ import java.util.List;
 public class MapTest {
     private Map map;
     private Mari mari;
-    private Main main;
 
     @BeforeEach
     public void setup() {
@@ -35,7 +34,6 @@ public class MapTest {
         map.setWalls(List.of());
         map.setPlatforms(List.of());
         map.setPotions(List.of());
-        main = mock(Main.class);
     }
 
     @Test

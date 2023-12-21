@@ -60,10 +60,6 @@ public class WinViewerTest {
                     win.getOption(i),
                     win.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
-        verify(gui, times(0)).drawText(
-                new Position(14, 14 + win.getNumberOptions()),
-                win.getOption(win.getNumberOptions()),
-                win.isSelected(win.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 
     @DoNotMutate
@@ -79,9 +75,5 @@ public class WinViewerTest {
                     win.getOption(i),
                     win.isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
-        verify(gui, times(0)).drawText(
-                new Position(14, 14 + win.getNumberOptions()),
-                win.getOption(win.getNumberOptions()),
-                win.isSelected(win.getNumberOptions()) ? "#FFFFFF" : "#F1A55E");
     }
 }

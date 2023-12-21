@@ -141,7 +141,6 @@ public class LanternaGUITest {
     @Test
     void testDrawCharacter() {
         String color = "#FF0000";
-        Position position = new Position(10, 10);
         lanternaGUI.drawCharacter(0,0, ' ', color, "#BA6156");
         verify(tg, times(1)).setForegroundColor(TextColor.Factory.fromString(color));
         verify(tg, times(1)).setBackgroundColor(TextColor.Factory.fromString("#BA6156"));
