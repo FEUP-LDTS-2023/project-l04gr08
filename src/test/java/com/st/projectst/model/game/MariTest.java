@@ -257,7 +257,7 @@ public class MariTest {
     public void mariLives() {
         assertEquals(3, mari.getRemainingLives());
 
-        for (int i = 2; i >= (-2); i--) {
+        for (int i = 2; i >= -2; i--) {
             mari.decreaseLives();
             assertEquals(i, mari.getRemainingLives());
         }
@@ -267,7 +267,7 @@ public class MariTest {
     public void mariJumps() {
         assertEquals(2, mari.getRemainingJumps());
 
-        for (int i = 1; i >= (-2); i--) {
+        for (int i = 1; i >= -2; i--) {
             mari.decreaseJumps();
             assertEquals(i, mari.getRemainingJumps());
         }
@@ -293,6 +293,28 @@ public class MariTest {
         assertFalse(mari.getWithKey());
         mari.setWithKey(true);
         assertTrue(mari.getWithKey());
+    }
+
+    @Test
+    public void mariGetJumpRight() {
+        assertTrue(mari.getJumpRight());
+
+        mari.setJumpRight(false);
+        assertFalse(mari.getJumpRight());
+
+        mari.setJumpRight(true);
+        assertTrue(mari.getJumpRight());
+    }
+
+    @Test
+    public void mariGetGrounded() {
+        assertFalse(mari.getGrounded());
+
+        mari.setGrounded(true);
+        assertTrue(mari.getGrounded());
+
+        mari.setGrounded(false);
+        assertFalse(mari.getGrounded());
     }
 
 
