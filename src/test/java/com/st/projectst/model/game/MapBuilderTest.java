@@ -1,20 +1,27 @@
 package com.st.projectst.model.game;
 
 import com.st.projectst.model.Position;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 
 public class MapBuilderTest {
-
     private MapBuilder mapBuilder;
+
+    @BeforeEach
+    public void setup() throws IOException {
+        mapBuilder = new MapBuilder(1);
+    }
 
     @Test
     public void testMapBuilder() {
@@ -50,7 +57,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateMari() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Mari mari = mapBuilder.createMari();
         assertNull(mari);
         Map map = mapBuilder.buildMap();
@@ -72,7 +78,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateGhostEnemies() throws IOException {
-        mapBuilder = new MapBuilder(1);
         List<GhostEnemy> ghostEnemies = mapBuilder.createGhostEnemies();
         assertNotNull(ghostEnemies);
 
@@ -95,7 +100,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateBatEnemies() throws IOException {
-        mapBuilder = new MapBuilder(1);
         List<BatEnemy> batEnemies = mapBuilder.createBatEnemies();
         assertNotNull(batEnemies);
 
@@ -118,7 +122,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreatePotions() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Potion> potions = mapBuilder.createPotions();
         map.setPotions(potions);
@@ -143,7 +146,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateWalls() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Wall> walls = mapBuilder.createWalls();
         map.setWalls(walls);
@@ -168,7 +170,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreatePlatforms() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Map map = mapBuilder.buildMap();
         List<Platform> platforms = mapBuilder.createPlatforms();
         map.setPlatforms(platforms);
@@ -203,7 +204,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateDoor() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Door door = mapBuilder.createDoor();
         assertNull(door);
         Map map = mapBuilder.buildMap();
@@ -225,7 +225,6 @@ public class MapBuilderTest {
 
     @Test
     public void testCreateKey() throws IOException {
-        mapBuilder = new MapBuilder(1);
         Key key = mapBuilder.createKey();
         assertNull(key);
         Map map = mapBuilder.buildMap();
@@ -263,5 +262,20 @@ public class MapBuilderTest {
         assertEquals(1, traps.size(), "Number of traps created should match");
         assertEquals(1, batEnemies.size(), "Number of bat enemies created should match");
         assertEquals(traps.get(0).getObservers().size(),batEnemies.size());
+    }
+
+    @Test
+    public void testSets() throws IOException {
+        Map map = mapBuilder.buildMap();
+
+        assertNotNull(map.getMari());
+        assertNotNull(map.getGhostEnemies());
+        assertNotNull(map.getBatEnemies());
+        assertNotNull(map.getWalls());
+        assertNotNull(map.getKey());
+        assertNotNull(map.getTraps());
+        assertNotNull(map.getDoor());
+        assertNotNull(map.getPlatforms());
+        assertNotNull(map.getPotions());
     }
 }

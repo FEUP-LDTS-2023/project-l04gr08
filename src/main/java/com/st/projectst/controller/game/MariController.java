@@ -80,7 +80,7 @@ public class MariController extends LevelController {
     }
 
     void updateMari(long time) {
-        getModel().getMari().setGrounded(getModel().Grounded());
+        getModel().getMari().setGrounded(getModel().mariIsGrounded());
 
         Position currentMariPosition = getModel().getMari().getPosition();
 

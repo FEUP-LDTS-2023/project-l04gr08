@@ -95,13 +95,13 @@ public class MariControllerTest {
         mariController.getModel().getMari().setPosition(initialPosition);
         mariController.updateMari(100);
 
-        assertTrue(mariController.getModel().Grounded());
+        assertTrue(mariController.getModel().mariIsGrounded());
 
         newPosition = new Position(49, 18);
         wall = new Wall(newPosition);
         mariController.getModel().setWalls(List.of(wall));
 
-        assertFalse(mariController.getModel().Grounded());
+        assertFalse(mariController.getModel().mariIsGrounded());
 
     }
 
