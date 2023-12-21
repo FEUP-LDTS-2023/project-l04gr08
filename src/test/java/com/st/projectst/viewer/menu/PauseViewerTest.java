@@ -26,7 +26,7 @@ public class PauseViewerTest {
         when(pause.getOption(1)).thenReturn("Go back to menu");
     }
 
-    @DoNotMutate
+
     @Test
     void testDrawObject() {
         pauseViewer.drawObject(gui);
@@ -39,35 +39,48 @@ public class PauseViewerTest {
         verify(gui).drawText(new Position(7, 9), "OO     OO  OO  OOOOOO  OOOOOO  OOOOOO", "#ff9aab");
     }
 
-    @DoNotMutate
     @Test
     void testDrawSelected1() {
         when(pause.isSelected(0)).thenReturn(true);
         when(pause.isSelected(1)).thenReturn(false);
 
         pauseViewer.drawObject(gui);
-        for (int i = 0; i < pause.getNumberOptions(); i++) {
-            verify(gui, times(1)).drawText(
-                    new Position(21 - (i * 3), 15 + i),
-                    pause.getOption(i),
-                    pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        for (int i = 0; i < 2; i++) {
+            if (i == 0)
+                verify(gui, times(1)).drawText(
+                        new Position(21, 15),
+                        "Continue",
+                        "#FFFFFF");
+            if (i == 1)
+                verify(gui, times(1)).drawText(
+                        new Position(21 - 3, 15 + 1),
+                        "Go back to menu",
+                        "#F1A55E");
         }
-
+        verify(pause, times(0)).getOption(2);
+        verify(pause, times(0)).isSelected(2);
     }
-    @DoNotMutate
+
     @Test
     void testDrawSelected2() {
         when(pause.isSelected(0)).thenReturn(false);
         when(pause.isSelected(1)).thenReturn(true);
 
         pauseViewer.drawObject(gui);
-        for (int i = 0; i < pause.getNumberOptions(); i++) {
-            verify(gui, times(1)).drawText(
-                    new Position(21 - (i * 3), 15 + i),
-                    pause.getOption(i),
-                    pause.isSelected(i) ? "#FFFFFF" : "#F1A55E");
+        for (int i = 0; i < 2; i++) {
+            if (i == 0)
+                verify(gui, times(1)).drawText(
+                        new Position(21, 15),
+                        "Continue",
+                        "#F1A55E");
+            if (i == 1)
+                verify(gui, times(1)).drawText(
+                        new Position(21 - 3, 15 + 1),
+                        "Go back to menu",
+                        "#FFFFFF");
         }
-        
+        verify(pause, times(0)).getOption(2);
+        verify(pause, times(0)).isSelected(2);
     }
 
 }
