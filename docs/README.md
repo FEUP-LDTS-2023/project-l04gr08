@@ -190,6 +190,8 @@ This approach provides a flexible solution, as the character's movement and the 
 ### Coverage
 ![](PNGs/Tests/coverage.png)
 
+![](PNGs/Tests/coverage2.png)
+
 
 ### Pitest
 ![](PNGs/Tests/coverage.png)
