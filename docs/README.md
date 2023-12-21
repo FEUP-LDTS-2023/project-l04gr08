@@ -177,12 +177,21 @@ This approach provides a flexible solution, as the character's movement and the 
 ![](PNGs/UMLs/UML.png)
 
 
+
 ## KNOWN CODE SMELLS
+- **Long class**: Some of the classes have several methods and are very long, like for example LanternaGUI. These classes can be harder to maintain and to read. 
 
-- **Jump forward**: As the design of our character Mari isn't an exact rectangle, we used a hitbox matching the character's shape to detect collision with walls. However, this approach can sometimes lead to her hanging with her head on the floor or the platforms when jumping.
-  Still, we opted for this rather than having a rectangular hitbox, as we saw that this difficult the jumping on top of walls or plataforms, as the hitbox extends slightly on the legs, and disrupts the fluidity of the game.
+- **Tests that open windows**: There are tests on the controller and GUI that open terminal windows. We didn't include them on the pitest testing.
 
-- **Platforms**: The platforms can get the character stuck to a wall or to the platform itself, because the plataforms keep moving even if there is a wall above the character or if the character is below the platform. 
+- **Error-prone warning**: On the testStateStep of StateTest, there is 2 warnings about unchecked conversion. 
+
+..\src\test\java\com\st\projectst\states\StateTest.java:110:
+
+warning: [unchecked] unchecked conversion ->
+return mockController; required: Controller<Object>, found:    Controller 
+
+warning: [unchecked] unchecked conversion ->   
+return mockViewer;  required: Viewer<Object>, found: Viewer
 
 
 
