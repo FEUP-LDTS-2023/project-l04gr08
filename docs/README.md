@@ -44,14 +44,19 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 ## SCREENSHOTS 
 ![](PNGs/Screenshots/mainMenu.png)
+<b><i>Fig 1. Main menu</i></b>
 
 ![](PNGs/Screenshots/instructions.png)
+<b><i>Fig 2. Instructions menu</i></b>
 
 ![](PNGs/Screenshots/gameOver.png)
+<b><i>Fig 3. Game over screen</i></b>
 
 ![](PNGs/Screenshots/levelWin.png)
+<b><i>Fig 4. Win screen</i></b>
 
 ![](PNGs/Screenshots/gameplay2.png)
+<b><i>Fig 5. Level 2 screenshot </i></b>
 
 ![](PNGs/Screenshots/level2.gif)
 
@@ -74,6 +79,7 @@ We used the design pattern MVC (Model-View-Controller) to handle this problem. T
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation1.png)
+<b><i>Fig 6. Model, Controller and Viewer pattern design</i></b>
 
 **Consequences**:
 The adoption of the MVC Design Pattern brings several advantages:
@@ -94,6 +100,7 @@ To face this challenge, we implemented the Game Loop Pattern. This loop efficien
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation2.png)
+<b><i>Fig 7. Game loop pattern design</i></b>
 
 **Consequences**:
 Introducing a structured game loop owns impressive advantages:
@@ -112,6 +119,7 @@ We've used the State Pattern to represent various game states as separate classe
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation3.png)
+<b><i>Fig 8. State pattern design</i></b>
 
 **Consequences**:
 - Defined state representation: Game states are now distinct classes, replacing scattered logic for a clear structure.
@@ -129,6 +137,7 @@ We decided to use the Factory Method Pattern, where a base class (GameObject) is
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation4.png)
+<b><i>Fig 9. Factory method pattern design</i></b>
 
 **Consequences**:
 - Encapsulation:  By encapsulating the object creation process in a separate method, it allows the subclasses to provide their own implementations and variations while maintaining the rest of the code.
@@ -146,6 +155,7 @@ To address this issue, we implemented the Strategy Pattern for enemy behavior. T
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation5.png)
+<b><i>Fig 10. Strategy pattern design</i></b>
 
 **Consequences**:
 - Encapsulation: Utilizing the Strategy Pattern optimized enemy behavior management. Each enemy type now encapsulates its attack strategy, reducing convoluted logic and enhancing code organization.
@@ -165,6 +175,7 @@ This approach provides a flexible solution, as the character's movement and the 
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation6.png)
+<b><i>Fig 11. Observer pattern design</i></b>
 
 **Consequences**:
 - Decoupling: The Observer Pattern promotes a loose coupling between the subject and the observers, allowing them to interact without having detailed knowledge of each other.
@@ -175,6 +186,7 @@ This approach provides a flexible solution, as the character's movement and the 
 ### Implementation - UML
 
 ![](PNGs/UMLs/UML.png)
+<b><i>Fig 12. UML</i></b>
 
 
 ## KNOWN CODE SMELLS
@@ -191,13 +203,13 @@ This approach provides a flexible solution, as the character's movement and the 
 ![](PNGs/Tests/coverage.png)
 
 ![](PNGs/Tests/coverage2.png)
-
+<b><i>Fig 13. Code coverage screenshot</i></b>
 
 ### Pitest
 In order to consult the report, click [here](pitest/index.html).
 
 ![](PNGs/Tests/pitest.png)
-
+<b><i>Fig 14. Pit Test coverage screenshot</i></b>
 
 
 ## SELF-EVALUATION
