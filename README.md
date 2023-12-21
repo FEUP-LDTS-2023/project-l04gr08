@@ -58,13 +58,14 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas (up202206
 
 ### Game preview
 
+**Level 1**
+![](./docs/PNGs/Screenshots/level1.png)
+
 **Level 2**
-![](./docs/PNGs/Screenshots/level2.1.gif)
-
-
 ![](./docs/PNGs/Screenshots/level2.gif)
 
+**Level 3**
+![](./docs/PNGs/Screenshots/level3.gif)
 
 **Potion Effect**
-
 ![](./docs/PNGs/Screenshots/jumpGif.gif)
