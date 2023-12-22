@@ -42,7 +42,6 @@ public class Start {
     public int getCurrentOption() {
         return currentOption;
     }
-
     public void setCurrentOption(int currentOption) {
         this.currentOption = currentOption;
     }

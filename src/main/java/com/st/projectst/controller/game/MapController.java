@@ -73,7 +73,6 @@ public class  MapController extends LevelController {
                 cameraCount++;
             }
         }
-
     }
 
 
@@ -99,5 +98,4 @@ public class  MapController extends LevelController {
 
     public void setCameraCount(int cameraCount) {this.cameraCount = cameraCount; }
     public int getCameraCount() { return this.cameraCount; }
-
 }

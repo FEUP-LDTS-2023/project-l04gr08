@@ -5,6 +5,7 @@ import java.util.Random;
 public class Position {
     private double x;
     private double y;
+
     public Position(double x, double y){
         this.x = x;
         this.y = y;
@@ -13,29 +14,26 @@ public class Position {
         this.x = pos.getX();
         this.y = pos.getY();
     }
+
     public double getX() {
         return x;
     }
-
     public double getY() {
         return y;
     }
-
     public void setX(double x) {
         this.x = x;
     }
-
     public void setY(double y) {
         this.y = y;
     }
+
     public Position getLeft() {
         return new Position(x - 1, y);
     }
-
     public Position getRight() {
         return new Position(x + 1, y);
     }
-
 
     @SuppressWarnings("EqualsHashCode")
     @Override
@@ -63,5 +61,4 @@ public class Position {
         Random random = new Random();
         return random.nextDouble();
     }
-
 }

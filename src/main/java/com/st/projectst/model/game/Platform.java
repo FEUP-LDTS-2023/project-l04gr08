@@ -9,6 +9,7 @@ public class Platform extends Wall {
     private List<Wall> connectedPlatforms;
     private int moveCounter;
     private boolean movingUp;
+
     public Platform(Position position) {
         super(position);
 
@@ -16,12 +17,12 @@ public class Platform extends Wall {
         this.moveCounter = 0;
         this.movingUp = true;
     }
-    public boolean isOnSameLevel(Wall otherPlatform) {
-        return getPosition().getY() == otherPlatform.getPosition().getY();
-    }
+
     public void addConnectedPlatform(Wall wall) {
         connectedPlatforms.add(wall);
     }
+    public boolean isOnSameLevel(Wall otherPlatform) { return getPosition().getY() == otherPlatform.getPosition().getY();}
+
     public void moveAllPlatforms() {
         int speed = 16;
 
@@ -53,6 +54,5 @@ public class Platform extends Wall {
     public boolean isMovingUp() {
         return movingUp;
     }
-
 }
 

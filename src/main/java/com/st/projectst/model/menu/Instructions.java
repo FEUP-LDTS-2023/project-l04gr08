@@ -14,10 +14,6 @@ public class Instructions {
         options = Arrays.asList(positionBack);
     }
 
-    public void setCurrentOption(int currentOption) {
-        this.currentOption = currentOption;
-    }
-
     public boolean isSelected(int i) {
         return currentOption == i;
     }
@@ -27,5 +23,9 @@ public class Instructions {
 
     public int getNumber() {
         return options.size();
+    }
+
+    public void setCurrentOption(int currentOption) {
+        this.currentOption = currentOption;
     }
 }

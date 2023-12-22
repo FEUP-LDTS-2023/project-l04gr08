@@ -53,7 +53,6 @@ public class MapBuilder {
         return lines;
     }
 
-
     public Mari createMari() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -165,9 +164,7 @@ public class MapBuilder {
         return platforms;
     }
 
-
     public void setLinesMap(List<String> linesMap) {
         this.linesMap = linesMap;
     }
-
 }

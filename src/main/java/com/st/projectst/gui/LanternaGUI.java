@@ -120,29 +120,19 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
-    public void drawKey(Position position) {
-        drawImage(position, "gameObjects/miniKey.png", 1);
-    }
+    public void drawKey(Position position) { drawImage(position, "gameObjects/miniKey.png", 1); }
 
     @Override
-    public void drawDoor(Position position) {
-        drawImage(position, "gameObjects/door.png", 1);
-    }
+    public void drawDoor(Position position) { drawImage(position, "gameObjects/door.png", 1); }
 
     @Override
-    public void drawPotion(Position position) {
-        drawImage(position, "gameObjects/potion.png", 1);
-    }
+    public void drawPotion(Position position) { drawImage(position, "gameObjects/potion.png", 1); }
 
     @Override
-    public void drawWall(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E");
-    }
+    public void drawWall(Position position) { drawCharacter((int) position.getX(), (int) position.getY(), 'W', "#663B17", "#CB762E"); }
 
     @Override
-    public void drawTrap(Position position) {
-        drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E");
-    }
+    public void drawTrap(Position position) { drawCharacter((int) position.getX(), (int) position.getY(), 'X', "#663B17", "#CB762E"); }
 
 
     @Override
@@ -153,11 +143,23 @@ public class LanternaGUI implements GUI {
     }
 
     @Override
+    public void setTextColor(TextGraphics tg, String color) {
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+    }
+
+    @Override
     public void drawText (Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString("#BA6156"));
         tg.putString((int) position.getX(), (int) position.getY(), text);
+    }
+
+    @Override
+    public void drawPixel(int x, int y, String color, TextGraphics tg) {
+        setTextColor(tg, color);
+        tg.putString(x, y, ".");
     }
 
     public void drawCharacter(int x, int y, char c, String color, String back) {
@@ -185,18 +187,6 @@ public class LanternaGUI implements GUI {
                 }
             }
         }
-    }
-
-    @Override
-    public void drawPixel(int x, int y, String color, TextGraphics tg) {
-        setTextColor(tg, color);
-        tg.putString(x, y, ".");
-    }
-
-    @Override
-    public void setTextColor(TextGraphics tg, String color) {
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.setBackgroundColor(TextColor.Factory.fromString(color));
     }
 
     @Override
@@ -239,5 +229,4 @@ public class LanternaGUI implements GUI {
     public void refresh() throws IOException { screen.refresh(); }
     @Override
     public void close() throws IOException { screen.close(); }
-
 }
