@@ -13,20 +13,14 @@ public class Win {
         this.level = level;
     }
 
-    public void nextOption() {
-        if (currentOption < (options.size() - 1))
-            currentOption++;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
     public void previousOption() {
         if (currentOption > 0)
             currentOption--;
     }
-
+    public void nextOption() {
+        if (currentOption < (options.size() - 1))
+            currentOption++;
+    }
     public String getOption(int i) {
         return options.get(i);
     }
@@ -34,7 +28,6 @@ public class Win {
     public int getCurrentOption() {
         return currentOption;
     }
-
     public void setCurrentOption(int currentOption) {
         this.currentOption = currentOption;
     }
@@ -42,11 +35,9 @@ public class Win {
     public boolean isSelected(int i) {
         return currentOption == i;
     }
-
     public boolean isSelectedGoBackToLevels() {
         return isSelected(0);
     }
-
     public boolean isSelectedContinue() {
         return isSelected(1);
     }
@@ -54,5 +45,7 @@ public class Win {
     public int getNumberOptions() {
         return this.options.size();
     }
-
+    public int getLevel() {
+        return level;
+    }
 }

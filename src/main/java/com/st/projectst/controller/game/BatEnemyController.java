@@ -7,7 +7,7 @@ import com.st.projectst.model.game.Map;
 
 import java.io.IOException;
 
-public class BatEnemyController extends LevelController{
+public class BatEnemyController extends LevelController {
     private long lastMove;
 
     public BatEnemyController(Map map) {
@@ -23,5 +23,4 @@ public class BatEnemyController extends LevelController{
             this.lastMove = time;
         }
     }
-
 }

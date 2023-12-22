@@ -20,7 +20,6 @@ public class Trap extends GameObject {
         for (EnemyObserver observer : observers)
             observer.update(this);
     }
-
     public List<EnemyObserver> getObservers() {
         return observers;
     }

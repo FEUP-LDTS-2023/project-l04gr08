@@ -46,5 +46,4 @@ public class InstructionsViewer extends Viewer<Instructions> {
         gui.drawText(new Position(48, 34), " Teresa Mascarenhas ", "#FFFFFF");
         gui.drawText(new Position(48, 36), "--------------------", "#ff9aab");
     }
-
 }

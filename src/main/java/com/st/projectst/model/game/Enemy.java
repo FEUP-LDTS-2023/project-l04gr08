@@ -8,5 +8,4 @@ public abstract class Enemy extends GameObject {
         super(position);
     }
     public abstract Position move();
-
 }

@@ -21,9 +21,8 @@ public class PlatformController extends LevelController{
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
         int movementDuration = 100;
         if (time - lastMove > movementDuration) {
-            for (Platform platform : getModel().getPlatforms()) {
+            for (Platform platform : getModel().getPlatforms())
                 platform.moveAllPlatforms();
-            }
             this.lastMove = time;
         }
     }

@@ -10,10 +10,10 @@ public class GhostEnemy extends Enemy {
     public GhostEnemy(Position position) {
         super(position);
     }
+
     @Override
     public Position move() {
         Position newPosition = new Position(getPosition());
         return newPosition.getRandomHorizontal();
     }
-
 }

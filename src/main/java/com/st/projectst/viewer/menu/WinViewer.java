@@ -33,5 +33,4 @@ public class WinViewer extends Viewer<Win> {
                     getModel().isSelected(i) ? "#FFFFFF" : "#F1A55E");
         }
     }
-
 }

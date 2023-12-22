@@ -104,8 +104,19 @@ public class Mari extends GameObject {
     }
 
 
-    public void setJumpRight(boolean jumpRight) { this.jumpRight = jumpRight; }
-    public boolean getJumpRight() { return this.jumpRight; }
+    public int getJumpCounter() {return jumpCounter;}
+
+    public void setRemainingJumps(int remainingJumps) { this.remainingJumps = remainingJumps; }
+    public int getRemainingJumps() { return remainingJumps; }
+
+    public void decreaseJumps() { remainingJumps--; }
+    public void resetJumps(){
+        withPotion = false;
+        remainingJumps = maxJumps;
+    }
+
+    public int getRemainingLives() { return remainingLives; }
+    public void decreaseLives() { this.remainingLives--; }
 
     public void setWithKey(boolean key) { this.withKey = key; }
     public boolean getWithKey() { return withKey; }
@@ -113,23 +124,12 @@ public class Mari extends GameObject {
     public void setWithPotion(boolean withPotion) { this.withPotion = withPotion; }
     public boolean getIsWithPotion() {return withPotion;}
 
-    public int getRemainingLives() { return remainingLives; }
-    public void decreaseLives() { this.remainingLives--; }
-
-    public void setRemainingJumps(int remainingJumps) { this.remainingJumps = remainingJumps; }
-    public int getRemainingJumps() { return remainingJumps; }
-    public void decreaseJumps() { remainingJumps--; }
-    public void resetJumps(){
-        withPotion = false;
-        remainingJumps = maxJumps;
-    }
+    public void setGrounded(boolean grounded) { isGrounded = grounded; }
+    public boolean getGrounded() { return isGrounded; }
 
     public void setJumping(boolean jumping) { isJumping = jumping; }
     public boolean getIsJumping() {return isJumping;}
 
-    public int getJumpCounter() {return jumpCounter;}
-
-    public void setGrounded(boolean grounded) { isGrounded = grounded; }
-    public boolean getGrounded() { return isGrounded; }
-
+    public void setJumpRight(boolean jumpRight) { this.jumpRight = jumpRight; }
+    public boolean getJumpRight() { return this.jumpRight; }
 }

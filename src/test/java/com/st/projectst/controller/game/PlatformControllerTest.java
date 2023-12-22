@@ -17,18 +17,19 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 public class PlatformControllerTest {
-
-    private PlatformController platformController;
+    private Main main;
     private Map mockedMap;
+    private PlatformController platformController;
 
     @BeforeEach
     void setUp() {
+        main = Mockito.mock(Main.class);
         mockedMap = Mockito.mock(Map.class);
         platformController = new PlatformController(mockedMap);
     }
 
     @Test
-    void testStep() throws IOException, URISyntaxException, FontFormatException {
+    void testStep() throws IOException {
         List<Platform> platformList = new ArrayList<>();
         Platform mockedPlatform1 = Mockito.mock(Platform.class);
         Platform mockedPlatform2 = Mockito.mock(Platform.class);
@@ -39,7 +40,7 @@ public class PlatformControllerTest {
 
         long time = 200;
         GUI.ACTION action = GUI.ACTION.NONE;
-        platformController.step(new Main(), action, time);
+        platformController.step(main, action, time);
         verify(mockedPlatform1, times(1)).moveAllPlatforms();
         verify(mockedPlatform2, times(1)).moveAllPlatforms();
 
