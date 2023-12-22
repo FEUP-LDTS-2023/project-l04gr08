@@ -5,7 +5,11 @@ import com.st.projectst.model.Position;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +19,11 @@ public class MapBuilder {
     private int width;
     private int height;
 
-    public MapBuilder(int level) throws IOException {
+    public MapBuilder(int level) throws IOException, URISyntaxException {
         this.level = level;
 
         URL resource = MapBuilder.class.getResource("/levels/map" + level + ".txt");
-        BufferedReader buff = new BufferedReader(new FileReader(resource.getFile()));
+        BufferedReader buff = Files.newBufferedReader(Paths.get(resource.toURI()), Charset.defaultCharset());
         this.linesMap = loadFromFile(buff);
     }
 
@@ -94,31 +98,6 @@ public class MapBuilder {
         return walls;
     }
 
-    public List<Platform> createPlatforms() {
-        List<Platform> platforms = new ArrayList<>();
-
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                char currentChar = linesMap.get(y).charAt(x);
-                Position position = new Position(x, y);
-                if (currentChar == 'F') {
-                    Platform platform = new Platform(position);
-                    platforms.add(platform);
-                }
-            }
-        }
-
-        for (Platform platform : platforms) {
-            for (Platform otherPlatform : platforms) {
-                if (platform != otherPlatform && platform.isOnSameLevel(otherPlatform)) {
-                    platform.addConnectedPlatform(otherPlatform);
-                }
-            }
-        }
-
-        return platforms;
-    }
-
     public Key createKey() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -153,7 +132,6 @@ public class MapBuilder {
         return null;
     }
 
-
     public List<Potion> createPotions() {
         List<Potion> potions = new ArrayList<>();
         for (int y = 0; y < height; y++) {
@@ -165,7 +143,31 @@ public class MapBuilder {
         return potions;
     }
 
+    public List<Platform> createPlatforms() {
+        List<Platform> platforms = new ArrayList<>();
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                char currentChar = linesMap.get(y).charAt(x);
+                Position position = new Position(x, y);
+                if (currentChar == 'F') {
+                    Platform platform = new Platform(position);
+                    platforms.add(platform);
+                }
+            }
+        }
+        for (Platform platform : platforms) {
+            for (Platform otherPlatform : platforms) {
+                if (platform != otherPlatform && platform.isOnSameLevel(otherPlatform)) {
+                    platform.addConnectedPlatform(otherPlatform);
+                }
+            }
+        }
+        return platforms;
+    }
+
+
     public void setLinesMap(List<String> linesMap) {
         this.linesMap = linesMap;
     }
+
 }

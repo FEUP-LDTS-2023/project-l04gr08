@@ -83,6 +83,20 @@ public class Map {
         this.potions = potions;
     }
 
+    public List<Trap> getTraps() {
+        return traps;
+    }
+    public void setTraps(List<Trap> traps) {
+        this.traps = traps;
+    }
+
+    public Door getDoor() {
+        return door;
+    }
+    public void setDoor(Door door) {
+        this.door = door;
+    }
+
     public int getWidth() {
         return width;
     }
@@ -162,7 +176,6 @@ public class Map {
             trapPositions.add(newFloorPosition);
         }
 
-
         for (Position pos: trapPositions) {
             for (Trap trap : traps){
                 if (trap.getPosition().equals(pos)) {
@@ -181,26 +194,6 @@ public class Map {
             return key.getPosition().equals(pos);
         }
         return false;
-    }
-
-    public void removeKey() {
-        this.key = null;
-    }
-
-    public List<Trap> getTraps() {
-        return traps;
-    }
-
-    public void setTraps(List<Trap> traps) {
-        this.traps = traps;
-    }
-
-    public void setDoor(Door door) {
-        this.door = door;
-    }
-
-    public Door getDoor() {
-        return door;
     }
 
     public boolean isAtPlatform(Position currentMariPosition) {
@@ -232,5 +225,9 @@ public class Map {
         }
         return false;
     }
-}
 
+    public void removeKey() {
+        this.key = null;
+    }
+
+}

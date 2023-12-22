@@ -10,26 +10,26 @@ import com.st.projectst.model.game.GameObject;
 import java.util.List;
 
 public class Mari extends GameObject {
+    private int jumpCounter;
+    private int remainingJumps;
     private int remainingLives;
     private boolean withKey;
     private boolean withPotion;
-    private boolean isJumping;
     private boolean isGrounded;
+    private boolean isJumping;
     private boolean jumpRight;
-    private int jumpCounter;
-    private int remainingJumps;
     private static final int maxJumps = 2;
 
     public Mari(Position position) {
         super(position);
-        remainingLives = 3;
-        withKey = false;
-        isJumping = false;
-        isGrounded = false;
-        jumpRight = true;
         jumpCounter = 0;
         remainingJumps = maxJumps;
+        remainingLives = 3;
+        withKey = false;
         withPotion = false;
+        isGrounded = false;
+        isJumping = false;
+        jumpRight = true;
     }
 
     public Position moveRight() {
@@ -65,13 +65,11 @@ public class Mari extends GameObject {
                 jumpCounter = 0;
             }
             return newPosition;
-
         }
         else if (!isGrounded) {
             newPosition.setY(getPosition().getY()+1);
             return newPosition;
         }
-
         return newPosition;
     }
 
@@ -105,56 +103,33 @@ public class Mari extends GameObject {
         return newPosition;
     }
 
-    public void setJumpRight(boolean jumpRight) {
-        this.jumpRight = jumpRight;
-    }
-    public boolean getJumpRight() {
-        return this.jumpRight;
-    }
-    public void decreaseLives() {
-        this.remainingLives--;
-    }
+
+    public void setJumpRight(boolean jumpRight) { this.jumpRight = jumpRight; }
+    public boolean getJumpRight() { return this.jumpRight; }
 
     public void setWithKey(boolean key) { this.withKey = key; }
     public boolean getWithKey() { return withKey; }
 
-    public int getRemainingLives() {
-        return remainingLives;
-    }
-    public void decreaseJumps() {
-        remainingJumps--;
-    }
-
-    public int getRemainingJumps() {
-        return remainingJumps;
-    }
-
-    public int getJumpCounter() {return jumpCounter;}
-
-    public boolean getGrounded() {
-        return isGrounded;
-    }
-
-    public void setWithPotion(boolean withPotion) {
-        this.withPotion = withPotion;
-    }
-
+    public void setWithPotion(boolean withPotion) { this.withPotion = withPotion; }
     public boolean getIsWithPotion() {return withPotion;}
 
-    public boolean getIsJumping() {return isJumping;}
-
-    public void setGrounded(boolean grounded) {
-        isGrounded = grounded;
-    }
-
-    public void setJumping(boolean jumping) {
-        isJumping = jumping;
-    }
+    public int getRemainingLives() { return remainingLives; }
+    public void decreaseLives() { this.remainingLives--; }
 
     public void setRemainingJumps(int remainingJumps) { this.remainingJumps = remainingJumps; }
-
+    public int getRemainingJumps() { return remainingJumps; }
+    public void decreaseJumps() { remainingJumps--; }
     public void resetJumps(){
         withPotion = false;
         remainingJumps = maxJumps;
     }
+
+    public void setJumping(boolean jumping) { isJumping = jumping; }
+    public boolean getIsJumping() {return isJumping;}
+
+    public int getJumpCounter() {return jumpCounter;}
+
+    public void setGrounded(boolean grounded) { isGrounded = grounded; }
+    public boolean getGrounded() { return isGrounded; }
+
 }

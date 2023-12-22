@@ -20,13 +20,15 @@ public class GameOverControllerTest {
     private GameOver gameOver;
     private GameOverController gameOverController;
     private Main main;
+    private LanternaGUI gui;
 
     @BeforeEach
     public void setUp() {
         gameOver = mock(GameOver.class);
         gameOverController = new GameOverController(gameOver);
         main = mock(Main.class);
-        when(main.getGui()).thenReturn(mock(LanternaGUI.class));
+        gui = mock(LanternaGUI.class);
+        when(main.getGui()).thenReturn(gui);
     }
 
 
@@ -34,7 +36,7 @@ public class GameOverControllerTest {
     public void testStepSelectGoBack() throws IOException, URISyntaxException, FontFormatException {
         when(gameOver.isSelectedGoBack()).thenReturn(true);
         gameOverController.step(main, GUI.ACTION.SELECT, 1000);
-        verify(main.getGui(), times(1)).close();
+        verify(gui, times(1)).close();
         verify(main).setGui(any(LanternaGUI.class));
         verify(main).setState(any(StartState.class));
     }
@@ -43,7 +45,7 @@ public class GameOverControllerTest {
     public void testStepSelectNotGoBack() throws IOException, URISyntaxException, FontFormatException {
         when(gameOver.isSelectedGoBack()).thenReturn(false);
         gameOverController.step(main, GUI.ACTION.SELECT, 1000);
-        verify(main.getGui(), never()).close();
+        verify(gui, never()).close();
         verify(main, never()).setGui(any(LanternaGUI.class));
         verify(main, never()).setState(any(StartState.class));
     }

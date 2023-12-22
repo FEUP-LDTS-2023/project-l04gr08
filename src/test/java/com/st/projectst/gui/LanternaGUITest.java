@@ -29,7 +29,6 @@ public class LanternaGUITest {
 
     private Screen screen;
     private LanternaGUI lanternaGUI;
-    private GUI gui;
     private TextGraphics tg;
 
     @BeforeEach
@@ -37,15 +36,12 @@ public class LanternaGUITest {
         screen = Mockito.mock(Screen.class);
         lanternaGUI = new LanternaGUI(screen);
 
-        gui = Mockito.mock(GUI.class);
         tg = Mockito.mock(TextGraphics.class);
         Mockito.when(screen.newTextGraphics()).thenReturn(tg);
     }
 
     @Test
     void testDrawImage() {
-        Screen mockScreen = mock(Screen.class);
-
         BufferedImage testImage = new BufferedImage(5, 5, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics = testImage.createGraphics();
         graphics.setColor(Color.WHITE);
@@ -53,50 +49,32 @@ public class LanternaGUITest {
         graphics.setColor(Color.RED);
         graphics.fillRect(1, 1, 3, 3);
 
-        when(mockScreen.newTextGraphics()).thenReturn(mock(TextGraphics.class));
         Position position = new Position(10, 10);
 
         lanternaGUI.drawImage(position, "gameObjects/mari1.png", 1);
-        verify(gui, times(0)).drawPixel(anyInt(), anyInt(), anyString(), any(TextGraphics.class));
-
     }
 
     @Test
     void testDrawMari() throws IOException, FontFormatException {
         Position position = new Position(10, 10);
         lanternaGUI.drawMari(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/mari1.png", 1);
-
         lanternaGUI.drawMariDoubleJump(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/mari3.png", 1);
-
         lanternaGUI.drawMariJump(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/mari2.png", 1);
     }
 
     @Test
     void testDrawEnemies() throws IOException, FontFormatException {
         Position position = new Position(10, 10);
         lanternaGUI.drawGhostEnemy(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/ghost.png", 1);
-
         lanternaGUI.drawBatEnemy(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/bat.png", 1);
-
     }
 
     @Test
     void testDrawObjects() throws IOException, FontFormatException {
         Position position = new Position(10, 10);
         lanternaGUI.drawKey(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/miniKey.png", 1);
-
         lanternaGUI.drawPotion(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/potion.png", 1);
-
         lanternaGUI.drawDoor(position);
-        verify(gui, times(0)).drawImage(position, "gameObjects/door.png", 1);
-
     }
 
     @Test
@@ -260,5 +238,5 @@ public class LanternaGUITest {
         lanternaGUI.close();
         verify(screen, times(1)).close();
     }
-}
 
+}

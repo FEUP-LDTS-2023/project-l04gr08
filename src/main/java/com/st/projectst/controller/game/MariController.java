@@ -83,15 +83,12 @@ public class MariController extends LevelController {
         getModel().getMari().setGrounded(getModel().mariIsGrounded());
 
         Position currentMariPosition = getModel().getMari().getPosition();
-
-        if (getModel().isAtPlatform(currentMariPosition)) {
+        if (getModel().isAtPlatform(currentMariPosition))
             getModel().getMari().getPosition().setY(getModel().getMari().getPosition().getY()-1);
-        }
 
-        if (getModel().touchPotion(currentMariPosition)) {
+        if (getModel().touchPotion(currentMariPosition))
             getModel().getMari().setWithPotion(true);
-        }
-        if (getModel().getMari().getIsWithPotion() && getModel().getMari().getRemainingJumps() >= 0){
+        if (getModel().getMari().getIsWithPotion() && getModel().getMari().getRemainingJumps() >= 0) {
             moveMari(getModel().getMari().doubleJump());
         } else {
             getModel().getMari().resetJumps();
@@ -118,7 +115,6 @@ public class MariController extends LevelController {
         } else if (action == GUI.ACTION.LEFT) {
             moveMariLeft();
         }
-
     }
 
 }

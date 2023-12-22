@@ -205,7 +205,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private int remainingLives;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private int jumpCounter;</span></pre></td></tr>
 
 
 <tr>
@@ -220,7 +220,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private boolean withKey;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private int remainingJumps;</span></pre></td></tr>
 
 
 <tr>
@@ -235,7 +235,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private boolean withPotion;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private int remainingLives;</span></pre></td></tr>
 
 
 <tr>
@@ -250,7 +250,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private boolean isJumping;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private boolean withKey;</span></pre></td></tr>
 
 
 <tr>
@@ -265,7 +265,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private boolean isGrounded;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private boolean withPotion;</span></pre></td></tr>
 
 
 <tr>
@@ -280,7 +280,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private boolean jumpRight;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private boolean isGrounded;</span></pre></td></tr>
 
 
 <tr>
@@ -295,7 +295,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private int jumpCounter;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private boolean isJumping;</span></pre></td></tr>
 
 
 <tr>
@@ -310,7 +310,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    private int remainingJumps;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    private boolean jumpRight;</span></pre></td></tr>
 
 
 <tr>
@@ -385,7 +385,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        remainingLives = 3;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        jumpCounter = 0;</span></pre></td></tr>
 
 
 <tr>
@@ -400,7 +400,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        withKey = false;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        remainingJumps = maxJumps;</span></pre></td></tr>
 
 
 <tr>
@@ -415,7 +415,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        isJumping = false;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        remainingLives = 3;</span></pre></td></tr>
 
 
 <tr>
@@ -430,7 +430,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        isGrounded = false;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        withKey = false;</span></pre></td></tr>
 
 
 <tr>
@@ -445,7 +445,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        jumpRight = true;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        withPotion = false;</span></pre></td></tr>
 
 
 <tr>
@@ -460,7 +460,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        jumpCounter = 0;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        isGrounded = false;</span></pre></td></tr>
 
 
 <tr>
@@ -475,7 +475,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        remainingJumps = maxJumps;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        isJumping = false;</span></pre></td></tr>
 
 
 <tr>
@@ -490,7 +490,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        withPotion = false;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        jumpRight = true;</span></pre></td></tr>
 
 
 <tr>
@@ -1082,32 +1082,17 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_69'/>
-69
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_69'></a>
-<span>
-</span>
-</span>
-</td>
 <td class=''><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_70'/>
-70
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_69'/>
+69
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_70'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_69'>1</a>
 <span>
 
 1. update : negated conditional &rarr; KILLED<br/>
@@ -1120,12 +1105,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_71'/>
-71
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_70'/>
+70
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_71'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_70'>2</a>
 <span>
 
 1. update : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
@@ -1140,12 +1125,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_72'/>
-72
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_71'/>
+71
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_72'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_71'>1</a>
 <span>
 
 1. update : replaced return value with null for com/st/projectst/model/game/Mari::update &rarr; KILLED<br/>
@@ -1158,17 +1143,35 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_73'/>
-73
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_72'/>
+72
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_73'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_72'></a>
 <span>
 </span>
 </span>
 </td>
 <td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_73'>1</a>
+<span>
+
+1. update : replaced return value with null for com/st/projectst/model/game/Mari::update &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return newPosition;</span></pre></td></tr>
 
 
 <tr>
@@ -1183,25 +1186,22 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_75'/>
 75
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_75'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_75'></a>
 <span>
-
-1. update : replaced return value with null for com/st/projectst/model/game/Mari::update &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return newPosition;</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -1216,11 +1216,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public Position doubleJump(){</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_77'/>
 77
 </td>
@@ -1231,7 +1231,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        Position newPosition = new Position(getPosition());</span></pre></td></tr>
 
 
 <tr>
@@ -1246,7 +1246,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public Position doubleJump(){</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -1254,39 +1254,9 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_79'/>
 79
 </td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_79'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>        Position newPosition = new Position(getPosition());</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_80'/>
-80
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_80'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_81'/>
-81
-</td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_81'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_79'>1</a>
 <span>
 
 1. doubleJump : negated conditional &rarr; KILLED<br/>
@@ -1299,12 +1269,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_82'/>
-82
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_80'/>
+80
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_82'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_80'></a>
 <span>
 </span>
 </span>
@@ -1314,12 +1284,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_83'/>
-83
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_81'/>
+81
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_83'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_81'>1</a>
 <span>
 
 1. doubleJump : Replaced integer addition with subtraction &rarr; KILLED<br/>
@@ -1332,12 +1302,12 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_84'/>
-84
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_82'/>
+82
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_84'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_82'></a>
 <span>
 </span>
 </span>
@@ -1347,12 +1317,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_85'/>
-85
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_83'/>
+83
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_85'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_83'>1</a>
 <span>
 
 1. doubleJump : negated conditional &rarr; KILLED<br/>
@@ -1365,12 +1335,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_86'/>
-86
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_84'/>
+84
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_86'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_84'>2</a>
 <span>
 
 1. doubleJump : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
@@ -1385,12 +1355,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_87'/>
-87
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_85'/>
+85
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_87'>3</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_85'>3</a>
 <span>
 
 1. doubleJump : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
@@ -1407,12 +1377,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_88'/>
-88
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_86'/>
+86
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_88'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_86'>2</a>
 <span>
 
 1. doubleJump : Replaced double subtraction with addition &rarr; KILLED<br/>
@@ -1427,12 +1397,12 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_89'/>
-89
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_87'/>
+87
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_89'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_87'></a>
 <span>
 </span>
 </span>
@@ -1442,12 +1412,12 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_90'/>
-90
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_88'/>
+88
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_90'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_88'></a>
 <span>
 </span>
 </span>
@@ -1457,12 +1427,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_91'/>
-91
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_89'/>
+89
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_91'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_89'>2</a>
 <span>
 
 1. doubleJump : changed conditional boundary &rarr; KILLED<br/>
@@ -1477,6 +1447,36 @@
 
 <tr>
 <td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                isJumping = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                jumpCounter = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_92'/>
 92
 </td>
@@ -1487,11 +1487,11 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>                isJumping = false;</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_93'/>
 93
 </td>
@@ -1502,47 +1502,17 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>                jumpCounter = 0;</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_94'/>
-94
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_94'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_95'/>
-95
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_95'></a>
-<span>
-</span>
-</span>
-</td>
 <td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_96'/>
-96
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_94'/>
+94
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_96'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_94'>2</a>
 <span>
 
 1. doubleJump : Replaced double subtraction with addition &rarr; KILLED<br/>
@@ -1557,12 +1527,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_97'/>
-97
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_95'/>
+95
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_97'>3</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_95'>3</a>
 <span>
 
 1. doubleJump : negated conditional &rarr; KILLED<br/>
@@ -1579,12 +1549,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_98'/>
-98
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_96'/>
+96
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_98'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_96'>2</a>
 <span>
 
 1. doubleJump : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
@@ -1599,12 +1569,12 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_99'/>
-99
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_97'/>
+97
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_99'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_97'></a>
 <span>
 </span>
 </span>
@@ -1614,12 +1584,12 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_100'/>
-100
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_98'/>
+98
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_100'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_98'></a>
 <span>
 </span>
 </span>
@@ -1629,12 +1599,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_101'/>
-101
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_99'/>
+99
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_101'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_99'>1</a>
 <span>
 
 1. doubleJump : negated conditional &rarr; KILLED<br/>
@@ -1647,12 +1617,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_102'/>
-102
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_100'/>
+100
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_102'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_100'>2</a>
 <span>
 
 1. doubleJump : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
@@ -1663,6 +1633,39 @@
 </span>
 </td>
 <td class='covered'><pre><span  class='killed'>            newPosition.setY(getPosition().getY()+1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_101'>1</a>
+<span>
+
+1. doubleJump : replaced return value with null for com/st/projectst/model/game/Mari::doubleJump &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return newPosition;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -1680,7 +1683,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            return newPosition;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return newPosition;</span></pre></td></tr>
 
 
 <tr>
@@ -1695,25 +1698,22 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_105'/>
 105
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_105'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_105'></a>
 <span>
-
-1. doubleJump : replaced return value with null for com/st/projectst/model/game/Mari::doubleJump &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return newPosition;</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -1728,11 +1728,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_107'/>
 107
 </td>
@@ -1743,26 +1743,31 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_108'/>
-108
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_108'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public void setJumpRight(boolean jumpRight) {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    public void setJumpRight(boolean jumpRight) { this.jumpRight = jumpRight; }</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_108'/>
+108
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_108'>2</a>
+<span>
+
+1. getJumpRight : replaced boolean return with true for com/st/projectst/model/game/Mari::getJumpRight &rarr; KILLED<br/>
+
+2. getJumpRight : replaced boolean return with false for com/st/projectst/model/game/Mari::getJumpRight &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean getJumpRight() { return this.jumpRight; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_109'/>
 109
 </td>
@@ -1773,7 +1778,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        this.jumpRight = jumpRight;</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -1788,145 +1793,17 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_111'/>
-111
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_111'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public boolean getJumpRight() {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_112'/>
-112
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_112'>2</a>
-<span>
-
-1. getJumpRight : replaced boolean return with true for com/st/projectst/model/game/Mari::getJumpRight &rarr; KILLED<br/>
-
-2. getJumpRight : replaced boolean return with false for com/st/projectst/model/game/Mari::getJumpRight &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        return this.jumpRight;</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_113'/>
-113
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_113'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_114'/>
-114
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_114'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public void decreaseLives() {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_115'/>
-115
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_115'>1</a>
-<span>
-
-1. decreaseLives : Replaced integer subtraction with addition &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        this.remainingLives--;</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_116'/>
-116
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_116'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_117'/>
-117
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_117'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_118'/>
-118
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_118'></a>
-<span>
-</span>
-</span>
-</td>
 <td class='covered'><pre><span  class=''>    public void setWithKey(boolean key) { this.withKey = key; }</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_119'/>
-119
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_111'/>
+111
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_119'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_111'>2</a>
 <span>
 
 1. getWithKey : replaced boolean return with false for com/st/projectst/model/game/Mari::getWithKey &rarr; KILLED<br/>
@@ -1941,12 +1818,12 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_120'/>
-120
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_112'/>
+112
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_120'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_112'></a>
 <span>
 </span>
 </span>
@@ -1955,28 +1832,63 @@
 
 
 <tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_121'/>
-121
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_113'/>
+113
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_121'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_113'></a>
 <span>
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public int getRemainingLives() {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    public void setWithPotion(boolean withPotion) { this.withPotion = withPotion; }</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_122'/>
-122
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_114'/>
+114
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_122'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_114'>2</a>
+<span>
+
+1. getIsWithPotion : replaced boolean return with false for com/st/projectst/model/game/Mari::getIsWithPotion &rarr; KILLED<br/>
+
+2. getIsWithPotion : replaced boolean return with true for com/st/projectst/model/game/Mari::getIsWithPotion &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public boolean getIsWithPotion() {return withPotion;}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_116'/>
+116
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_116'>1</a>
 <span>
 
 1. getRemainingLives : replaced int return with 0 for com/st/projectst/model/game/Mari::getRemainingLives &rarr; KILLED<br/>
@@ -1984,11 +1896,110 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return remainingLives;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>    public int getRemainingLives() { return remainingLives; }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_117'/>
+117
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_117'>1</a>
+<span>
+
+1. decreaseLives : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public void decreaseLives() { this.remainingLives--; }</span></pre></td></tr>
 
 
 <tr>
 <td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public void setRemainingJumps(int remainingJumps) { this.remainingJumps = remainingJumps; }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_120'/>
+120
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_120'>1</a>
+<span>
+
+1. getRemainingJumps : replaced int return with 0 for com/st/projectst/model/game/Mari::getRemainingJumps &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public int getRemainingJumps() { return remainingJumps; }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_121'/>
+121
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_121'>1</a>
+<span>
+
+1. decreaseJumps : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public void decreaseJumps() { remainingJumps--; }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void resetJumps(){</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_123'/>
 123
 </td>
@@ -1999,11 +2010,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        withPotion = false;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_124'/>
 124
 </td>
@@ -2014,7 +2025,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public void decreaseJumps() {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        remainingJumps = maxJumps;</span></pre></td></tr>
 
 
 <tr>
@@ -2022,21 +2033,18 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_125'/>
 125
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_125'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_125'></a>
 <span>
-
-1. decreaseJumps : Replaced integer subtraction with addition &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        remainingJumps--;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_126'/>
 126
 </td>
@@ -2047,11 +2055,11 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_127'/>
 127
 </td>
@@ -2062,55 +2070,60 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_128'/>
-128
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_128'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public int getRemainingJumps() {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    public void setJumping(boolean jumping) { isJumping = jumping; }</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_129'/>
-129
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_128'/>
+128
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_129'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_128'>2</a>
 <span>
 
-1. getRemainingJumps : replaced int return with 0 for com/st/projectst/model/game/Mari::getRemainingJumps &rarr; KILLED<br/>
+1. getIsJumping : replaced boolean return with false for com/st/projectst/model/game/Mari::getIsJumping &rarr; KILLED<br/>
+
+2. getIsJumping : replaced boolean return with true for com/st/projectst/model/game/Mari::getIsJumping &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return remainingJumps;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>    public boolean getIsJumping() {return isJumping;}</span></pre></td></tr>
 
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_130'/>
-130
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_129'/>
+129
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_130'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_129'></a>
 <span>
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_130'>1</a>
+<span>
+
+1. getJumpCounter : replaced int return with 0 for com/st/projectst/model/game/Mari::getJumpCounter &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public int getJumpCounter() {return jumpCounter;}</span></pre></td></tr>
 
 
 <tr>
@@ -2133,32 +2146,34 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_132'/>
 132
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_132'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_132'></a>
 <span>
-
-1. getJumpCounter : replaced int return with 0 for com/st/projectst/model/game/Mari::getJumpCounter &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>    public int getJumpCounter() {return jumpCounter;}</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    public void setGrounded(boolean grounded) { isGrounded = grounded; }</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_133'/>
 133
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_133'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_133'>2</a>
 <span>
+
+1. getGrounded : replaced boolean return with true for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED<br/>
+
+2. getGrounded : replaced boolean return with false for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>    public boolean getGrounded() { return isGrounded; }</span></pre></td></tr>
 
 
 <tr>
@@ -2173,407 +2188,17 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean getGrounded() {</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_135'/>
 135
 </td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_135'>2</a>
-<span>
-
-1. getGrounded : replaced boolean return with true for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED<br/>
-
-2. getGrounded : replaced boolean return with false for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        return isGrounded;</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_136'/>
-136
-</td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_136'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_137'/>
-137
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_137'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_138'/>
-138
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_138'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public void setWithPotion(boolean withPotion) {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_139'/>
-139
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_139'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>        this.withPotion = withPotion;</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_140'/>
-140
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_140'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_141'/>
-141
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_141'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_142'/>
-142
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_142'>2</a>
-<span>
-
-1. getIsWithPotion : replaced boolean return with false for com/st/projectst/model/game/Mari::getIsWithPotion &rarr; KILLED<br/>
-
-2. getIsWithPotion : replaced boolean return with true for com/st/projectst/model/game/Mari::getIsWithPotion &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>    public boolean getIsWithPotion() {return withPotion;}</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_143'/>
-143
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_143'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_144'/>
-144
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_144'>2</a>
-<span>
-
-1. getIsJumping : replaced boolean return with false for com/st/projectst/model/game/Mari::getIsJumping &rarr; KILLED<br/>
-
-2. getIsJumping : replaced boolean return with true for com/st/projectst/model/game/Mari::getIsJumping &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>    public boolean getIsJumping() {return isJumping;}</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_145'/>
-145
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_145'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_146'/>
-146
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_146'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public void setGrounded(boolean grounded) {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_147'/>
-147
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_147'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>        isGrounded = grounded;</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_148'/>
-148
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_148'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_149'/>
-149
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_149'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_150'/>
-150
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_150'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public void setJumping(boolean jumping) {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_151'/>
-151
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_151'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>        isJumping = jumping;</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_152'/>
-152
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_152'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_153'/>
-153
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_153'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_154'/>
-154
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_154'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>    public void setRemainingJumps(int remainingJumps) { this.remainingJumps = remainingJumps; }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_155'/>
-155
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_155'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_156'/>
-156
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_156'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public void resetJumps(){</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_157'/>
-157
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_157'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>        withPotion = false;</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_158'/>
-158
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_158'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>        remainingJumps = maxJumps;</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_159'/>
-159
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_159'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_160'/>
-160
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_160'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_135'></a>
 <span>
 </span>
 </span>
@@ -2718,13 +2343,24 @@
 </tr>
 
 <tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
 <td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_70'>70</a></td> 
 <td></td>
 <td>
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_70'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2735,29 +2371,29 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_71'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_72'>72</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_72'/> 
-
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()]</span></span> replaced return value with null for com/st/projectst/model/game/Mari::update &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_75'>75</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_73'>73</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_75'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_73'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>update<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateJumpingRight()]</span></span> replaced return value with null for com/st/projectst/model/game/Mari::update &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2768,7 +2404,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_81'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2779,7 +2415,18 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_83'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2790,7 +2437,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_85'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2801,40 +2448,40 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_86'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_87'>87</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_87'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_88'>88</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_88'/> 
-
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> Replaced double subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_91'>91</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_89'>89</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_91'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_89'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> Replaced double subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2845,29 +2492,29 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_96'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> Replaced double subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_97'>97</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_97'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_98'>98</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_98'/> 
-
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()]</span></span> Replaced double subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2878,18 +2525,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_101'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> negated conditional &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_102'>102</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_102'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> replaced return value with null for com/st/projectst/model/game/Mari::doubleJump &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -2900,128 +2536,117 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_103'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()]</span></span> replaced return value with null for com/st/projectst/model/game/Mari::doubleJump &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_105'>105</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_105'/> 
-
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>doubleJump<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()]</span></span> replaced return value with null for com/st/projectst/model/game/Mari::doubleJump &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_112'>112</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_108'>108</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_112'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_108'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getJumpRight<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetJumpRight()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Mari::getJumpRight &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getJumpRight<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetJumpRight()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Mari::getJumpRight &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_115'>115</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_111'>111</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_115'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decreaseLives<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariLives()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_119'>119</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_119'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_111'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWithKey<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariKey()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Mari::getWithKey &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getWithKey<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariKey()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Mari::getWithKey &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_122'>122</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_114'>114</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_122'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRemainingLives<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariLives()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Mari::getRemainingLives &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_125'>125</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_125'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decreaseJumps<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumps()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_129'>129</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_129'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRemainingJumps<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumps()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Mari::getRemainingJumps &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_132'>132</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_132'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getJumpCounter<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateJumpingLeft()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Mari::getJumpCounter &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_135'>135</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_135'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetGrounded()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetGrounded()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_142'>142</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_142'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_114'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getIsWithPotion<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariResetJumps()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Mari::getIsWithPotion &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getIsWithPotion<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariResetJumps()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Mari::getIsWithPotion &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_144'>144</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_116'>116</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_144'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_116'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRemainingLives<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariLives()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Mari::getRemainingLives &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_117'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decreaseLives<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariLives()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRemainingJumps<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumps()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Mari::getRemainingJumps &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_121'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decreaseJumps<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumps()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_128'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getIsJumping<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumpGrounded()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Mari::getIsJumping &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getIsJumping<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumpNotGrounded()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Mari::getIsJumping &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getJumpCounter<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateJumpingLeft()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Mari::getJumpCounter &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@f4c0e4e_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@f4c0e4e_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetGrounded()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetGrounded()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Mari::getGrounded &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -3057,7 +2682,7 @@
 
 <h2>Tests examined</h2>
 <ul>
-<li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateJumpingRight()] (1 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpNotGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariLives()] (0 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPotions()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawWalls()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBackground()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawGhostEnemies()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawKey()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawTraps()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBatEnemies()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawDoor()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPowerAction()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMari()] (4 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMariJump()] (5 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPlatforms()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawLives()] (13 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumps()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariResetJumps()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumpGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumpNotGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateJumpingLeft()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariMoveLeft()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testMoveLeftWithSubtraction()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariMoveRight()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetJumpRight()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariKey()] (0 ms)</li>
+<li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testDoubleJump()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpLeft()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpRight()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateJumpingRight()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariDoubleJumpNotGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariLives()] (0 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBackground()] (0 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPotions()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawWalls()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMari()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawGhostEnemies()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawKey()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawDoor()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawTraps()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPowerAction()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBatEnemies()] (3 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMariJump()] (3 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPlatforms()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawLives()] (5 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumps()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariResetJumps()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumpGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariJumpNotGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateJumpingLeft()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariUpdateNoJumpingNoGrounded()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariMoveLeft()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:testMoveLeftWithSubtraction()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariMoveRight()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariGetJumpRight()] (0 ms)</li><li>com.st.projectst.model.game.MariTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MariTest]/[method:mariKey()] (0 ms)</li>
 </ul>
 
 <br/>

@@ -25,24 +25,23 @@ public class StartControllerTest {
     private Start start;
     private StartController startController;
     private Main main;
+    private LanternaGUI gui;
 
     @BeforeEach
     public void setUp() {
         start = mock(Start.class);
         startController = new StartController(start);
         main = mock(Main.class);
-        when(main.getGui()).thenReturn(mock(LanternaGUI.class));
+        gui = mock(LanternaGUI.class);
+        when(main.getGui()).thenReturn(gui);
     }
 
     @Test
     public void testStepSelectStart() throws IOException, URISyntaxException, FontFormatException {
         when(start.isSelectedStart()).thenReturn(true);
-        Map map = mock(Map.class);
-        MapBuilder mapBuilder = mock(MapBuilder.class);
-        when(mapBuilder.buildMap()).thenReturn(map);
         startController.step(main, GUI.ACTION.SELECT, 1000);
 
-        verify(main.getGui(), times(1)).close();
+        verify(gui, times(1)).close();
         verify(main).setGui(any(LanternaGUI.class));
         verify(main).setState(any(LevelState.class));
     }
@@ -56,7 +55,7 @@ public class StartControllerTest {
     public void testStepSelectInstructions() throws IOException, URISyntaxException, FontFormatException {
         when(start.isSelectedInstructions()).thenReturn(true);
         startController.step(main, GUI.ACTION.SELECT, 1000);
-        verify(main.getGui(), times(1)).close();
+        verify(gui, times(1)).close();
         verify(main).setGui(any(LanternaGUI.class));
         verify(main).setState(any(InstructionsState.class));
     }
@@ -72,7 +71,7 @@ public class StartControllerTest {
     @Test
     public void testStepOtherAction() throws IOException, URISyntaxException, FontFormatException {
         startController.step(main, GUI.ACTION.UP, 1000);
-        verify(main.getGui(), never()).close();
+        verify(gui, never()).close();
         verify(main, never()).setGui(any(LanternaGUI.class));
         verify(main, never()).setState(any(State.class));
     }
