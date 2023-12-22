@@ -1324,7 +1324,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public int getWidth() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public List&#60;Trap&#62; getTraps() {</span></pre></td></tr>
 
 
 <tr>
@@ -1337,12 +1337,12 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_87'>1</a>
 <span>
 
-1. getWidth : replaced int return with 0 for com/st/projectst/model/game/Map::getWidth &rarr; KILLED<br/>
+1. getTraps : replaced return value with Collections.emptyList for com/st/projectst/model/game/Map::getTraps &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return width;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return traps;</span></pre></td></tr>
 
 
 <tr>
@@ -1372,7 +1372,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public int getHeight() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public void setTraps(List&#60;Trap&#62; traps) {</span></pre></td></tr>
 
 
 <tr>
@@ -1380,21 +1380,18 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_90'/>
 90
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_90'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_90'></a>
 <span>
-
-1. getHeight : replaced int return with 0 for com/st/projectst/model/game/Map::getHeight &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return height;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.traps = traps;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_91'/>
 91
 </td>
@@ -1405,7 +1402,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -1435,26 +1432,29 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_94'/>
-94
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_94'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public boolean isAtDoor(Position position) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public Door getDoor() {</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_94'>1</a>
+<span>
+
+1. getDoor : replaced return value with null for com/st/projectst/model/game/Map::getDoor &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return door;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_95'/>
 95
 </td>
@@ -1465,27 +1465,22 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        Position mariPosition = new Position(position);</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_96'/>
 96
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_96'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_96'></a>
 <span>
-
-1. isAtDoor : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
-
-2. isAtDoor : Replaced double addition with subtraction &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        mariPosition.setX(mariPosition.getX()+11);</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public void setDoor(Door door) {</span></pre></td></tr>
 
 
 <tr>
@@ -1493,23 +1488,18 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_97'/>
 97
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_97'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_97'></a>
 <span>
-
-1. isAtDoor : replaced boolean return with false for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED<br/>
-
-2. isAtDoor : replaced boolean return with true for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return door.getPosition().equals(mariPosition);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.door = door;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_98'/>
 98
 </td>
@@ -1520,7 +1510,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -1550,7 +1540,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean isEmpty(Position position) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public int getWidth() {</span></pre></td></tr>
 
 
 <tr>
@@ -1558,50 +1548,47 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_101'/>
 101
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_101'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_101'>1</a>
 <span>
+
+1. getWidth : replaced int return with 0 for com/st/projectst/model/game/Map::getWidth &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        for (Wall wall : walls)</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return width;</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_102'/>
 102
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_102'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_102'></a>
 <span>
-
-1. isEmpty : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            if (wall.getPosition().equals(position))</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_103'/>
 103
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_103'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_103'></a>
 <span>
-
-1. isEmpty : replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                return false;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public int getHeight() {</span></pre></td></tr>
 
 
 <tr>
@@ -1609,68 +1596,62 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_104'/>
 104
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_104'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_104'>1</a>
 <span>
+
+1. getHeight : replaced int return with 0 for com/st/projectst/model/game/Map::getHeight &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        for (Platform platform : platforms)</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return height;</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_105'/>
 105
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_105'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_105'></a>
 <span>
-
-1. isEmpty : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                if (platform.getPosition().equals(position))</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_106'/>
 106
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_106'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_106'></a>
 <span>
-
-1. isEmpty : replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                    return false;</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_107'/>
 107
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_107'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_107'></a>
 <span>
-
-1. isEmpty : replaced boolean return with false for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -1685,11 +1666,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean isAtDoor(Position position) {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_109'/>
 109
 </td>
@@ -1700,22 +1681,27 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        Position mariPosition = new Position(position);</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_110'/>
 110
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_110'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_110'>2</a>
 <span>
+
+1. isAtDoor : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+
+2. isAtDoor : Replaced double addition with subtraction &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean isEnemy(Position position) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        mariPosition.setX(mariPosition.getX()+11);</span></pre></td></tr>
 
 
 <tr>
@@ -1728,14 +1714,14 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_111'>2</a>
 <span>
 
-1. isEnemy : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+1. isAtDoor : replaced boolean return with false for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED<br/>
 
-2. isEnemy : Replaced double addition with subtraction &rarr; KILLED<br/>
+2. isAtDoor : replaced boolean return with true for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        Position position2 = new Position(position); position2.setX(position.getX()+13);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return door.getPosition().equals(mariPosition);</span></pre></td></tr>
 
 
 <tr>
@@ -1750,11 +1736,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_113'/>
 113
 </td>
@@ -1765,11 +1751,11 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        for (GhostEnemy enemy : getGhostEnemies()) {</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_114'/>
 114
 </td>
@@ -1780,7 +1766,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            Position enemyPosition = new Position(enemy.getPosition());</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean isEmpty(Position position) {</span></pre></td></tr>
 
 
 <tr>
@@ -1788,19 +1774,14 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_115'/>
 115
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_115'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_115'></a>
 <span>
-
-1. isEnemy : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
-
-2. isEnemy : Replaced double addition with subtraction &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            enemyPosition.setX(enemyPosition.getX()+4);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        for (Wall wall : walls)</span></pre></td></tr>
 
 
 <tr>
@@ -1810,17 +1791,15 @@
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_116'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_116'>1</a>
 <span>
 
-1. isEnemy : negated conditional &rarr; KILLED<br/>
-
-2. isEnemy : negated conditional &rarr; KILLED<br/>
+1. isEmpty : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            if (enemyPosition.equals(position) || enemyPosition.equals(position2))</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            if (wall.getPosition().equals(position))</span></pre></td></tr>
 
 
 <tr>
@@ -1833,12 +1812,12 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_117'>1</a>
 <span>
 
-1. isEnemy : replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED<br/>
+1. isEmpty : replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                return false;</span></pre></td></tr>
 
 
 <tr>
@@ -1853,7 +1832,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        for (Platform platform : platforms)</span></pre></td></tr>
 
 
 <tr>
@@ -1861,14 +1840,17 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_119'/>
 119
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_119'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_119'>1</a>
 <span>
+
+1. isEmpty : negated conditional &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        for (BatEnemy enemy : getBatEnemies()) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                if (platform.getPosition().equals(position))</span></pre></td></tr>
 
 
 <tr>
@@ -1876,14 +1858,17 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_120'/>
 120
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_120'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_120'>1</a>
 <span>
+
+1. isEmpty : replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            Position enemyPosition = new Position(enemy.getPosition());</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                    return false;</span></pre></td></tr>
 
 
 <tr>
@@ -1893,59 +1878,49 @@
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_121'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_121'>1</a>
 <span>
 
-1. isEnemy : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
-
-2. isEnemy : Replaced double addition with subtraction &rarr; KILLED<br/>
+1. isEmpty : replaced boolean return with false for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            enemyPosition.setX(enemyPosition.getX()+7);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return true;</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_122'/>
 122
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_122'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_122'></a>
 <span>
-
-1. isEnemy : negated conditional &rarr; KILLED<br/>
-
-2. isEnemy : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            if (enemyPosition.equals(position) || enemyPosition.equals(position2))</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_123'/>
 123
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_123'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_123'></a>
 <span>
-
-1. isEnemy : replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_124'/>
 124
 </td>
@@ -1956,7 +1931,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean isEnemy(Position position) {</span></pre></td></tr>
 
 
 <tr>
@@ -1966,15 +1941,17 @@
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_125'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_125'>2</a>
 <span>
 
-1. isEnemy : replaced boolean return with true for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED<br/>
+1. isEnemy : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+
+2. isEnemy : Replaced double addition with subtraction &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        Position position2 = new Position(position); position2.setX(position.getX()+13);</span></pre></td></tr>
 
 
 <tr>
@@ -1989,11 +1966,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_127'/>
 127
 </td>
@@ -2004,11 +1981,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        for (GhostEnemy enemy : getGhostEnemies()) {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_128'/>
 128
 </td>
@@ -2019,7 +1996,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean mariIsGrounded() {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            Position enemyPosition = new Position(enemy.getPosition());</span></pre></td></tr>
 
 
 <tr>
@@ -2027,14 +2004,19 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_129'/>
 129
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_129'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_129'>2</a>
 <span>
+
+1. isEnemy : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+
+2. isEnemy : Replaced double addition with subtraction &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        Position floorPosition = new Position(mari.getPosition());</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            enemyPosition.setX(enemyPosition.getX()+4);</span></pre></td></tr>
 
 
 <tr>
@@ -2047,29 +2029,32 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_130'>2</a>
 <span>
 
-1. mariIsGrounded : Replaced double addition with subtraction &rarr; KILLED<br/>
+1. isEnemy : negated conditional &rarr; KILLED<br/>
 
-2. mariIsGrounded : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
+2. isEnemy : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        floorPosition.setY(floorPosition.getY()+14);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            if (enemyPosition.equals(position) || enemyPosition.equals(position2))</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_131'/>
 131
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_131'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_131'>1</a>
 <span>
+
+1. isEnemy : replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
 
 
 <tr>
@@ -2084,7 +2069,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        List&#60;Position&#62; floorPositions = new ArrayList&#60;&#62;();</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -2092,19 +2077,14 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_133'/>
 133
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_133'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_133'></a>
 <span>
-
-1. mariIsGrounded : changed conditional boundary &rarr; KILLED<br/>
-
-2. mariIsGrounded : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        for (int i = 3; i &#60; 9; i++) {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        for (BatEnemy enemy : getBatEnemies()) {</span></pre></td></tr>
 
 
 <tr>
@@ -2119,7 +2099,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            Position newFloorPosition = new Position(floorPosition);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            Position enemyPosition = new Position(enemy.getPosition());</span></pre></td></tr>
 
 
 <tr>
@@ -2132,14 +2112,14 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_135'>2</a>
 <span>
 
-1. mariIsGrounded : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+1. isEnemy : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
 
-2. mariIsGrounded : Replaced double addition with subtraction &rarr; KILLED<br/>
+2. isEnemy : Replaced double addition with subtraction &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            newFloorPosition.setX(newFloorPosition.getX()+i);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            enemyPosition.setX(enemyPosition.getX()+7);</span></pre></td></tr>
 
 
 <tr>
@@ -2147,33 +2127,41 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_136'/>
 136
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_136'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_136'>2</a>
 <span>
+
+1. isEnemy : negated conditional &rarr; KILLED<br/>
+
+2. isEnemy : negated conditional &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            floorPositions.add(newFloorPosition);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            if (enemyPosition.equals(position) || enemyPosition.equals(position2))</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_137'/>
 137
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_137'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_137'>1</a>
 <span>
+
+1. isEnemy : replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_138'/>
 138
 </td>
@@ -2184,7 +2172,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -2192,18 +2180,21 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_139'/>
 139
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_139'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_139'>1</a>
 <span>
+
+1. isEnemy : replaced boolean return with true for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        for (Position pos: floorPositions) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_140'/>
 140
 </td>
@@ -2214,43 +2205,37 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            for (Wall wall : walls) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_141'/>
 141
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_141'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_141'></a>
 <span>
-
-1. mariIsGrounded : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                if (Objects.equals(wall.getPosition(), pos))</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_142'/>
 142
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_142'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_142'></a>
 <span>
-
-1. mariIsGrounded : replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                    return true;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean mariIsGrounded() {</span></pre></td></tr>
 
 
 <tr>
@@ -2265,7 +2250,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        Position floorPosition = new Position(mari.getPosition());</span></pre></td></tr>
 
 
 <tr>
@@ -2273,18 +2258,23 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_144'/>
 144
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_144'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_144'>2</a>
 <span>
+
+1. mariIsGrounded : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+2. mariIsGrounded : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            for (Platform platform : platforms){</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        floorPosition.setY(floorPosition.getY()+14);</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_145'/>
 145
 </td>
@@ -2295,7 +2285,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>                Position newPos = new Position(pos);</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -2303,19 +2293,14 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_146'/>
 146
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_146'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_146'></a>
 <span>
-
-1. mariIsGrounded : Replaced double subtraction with addition &rarr; KILLED<br/>
-
-2. mariIsGrounded : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                newPos.setY(newPos.getY()-1);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        List&#60;Position&#62; floorPositions = new ArrayList&#60;&#62;();</span></pre></td></tr>
 
 
 <tr>
@@ -2328,14 +2313,14 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_147'>2</a>
 <span>
 
-1. mariIsGrounded : negated conditional &rarr; KILLED<br/>
+1. mariIsGrounded : changed conditional boundary &rarr; KILLED<br/>
 
 2. mariIsGrounded : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                if (platform.getPosition().equals(pos) || platform.getPosition().equals(newPos))</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        for (int i = 3; i &#60; 9; i++) {</span></pre></td></tr>
 
 
 <tr>
@@ -2343,17 +2328,14 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_148'/>
 148
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_148'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_148'></a>
 <span>
-
-1. mariIsGrounded : replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                    return true;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            Position newFloorPosition = new Position(floorPosition);</span></pre></td></tr>
 
 
 <tr>
@@ -2361,14 +2343,19 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_149'/>
 149
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_149'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_149'>2</a>
 <span>
+
+1. mariIsGrounded : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+
+2. mariIsGrounded : Replaced double addition with subtraction &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            newFloorPosition.setX(newFloorPosition.getX()+i);</span></pre></td></tr>
 
 
 <tr>
@@ -2383,25 +2370,22 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            floorPositions.add(newFloorPosition);</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_151'/>
 151
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_151'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_151'></a>
 <span>
-
-1. mariIsGrounded : replaced boolean return with true for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -2416,11 +2400,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_153'/>
 153
 </td>
@@ -2431,11 +2415,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        for (Position pos: floorPositions) {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_154'/>
 154
 </td>
@@ -2446,7 +2430,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean isTrap() {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            for (Wall wall : walls) {</span></pre></td></tr>
 
 
 <tr>
@@ -2454,14 +2438,17 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_155'/>
 155
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_155'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_155'>1</a>
 <span>
+
+1. mariIsGrounded : negated conditional &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        Position trapPosition = new Position(mari.getPosition());</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                if (Objects.equals(wall.getPosition(), pos))</span></pre></td></tr>
 
 
 <tr>
@@ -2471,21 +2458,19 @@
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_156'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_156'>1</a>
 <span>
 
-1. isTrap : Replaced double addition with subtraction &rarr; KILLED<br/>
-
-2. isTrap : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
+1. mariIsGrounded : replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        trapPosition.setY(trapPosition.getY()+13);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                    return true;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_157'/>
 157
 </td>
@@ -2496,7 +2481,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
 
 
 <tr>
@@ -2511,7 +2496,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        List&#60;Position&#62; trapPositions = new ArrayList&#60;&#62;();</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            for (Platform platform : platforms){</span></pre></td></tr>
 
 
 <tr>
@@ -2519,19 +2504,14 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_159'/>
 159
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_159'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_159'></a>
 <span>
-
-1. isTrap : changed conditional boundary &rarr; KILLED<br/>
-
-2. isTrap : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        for (int i = 3; i &#60; 9; i++) {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>                Position newPos = new Position(pos);</span></pre></td></tr>
 
 
 <tr>
@@ -2539,14 +2519,19 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_160'/>
 160
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_160'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_160'>2</a>
 <span>
+
+1. mariIsGrounded : Replaced double subtraction with addition &rarr; KILLED<br/>
+
+2. mariIsGrounded : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            Position newFloorPosition = new Position(trapPosition);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                newPos.setY(newPos.getY()-1);</span></pre></td></tr>
 
 
 <tr>
@@ -2559,14 +2544,14 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_161'>2</a>
 <span>
 
-1. isTrap : Replaced double addition with subtraction &rarr; KILLED<br/>
+1. mariIsGrounded : negated conditional &rarr; KILLED<br/>
 
-2. isTrap : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+2. mariIsGrounded : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            newFloorPosition.setX(newFloorPosition.getX()+i);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                if (platform.getPosition().equals(pos) || platform.getPosition().equals(newPos))</span></pre></td></tr>
 
 
 <tr>
@@ -2574,18 +2559,21 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_162'/>
 162
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_162'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_162'>1</a>
 <span>
+
+1. mariIsGrounded : replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            trapPositions.add(newFloorPosition);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                    return true;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_163'/>
 163
 </td>
@@ -2596,11 +2584,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_164'/>
 164
 </td>
@@ -2611,26 +2599,29 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_165'/>
-165
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_165'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_165'>1</a>
+<span>
+
+1. mariIsGrounded : replaced boolean return with true for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_166'/>
 166
 </td>
@@ -2641,11 +2632,11 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        for (Position pos: trapPositions) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_167'/>
 167
 </td>
@@ -2656,25 +2647,22 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            for (Trap trap : traps){</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_168'/>
 168
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_168'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_168'></a>
 <span>
-
-1. isTrap : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                if (trap.getPosition().equals(pos)) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean isTrap() {</span></pre></td></tr>
 
 
 <tr>
@@ -2682,17 +2670,14 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_169'/>
 169
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_169'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_169'></a>
 <span>
-
-1. isTrap : removed call to com/st/projectst/model/game/Trap::notifyObservers &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                    trap.notifyObservers();</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        Position trapPosition = new Position(mari.getPosition());</span></pre></td></tr>
 
 
 <tr>
@@ -2702,15 +2687,17 @@
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_170'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_170'>2</a>
 <span>
 
-1. isTrap : replaced boolean return with false for com/st/projectst/model/game/Map::isTrap &rarr; KILLED<br/>
+1. isTrap : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+2. isTrap : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                    return true;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        trapPosition.setY(trapPosition.getY()+13);</span></pre></td></tr>
 
 
 <tr>
@@ -2725,7 +2712,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -2740,7 +2727,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        List&#60;Position&#62; trapPositions = new ArrayList&#60;&#62;();</span></pre></td></tr>
 
 
 <tr>
@@ -2748,14 +2735,19 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_173'/>
 173
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_173'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_173'>2</a>
 <span>
+
+1. isTrap : changed conditional boundary &rarr; KILLED<br/>
+
+2. isTrap : negated conditional &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        for (int i = 3; i &#60; 9; i++) {</span></pre></td></tr>
 
 
 <tr>
@@ -2763,36 +2755,38 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_174'/>
 174
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_174'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_174'></a>
 <span>
-
-1. isTrap : replaced boolean return with true for com/st/projectst/model/game/Map::isTrap &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            Position newFloorPosition = new Position(trapPosition);</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_175'/>
 175
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_175'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_175'>2</a>
 <span>
+
+1. isTrap : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+2. isTrap : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            newFloorPosition.setX(newFloorPosition.getX()+i);</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_176'/>
 176
 </td>
@@ -2803,7 +2797,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            trapPositions.add(newFloorPosition);</span></pre></td></tr>
 
 
 <tr>
@@ -2818,25 +2812,22 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean isKey(Position position) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_178'/>
 178
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_178'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_178'></a>
 <span>
-
-1. isKey : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        if (key != null) {</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -2851,7 +2842,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>            Position pos = new Position(position);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        for (Position pos: trapPositions) {</span></pre></td></tr>
 
 
 <tr>
@@ -2859,19 +2850,14 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_180'/>
 180
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_180'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_180'></a>
 <span>
-
-1. isKey : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
-
-2. isKey : Replaced double addition with subtraction &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            pos.setY(position.getY()+7);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            for (Trap trap : traps){</span></pre></td></tr>
 
 
 <tr>
@@ -2881,32 +2867,33 @@
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_181'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_181'>1</a>
 <span>
 
-1. isKey : replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED<br/>
-
-2. isKey : replaced boolean return with false for com/st/projectst/model/game/Map::isKey &rarr; KILLED<br/>
+1. isTrap : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            return key.getPosition().equals(pos);</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                if (trap.getPosition().equals(pos)) {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_182'/>
 182
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_182'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_182'>1</a>
 <span>
+
+1. isTrap : removed call to com/st/projectst/model/game/Trap::notifyObservers &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                    trap.notifyObservers();</span></pre></td></tr>
 
 
 <tr>
@@ -2919,12 +2906,12 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_183'>1</a>
 <span>
 
-1. isKey : replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED<br/>
+1. isTrap : replaced boolean return with false for com/st/projectst/model/game/Map::isTrap &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>                    return true;</span></pre></td></tr>
 
 
 <tr>
@@ -2939,11 +2926,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_185'/>
 185
 </td>
@@ -2954,11 +2941,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_186'/>
 186
 </td>
@@ -2969,7 +2956,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public void removeKey() {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -2977,18 +2964,21 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_187'/>
 187
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_187'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_187'>1</a>
 <span>
+
+1. isTrap : replaced boolean return with true for com/st/projectst/model/game/Map::isTrap &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        this.key = null;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_188'/>
 188
 </td>
@@ -2999,7 +2989,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -3029,7 +3019,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public List&#60;Trap&#62; getTraps() {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean isKey(Position position) {</span></pre></td></tr>
 
 
 <tr>
@@ -3042,16 +3032,16 @@
 <a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_191'>1</a>
 <span>
 
-1. getTraps : replaced return value with Collections.emptyList for com/st/projectst/model/game/Map::getTraps &rarr; KILLED<br/>
+1. isKey : negated conditional &rarr; KILLED<br/>
 
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return traps;</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        if (key != null) {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_192'/>
 192
 </td>
@@ -3062,41 +3052,51 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_193'/>
-193
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_193'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_194'/>
-194
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_194'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    public void setTraps(List&#60;Trap&#62; traps) {</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            Position pos = new Position(position);</span></pre></td></tr>
 
 
 <tr>
 <td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_193'/>
+193
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_193'>2</a>
+<span>
+
+1. isKey : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
+
+2. isKey : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            pos.setY(position.getY()+7);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_194'/>
+194
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_194'>2</a>
+<span>
+
+1. isKey : replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED<br/>
+
+2. isKey : replaced boolean return with false for com/st/projectst/model/game/Map::isKey &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return key.getPosition().equals(pos);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_195'/>
 195
 </td>
@@ -3107,7 +3107,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        this.traps = traps;</span></pre></td></tr>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -3115,14 +3115,17 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_196'/>
 196
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_196'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_196'>1</a>
 <span>
+
+1. isKey : replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
 
 
 <tr>
@@ -3137,7 +3140,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
@@ -3152,11 +3155,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public void setDoor(Door door) {</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_199'/>
 199
 </td>
@@ -3167,7 +3170,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        this.door = door;</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public boolean isAtPlatform(Position currentMariPosition) {</span></pre></td></tr>
 
 
 <tr>
@@ -3182,22 +3185,27 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        Position floorPosition = new Position(currentMariPosition);</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_201'/>
 201
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_201'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_201'>2</a>
 <span>
+
+1. isAtPlatform : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+2. isAtPlatform : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        floorPosition.setY(floorPosition.getY()+13);</span></pre></td></tr>
 
 
 <tr>
@@ -3212,7 +3220,7 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public Door getDoor() {</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
@@ -3220,36 +3228,38 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_203'/>
 203
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_203'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_203'></a>
 <span>
-
-1. getDoor : replaced return value with null for com/st/projectst/model/game/Map::getDoor &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        return door;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        List&#60;Position&#62; floorPositions = new ArrayList&#60;&#62;();</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_204'/>
 204
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_204'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_204'>2</a>
 <span>
+
+1. isAtPlatform : changed conditional boundary &rarr; KILLED<br/>
+
+2. isAtPlatform : negated conditional &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        for (int i = 3; i &#60; 9; i++) {</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_205'/>
 205
 </td>
@@ -3260,22 +3270,27 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            Position newFloorPosition = new Position(floorPosition);</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_206'/>
 206
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_206'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_206'>2</a>
 <span>
+
+1. isAtPlatform : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
+
+2. isAtPlatform : Replaced double addition with subtraction &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean isAtPlatform(Position currentMariPosition) {</span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>            newFloorPosition.setX(newFloorPosition.getX()+i);</span></pre></td></tr>
 
 
 <tr>
@@ -3290,27 +3305,22 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        Position floorPosition = new Position(currentMariPosition);</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>            floorPositions.add(newFloorPosition);</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_208'/>
 208
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_208'>2</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_208'></a>
 <span>
-
-1. isAtPlatform : Replaced double addition with subtraction &rarr; KILLED<br/>
-
-2. isAtPlatform : removed call to com/st/projectst/model/Position::setY &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>        floorPosition.setY(floorPosition.getY()+13);</span></pre></td></tr>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
@@ -3340,7 +3350,7 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        List&#60;Position&#62; floorPositions = new ArrayList&#60;&#62;();</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        for (Position pos: floorPositions) {</span></pre></td></tr>
 
 
 <tr>
@@ -3348,124 +3358,9 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_211'/>
 211
 </td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_211'>2</a>
-<span>
-
-1. isAtPlatform : changed conditional boundary &rarr; KILLED<br/>
-
-2. isAtPlatform : negated conditional &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        for (int i = 3; i &#60; 9; i++) {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_212'/>
-212
-</td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_212'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>            Position newFloorPosition = new Position(floorPosition);</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_213'/>
-213
-</td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_213'>2</a>
-<span>
-
-1. isAtPlatform : removed call to com/st/projectst/model/Position::setX &rarr; KILLED<br/>
-
-2. isAtPlatform : Replaced double addition with subtraction &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>            newFloorPosition.setX(newFloorPosition.getX()+i);</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_214'/>
-214
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_214'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>            floorPositions.add(newFloorPosition);</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_215'/>
-215
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_215'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>        }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_216'/>
-216
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_216'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_217'/>
-217
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_217'></a>
-<span>
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class=''>        for (Position pos: floorPositions) {</span></pre></td></tr>
-
-
-<tr>
-<td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_218'/>
-218
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_218'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_211'></a>
 <span>
 </span>
 </span>
@@ -3475,12 +3370,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_219'/>
-219
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_212'/>
+212
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_219'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_212'>1</a>
 <span>
 
 1. isAtPlatform : negated conditional &rarr; KILLED<br/>
@@ -3493,12 +3388,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_220'/>
-220
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_213'/>
+213
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_220'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_213'>1</a>
 <span>
 
 1. isAtPlatform : replaced boolean return with false for com/st/projectst/model/game/Map::isAtPlatform &rarr; KILLED<br/>
@@ -3511,12 +3406,12 @@
 
 <tr>
 <td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_221'/>
-221
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_214'/>
+214
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_221'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_214'></a>
 <span>
 </span>
 </span>
@@ -3526,12 +3421,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_222'/>
-222
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_215'/>
+215
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_222'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_215'></a>
 <span>
 </span>
 </span>
@@ -3541,12 +3436,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_223'/>
-223
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_216'/>
+216
 </td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_223'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_216'></a>
 <span>
 </span>
 </span>
@@ -3556,12 +3451,12 @@
 
 <tr>
 <td class='covered'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_224'/>
-224
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_217'/>
+217
 </td>
 <td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_224'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_217'>1</a>
 <span>
 
 1. isAtPlatform : replaced boolean return with true for com/st/projectst/model/game/Map::isAtPlatform &rarr; KILLED<br/>
@@ -3574,6 +3469,117 @@
 
 <tr>
 <td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_218'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_219'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_220'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean touchPotion(Position position) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_221'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Potion potion : potions) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_222'/>
+222
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_222'>1</a>
+<span>
+
+1. touchPotion : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (potion.getPosition().equals(position)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_223'/>
+223
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_223'>1</a>
+<span>
+
+1. touchPotion : replaced boolean return with false for com/st/projectst/model/game/Map::touchPotion &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_224'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_225'/>
 225
 </td>
@@ -3584,22 +3590,25 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_226'/>
 226
 </td>
-<td class=''>
+<td class='killed'>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_226'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_226'>1</a>
 <span>
+
+1. touchPotion : replaced boolean return with true for com/st/projectst/model/game/Map::touchPotion &rarr; KILLED<br/>
+
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
+<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
 
 
 <tr>
@@ -3614,11 +3623,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>    public boolean touchPotion(Position position) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_228'/>
 228
 </td>
@@ -3629,25 +3638,22 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        for (Potion potion : potions) {</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_229'/>
 229
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_229'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_229'></a>
 <span>
-
-1. touchPotion : negated conditional &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>            if (potion.getPosition().equals(position)) {</span></pre></td></tr>
+<td class=''><pre><span  class=''>    public void removeKey() {</span></pre></td></tr>
 
 
 <tr>
@@ -3655,21 +3661,18 @@
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_230'/>
 230
 </td>
-<td class='killed'>
+<td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_230'>1</a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_230'></a>
 <span>
-
-1. touchPotion : replaced boolean return with false for com/st/projectst/model/game/Map::touchPotion &rarr; KILLED<br/>
-
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class='killed'>                return true;</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>        this.key = null;</span></pre></td></tr>
 
 
 <tr>
-<td class='na'>
+<td class='covered'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_231'/>
 231
 </td>
@@ -3680,11 +3683,11 @@
 </span>
 </span>
 </td>
-<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_232'/>
 232
 </td>
@@ -3695,70 +3698,22 @@
 </span>
 </span>
 </td>
-<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 <tr>
-<td class='covered'>
+<td class='na'>
 <a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_233'/>
 233
 </td>
-<td class='killed'>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_233'>1</a>
-<span>
-
-1. touchPotion : replaced boolean return with true for com/st/projectst/model/game/Map::touchPotion &rarr; KILLED<br/>
-
-</span>
-</span>
-</td>
-<td class='covered'><pre><span  class='killed'>        return false;</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_234'/>
-234
-</td>
 <td class=''>
 <span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_234'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''>    }</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_235'/>
-235
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_235'></a>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_233'></a>
 <span>
 </span>
 </span>
 </td>
 <td class=''><pre><span  class=''>}</span></pre></td></tr>
-
-
-<tr>
-<td class='na'>
-<a name='org.pitest.mutationtest.report.html.SourceFile@acf859d_236'/>
-236
-</td>
-<td class=''>
-<span class='pop'>
-<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_236'></a>
-<span>
-</span>
-</span>
-</td>
-<td class=''><pre><span  class=''></span></pre></td></tr>
 
 
 
@@ -3860,95 +3815,51 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_87'/> 
 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTraps<br/><b>Killed by : </b>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawTraps()]</span></span> replaced return value with Collections.emptyList for com/st/projectst/model/game/Map::getTraps &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDoor<br/><b>Killed by : </b>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBackground()]</span></span> replaced return value with null for com/st/projectst/model/game/Map::getDoor &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_101'/> 
+
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getWidth<br/><b>Killed by : </b>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testMapBuilder()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Map::getWidth &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_90'>90</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_104'>104</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_90'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_104'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getHeight<br/><b>Killed by : </b>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testMapBuilder()]</span></span> replaced int return with 0 for com/st/projectst/model/game/Map::getHeight &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_96'>96</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_110'>110</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_96'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_110'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtDoor<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAtDoor<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_97'>97</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_97'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtDoor<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAtDoor<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_102'>102</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_102'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_103'>103</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_103'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_105'>105</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_105'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_106'>106</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_106'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_107'>107</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_107'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -3959,18 +3870,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_111'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_115'>115</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_115'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtDoor<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAtDoor<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isAtDoor &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -3981,7 +3881,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_116'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -3992,7 +3892,29 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_117'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_119'>119</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_119'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_120'>120</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_120'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4003,29 +3925,7 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_121'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_122'>122</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_122'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_123'>123</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_123'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEmpty<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isEmpty &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4036,7 +3936,18 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_125'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4047,18 +3958,18 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_130'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_133'>133</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_131'>131</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_133'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_131'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4069,40 +3980,51 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_135'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_141'>141</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_136'>136</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_141'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_136'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_142'>142</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_137'>137</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_142'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_137'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_146'>146</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_139'>139</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_146'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_139'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()]</span></span> Replaced double subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isEnemy<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isEnemy &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_144'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4113,29 +4035,29 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_147'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_148'>148</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_149'>149</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_148'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_149'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_151'>151</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_155'>155</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_151'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_155'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4146,18 +4068,18 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_156'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_159'>159</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_160'>160</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_159'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_160'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()]</span></span> Replaced double subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4168,29 +4090,29 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_161'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_168'>168</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_162'>162</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_168'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_162'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> negated conditional &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_169'>169</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_165'>165</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_169'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_165'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrapMock()]</span></span> removed call to com/st/projectst/model/game/Trap::notifyObservers &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>mariIsGrounded<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::mariIsGrounded &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4201,40 +4123,29 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_170'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isTrap &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_174'>174</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_173'>173</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_174'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_173'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isTrap &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_178'>178</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_175'>175</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_178'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_175'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> negated conditional &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_180'>180</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_180'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4245,7 +4156,18 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_181'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isKey &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_182'>182</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_182'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrapMock()]</span></span> removed call to com/st/projectst/model/game/Trap::notifyObservers &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4256,7 +4178,18 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_183'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isTrap &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_187'>187</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_187'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTrap<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isTrap &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4267,40 +4200,84 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_191'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTraps<br/><b>Killed by : </b>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawTraps()]</span></span> replaced return value with Collections.emptyList for com/st/projectst/model/game/Map::getTraps &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_203'>203</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_193'>193</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_203'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_193'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDoor<br/><b>Killed by : </b>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPotions()]</span></span> replaced return value with null for com/st/projectst/model/game/Map::getDoor &rarr; KILLED</p> 
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_208'>208</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_194'>194</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_208'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_194'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isKey &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_196'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isKey<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isKey &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_201'>201</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_201'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> removed call to com/st/projectst/model/Position::setY &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_211'>211</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_204'>204</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_211'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_204'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_206'>206</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_206'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_212'>212</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_212'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
@@ -4311,71 +4288,49 @@
 
 <a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_213'/> 
 
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> removed call to com/st/projectst/model/Position::setX &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_219'>219</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_219'/> 
-
-<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> negated conditional &rarr; KILLED</p> 
-</td>
-</tr>
-
-<tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_220'>220</a></td> 
-<td></td>
-<td>
-
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_220'/> 
-
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::isAtPlatform &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_224'>224</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_217'>217</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_224'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_217'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isAtPlatform<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::isAtPlatform &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_229'>229</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_222'>222</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_229'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_222'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>touchPotion<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testTouchPotion()]</span></span> negated conditional &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_230'>230</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_223'>223</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_230'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_223'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>touchPotion<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testTouchPotion()]</span></span> replaced boolean return with false for com/st/projectst/model/game/Map::touchPotion &rarr; KILLED</p> 
 </td>
 </tr>
 
 <tr>
-<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_233'>233</a></td> 
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@acf859d_226'>226</a></td> 
 <td></td>
 <td>
 
-<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_233'/> 
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@acf859d_226'/> 
 
 <p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>touchPotion<br/><b>Killed by : </b>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testTouchPotion()]</span></span> replaced boolean return with true for com/st/projectst/model/game/Map::touchPotion &rarr; KILLED</p> 
 </td>
@@ -4413,7 +4368,7 @@
 
 <h2>Tests examined</h2>
 <ul>
-<li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testTouchPotion()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrapMock()] (12 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms()] (1 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()] (0 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPotions()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawWalls()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBackground()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawGhostEnemies()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawKey()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawTraps()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBatEnemies()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawDoor()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPowerAction()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMari()] (4 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMariJump()] (5 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPlatforms()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawLives()] (13 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testSets()] (17 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGetCurrentLevel()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()] (1 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testMapBuilder()] (12 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGetPlatformsNotNull()] (0 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateMari()] (7 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateDoor()] (8 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateKey()] (8 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateTraps()] (14 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreatePlatforms()] (11 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateWalls()] (21 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreatePotions()] (24 ms)</li>
+<li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testTouchPotion()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEnemy()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrap()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsTrapMock()] (10 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedPlatforms2()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGroundedWalls()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtDoor()] (0 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBackground()] (0 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPotions()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawWalls()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMari()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawGhostEnemies()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawKey()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawDoor()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawTraps()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPowerAction()] (1 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawBatEnemies()] (3 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawMariJump()] (3 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawPlatforms()] (2 ms)</li><li>com.st.projectst.viewer.game.LevelViewerTest.[engine:junit-jupiter]/[class:com.st.projectst.viewer.game.LevelViewerTest]/[method:testDrawLives()] (5 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testSets()] (13 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsAtPlatform()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGetCurrentLevel()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsEmpty()] (0 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testMapBuilder()] (8 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testIsKey()] (0 ms)</li><li>com.st.projectst.model.game.MapTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapTest]/[method:testGetPlatformsNotNull()] (0 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateMari()] (3 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateTraps()] (9 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateKey()] (4 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateDoor()] (5 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreatePlatforms()] (6 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreatePotions()] (14 ms)</li><li>com.st.projectst.model.game.MapBuilderTest.[engine:junit-jupiter]/[class:com.st.projectst.model.game.MapBuilderTest]/[method:testCreateWalls()] (15 ms)</li>
 </ul>
 
 <br/>
