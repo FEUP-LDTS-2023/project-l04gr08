@@ -44,18 +44,23 @@ This project for LDTS in 2022/2023 was developed by Teresa Mascarenhas and Sofia
 
 ## SCREENSHOTS 
 ![](PNGs/Screenshots/mainMenu.png)
+
 <b><i>Fig 1. Main menu</i></b>
 
 ![](PNGs/Screenshots/instructions.png)
+
 <b><i>Fig 2. Instructions menu</i></b>
 
 ![](PNGs/Screenshots/gameOver.png)
+
 <b><i>Fig 3. Game over screen</i></b>
 
 ![](PNGs/Screenshots/levelWin.png)
+
 <b><i>Fig 4. Win screen</i></b>
 
 ![](PNGs/Screenshots/gameplay2.png)
+
 <b><i>Fig 5. Level 2 screenshot </i></b>
 
 ![](PNGs/Screenshots/level2.gif)
@@ -79,6 +84,7 @@ We used the design pattern MVC (Model-View-Controller) to handle this problem. T
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation1.png)
+
 <b><i>Fig 6. Model, Controller and Viewer pattern design</i></b>
 
 **Consequences**:
@@ -100,6 +106,7 @@ To face this challenge, we implemented the Game Loop Pattern. This loop efficien
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation2.png)
+
 <b><i>Fig 7. Game loop pattern design</i></b>
 
 **Consequences**:
@@ -119,6 +126,7 @@ We've used the State Pattern to represent various game states as separate classe
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation3.png)
+
 <b><i>Fig 8. State pattern design</i></b>
 
 **Consequences**:
@@ -137,6 +145,7 @@ We decided to use the Factory Method Pattern, where a base class (GameObject) is
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation4.png)
+
 <b><i>Fig 9. Factory method pattern design</i></b>
 
 **Consequences**:
@@ -155,6 +164,7 @@ To address this issue, we implemented the Strategy Pattern for enemy behavior. T
 **Implementation**:
 
 ![](PNGs/DesignPatterns/implementation5.png)
+
 <b><i>Fig 10. Strategy pattern design</i></b>
 
 **Consequences**:
@@ -188,23 +198,23 @@ This approach provides a flexible solution, as the character's movement and the 
 ![](PNGs/UMLs/UML.png)
 <b><i>Fig 12. UML</i></b>
 
+## ERROR-PRONE WARNINGS
+- On the testStateStep method of StateTest, there is 2 warnings about unchecked conversion.
 
+..\src\test\java\com\st\projectst\states\StateTest.java:110:
+
+warning: [unchecked] unchecked conversion -> return mockController; required: Controller<Object>, found:    Controller
+
+warning: [unchecked] unchecked conversion -> return mockViewer;  required: Viewer<Object>, found: Viewer
+
+**Justification**: When attempting different approaches or modifications to this test method, the PITest coverage may reduce due to the following reason:
+ - **Complexity of State Simulation**: Altering the test method might lead to a reduced coverage because of the intricate nature of simulating state transitions accurately. 
+The current setup ensures a comprehensive testing of state handling under various conditions, thus contributing significantly to the overall coverage metrics.
 
 ## KNOWN CODE SMELLS
 - **Long class**: Some of the classes have several methods and are very long, like for example LanternaGUI. These classes can be harder to maintain and to read. 
 
 - **Tests that open windows**: There are tests on the controller and GUI that open terminal windows. We didn't include them on the pitest testing.
-
-- **Error-prone warning**: On the testStateStep of StateTest, there is 2 warnings about unchecked conversion. 
-
-..\src\test\java\com\st\projectst\states\StateTest.java:110:
-
-warning: [unchecked] unchecked conversion ->
-return mockController; required: Controller<Object>, found:    Controller 
-
-warning: [unchecked] unchecked conversion ->   
-return mockViewer;  required: Viewer<Object>, found: Viewer
-
 
 
 ## TESTING
