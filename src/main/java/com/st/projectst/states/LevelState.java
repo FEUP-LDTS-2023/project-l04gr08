@@ -1,7 +1,7 @@
 package com.st.projectst.states;
 
 import com.st.projectst.controller.Controller;
-import com.st.projectst.controller.game.MapController;
+import com.st.projectst.controller.MapController;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.viewer.Viewer;
 import com.st.projectst.viewer.game.LevelViewer;

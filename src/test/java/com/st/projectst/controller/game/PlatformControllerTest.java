@@ -8,12 +8,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.*;
 
 public class PlatformControllerTest {
@@ -44,5 +45,23 @@ public class PlatformControllerTest {
         verify(mockedPlatform1, times(1)).moveAllPlatforms();
         verify(mockedPlatform2, times(1)).moveAllPlatforms();
 
+    }
+
+    @Test
+    void testLongSubtractionWithAddition() throws IOException {
+        Platform platform = new Platform(new Position(5, 5));
+        List<Platform> platforms = Arrays.asList(platform);
+        when(mockedMap.getPlatforms()).thenReturn(platforms);
+
+        platformController.setLastMove(50);
+        platformController.step(main, GUI.ACTION.NONE, 150);
+
+        for(Platform p: platforms){
+            assertEquals(new Position(5,5), p.getPosition());
+        }
+        platformController.step(main, GUI.ACTION.NONE, 151);
+        for(Platform p: platforms){
+            assertNotEquals(5, p.getPosition().getY());
+        }
     }
 }

@@ -27,4 +27,8 @@ public class GhostEnemyController extends LevelController{
             this.lastMove = time;
         }
     }
+
+    public void setLastMove(long lastMove) {
+        this.lastMove = lastMove;
+    }
 }

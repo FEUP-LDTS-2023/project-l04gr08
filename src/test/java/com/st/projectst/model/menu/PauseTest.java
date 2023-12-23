@@ -1,6 +1,4 @@
 package com.st.projectst.model.menu;
-import com.st.projectst.Main;
-import com.st.projectst.controller.game.MapController;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.states.LevelState;
 import com.st.projectst.states.State;

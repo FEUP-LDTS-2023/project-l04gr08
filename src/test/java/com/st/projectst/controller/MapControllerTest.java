@@ -1,5 +1,7 @@
-package com.st.projectst.controller.game;
+package com.st.projectst.controller;
 import com.st.projectst.Main;
+import com.st.projectst.controller.MapController;
+import com.st.projectst.controller.game.*;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.gui.LanternaGUI;
 import com.st.projectst.model.*;
@@ -10,15 +12,11 @@ import com.st.projectst.states.StartState;
 import com.st.projectst.states.WinState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.awt.FontFormatException;
-import java.util.Arrays;
 
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
