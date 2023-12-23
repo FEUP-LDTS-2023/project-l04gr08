@@ -2,7 +2,7 @@ package com.st.projectst.states;
 
 import com.st.projectst.Main;
 import com.st.projectst.controller.Controller;
-import com.st.projectst.controller.game.MapController;
+import com.st.projectst.controller.MapController;
 import com.st.projectst.gui.GUI;
 import com.st.projectst.model.game.*;
 import com.st.projectst.model.menu.*;

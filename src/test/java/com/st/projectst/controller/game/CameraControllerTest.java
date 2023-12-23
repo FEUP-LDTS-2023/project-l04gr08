@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -57,4 +58,3 @@ public class CameraControllerTest {
         assertEquals(new Position(300, 400), mari.getPosition());
     }
 }
-

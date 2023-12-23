@@ -17,6 +17,7 @@ public class MariController extends LevelController {
         this.lastAttack = 0;
     }
 
+    public void setLastAttack(long lastAttack) { this.lastAttack = lastAttack; }
     public long getLastAttack() {return lastAttack;}
 
     public void moveMariRight() {
