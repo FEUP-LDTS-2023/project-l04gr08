@@ -116,7 +116,7 @@ public class MariControllerTest {
     public void testMoveMariTopHead() {
         Position mariPosition = new Position(40, 40);
 
-        for (int x = 0; x <= 11; x++) {
+        for (int x = 1; x <= 11; x++) {
             Position wallPosition = new Position(40+x, 40);
             Wall wall = new Wall(wallPosition);
             mariController.getModel().setWalls(List.of(wall));
@@ -272,6 +272,22 @@ public class MariControllerTest {
         mariController.updateMari(100);
 
         verify(mockMari, times(1)).doubleJump();
+    }
+
+    @Test
+    void testUpdateMariDoubleJump2() {
+        Position wallPosition = new Position(14, 24);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        mariController.getModel().getMari().setJumping(true);
+        mariController.getModel().getMari().setWithPotion(true);
+        mariController.getModel().getMari().setRemainingJumps(0);
+
+        mariController.updateMari(100);
+
+        Position expected = new Position(11,9);
+        assertEquals(expected, mariController.getModel().getMari().getPosition());
     }
 
     @Test
@@ -435,6 +451,22 @@ public class MariControllerTest {
         mariController.step(main, GUI.ACTION.UP, 100);
 
         verify(mockMari, times(1)).decreaseJumps();
+    }
+
+    @Test
+    public void testStepActionUpJump() {
+        Position wallPosition = new Position(14, 24);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        Main main = mock(Main.class);
+        mariController.step(main, GUI.ACTION.UP, 100);
+
+        assertTrue(mariController.getModel().getMari().getIsJumping());
+
+        mariController.step(main, GUI.ACTION.UP, 100);
+        Position expected = new Position(11,9);
+        assertEquals(expected, mariController.getModel().getMari().getPosition());
     }
 
     @Test
