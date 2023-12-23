@@ -49,4 +49,23 @@ public class PotionController extends LevelController {
             this.lastToggle = time;
         }
     }
+    public boolean isVisible() {
+        return isVisible;
+    }
+
+    public void setIsVisible(boolean visible) {
+        isVisible = visible;
+    }
+
+    public void setLastToggle(long lastToggle) {
+        this.lastToggle = lastToggle;
+    }
+
+    public void setPotionPositions(List<Position> potionPositions) {
+        this.potionPositions = potionPositions;
+    }
+
+    public List<Position> getPotionPositions() {
+        return potionPositions;
+    }
 }
