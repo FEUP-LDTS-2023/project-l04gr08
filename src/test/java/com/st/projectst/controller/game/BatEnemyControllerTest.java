@@ -15,6 +15,7 @@ import static org.mockito.Mockito.*;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 public class BatEnemyControllerTest {
     private BatEnemyController controller;
@@ -50,6 +51,43 @@ public class BatEnemyControllerTest {
         Position secondPosition = batEnemy.getPosition();
 
         assertEquals(firstPosition, secondPosition);
+    }
+
+    @Test
+    void testStepMovement() throws IOException {
+        BatEnemy batEnemy = new BatEnemy(new Position(5, 5));
+        batEnemy.setFinalPosition(new Position(5,8));
+        List<BatEnemy> batEnemies = Arrays.asList(batEnemy);
+        when(map.getBatEnemies()).thenReturn(batEnemies);
+
+        controller.step(main, GUI.ACTION.NONE, 150);
+        for (BatEnemy bat: batEnemies)
+            assertEquals(new Position(5, 5), bat.getPosition());
+
+        controller.step(main, GUI.ACTION.NONE, 151);
+        for (BatEnemy bat: batEnemies)
+            assertEquals(new Position(5, 8), bat.getPosition());
+
+        controller.step(main, GUI.ACTION.NONE, 200);
+        for (BatEnemy bat: batEnemies)
+            assertEquals(new Position(5, 8), bat.getPosition());
+    }
+
+    @Test
+    void testStepMovement2() throws IOException {
+        BatEnemy batEnemy = new BatEnemy(new Position(5, 5));
+        batEnemy.setFinalPosition(new Position(5,8));
+        List<BatEnemy> batEnemies = Arrays.asList(batEnemy);
+        when(map.getBatEnemies()).thenReturn(batEnemies);
+
+        controller.setLastMove(50);
+        controller.step(main, GUI.ACTION.NONE, 200);
+        for (BatEnemy bat: batEnemies)
+            assertEquals(new Position(5, 5), bat.getPosition());
+
+        controller.step(main, GUI.ACTION.NONE, 201);
+        for (BatEnemy bat: batEnemies)
+            assertEquals(new Position(5, 8), bat.getPosition());
     }
 }
 

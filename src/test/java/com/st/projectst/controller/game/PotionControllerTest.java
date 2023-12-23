@@ -223,7 +223,4 @@ public class PotionControllerTest {
 
         verify(potion1, times(2)).setPosition(any(Position.class));
     }
-
-
 }
-

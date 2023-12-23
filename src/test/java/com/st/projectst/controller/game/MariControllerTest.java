@@ -45,6 +45,7 @@ public class MariControllerTest {
         Position initialPosition = mari.getPosition();
         mariController.moveMariRight();
         Position newPosition = mari.getPosition();
+
         assertEquals(initialPosition.getX() + 1, newPosition.getX());
         assertEquals(initialPosition.getY(), newPosition.getY());
     }
@@ -54,6 +55,7 @@ public class MariControllerTest {
         Position initialPosition = mari.getPosition();
         mariController.moveMariLeft();
         Position newPosition = mari.getPosition();
+
         assertEquals(initialPosition.getX() - 1, newPosition.getX());
         assertEquals(initialPosition.getY(), newPosition.getY());
     }
@@ -77,12 +79,152 @@ public class MariControllerTest {
     }
 
     @Test
+    public void testMoveMariWhenEmpty2() {
+        Position initialPosition = map.getMari().getPosition();
+        Position newPosition = new Position(-1, 15);
+        mariController.moveMari(newPosition);
+        assertEquals(initialPosition, mariController.getModel().getMari().getPosition());
+
+        Position newPosition2 = new Position(0, 15);
+        mariController.moveMari(newPosition2);
+        assertEquals(newPosition2, mariController.getModel().getMari().getPosition());
+        assertEquals(false, mariController.getModel().getMari().getWithKey());
+    }
+
+    @Test
     public void testMoveMariWhenNotEmpty() {
         Position newPosition = new Position(20, 20);
         Wall wall = new Wall(newPosition);
         map.setWalls(List.of(wall));
         mariController.moveMari(newPosition);
         assertNotEquals(newPosition, mariController.getModel().getMari().getPosition());
+    }
+
+    @Test
+    public void testMoveRemoveKey() {
+        Position keyPosition = new Position(10, 17);
+        Key key = new Key(keyPosition);
+        mariController.getModel().setKey(key);
+
+        Position mariPosition = new Position(10, 10);
+        mariController.moveMari(mariPosition);
+
+        assertEquals(null, mariController.getModel().getKey());
+    }
+
+    @Test
+    public void testMoveMariTopHead() {
+        Position mariPosition = new Position(40, 40);
+
+        for (int x = 1; x <= 11; x++) {
+            Position wallPosition = new Position(40+x, 40);
+            Wall wall = new Wall(wallPosition);
+            mariController.getModel().setWalls(List.of(wall));
+
+            Position initialPosition = mariController.getModel().getMari().getPosition();
+            mariController.moveMari(mariPosition);
+            assertEquals(initialPosition, mariController.getModel().getMari().getPosition());
+        }
+
+        Position wallPosition = new Position(40+12, 40);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        Position initialPosition = mariController.getModel().getMari().getPosition();
+        mariController.moveMari(mariPosition);
+        assertNotEquals(initialPosition, mariController.getModel().getMari().getPosition());
+    }
+
+    @Test
+    public void testMoveMariSidesHead() {
+        Position mariPosition = new Position(40, 40);
+
+        for (int y = 0; y <= 10; y++) {
+            Position wallPosition = new Position(40, 40+y);
+            Wall wall = new Wall(wallPosition);
+            mariController.getModel().setWalls(List.of(wall));
+
+            Position initialPosition = mariController.getModel().getMari().getPosition();
+            mariController.moveMari(mariPosition);
+            assertEquals(initialPosition, mariController.getModel().getMari().getPosition());
+        }
+
+        Position wallPosition = new Position(40, 40+11);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        Position initialPosition = mariController.getModel().getMari().getPosition();
+        mariController.moveMari(mariPosition);
+        assertNotEquals(initialPosition, mariController.getModel().getMari().getPosition());
+    }
+
+    @Test
+    public void testMoveMariSidesHead2() {
+        Position mariPosition = new Position(40, 40);
+
+        for (int y = 0; y <= 10; y++) {
+            Position wallPosition = new Position(40+11, 40+y);
+            Wall wall = new Wall(wallPosition);
+            mariController.getModel().setWalls(List.of(wall));
+
+            Position initialPosition = mariController.getModel().getMari().getPosition();
+            mariController.moveMari(mariPosition);
+            assertEquals(initialPosition, mariController.getModel().getMari().getPosition());
+        }
+
+        Position wallPosition = new Position(40+11, 40+11);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        Position initialPosition = mariController.getModel().getMari().getPosition();
+        mariController.moveMari(mariPosition);
+        assertNotEquals(initialPosition, mariController.getModel().getMari().getPosition());
+    }
+
+    @Test
+    public void testMoveMariSides() {
+        Position mariPosition = new Position(40, 40);
+
+        for (int y = 11; y <= 13; y++) {
+            Position wallPosition = new Position(43, 40+y);
+            Wall wall = new Wall(wallPosition);
+            mariController.getModel().setWalls(List.of(wall));
+
+            Position initialPosition = mariController.getModel().getMari().getPosition();
+            mariController.moveMari(mariPosition);
+            assertEquals(initialPosition, mariController.getModel().getMari().getPosition());
+        }
+
+        Position wallPosition = new Position(43, 40+14);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        Position initialPosition = mariController.getModel().getMari().getPosition();
+        mariController.moveMari(mariPosition);
+        assertNotEquals(initialPosition, mariController.getModel().getMari().getPosition());
+    }
+
+    @Test
+    public void testMoveMariSides2() {
+        Position mariPosition = new Position(40, 40);
+
+        for (int y = 11; y <= 13; y++) {
+            Position wallPosition = new Position(48, 40+y);
+            Wall wall = new Wall(wallPosition);
+            mariController.getModel().setWalls(List.of(wall));
+
+            Position initialPosition = mariController.getModel().getMari().getPosition();
+            mariController.moveMari(mariPosition);
+            assertEquals(initialPosition, mariController.getModel().getMari().getPosition());
+        }
+
+        Position wallPosition = new Position(48, 40+14);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        Position initialPosition = mariController.getModel().getMari().getPosition();
+        mariController.moveMari(mariPosition);
+        assertNotEquals(initialPosition, mariController.getModel().getMari().getPosition());
     }
 
     @Test
@@ -102,61 +244,10 @@ public class MariControllerTest {
         mariController.getModel().setWalls(List.of(wall));
 
         assertFalse(mariController.getModel().mariIsGrounded());
-
     }
 
     @Test
-    public void testStepActionUp() {
-        Wall groundWall = new Wall(new Position(43, 18));
-        map.setWalls(List.of(groundWall));
-
-        Position initialPosition = new Position(40, 18 - 14);
-        mari.setPosition(initialPosition);
-
-        Main main = mock(Main.class);
-        mariController.updateMari(100);
-        mari.jump();
-        assertTrue(mari.getIsJumping());
-        for (int i = 0; i < 6; i++) {
-            mari.update();
-        }
-
-        mariController.step(main, GUI.ACTION.UP, 100);
-
-        mari.setGrounded(true);
-        for (int i = 0; i < 5; i++) {
-            mari.update();
-        }
-
-        mariController.step(main, GUI.ACTION.UP, 100);
-        assertFalse(mari.getIsJumping());
-    }
-
-
-    @Test
-    public void testStepActionRight() {
-        Position initialPosition = new Position(40, 4);
-        mari.setPosition(initialPosition);
-
-        Main main = mock(Main.class);
-
-        mariController.step(main, GUI.ACTION.RIGHT, 100);
-        assertEquals(41, mari.getPosition().getX());
-    }
-
-    @Test
-    public void testStepActionLeft() {
-        Position initialPosition = new Position(40, 4);
-        mari.setPosition(initialPosition);
-
-        Main main = mock(Main.class);
-
-        mariController.step(main, GUI.ACTION.LEFT, 100);
-        assertEquals(39, mari.getPosition().getX());
-    }
-
-    @Test
-    void testUpdateMari_WithPotion() {
+    void testUpdateMariWithPotion() {
         Position newPosition = new Position(10, 10);
         Potion potion = new Potion(newPosition);
         mariController.getModel().setPotions(List.of(potion));
@@ -166,6 +257,67 @@ public class MariControllerTest {
         mariController.updateMari(100);
 
         assertTrue(mariController.getModel().getMari().getIsWithPotion());
+    }
+
+    @Test
+    void testUpdateMariDoubleJump() {
+        Mari mockMari = mock(Mari.class);
+        map.setMari(mockMari);
+        Position initialPosition = new Position(10, 10);
+        when(mockMari.getPosition()).thenReturn(initialPosition);
+        when(mockMari.doubleJump()).thenReturn(initialPosition);
+
+        when(mockMari.getIsWithPotion()).thenReturn(true);
+        when(mockMari.getRemainingJumps()).thenReturn(0);
+        mariController.updateMari(100);
+
+        verify(mockMari, times(1)).doubleJump();
+    }
+
+    @Test
+    void testUpdateMariDoubleJump2() {
+        Position wallPosition = new Position(14, 24);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        mariController.getModel().getMari().setJumping(true);
+        mariController.getModel().getMari().setWithPotion(true);
+        mariController.getModel().getMari().setRemainingJumps(0);
+
+        mariController.updateMari(100);
+
+        Position expected = new Position(11,9);
+        assertEquals(expected, mariController.getModel().getMari().getPosition());
+    }
+
+    @Test
+    void testUpdateMariResetJumps() {
+        Mari mockMari = mock(Mari.class);
+        map.setMari(mockMari);
+        Position initialPosition = new Position(10, 10);
+        when(mockMari.getPosition()).thenReturn(initialPosition);
+        when(mockMari.update()).thenReturn(initialPosition);
+
+        when(mockMari.getIsWithPotion()).thenReturn(false);
+        when(mockMari.getRemainingJumps()).thenReturn(0);
+        mariController.updateMari(100);
+
+        verify(mockMari, times(1)).resetJumps();
+    }
+
+    @Test
+    void testUpdateMariResetJumps2() {
+        Mari mockMari = mock(Mari.class);
+        map.setMari(mockMari);
+        Position initialPosition = new Position(10, 10);
+        when(mockMari.getPosition()).thenReturn(initialPosition);
+        when(mockMari.update()).thenReturn(initialPosition);
+
+        when(mockMari.getIsWithPotion()).thenReturn(true);
+        when(mockMari.getRemainingJumps()).thenReturn(-1);
+        mariController.updateMari(100);
+
+        verify(mockMari, times(1)).resetJumps();
     }
 
     @Test
@@ -240,5 +392,102 @@ public class MariControllerTest {
         assertEquals(1010, mariController.getLastAttack());
     }
 
-}
+    @Test
+    void testLastAttackMari() {
+        Position newPosition = new Position(14, 24);
+        Wall wall = new Wall(newPosition);
+        mariController.getModel().setWalls(List.of(wall));
 
+        GhostEnemy ghostEnemy = Mockito.mock(GhostEnemy.class);
+        Position ghostPosition = new Position(6, 10);
+        Mockito.when(ghostEnemy.getPosition()).thenReturn(ghostPosition);
+
+        mariController.getModel().setGhostEnemies(List.of(ghostEnemy));
+
+        mariController.setLastAttack(350);
+        mariController.updateMari(1350);
+        assertEquals(3, mariController.getModel().getMari().getRemainingLives());
+        mariController.updateMari(1351);
+        assertEquals(2, mariController.getModel().getMari().getRemainingLives());
+    }
+
+    @Test
+    public void testStepActionUp() {
+        Wall groundWall = new Wall(new Position(43, 18));
+        map.setWalls(List.of(groundWall));
+
+        Position initialPosition = new Position(40, 18 - 14);
+        mari.setPosition(initialPosition);
+
+        Main main = mock(Main.class);
+        mariController.updateMari(100);
+        mari.jump();
+        assertTrue(mari.getIsJumping());
+        for (int i = 0; i < 6; i++)
+            mari.update();
+
+        mariController.step(main, GUI.ACTION.UP, 100);
+
+        mari.setGrounded(true);
+        for (int i = 0; i < 5; i++)
+            mari.update();
+
+        mariController.step(main, GUI.ACTION.UP, 100);
+        assertFalse(mari.getIsJumping());
+    }
+
+    @Test
+    public void testStepActionUpPotion() {
+        Mari mockMari = mock(Mari.class);
+        map.setMari(mockMari);
+        Position initialPosition = new Position(10, 10);
+        when(mockMari.getPosition()).thenReturn(initialPosition);
+        when(mockMari.update()).thenReturn(initialPosition);
+
+        when(mockMari.getIsWithPotion()).thenReturn(true);
+        when(mockMari.getRemainingJumps()).thenReturn(-1);
+
+        Main main = mock(Main.class);
+        mariController.step(main, GUI.ACTION.UP, 100);
+
+        verify(mockMari, times(1)).decreaseJumps();
+    }
+
+    @Test
+    public void testStepActionUpJump() {
+        Position wallPosition = new Position(14, 24);
+        Wall wall = new Wall(wallPosition);
+        mariController.getModel().setWalls(List.of(wall));
+
+        Main main = mock(Main.class);
+        mariController.step(main, GUI.ACTION.UP, 100);
+
+        assertTrue(mariController.getModel().getMari().getIsJumping());
+
+        mariController.step(main, GUI.ACTION.UP, 100);
+        Position expected = new Position(11,9);
+        assertEquals(expected, mariController.getModel().getMari().getPosition());
+    }
+
+    @Test
+    public void testStepActionRight() {
+        Position initialPosition = new Position(40, 4);
+        mari.setPosition(initialPosition);
+
+        Main main = mock(Main.class);
+
+        mariController.step(main, GUI.ACTION.RIGHT, 100);
+        assertEquals(41, mari.getPosition().getX());
+    }
+
+    @Test
+    public void testStepActionLeft() {
+        Position initialPosition = new Position(40, 4);
+        mari.setPosition(initialPosition);
+
+        Main main = mock(Main.class);
+
+        mariController.step(main, GUI.ACTION.LEFT, 100);
+        assertEquals(39, mari.getPosition().getX());
+    }
+}

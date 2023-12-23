@@ -17,6 +17,7 @@ public class MariController extends LevelController {
         this.lastAttack = 0;
     }
 
+    public void setLastAttack(long lastAttack) { this.lastAttack = lastAttack; }
     public long getLastAttack() {return lastAttack;}
 
     public void moveMariRight() {
@@ -27,9 +28,7 @@ public class MariController extends LevelController {
     }
     public void moveMariUp() {
         Mari mari = getModel().getMari();
-        Position currentPosition = mari.getPosition();
         mari.jump();
-        moveMari(currentPosition);
     }
 
     public void moveMari(Position position) {
@@ -37,7 +36,7 @@ public class MariController extends LevelController {
 
         // Top of Mari head
         Position posEC = new Position(position);
-        for (int x = 0; x <= 11; x++) {
+        for (int x = 1; x <= 11; x++) {
             Position newPosition = new Position(posEC);
             newPosition.setX(newPosition.getX()+x);
             mariPositions.add(newPosition);

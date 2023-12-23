@@ -212,9 +212,9 @@ warning: [unchecked] unchecked conversion -> return mockViewer;  required: Viewe
 The current setup ensures a comprehensive testing of state handling under various conditions, thus contributing significantly to the overall coverage metrics.
 
 ## KNOWN CODE SMELLS
-- **Long class**: Some of the classes have several methods and are very long, like for example LanternaGUI. These classes can be harder to maintain and to read. 
+- **Long classes**: Some of the classes have several methods and are very long, like for example LanternaGUI. These classes can be harder to maintain and to read. 
 
-- **Tests that open windows**: There are tests on the controller and GUI that open terminal windows. We didn't include them on the pitest testing.
+- **Tests that open windows**: There are tests on the menu controller and GUI that open terminal windows. We didn't include them on the pitest testing.
 
 
 ## TESTING

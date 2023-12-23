@@ -15,6 +15,8 @@ public class BatEnemyController extends LevelController {
         this.lastMove = 0;
     }
 
+    public void setLastMove(long lastMove) { this.lastMove = lastMove; }
+
     @Override
     public void step(Main main, GUI.ACTION action, long time) throws IOException {
         if (time - lastMove > 150) {
