@@ -4,6 +4,7 @@ import com.st.projectst.gui.GUI;
 import com.st.projectst.model.Position;
 import com.st.projectst.model.game.Map;
 import com.st.projectst.model.game.Potion;
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -173,5 +174,56 @@ public class PotionControllerTest {
         controller.step(main, GUI.ACTION.NONE, 3051);
         assertFalse(controller.isVisible());
     }
+
+    @Test
+    void testVisibilityAndNonUpdatePositions() throws IOException {
+        Potion potion1 = Mockito.mock(Potion.class);
+        List<Potion> potions = new ArrayList<>();
+        potions.add(potion1);
+
+        when(map.getPotions()).thenReturn(potions);
+
+        Position position1 = new Position(10, 10);
+
+        when(potion1.getPosition()).thenReturn(position1);
+
+        controller.setLastToggle(50);
+        controller.step(main, GUI.ACTION.NONE, 3050);
+
+        for (Potion p: potions){
+            assertEquals( new Position(10, 10), p.getPosition());
+        }
+        List<Position> mockedPotionPositions = Mockito.mock(List.class);
+        controller.setPotionPositions(mockedPotionPositions);
+
+        Position position2 = new Position(1, 1);
+
+        when(mockedPotionPositions.size()).thenReturn(1);
+        when(mockedPotionPositions.get(0)).thenReturn(position2);
+
+        controller.setIsVisible(false);
+        assertFalse(controller.isVisible());
+        controller.step(main, GUI.ACTION.NONE, 3051);
+
+        verify(mockedPotionPositions, times(1)).clear();
+        verify(potion1, times(1)).setPosition(any(Position.class));
+
+        controller.setLastToggle(0);
+        controller.step(main, GUI.ACTION.NONE, 3051);
+        assertFalse(controller.isVisible());
+
+        List<Position> mockedPotionPositions2 = Mockito.mock(List.class);
+        controller.setPotionPositions(mockedPotionPositions2);
+
+        when(mockedPotionPositions2.size()).thenReturn(0);
+
+        controller.setLastToggle(0);
+        controller.step(main, GUI.ACTION.NONE, 3051);
+        assertTrue(controller.isVisible());
+
+        verify(potion1, times(2)).setPosition(any(Position.class));
+    }
+
+
 }
 
