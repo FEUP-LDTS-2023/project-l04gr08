@@ -20,7 +20,7 @@ repositories {
 
 pitest {
     junit5PluginVersion = '1.2.0'
-    targetClasses = ['com.st.projectst.model.*', 'com.st.projectst.states.*', 'com.st.projectst.viewer.*']
+    targetClasses = ['com.st.projectst.model.*', 'com.st.projectst.states.*', 'com.st.projectst.viewer.*','com.st.projectst.controller.game.*', 'com.st.projectst.controller.Controller']
 
 }
 

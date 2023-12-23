@@ -11,8 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class PotionControllerTest {
@@ -57,6 +56,17 @@ public class PotionControllerTest {
     }
     private boolean arePotionsVisible(Potion potion1, Potion potion2) {
         return potion1.getPosition().getX() != -10 && potion2.getPosition().getX() != -10;
+    }
+
+    @Test
+    void testChangedConditionalBoundary() throws IOException {
+        Map mockedMap = Mockito.mock(Map.class);
+        PotionController potionController = new PotionController(mockedMap);
+
+        potionController.step(null, null, 4000);
+
+        boolean isVisibleAfterToggle = potionController.isVisible();
+        assertFalse(isVisibleAfterToggle);
     }
 }
 

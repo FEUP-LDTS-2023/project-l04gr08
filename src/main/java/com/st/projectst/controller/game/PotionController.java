@@ -49,4 +49,8 @@ public class PotionController extends LevelController {
             this.lastToggle = time;
         }
     }
+
+    public boolean isVisible() {
+        return isVisible;
+    }
 }
